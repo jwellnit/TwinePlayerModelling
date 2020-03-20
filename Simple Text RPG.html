@@ -118,7 +118,8 @@ var saveAs=saveAs||navigator.msSaveBlob&&navigator.msSaveBlob.bind(navigator)||f
 &lt;&lt;set $choices[&quot;magicSword&quot;] to 0&gt;&gt;
 &lt;&lt;set $choices[&quot;magicBow&quot;] to 0&gt;&gt;
 &lt;&lt;set $choices[&quot;magicBook&quot;] to 0&gt;&gt;
-&lt;&lt;set $choices[&quot;gold&quot;] to 1&gt;&gt;
+&lt;&lt;set $choices[&quot;gold&quot;] to 0&gt;&gt;
+&lt;&lt;set $choices[&quot;weapon&quot;] to 0&gt;&gt;
 &lt;&lt;set $choices[&quot;sword&quot;] to 0&gt;&gt;
 &lt;&lt;set $choices[&quot;bow&quot;] to 0&gt;&gt;
 &lt;&lt;set $choices[&quot;magic&quot;] to 0&gt;&gt;
@@ -127,11 +128,12 @@ var saveAs=saveAs||navigator.msSaveBlob&&navigator.msSaveBlob.bind(navigator)||f
 &lt;&lt;set $choices[&quot;sneak&quot;] to 0&gt;&gt;
 &lt;&lt;set $choices[&quot;talk&quot;] to 0&gt;&gt;
 &lt;&lt;set $choices[&quot;bribe&quot;] to 0&gt;&gt;
+&lt;&lt;set $choices[&quot;runAway&quot;] to 0&gt;&gt;
 &lt;&lt;endsilently&gt;&gt;
 
 You are a brave adventurer, seeking fame and fortune by finding the lost gold of Bloomrane Cavern. Your first stop is the small town of Brekvern, where you hope to find information on how to reach the cave.
 
-Before you if a fork in the road. Both paths lead to Brekvern and would have you arrive in roughly the same amount of time. Down one path, is a large ogre just ahead, guarding the  way forward. Down the other, is a group of goblins a ways down the road, but headed in your direction.
+Before you is a fork in the road. Both paths lead to Brekvern and would have you arrive in roughly the same amount of time. Down one path, is a large ogre just ahead, guarding the way forward. Down the other, is a group of goblins a ways down the road, but headed in your direction.
 
 Which path do you choose?
 
@@ -141,7 +143,7 @@ Which path do you choose?
 &lt;&lt;set $choices[&quot;few&quot;] to $choices[&quot;few&quot;]+1&gt;&gt;
 &lt;&lt;endsilently&gt;&gt;
 
-Just bfore you stands a massive Ogre, guarding the path ahead. He seems to be distracted by a blue bird on a nearby tree, and hasn&#39;t seen you yet.
+Just before you stands a massive Ogre, guarding the path ahead. He seems to be distracted by a blue bird on a nearby tree, and hasn&#39;t seen you yet.
 
 &lt;&lt;if $inventory[&quot;magicSword&quot;] &gt; 0&gt;&gt; [[Attack with your Magic Sword|Ogre Sword Defeat]] &lt;&lt;else&gt;&gt; [[Attack with your Rusty Sword|Ogre Sword Defeat]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory[&quot;magicBow&quot;] &gt; 0&gt;&gt; [[Attack with your Magic Bow|Ogre Bow Defeat]] &lt;&lt;else&gt;&gt; [[Attack with your Old Bow|Ogre Bow Wound]] &lt;&lt;endif&gt;&gt;
@@ -173,7 +175,7 @@ You run up to the ogre and swing your sword down to strike. &quot;Ow!&quot; he y
 You fire an arrow at the ogre which hits its mark. &quot;Ow!&quot; he yells, &quot;Fine, I&#39;ll leave!&quot; He runs away from the road, dropping a pouch as he does.
 
 [[Loot the Pouch|Ogre Loot]]</tw-passagedata><tw-passagedata pid="6" name="Ogre Bow Wound" tags="" position="368,591" size="100,100">&lt;&lt;silently&gt;&gt;
-&lt;&lt;set $choices[&quot;bow&quot;] to set $choices[&quot;bow&quot;]+1&gt;&gt;
+&lt;&lt;set $choices[&quot;bow&quot;] to $choices[&quot;bow&quot;]+1&gt;&gt;
 &lt;&lt;endsilently&gt;&gt;
 
 Your arrow hits its mark and the ogre roars but does not retreat.
@@ -181,13 +183,13 @@ Your arrow hits its mark and the ogre roars but does not retreat.
 &lt;&lt;if $inventory[&quot;magicSword&quot;] &gt; 0&gt;&gt; [[Attack with your Magic Sword|Ogre Sword Defeat]] &lt;&lt;else&gt;&gt; [[Attack with your Rusty Sword|Ogre Sword Defeat]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory[&quot;magicBow&quot;] &gt; 0&gt;&gt; [[Attack with your Magic Bow|Ogre Bow Defeat]] &lt;&lt;else&gt;&gt; [[Attack with your Old Bow|Ogre Bow Defeat]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory[&quot;magicBook&quot;] &gt; 0&gt;&gt; [[Attack with a Powerful Spell|Ogre Magic Defeat]] &lt;&lt;else&gt;&gt; [[Attack with a Weak Spell|Ogre Magic Defeat]] &lt;&lt;endif&gt;&gt;</tw-passagedata><tw-passagedata pid="7" name="Ogre Magic Defeat" tags="" position="518,591" size="100,100">&lt;&lt;silently&gt;&gt;
-&lt;&lt;set $choices[&quot;magic&quot;] to set $choices[&quot;magic&quot;]+1&gt;&gt;
+&lt;&lt;set $choices[&quot;magic&quot;] to $choices[&quot;magic&quot;]+1&gt;&gt;
 &lt;&lt;endsilently&gt;&gt;
 
 Blast the ogre with a bolt of lightning. &quot;Ow!&quot; he yells, &quot;Fine, I&#39;ll leave!&quot; He runs away from the road, dropping a pouch as he does.
 
 [[Loot the Pouch|Ogre Loot]]</tw-passagedata><tw-passagedata pid="8" name="Ogre Magic Wound" tags="" position="668,591" size="100,100">&lt;&lt;silently&gt;&gt;
-&lt;&lt;set $choices[&quot;magic&quot;] to set $choices[&quot;magic&quot;]+1&gt;&gt;
+&lt;&lt;set $choices[&quot;magic&quot;] to $choices[&quot;magic&quot;]+1&gt;&gt;
 &lt;&lt;endsilently&gt;&gt;
 
 You send a ball of ice hurtling towards the ogre, who roars but does not back down.
@@ -211,11 +213,17 @@ You ask the ogre if you may pass.
 &lt;&lt;set $choices[&quot;bribe&quot;] to $choices[&quot;bribe&quot;]+1&gt;&gt;
 &lt;&lt;endsilently&gt;&gt;
 
-You walk up to the ogre and ask if he&#39;s like to trade for passage down the road. He scratches his chin and considers your offer. &quot;What are you gonna give me?&quot;
+You walk up to the ogre and ask if he&#39;d like to trade for passage down the road. He scratches his chin and considers your offer. &quot;What are you gonna give me?&quot;
 
-&lt;&lt;if $inventory[&quot;magicSword&quot;] &gt; 0&gt;&gt; [[Offer a Magic Sword|Ogre Give Sword]]&lt;&lt;endif&gt;&gt;
-&lt;&lt;if $inventory[&quot;magicBow&quot;] &gt; 0&gt;&gt; [[Offer a Magic Bow|Ogre Give Bow]]&lt;&lt;endif&gt;&gt;
-&lt;&lt;if $inventory[&quot;magicBook&quot;] &gt; 0&gt;&gt; [[Offer a Magic Spell Tome|Ogre Give Magic]]&lt;&lt;endif&gt;&gt;
+\&lt;&lt;if $inventory[&quot;magicSword&quot;] &gt; 0&gt;&gt; 
+[[Offer a Magic Sword|Ogre Give Sword]]
+\&lt;&lt;endif&gt;&gt;
+\&lt;&lt;if $inventory[&quot;magicBow&quot;] &gt; 0&gt;&gt; 
+[[Offer a Magic Bow|Ogre Give Bow]]
+\&lt;&lt;endif&gt;&gt;
+\&lt;&lt;if $inventory[&quot;magicBook&quot;] &gt; 0&gt;&gt; 
+[[Offer a Magic Spell Tome|Ogre Give Magic]]
+\&lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory[&quot;gold&quot;] &gt; 0&gt;&gt; [[Offer gold|Ogre Give gold]]&lt;&lt;endif&gt;&gt;
 
 </tw-passagedata><tw-passagedata pid="11" name="Ogre Hide" tags="" position="1118,591" size="100,100">&lt;&lt;silently&gt;&gt;
@@ -224,50 +232,50 @@ You walk up to the ogre and ask if he&#39;s like to trade for passage down the r
 
 You dart into the bushes and hide before the ogre sees you.
 
-[[Try to Sneak past the ogre|Ogre Sneak]]
+[[Try to sneak past the ogre|Ogre Sneak]]
 [[Wait to see if he leaves|Ogre Wait]]
 &lt;&lt;if $inventory[&quot;magicSword&quot;] &gt; 0&gt;&gt; [[Attack with your Magic Sword|Ogre Sword Defeat]] &lt;&lt;else&gt;&gt; [[Attack with your Rusty Sword|Ogre Sword Defeat]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory[&quot;magicBow&quot;] &gt; 0&gt;&gt; [[Attack with your Magic Bow|Ogre Bow Defeat]] &lt;&lt;else&gt;&gt; [[Attack with your Old Bow|Ogre Bow Wound Hidden]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory[&quot;magicBook&quot;] &gt; 0&gt;&gt; [[Attack with a Powerful Spell|Ogre Magic Defeat]] &lt;&lt;else&gt;&gt; [[Attack with a Weak Spell|Ogre Magic Wound]] &lt;&lt;endif&gt;&gt;
 [[Try to speak to the Ogre|Ogre Talk]]
-[[Try to bribe the Ogre to let you pass|Ogre Bribe]]</tw-passagedata><tw-passagedata pid="12" name="Ogre Loot" tags="" position="68,741" size="100,100">In the pouch you find some gold and a Magic Spell Tome. You pack is getting heavy and you can only carry one. Which do you take?
+[[Try to bribe the Ogre to let you pass|Ogre Bribe]]</tw-passagedata><tw-passagedata pid="12" name="Ogre Loot" tags="" position="68,741" size="100,100">In the pouch you find some gold and a Magic Spell Tome. Your pack is getting heavy and you can only carry one. Which do you take?
 
 [[Take the gold|Ogre Loot gold]]
 [[Take the Magic Spell Tome|Ogre Loot Magic]]</tw-passagedata><tw-passagedata pid="13" name="Ogre Give Sword" tags="" position="371,734" size="100,100">&lt;&lt;silently&gt;&gt;
 &lt;&lt;set $inventory[&quot;magicSword&quot;] to $inventory[&quot;magicSword&quot;]-1&gt;&gt;
 &lt;&lt;endsilently&gt;&gt;
 
-&quot;Thanks! he says, as he takes your Magic Sword. &quot;You can head on past now.&quot; With the ogre standing aside, you are free to continue to town.
+&quot;Thanks!&quot; he says, as he takes your Magic Sword. &quot;You can head on past now.&quot; With the ogre standing aside, you are free to continue to town.
 
 [[Continue on to the town|Town Welcome]]</tw-passagedata><tw-passagedata pid="14" name="Ogre Give Bow" tags="" position="521,734" size="100,100">&lt;&lt;silently&gt;&gt;
 &lt;&lt;set $inventory[&quot;magicBow&quot;] to $inventory[&quot;magicBow&quot;]-1&gt;&gt;
 &lt;&lt;endsilently&gt;&gt;
 
-&quot;Thanks! he says, as he takes your Magic Bow. &quot;You can head on past now.&quot; With the ogre standing aside, you are free to continue to town.
+&quot;Thanks!&quot; he says, as he takes your Magic Bow. &quot;You can head on past now.&quot; With the ogre standing aside, you are free to continue to town.
 
 [[Continue on to the town|Town Welcome]]</tw-passagedata><tw-passagedata pid="15" name="Ogre Give Magic" tags="" position="671,734" size="100,100">&lt;&lt;silently&gt;&gt;
 &lt;&lt;set $inventory[&quot;magicBook&quot;] to $inventory[&quot;magicBook&quot;]-1&gt;&gt;
 &lt;&lt;endsilently&gt;&gt;
 
-&quot;Thanks! he says, as he takes your Magic Spell Tome. &quot;You can head on past now.&quot; With the ogre standing aside, you are free to continue to town.
+&quot;Thanks!&quot; he says, as he takes your Magic Spell Tome. &quot;You can head on past now.&quot; With the ogre standing aside, you are free to continue to town.
 
 [[Continue on to the town|Town Welcome]]</tw-passagedata><tw-passagedata pid="16" name="Ogre Give gold" tags="" position="822,737" size="100,100">&lt;&lt;silently&gt;&gt;
 &lt;&lt;set $inventory[&quot;gold&quot;] to $inventory[&quot;gold&quot;]-1&gt;&gt;
 &lt;&lt;endsilently&gt;&gt;
 
-&quot;Thanks! he says, as he takes your gold. &quot;You can head on past now.&quot; With the ogre standing aside, you are free to continue to town.
+&quot;Thanks!&quot; he says, as he takes your gold. &quot;You can head on past now.&quot; With the ogre standing aside, you are free to continue to town.
 
 [[Continue on to the town|Town Welcome]]</tw-passagedata><tw-passagedata pid="17" name="Ogre Sneak" tags="" position="964,731" size="100,100">&lt;&lt;silently&gt;&gt;
 &lt;&lt;set $choices[&quot;sneak&quot;] to $choices[&quot;sneak&quot;]+1&gt;&gt;
 &lt;&lt;endsilently&gt;&gt;
 
-You creep quietly through the bushes. The ogre is quite transfixed by this bluebird, and doesnt notice as you sneak passed him and down the road. Having avoided the ogre, you are free to continue to town.
+You creep quietly through the bushes. The ogre is quite transfixed by this bluebird, and doesn&#39;t notice as you sneak passed him and down the road. Having avoided the ogre, you are free to continue to town.
 
 [[Continue on to the town|Town Welcome]]</tw-passagedata><tw-passagedata pid="18" name="Ogre Wait" tags="" position="1114,729" size="100,100">&lt;&lt;silently&gt;&gt;
 &lt;&lt;set $choices[&quot;wait&quot;] to $choices[&quot;wait&quot;]+1&gt;&gt;
 &lt;&lt;endsilently&gt;&gt;
 
-You wait for an hour but it doesnt seem like the ogre is going anywhere.
+You wait for an hour but it doesn&#39;t seem like the ogre is going anywhere.
 
 [[Try to Sneak past the ogre|Ogre Sneak]]
 &lt;&lt;if $inventory[&quot;magicSword&quot;] &gt; 0&gt;&gt; [[Attack with your Magic Sword|Ogre Sword Defeat]] &lt;&lt;else&gt;&gt; [[Attack with your Rusty Sword|Ogre Sword Defeat]] &lt;&lt;endif&gt;&gt;
@@ -275,7 +283,7 @@ You wait for an hour but it doesnt seem like the ogre is going anywhere.
 &lt;&lt;if $inventory[&quot;magicBook&quot;] &gt; 0&gt;&gt; [[Attack with a Powerful Spell|Ogre Magic Defeat]] &lt;&lt;else&gt;&gt; [[Attack with a Weak Spell|Ogre Magic Wound]] &lt;&lt;endif&gt;&gt;
 [[Try to speak to the Ogre|Ogre Talk]]
 [[Try to bribe the Ogre to let you pass|Ogre Bribe]]</tw-passagedata><tw-passagedata pid="19" name="Ogre Bow Wound Hidden" tags="" position="221,737" size="100,100">&lt;&lt;silently&gt;&gt;
-&lt;&lt;set $choices[&quot;bow&quot;] to set $choices[&quot;bow&quot;]+1&gt;&gt;
+&lt;&lt;set $choices[&quot;bow&quot;] to $choices[&quot;bow&quot;]+1&gt;&gt;
 &lt;&lt;endsilently&gt;&gt;
 
 Your arrow hits its mark. The ogre cries in pain and shouts &quot;What?! Who did that!?&quot; He starts searching for his attacker.
@@ -283,7 +291,7 @@ Your arrow hits its mark. The ogre cries in pain and shouts &quot;What?! Who did
 &lt;&lt;if $inventory[&quot;magicSword&quot;] &gt; 0&gt;&gt; [[Attack with your Magic Sword|Ogre Sword Defeat]] &lt;&lt;else&gt;&gt; [[Attack with your Rusty Sword|Ogre Sword Defeat]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory[&quot;magicBow&quot;] &gt; 0&gt;&gt; [[Attack with your Magic Bow|Ogre Bow Defeat]] &lt;&lt;else&gt;&gt; [[Attack with your Old Bow|Ogre Bow Defeat]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory[&quot;magicBook&quot;] &gt; 0&gt;&gt; [[Attack with a Powerful Spell|Ogre Magic Defeat]] &lt;&lt;else&gt;&gt; [[Attack with a Weak Spell|Ogre Magic Defeat]] &lt;&lt;endif&gt;&gt;
-[[Try to Sneak past the ogre|Ogre Sneak]]</tw-passagedata><tw-passagedata pid="20" name="Town Welcome" tags="" position="1493,1100" size="100,100">You come through the main gates of Brekvern, you see a busy town square. Near the inn, some townsfolk are discussing the local news and gossip. There are several market stalls, including one for a cartographer. You also see two cloaked figures slip into an alleyway.
+[[Try to Sneak past the ogre|Ogre Sneak]]</tw-passagedata><tw-passagedata pid="20" name="Town Welcome" tags="" position="1493,1100" size="100,100">As you walk through the main gates of Brekvern, you see a busy town square. There is a small shop where you can purchase weapons and supplies for your journey. But first, you need to find out exactly where Bloomrane Cavern is located. Near the inn, some townsfolk are discussing the local news and gossip. There are several market stalls, including one for a cartographer. You also see two cloaked figures slip into an alleyway.
 
 [[You brandish your Sword|Town Sword]]
 [[You draw your Bow|Town Bow]]
@@ -299,7 +307,7 @@ You take the gold and continue on your journey to town.
 
 [[Continue on to the town|Town Welcome]]</tw-passagedata><tw-passagedata pid="22" name="Ogre Loot Magic" tags="" position="218,876" size="100,100">&lt;&lt;silently&gt;&gt;
 &lt;&lt;set $inventory[&quot;magicBook&quot;] to $inventory[&quot;magicBook&quot;]+1&gt;&gt;
-&lt;&lt;set $choices[&quot;magicBook&quot;] to $choices[&quot;magicBook&quot;]+1 &gt;&gt;
+&lt;&lt;set $choices[&quot;weapon&quot;] to $choices[&quot;weapon&quot;]+1 &gt;&gt;
 &lt;&lt;endsilently&gt;&gt;
 
 You take the Spell Tome and continue on your journey to town.
@@ -308,10 +316,10 @@ You take the Spell Tome and continue on your journey to town.
 &lt;&lt;set $choices[&quot;sword&quot;] to $choices[&quot;sword&quot;]+1&gt;&gt;
 &lt;&lt;endsilently&gt;&gt;
 
-You charge the Goblins and swing your sword in a wide arc. The Goblins scream and sprint in to the woods shouting &quot;Okay! You win!&quot; as they do and leaving behind some of their possessions in the chaos.
+You charge the Goblins and swing your sword in a wide arc. The Goblins scream and sprint in to the woods shouting &quot;Okay! You win!&quot; as they do, leaving behind some of their possessions in the chaos.
 
 [[Search through their possessions|Goblin Loot]]</tw-passagedata><tw-passagedata pid="24" name="Goblins Sword Wound" tags="" position="1914,569" size="100,100">&lt;&lt;silently&gt;&gt;
-&lt;&lt;set $choices[&quot;sword&quot;] to set $choices[&quot;sword&quot;]+1&gt;&gt;
+&lt;&lt;set $choices[&quot;sword&quot;] to $choices[&quot;sword&quot;]+1&gt;&gt;
 &lt;&lt;endsilently&gt;&gt;
 
 You swing your sword at the nearest Goblin, pushing him back as the rest charge towards you.
@@ -322,10 +330,10 @@ You swing your sword at the nearest Goblin, pushing him back as the rest charge 
 &lt;&lt;set $choices[&quot;bow&quot;] to $choices[&quot;bow&quot;]+1&gt;&gt;
 &lt;&lt;endsilently&gt;&gt;
 
-Your arrrows fly forward, hitting several Goblins and terrifying the rest. The Goblins scream and sprint in to the woods shouting &quot;Okay! You win!&quot; as they do and leaving behind some of their possessions in the chaos.
+Your arrows fly forward, hitting several Goblins and terrifying the rest. The Goblins scream and sprint in to the woods shouting &quot;Okay! You win!&quot; as they do, leaving behind some of their possessions in the chaos.
 
 [[Search through their possessions|Goblin Loot]]</tw-passagedata><tw-passagedata pid="26" name="Goblins Bow Wound" tags="" position="2217,568" size="100,100">&lt;&lt;silently&gt;&gt;
-&lt;&lt;set $choices[&quot;bow&quot;] to set $choices[&quot;bow&quot;]+1&gt;&gt;
+&lt;&lt;set $choices[&quot;bow&quot;] to $choices[&quot;bow&quot;]+1&gt;&gt;
 &lt;&lt;endsilently&gt;&gt;
 
 You fire an arrow into the crowd, riling the Goblins as they hiss and shriek.
@@ -336,13 +344,13 @@ You fire an arrow into the crowd, riling the Goblins as they hiss and shriek.
 &lt;&lt;set $choices[&quot;magic&quot;] to $choices[&quot;magic&quot;]+1&gt;&gt;
 &lt;&lt;endsilently&gt;&gt;
 
-You blast a ball of fire into the center of thte group, elliciting shrieks and shouts. The Goblins scream and sprint in to the woods shouting &quot;Okay! You win!&quot; as they do and leaving behind some of their possessions in the chaos.
+You blast a ball of fire into the center of the group, elliciting shrieks and shouts. The Goblins scream and sprint in to the woods shouting &quot;Okay! You win!&quot; as they do and leaving behind some of their possessions in the chaos.
 
 [[Search through their possessions|Goblin Loot]]</tw-passagedata><tw-passagedata pid="28" name="Goblins Talk" tags="" position="2514,569" size="100,100">&lt;&lt;silently&gt;&gt;
 &lt;&lt;set $choices[&quot;talk&quot;] to $choices[&quot;talk&quot;]+1&gt;&gt;
 &lt;&lt;endsilently&gt;&gt;
 
-&quot;Hey, who are you? You wanna fight?&quot; one of the Goblins ask as you approach. You explain that you in fact do not want to fight, and that you are a simple traveller, just trying to get by on the road. &quot;Oh... okay. that&#39;s reasonable. Have a nice day!&quot; The Goblins continue on past you, allowing you to travel to town.
+&quot;Hey, who are you? You wanna fight?&quot; one of the Goblins ask as you approach. You explain that you in fact do not want to fight, and that you are a simple traveller, just trying to get by on the road. &quot;Oh... okay. I suppose that&#39;s reasonable. Have a nice day!&quot; The Goblins continue on past you, allowing you to travel to town.
 
 [[Continue on to the town|Town Welcome]]</tw-passagedata><tw-passagedata pid="29" name="Goblins Bribe" tags="" position="2664,569" size="100,100">&lt;&lt;silently&gt;&gt;
 &lt;&lt;set $choices[&quot;bribe&quot;] to $choices[&quot;bribe&quot;]+1&gt;&gt;
@@ -357,15 +365,15 @@ You blast a ball of fire into the center of thte group, elliciting shrieks and s
 &lt;&lt;set $choices[&quot;hide&quot;] to $choices[&quot;hide&quot;]+1&gt;&gt;
 &lt;&lt;endsilently&gt;&gt;
 
-You duck behind a large rock and .
+You crouch behind a thicket of bushes before the goblins can spot you.
 
-[[Try to Sneak past the Goblins|Goblin Sneak]]
+[[Try to sneak past the Goblins|Goblin Sneak]]
 [[Wait to see if they contiue past your hiding spot|Goblin Wait]]
 &lt;&lt;if $inventory[&quot;magicSword&quot;] &gt; 0&gt;&gt; [[Attack with your Magic Sword|Goblins Sword Defeat]] &lt;&lt;else&gt;&gt; [[Attack with your Rusty Sword|Goblins Sword Wound]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory[&quot;magicBow&quot;] &gt; 0&gt;&gt; [[Attack with your Magic Bow|Goblins Bow Defeat]] &lt;&lt;else&gt;&gt; [[Attack with your Old Bow|Goblins Bow Wound Hidden]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory[&quot;magicBook&quot;] &gt; 0&gt;&gt; [[Attack with a Powerful Spell|Goblins Magic Defeat]] &lt;&lt;else&gt;&gt; [[Attack with a Weak Spell|Goblins Magic Defeat]] &lt;&lt;endif&gt;&gt;
 [[Try to speak to the Goblins|Goblins Talk]]
-[[Try to bribe the Goblins to let you pass|Goblins Bribe]]</tw-passagedata><tw-passagedata pid="31" name="Goblin Loot" tags="" position="1764,719" size="100,100">Amongst the discarded belongings, you find some gold and a Magic Bow. You pack is getting heavy and you can only carry one. Which do you take?
+[[Try to bribe the Goblins to let you pass|Goblins Bribe]]</tw-passagedata><tw-passagedata pid="31" name="Goblin Loot" tags="" position="1764,719" size="100,100">Amongst the discarded belongings, you find some gold and a Magic Bow. Your pack is getting heavy and you can only carry one. Which do you take?
 
 [[Take the gold|Goblin Loot gold]]
 [[Take the Magic Bow|Goblin Loot Bow]]</tw-passagedata><tw-passagedata pid="32" name="Goblin Sneak" tags="" position="2664,719" size="100,100">&lt;&lt;silently&gt;&gt;
@@ -384,10 +392,10 @@ You try to slip past the Goblins by sticking to the woods, but as your paths cro
 &lt;&lt;set $choices[&quot;wait&quot;] to $choices[&quot;wait&quot;]+1&gt;&gt;
 &lt;&lt;endsilently&gt;&gt;
 
-You stay hidden behind the rock, and with all of the clamour of their passage, the Goblins do not notice you as they continue down the road. With them gone, you are free to continue on to the town.
+You stay hidden behind the bushes and with all of the clamour of their passage, the Goblins do not notice you as they continue down the road. With them gone, you are free to continue on to the town.
 
-[[Continue on to the town|Town Welcome]]</tw-passagedata><tw-passagedata pid="34" name="Goblins Bow Wound Hidden" tags="" position="1912,719" size="100,100">&lt;&lt;silently&gt;&gt;
-&lt;&lt;set $choices[&quot;bow&quot;] to set $choices[&quot;bow&quot;]+1&gt;&gt;
+[[Continue on to the town|Town Welcome]]</tw-passagedata><tw-passagedata pid="34" name="Goblins Bow Wound Hidden" tags="" position="1932,719" size="100,100">&lt;&lt;silently&gt;&gt;
+&lt;&lt;set $choices[&quot;bow&quot;] to $choices[&quot;bow&quot;]+1&gt;&gt;
 &lt;&lt;endsilently&gt;&gt;
 
 You fire an arrow into the crowd, riling the Goblins as they hiss and shriek. &quot;What?!&quot; one of them shouts. &quot;Who did that!?&quot;
@@ -404,84 +412,99 @@ You take the gold and continue on your journey to town.
 
 [[Continue on to the town|Town Welcome]]</tw-passagedata><tw-passagedata pid="36" name="Goblin Loot Bow" tags="" position="1914,848" size="100,100">&lt;&lt;silently&gt;&gt;
 &lt;&lt;set $inventory[&quot;magicBow&quot;] to $inventory[&quot;magicBow&quot;]+1&gt;&gt;
-&lt;&lt;set $choices[&quot;bow&quot;] to $choices[&quot;bow&quot;]+1 &gt;&gt;
+&lt;&lt;set $choices[&quot;weapon&quot;] to $choices[&quot;weapon&quot;]+1 &gt;&gt;
 &lt;&lt;endsilently&gt;&gt;
 
 You take the Magic Bow and continue on your journey to town.
 
-[[Continue on to the town|Town Welcome]]</tw-passagedata><tw-passagedata pid="37" name="Shop Welcome" tags="" position="1482,1678" size="100,100">&quot;Hello!&quot; The shopkeeper greets you warmly. &quot;Welcome to my little shop. What can I interest you in today? A new weapon, perhaps?&quot;
+[[Continue on to the town|Town Welcome]]</tw-passagedata><tw-passagedata pid="37" name="Shop Welcome" tags="" position="1482,1678" size="100,100">&quot;Hello!&quot; The shopkeeper greets you warmly. &quot;Welcome to my little shop. What can I interest you in today? A new weapon? Or perhaps a suit of armor?&quot;
 
-You look at the items for sale. There is a gleaming magic sword, a beautiful magic bow, and a tome of powerful magic spells. Each weapon costs 3 gold. There is also a set of steel armor, and some healing potions, each for 2 gold.
+You look at the items for sale. There is a gleaming magic sword, a beautiful magic bow, and a tome of powerful magic spells. Each weapon costs 3 gold. There is also a set of steel armor, and some healing potions, each for 2 gold. A wooden sign on the wall informs you, &quot;No Trades - Gold Only!&quot;
 
-&lt;&lt;if $inventory[&quot;gold&quot;] &lt; 2 &gt;&gt; Unfortunately, you don&#39;t have enough gold to buy anything. &lt;&lt;endif&gt;&gt;
-
-&lt;&lt;if $inventory[&quot;gold&quot;] &gt;= 3&gt;&gt; [[Buy a Magic Sword|Buy Magic Sword]]&lt;&lt;endif&gt;&gt;
-&lt;&lt;if $inventory[&quot;gold&quot;] &gt;= 3&gt;&gt; [[Buy a Magic Bow|Buy Magic Bow]] &lt;&lt;endif&gt;&gt;
-&lt;&lt;if $inventory[&quot;gold&quot;] &gt;= 3&gt;&gt; [[Buy a Magic Spell Tome|Buy Magic Spell Book]] &lt;&lt;endif&gt;&gt;
+\&lt;&lt;if $inventory[&quot;gold&quot;] &lt; 2 &gt;&gt; 
+Unfortunately, you don&#39;t have enough gold to buy anything. 
+\&lt;&lt;endif&gt;&gt;
+\&lt;&lt;if $inventory[&quot;gold&quot;] &gt;= 3&gt;&gt; 
+[[Buy a Magic Sword|Buy Magic Sword]]
+\&lt;&lt;endif&gt;&gt;
+\&lt;&lt;if $inventory[&quot;gold&quot;] &gt;= 3&gt;&gt; 
+[[Buy a Magic Bow|Buy Magic Bow]] 
+\&lt;&lt;endif&gt;&gt;
+\&lt;&lt;if $inventory[&quot;gold&quot;] &gt;= 3&gt;&gt; 
+[[Buy a Magic Spell Tome|Buy Magic Spell Book]] 
+\&lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory[&quot;gold&quot;] &gt;= 2&gt;&gt; [[Buy Armor|Buy Armor]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory[&quot;gold&quot;] &gt;= 2 &gt;&gt; [[Buy Healing Potion|Buy Healing Potion]] &lt;&lt;endif&gt;&gt;
 
-[[Leave the shop and continue your journey.|Choice 4]]</tw-passagedata><tw-passagedata pid="38" name="Choice 4" tags="" position="1484,2347" size="100,100">[[save citizen|Citizen Start]]
-[[go to troll|Troll Start]]
-</tw-passagedata><tw-passagedata pid="39" name="Citizen Start" tags="" position="1409,2497" size="100,100">[[finish encounter|Puzzle Welcome]]
-</tw-passagedata><tw-passagedata pid="40" name="Troll Start" tags="" position="1559,2497" size="100,100">[[finish encounter|Puzzle Welcome]]
-</tw-passagedata><tw-passagedata pid="41" name="Puzzle Welcome" tags="" position="1486,2644" size="100,100">You enter a clearing and see a cave in the side of the cliff face – Bloomeane Cavern. As you approach, however, you see that the entrance to the cave is blocked by a large stone door with a face carved onto it. When you try to open the door, the face springs to life and the door speaks, &quot;To enter the cavern and claim the treasure within, you must first answer my riddle.&quot;
+[[Leave the shop and continue your journey.|Choice 4]]</tw-passagedata><tw-passagedata pid="38" name="Choice 4" tags="" position="1465,1909" size="100,100">You exit the shop and begin following the road north toward the cavern. You remain alert, having heard rumors of a group of bandits living north of Brekvern. Eventually, the road narrows to a simple dirt path through the forest. Making your way through the forest, you come across a small campsite--several tents, crates and sacks of supplies, and a still-smouldering campfire--but no one seems to be around. Suddenly, you hear a woman&#39;s scream. &quot;Help! Somebody help me!&quot; Ah. You suppose you&#39;ve located the bandits--and their campsite. The woman is clearly in need of rescue. On the other hand, you could take advantage of the outlaws&#39; temporary absence and see whether they have any useful supplies you could &quot;borrow.&quot;
+
+[[Save Citizen|Save Citizen Start]]
+[[Loot the Camp|Loot Camp Start]]
+</tw-passagedata><tw-passagedata pid="39" name="Puzzle Welcome" tags="" position="1477,2592" size="100,100">You enter a clearing and see a cave in the side of the cliff face – Bloomrane Cavern. As you approach, however, you see that the entrance to the cave is blocked by a large stone door with a face carved onto it. When you try to open the door, the face springs to life and the door speaks, &quot;To enter the cavern and claim the treasure within, you must first answer my riddle.&quot;
 
 &lt;&lt;if $inventory[&quot;magicSword&quot;] &gt; 0&gt;&gt; [[Attack the door with your Magic Sword.|Puzzle Sword]] &lt;&lt;else&gt;&gt; [[Attack the door with your Rusty Sword.|Puzzle Sword]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory[&quot;magicBow&quot;] &gt; 0&gt;&gt; [[Attack the door with your Magic Bow|Puzzle Bow]] &lt;&lt;else&gt;&gt; [[Attack the door with your Old Bow|Puzzle Bow]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory[&quot;magicBook&quot;] &gt; 0&gt;&gt; [[Attack the door with a Powerful Spell|Puzzle Magic Success]] &lt;&lt;else&gt;&gt; [[Attack the door with a Weak Spell|Puzzle Magic Fail]] &lt;&lt;endif&gt;&gt;
 [[Listen to the riddle|Puzzle Talk]]
 [[Try to bribe the door|Puzzle Bribe]]
-[[Hide from the door|Puzzle Hide]]</tw-passagedata><tw-passagedata pid="42" name="Win" tags="" position="1491,3099" size="100,100">Congratulations! You found the lost gold of Bloomrane Cavern!</tw-passagedata><tw-passagedata pid="43" name="Town Magic" tags="" position="1267,1249" size="100,100">&lt;&lt;silently&gt;&gt;
+[[Hide from the door|Puzzle Hide]]</tw-passagedata><tw-passagedata pid="40" name="Win" tags="" position="1603,3217" size="100,100">As you enter the cave, you come upon a chamber filled with glimmering treasure. Heaps of shimmering gold coins, brilliant jewels of all colors, and magnificent weapons lay before you. Your discovery will surely become legendary.
+
+Congratulations! You found the lost treasure of Bloomrane Cavern!</tw-passagedata><tw-passagedata pid="41" name="Town Magic" tags="" position="1267,1249" size="100,100">&lt;&lt;silently&gt;&gt;
 &lt;&lt;set $choices[&quot;magic&quot;] to $choices[&quot;magic&quot;]+1&gt;&gt;
 &lt;&lt;endsilently&gt;&gt;
 
 You open your spell tome and begin channeling your magic and within moments one of the town guard has spotted you. &quot;Hey!&quot; she shouts. &quot;What do you think you&#39;re doing?! This is a city, not the woods. Stop that at once!&quot;
 
-The gossips begin staring at you and whispering and the hooded figures narrow their eyes at you before quickly fleeing down the ally. You get the sense that violence was not the answer.
+The gossips begin staring at you and whispering and the hooded figures narrow their eyes at you before quickly fleeing down the alley. You get the sense that violence was not the answer.
 
-[[Go to the cartographer&#39;s booth|Town Bribe]]</tw-passagedata><tw-passagedata pid="44" name="Town Talk" tags="" position="1697,1252" size="100,100">&lt;&lt;silently&gt;&gt;
+[[Go to the cartographer&#39;s booth|Town Bribe]]</tw-passagedata><tw-passagedata pid="42" name="Town Talk" tags="" position="1697,1252" size="100,100">&lt;&lt;silently&gt;&gt;
 &lt;&lt;set $choices[&quot;talk&quot;] to $choices[&quot;talk&quot;]+1&gt;&gt;
 &lt;&lt;endsilently&gt;&gt;
 
-You approach the group standing near the inn and great them. You ask if they&#39;ve heard any interesting news lately. &quot;I heard a passing trader say thet she stumbled on some sort of magic cave, a few miles up the north road. She said she couldn&#39;t get into it, though. I&#39;m not sure why.&quot; 
+You approach the group standing near the inn and greet them. You ask if they&#39;ve heard any interesting news lately. &quot;I heard a passing trader say that she stumbled upon some sort of magic cave, a few miles up the north road. She said she couldn&#39;t get into it, though. I&#39;m not sure why.&quot; 
 
 You thank them for the information, and with your path clear, you head to the shop to gather supplies for your journey.
 
-[[Go to the shop|Shop Welcome]]</tw-passagedata><tw-passagedata pid="45" name="Town Bribe" tags="" position="1567,1249" size="100,100">&lt;&lt;silently&gt;&gt;
+[[Go to the shop|Shop Welcome]]</tw-passagedata><tw-passagedata pid="43" name="Town Bribe" tags="" position="1567,1249" size="100,100">&lt;&lt;silently&gt;&gt;
 &lt;&lt;set $choices[&quot;bribe&quot;] to $choices[&quot;bribe&quot;]+1&gt;&gt;
 &lt;&lt;endsilently&gt;&gt;
 
 You approach the cartographer as he smiles and gestures to his merchandise. You if he has a map to Bloomrane Cavern. &quot;I do,&quot; he says. &quot;What are you willing to give me for it?&quot;
 
-&lt;&lt;if $inventory[&quot;magicSword&quot;] &gt; 0&gt;&gt; [[Offer a Magic Sword|Town Bribe Sword]]&lt;&lt;endif&gt;&gt;
-&lt;&lt;if $inventory[&quot;magicBow&quot;] &gt; 0&gt;&gt; [[Offer a Magic Bow|Town Bribe Bow]]&lt;&lt;endif&gt;&gt;
-&lt;&lt;if $inventory[&quot;magicBook&quot;] &gt; 0&gt;&gt; [[Offer a Magic Spell Tome|Town Bribe Magic]]&lt;&lt;endif&gt;&gt;
+\&lt;&lt;if $inventory[&quot;magicSword&quot;] &gt; 0&gt;&gt; 
+[[Offer a Magic Sword|Town Bribe Sword]]\
+\&lt;&lt;endif&gt;&gt;
+\&lt;&lt;if $inventory[&quot;magicBow&quot;] &gt; 0&gt;&gt; 
+[[Offer a Magic Bow|Town Bribe Bow]]
+\&lt;&lt;endif&gt;&gt;
+\&lt;&lt;if $inventory[&quot;magicBook&quot;] &gt; 0&gt;&gt; 
+[[Offer a Magic Spell Tome|Town Bribe Magic]]
+\&lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory[&quot;gold&quot;] &gt; 0&gt;&gt; [[Offer gold|Town Bribe gold]]&lt;&lt;endif&gt;&gt;
-[[Try to talk to the gossips instead|Town Talk]]</tw-passagedata><tw-passagedata pid="46" name="Town Hide" tags="" position="1832,1254" size="100,100">&lt;&lt;silently&gt;&gt;
+[[Try to talk to the gossips instead|Town Talk]]</tw-passagedata><tw-passagedata pid="44" name="Town Hide" tags="" position="1832,1254" size="100,100">&lt;&lt;silently&gt;&gt;
 &lt;&lt;set $choices[&quot;hide&quot;] to $choices[&quot;hide&quot;]+1&gt;&gt;
 &lt;&lt;endsilently&gt;&gt;
 
 You silently creep toward the alley and reach the hooded figures without them noticing. They are whispering about something, and the one nearst to you has a piece of paper sticking out of her pocket.
 
 [[Try to grab the piece of paper and sneak away|Town Sneak]]
-[[Stay hidden and listen in on their conversation|Town Wait]]</tw-passagedata><tw-passagedata pid="47" name="Town Sword" tags="" position="1113,1249" size="100,100">&lt;&lt;silently&gt;&gt;
+[[Stay hidden and listen in on their conversation|Town Wait]]</tw-passagedata><tw-passagedata pid="45" name="Town Sword" tags="" position="1113,1249" size="100,100">&lt;&lt;silently&gt;&gt;
 &lt;&lt;set $choices[&quot;sword&quot;] to $choices[&quot;sword&quot;]+1&gt;&gt;
 &lt;&lt;endsilently&gt;&gt;
 
 You draw your sword and within moments one of the town guard has spotted you. &quot;Hey!&quot; she shouts. &quot;What do you think you&#39;re doing?! This is a city, not the woods. Put that away!&quot;
 
-The gossips begin staring at you and whispering and the hooded figures narrow their eyes at you before quickly fleeing down the ally. You get the sense that violence was not the answer.
+The gossips begin staring at you and whispering and the hooded figures narrow their eyes at you before quickly fleeing down the alley. You get the sense that violence was not the answer.
 
-[[Go to the cartographer&#39;s booth|Town Bribe]]</tw-passagedata><tw-passagedata pid="48" name="Town Bow" tags="" position="1418,1249" size="100,100">&lt;&lt;silently&gt;&gt;
+[[Go to the cartographer&#39;s booth|Town Bribe]]</tw-passagedata><tw-passagedata pid="46" name="Town Bow" tags="" position="1418,1249" size="100,100">&lt;&lt;silently&gt;&gt;
 &lt;&lt;set $choices[&quot;bow&quot;] to $choices[&quot;bow&quot;]+1&gt;&gt;
 &lt;&lt;endsilently&gt;&gt;
 
 You draw your bow and within moments one of the town guard has spotted you. &quot;Hey!&quot; she shouts. &quot;What do you think you&#39;re doing?! This is a city, not the woods. Put that away!&quot;
 
-The gossips begin staring at you and whispering and the hooded figures narrow their eyes at you before quickly fleeing down the ally. You get the sense that violence was not the answer.
+The gossips begin staring at you and whispering and the hooded figures narrow their eyes at you before quickly fleeing down the alley. You get the sense that violence was not the answer.
 
-[[Go to the cartographer&#39;s booth|Town Bribe]]</tw-passagedata><tw-passagedata pid="49" name="Town Bribe Sword" tags="" position="1119,1384" size="100,100">&lt;&lt;silently&gt;&gt;
+[[Go to the cartographer&#39;s booth|Town Bribe]]</tw-passagedata><tw-passagedata pid="47" name="Town Bribe Sword" tags="" position="1119,1384" size="100,100">&lt;&lt;silently&gt;&gt;
 &lt;&lt;set $inventory[&quot;magicSword&quot;] to $inventory[&quot;magicSword&quot;]-1&gt;&gt;
 &lt;&lt;endsilently&gt;&gt;
 
@@ -489,7 +512,7 @@ The gossips begin staring at you and whispering and the hooded figures narrow th
 
 You thank him for the map, and with your path clear, you head to the shop to gather supplies for your journey.
 
-[[Go to the shop|Shop Welcome]]</tw-passagedata><tw-passagedata pid="50" name="Town Bribe Bow" tags="" position="1269,1384" size="100,100">&lt;&lt;silently&gt;&gt;
+[[Go to the shop|Shop Welcome]]</tw-passagedata><tw-passagedata pid="48" name="Town Bribe Bow" tags="" position="1269,1384" size="100,100">&lt;&lt;silently&gt;&gt;
 &lt;&lt;set $inventory[&quot;magicBow&quot;] to $inventory[&quot;magicBow&quot;]-1&gt;&gt;
 &lt;&lt;endsilently&gt;&gt;
 
@@ -497,7 +520,7 @@ You thank him for the map, and with your path clear, you head to the shop to gat
 
 You thank him for the map, and with your path clear, you head to the shop to gather supplies for your journey.
 
-[[Go to the shop|Shop Welcome]]</tw-passagedata><tw-passagedata pid="51" name="Town Bribe Magic" tags="" position="1419,1384" size="100,100">&lt;&lt;silently&gt;&gt;
+[[Go to the shop|Shop Welcome]]</tw-passagedata><tw-passagedata pid="49" name="Town Bribe Magic" tags="" position="1419,1384" size="100,100">&lt;&lt;silently&gt;&gt;
 &lt;&lt;set $inventory[&quot;magicBook&quot;] to $inventory[&quot;magicBook&quot;]-1&gt;&gt;
 &lt;&lt;endsilently&gt;&gt;
 
@@ -505,7 +528,7 @@ You thank him for the map, and with your path clear, you head to the shop to gat
 
 You thank him for the map, and with your path clear, you head to the shop to gather supplies for your journey.
 
-[[Go to the shop|Shop Welcome]]</tw-passagedata><tw-passagedata pid="52" name="Town Bribe gold" tags="" position="1569,1384" size="100,100">&lt;&lt;silently&gt;&gt;
+[[Go to the shop|Shop Welcome]]</tw-passagedata><tw-passagedata pid="50" name="Town Bribe gold" tags="" position="1569,1384" size="100,100">&lt;&lt;silently&gt;&gt;
 &lt;&lt;set $inventory[&quot;gold&quot;] to $inventory[&quot;gold&quot;]-1&gt;&gt;
 &lt;&lt;endsilently&gt;&gt;
 
@@ -513,7 +536,7 @@ You thank him for the map, and with your path clear, you head to the shop to gat
 
 You thank him for the map, and with your path clear, you head to the shop to gather supplies for your journey.
 
-[[Go to the shop|Shop Welcome]]</tw-passagedata><tw-passagedata pid="53" name="Town Sneak" tags="" position="1699,1385" size="100,100">&lt;&lt;silently&gt;&gt;
+[[Go to the shop|Shop Welcome]]</tw-passagedata><tw-passagedata pid="51" name="Town Sneak" tags="" position="1699,1385" size="100,100">&lt;&lt;silently&gt;&gt;
 &lt;&lt;set $choices[&quot;sneak&quot;] to $choices[&quot;sneak&quot;]+1&gt;&gt;
 &lt;&lt;endsilently&gt;&gt;
 
@@ -521,7 +544,7 @@ You quickly grab the note and sneak back out of the alley. You unfold the note a
 
 With your path clear, you head to the shop to gather supplies for your journey.
 
-[[Go to the shop|Shop Welcome]]</tw-passagedata><tw-passagedata pid="54" name="Town Wait" tags="" position="1832,1384" size="100,100">&lt;&lt;silently&gt;&gt;
+[[Go to the shop|Shop Welcome]]</tw-passagedata><tw-passagedata pid="52" name="Town Wait" tags="" position="1832,1384" size="100,100">&lt;&lt;silently&gt;&gt;
 &lt;&lt;set $choices[&quot;sneak&quot;] to $choices[&quot;sneak&quot;]+1&gt;&gt;
 &lt;&lt;endsilently&gt;&gt;
 
@@ -531,66 +554,65 @@ With your path clear, you head to the shop to gather supplies for your journey.
 
 You sneak away as the hooded figures leave for lunch, and with your path clear, you head to the shop to gather supplies for your journey.
 
-[[Go to the shop|Shop Welcome]]</tw-passagedata><tw-passagedata pid="55" name="Buy Magic Sword" tags="" position="1247,1626" size="100,100">&lt;&lt;if $inventory[&quot;magicSword&quot;] == 0&gt;&gt;
-&lt;&lt;set $inventory[&quot;gold&quot;] to $inventory[&quot;gold&quot;]-3&gt;&gt;
-&lt;&lt;set $inventory[&quot;magicSword&quot;] to $inventory[&quot;magicSword&quot;]+1&gt;&gt;
-&lt;&lt;set $choices[&quot;magicSword&quot;] to $choices[&quot;magicSword&quot;]+1&gt;&gt;
+[[Go to the shop|Shop Welcome]]</tw-passagedata><tw-passagedata pid="53" name="Buy Magic Sword" tags="" position="1192,1571" size="100,100">\&lt;&lt;set $choices[&quot;magicSword&quot;] to $choices[&quot;magicSword&quot;]+1&gt;&gt;
+\&lt;&lt;if $inventory[&quot;magicSword&quot;] == 0&gt;&gt;
+\&lt;&lt;set $inventory[&quot;gold&quot;] to $inventory[&quot;gold&quot;]-3&gt;&gt;
+\&lt;&lt;set $inventory[&quot;magicSword&quot;] to $inventory[&quot;magicSword&quot;]+1&gt;&gt;
 &quot;Excellent choice!&quot; The shopkeeper hands you the magic sword.
 &lt;&lt;else&gt;&gt;
 You already have a magic sword. It would be too cumbersome to carry another.
 &lt;&lt;endif&gt;&gt;
 [[Continue shopping.|Shop Welcome]]
 
-</tw-passagedata><tw-passagedata pid="56" name="Buy Magic Bow" tags="" position="1249,1749" size="100,100">&lt;&lt;if $inventory[&quot;magicBow&quot;] == 0&gt;&gt;
-&lt;&lt;set $inventory[&quot;gold&quot;] to $inventory[&quot;gold&quot;]-3&gt;&gt;
-&lt;&lt;set $inventory[&quot;magicBow&quot;] to $inventory[&quot;magicBow&quot;]+1&gt;&gt;
-&lt;&lt;set $choices[&quot;magicBow&quot;] to $choices[&quot;magicBow&quot;]+1&gt;&gt;
+</tw-passagedata><tw-passagedata pid="54" name="Buy Magic Bow" tags="" position="1041,1667" size="100,100">\&lt;&lt;if $inventory[&quot;magicBow&quot;] == 0&gt;&gt;
+\&lt;&lt;set $inventory[&quot;gold&quot;] to $inventory[&quot;gold&quot;]-3&gt;&gt;
+\&lt;&lt;set $inventory[&quot;magicBow&quot;] to $inventory[&quot;magicBow&quot;]+1&gt;&gt;
+\&lt;&lt;set $choices[&quot;magicBow&quot;] to $choices[&quot;magicBow&quot;]+1&gt;&gt;
 &quot;Ah, yes, she&#39;s a beauty.&quot; The shopkeeper hands you the magic bow.
 &lt;&lt;else&gt;&gt;
 You already have a magic bow. It would be too cumbersome to carry another.
 &lt;&lt;endif&gt;&gt;
 [[Continue shopping.|Shop Welcome]]
 
-</tw-passagedata><tw-passagedata pid="57" name="Buy Magic Spell Book" tags="" position="1245,1870" size="100,100">&lt;&lt;if $inventory[&quot;magicBook&quot;] == 0&gt;&gt;
-&lt;&lt;set $inventory[&quot;gold&quot;] to $inventory[&quot;gold&quot;]-3&gt;&gt;
-&lt;&lt;set $inventory[&quot;magicBook&quot;] to $inventory[&quot;magicBook&quot;]+1&gt;&gt;
-&lt;&lt;set $choices[&quot;magicBook&quot;] to $choices[&quot;magicBook&quot;]+1&gt;&gt;
+</tw-passagedata><tw-passagedata pid="55" name="Buy Magic Spell Book" tags="" position="1220,1770" size="100,100">\&lt;&lt;set $inventory[&quot;magicBook&quot;] to $inventory[&quot;magicBook&quot;]+1&gt;&gt;
+\&lt;&lt;set $choices[&quot;magicBook&quot;] to $choices[&quot;magicBook&quot;]+1&gt;&gt;
+\&lt;&lt;if $inventory[&quot;magicBook&quot;] == 0&gt;&gt;
+\&lt;&lt;set $inventory[&quot;gold&quot;] to $inventory[&quot;gold&quot;]-3&gt;&gt;
 &quot;Here you are!&quot; The shopkeeper pulls the old spell book off of the shelf and hands it to you.
 &lt;&lt;else&gt;&gt;
 You alrady have a magic spell book. You don&#39;t need another.
 &lt;&lt;endif&gt;&gt;
 [[Continue shopping.|Shop Welcome]]
-</tw-passagedata><tw-passagedata pid="58" name="Buy Armor" tags="" position="1683,1689" size="100,100">&lt;&lt;if $inventory[&quot;armor&quot;] == 0&gt;&gt;
-&lt;&lt;set $inventory[&quot;gold&quot;] to $inventory[&quot;gold&quot;]-2&gt;&gt;
-&lt;&lt;set $inventory[&quot;armor&quot;] to $inventory[&quot;armor&quot;]+1&gt;&gt;
-&lt;&lt;set $choices[&quot;armor&quot;] to $choices[&quot;armor&quot;]+1&gt;&gt;
+</tw-passagedata><tw-passagedata pid="56" name="Buy Armor" tags="" position="1725,1603" size="100,100">\&lt;&lt;if $inventory[&quot;armor&quot;] == 0&gt;&gt;
+\&lt;&lt;set $inventory[&quot;gold&quot;] to $inventory[&quot;gold&quot;]-2&gt;&gt;
+\&lt;&lt;set $inventory[&quot;armor&quot;] to $inventory[&quot;armor&quot;]+1&gt;&gt;
+\&lt;&lt;set $choices[&quot;armor&quot;] to $choices[&quot;armor&quot;]+1&gt;&gt;
 &quot;Very good!&quot; The shopkeeper hands you the armor.
 &lt;&lt;else&gt;&gt;
 You already have a set of armor. It would be too cumbersome to carry another.
 &lt;&lt;endif&gt;&gt;
 [[Continue shopping.|Shop Welcome]]
 
-</tw-passagedata><tw-passagedata pid="59" name="Buy Healing Potion" tags="" position="1665,1825" size="100,100">&lt;&lt;silently&gt;&gt;
+</tw-passagedata><tw-passagedata pid="57" name="Buy Healing Potion" tags="" position="1715,1738" size="100,100">&lt;&lt;silently&gt;&gt;
 &lt;&lt;set $inventory[&quot;gold&quot;] to $inventory[&quot;gold&quot;]-2&gt;&gt;
 &lt;&lt;set $inventory[&quot;healingPotion&quot;] to $inventory[&quot;healingPotion&quot;]+1&gt;&gt;
 &lt;&lt;set $choices[&quot;healingPotion&quot;] to $choices[&quot;healingPotion&quot;]+1&gt;&gt;
 &lt;&lt;endsilently&gt;&gt;
 
-&quot;Excellent choice!&quot; The shopkeeper hands you the magic sword.
+&quot;Excellent choice!&quot; The shopkeeper hands you a small vial of green liquid.
 
 [[Continue shopping.|Shop Welcome]]
 
-</tw-passagedata><tw-passagedata pid="60" name="StoryCaption" tags="" position="765,160" size="100,100">Inventory:
+</tw-passagedata><tw-passagedata pid="58" name="StoryCaption" tags="" position="765,160" size="100,100">Inventory:
 $inventory[&quot;gold&quot;] gold
-&lt;&lt;if $inventory[&quot;magicSword&quot;] &gt; 0&gt;&gt; $inventory[&quot;magicSword&quot;] Magic Sword
-&lt;&lt;else&gt;&gt; 1 Rusty Sword &lt;&lt;endif&gt;&gt;
-&lt;&lt;if $inventory[&quot;magicBow&quot;] &gt; 0&gt;&gt; $inventory[&quot;magicBow&quot;] Magic Bow &lt;&lt;else&gt;&gt; 1 Old Bow &lt;&lt;endif&gt;&gt;
-&lt;&lt;if $inventory[&quot;magicBook&quot;] &gt; 0&gt;&gt; $inventory[&quot;magicBook&quot;] Magic Sword
-&lt;&lt;else&gt;&gt; 1 Weak Spell Book &lt;&lt;endif&gt;&gt;
-&lt;&lt;if $inventory[&quot;armor&quot;] &gt; 0&gt;&gt; $inventory[&quot;armor&quot;]\
-Armor
-&lt;&lt;endif&gt;&gt;\
-&lt;&lt;if $inventory[&quot;healingPotion&quot;] &gt; 0&gt;&gt; $inventory[&quot;healingPotion&quot;] Healing Potion&lt;&lt;if $inventory[&quot;healingPotion&quot;] &gt; 1&gt;&gt;s&lt;&lt;endif&gt;&gt; &lt;&lt;endif&gt;&gt;</tw-passagedata><tw-passagedata pid="61" name="Puzzle Sword" tags="" position="1036,2794" size="100,100">&lt;&lt;silently&gt;&gt;
+&lt;&lt;if $inventory[&quot;magicSword&quot;] &gt; 0&gt;&gt; Magic Sword &lt;&lt;else&gt;&gt; Rusty Sword &lt;&lt;endif&gt;&gt;
+&lt;&lt;if $inventory[&quot;magicBow&quot;] &gt; 0&gt;&gt; Magic Bow &lt;&lt;else&gt;&gt; Old Bow &lt;&lt;endif&gt;&gt;
+&lt;&lt;if $inventory[&quot;magicBook&quot;] &gt; 0&gt;&gt; Powerful Spell Book &lt;&lt;else&gt;&gt; Weak Spell Book &lt;&lt;endif&gt;&gt;
+\&lt;&lt;if $inventory[&quot;armor&quot;] &gt; 0&gt;&gt; 
+$inventory[&quot;armor&quot;] Armor
+\&lt;&lt;endif&gt;&gt;
+\&lt;&lt;if $inventory[&quot;healingPotion&quot;] &gt; 0&gt;&gt; 
+$inventory[&quot;healingPotion&quot;] Healing Potion&lt;&lt;if $inventory[&quot;healingPotion&quot;] &gt; 1&gt;&gt;s&lt;&lt;endif&gt;&gt; &lt;&lt;endif&gt;&gt;</tw-passagedata><tw-passagedata pid="59" name="Puzzle Sword" tags="" position="1036,2794" size="100,100">&lt;&lt;silently&gt;&gt;
 &lt;&lt;set $choices[&quot;sword&quot;] to $choices[&quot;sword&quot;]+1&gt;&gt;
 &lt;&lt;endsilently&gt;&gt;
 
@@ -600,7 +622,7 @@ You strike the door with your sword, leaving the door unscathed but a large chip
 &lt;&lt;if $inventory[&quot;magicBook&quot;] &gt; 0&gt;&gt; [[Attack the door with a Powerful Spell|Puzzle Magic Success]] &lt;&lt;else&gt;&gt; [[Attack the door with a Weak Spell|Puzzle Magic Fail]] &lt;&lt;endif&gt;&gt;
 [[Listen to the riddle|Puzzle Talk]]
 [[Try to bribe the door|Puzzle Bribe]]
-[[Hide from the door|Puzzle Hide]]</tw-passagedata><tw-passagedata pid="62" name="Puzzle Bow" tags="" position="1186,2794" size="100,100">&lt;&lt;silently&gt;&gt;
+[[Hide from the door|Puzzle Hide]]</tw-passagedata><tw-passagedata pid="60" name="Puzzle Bow" tags="" position="1186,2794" size="100,100">&lt;&lt;silently&gt;&gt;
 &lt;&lt;set $choices[&quot;bow&quot;] to $choices[&quot;bow&quot;]+1&gt;&gt;
 &lt;&lt;endsilently&gt;&gt;
 
@@ -610,13 +632,13 @@ You fire arrow after arrow at the door to no effect. &quot;Ha! That tickles!&quo
 &lt;&lt;if $inventory[&quot;magicBook&quot;] &gt; 0&gt;&gt; [[Attack the door with a Powerful Spell|Puzzle Magic Success]] &lt;&lt;else&gt;&gt; [[Attack the door with a Weak Spell|Puzzle Magic Fail]] &lt;&lt;endif&gt;&gt;
 [[Listen to the riddle|Puzzle Talk]]
 [[Try to bribe the door|Puzzle Bribe]]
-[[Hide from the door|Puzzle Hide]]</tw-passagedata><tw-passagedata pid="63" name="Puzzle Magic Success" tags="" position="1336,2794" size="100,100">&lt;&lt;silently&gt;&gt;
+[[Hide from the door|Puzzle Hide]]</tw-passagedata><tw-passagedata pid="61" name="Puzzle Magic Success" tags="" position="1336,2794" size="100,100">&lt;&lt;silently&gt;&gt;
 &lt;&lt;set $choices[&quot;magic&quot;] to $choices[&quot;magic&quot;]+1&gt;&gt;
 &lt;&lt;endsilently&gt;&gt;
 
-You charge a powerful spell and cast it at the door. &quot;Ahh!&quot; it yelps, seemingly out of surprise more than anything else. The door begins to open, reacting to your magic. &quot;Wait, thats not how this is supposed to go!&quot; the door shouts as the face is obscured from veiw, leaving a clear and open entryway into Bloomrane Cavern.
+You charge a powerful spell and cast it at the door. &quot;Ahh!&quot; it yelps, seemingly out of surprise more than anything else. The door begins to open, reacting to your magic. &quot;Wait, that&#39;s not supposed to happen!&quot; the door shouts as the face is obscured from veiw, leaving a clear and open entryway into Bloomrane Cavern.
 
-[[Enter the cavern|Win]]</tw-passagedata><tw-passagedata pid="64" name="Puzzle Magic Fail" tags="" position="1486,2794" size="100,100">&lt;&lt;silently&gt;&gt;
+[[Enter the cavern|Win]]</tw-passagedata><tw-passagedata pid="62" name="Puzzle Magic Fail" tags="" position="1486,2794" size="100,100">&lt;&lt;silently&gt;&gt;
 &lt;&lt;set $choices[&quot;magic&quot;] to $choices[&quot;magic&quot;]+1&gt;&gt;
 &lt;&lt;endsilently&gt;&gt;
 
@@ -626,16 +648,13 @@ A gust of flame erupts from your hand and does absolutely nothing because this i
 &lt;&lt;if $inventory[&quot;magicBow&quot;] &gt; 0&gt;&gt; [[Attack the door with your Magic Bow|Puzzle Bow]] &lt;&lt;else&gt;&gt; [[Attack the door with your Old Bow|Puzzle Bow]] &lt;&lt;endif&gt;&gt;
 [[Listen to the riddle|Puzzle Talk]]
 [[Try to bribe the door|Puzzle Bribe]]
-[[Hide from the door|Puzzle Hide]]</tw-passagedata><tw-passagedata pid="65" name="Puzzle Talk" tags="" position="1636,2794" size="100,100">Double-click this passage to edit it.&lt;&lt;silently&gt;&gt;
+[[Hide from the door|Puzzle Hide]]</tw-passagedata><tw-passagedata pid="63" name="Puzzle Talk" tags="" position="1632,2790" size="100,100">&lt;&lt;silently&gt;&gt;
 &lt;&lt;set $choices[&quot;talk&quot;] to $choices[&quot;talk&quot;]+1&gt;&gt;
 &lt;&lt;endsilently&gt;&gt;
 
 The door clears its throat and begins. &quot;I am not alive, but I grow; I don&#39;t have lungs, but I need air; I don&#39;t have a mouth, but water kills me. What am I?&quot;
 
-[[Mountains|Puzzle Wrong]]
-[[Fire|Puzzle Right]]
-[[Time|Puzzle Wrong]]
-[[Trees|Puzzle Wrong]]</tw-passagedata><tw-passagedata pid="66" name="Puzzle Bribe" tags="" position="1786,2794" size="100,100">&lt;&lt;silently&gt;&gt;
+&lt;&lt;textbox &quot;$response&quot; &quot;&quot; &quot;Puzzle Answer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="64" name="Puzzle Bribe" tags="" position="1786,2794" size="100,100">&lt;&lt;silently&gt;&gt;
 &lt;&lt;set $choices[&quot;bribe&quot;] to $choices[&quot;bribe&quot;]+1&gt;&gt;
 &lt;&lt;endsilently&gt;&gt;
 
@@ -645,7 +664,7 @@ You try to offer some of your treasure and items to the door. &quot;I&#39;m a st
 &lt;&lt;if $inventory[&quot;magicBow&quot;] &gt; 0&gt;&gt; [[Attack the door with your Magic Bow|Puzzle Bow]] &lt;&lt;else&gt;&gt; [[Attack the door with your Old Bow|Puzzle Bow]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory[&quot;magicBook&quot;] &gt; 0&gt;&gt; [[Attack the door with a Powerful Spell|Puzzle Magic Success]] &lt;&lt;else&gt;&gt; [[Attack the door with a Weak Spell|Puzzle Magic Fail]] &lt;&lt;endif&gt;&gt;
 [[Listen to the riddle|Puzzle Talk]]
-[[Hide from the door|Puzzle Hide]]</tw-passagedata><tw-passagedata pid="67" name="Puzzle Hide" tags="" position="1936,2794" size="100,100">&lt;&lt;silently&gt;&gt;
+[[Hide from the door|Puzzle Hide]]</tw-passagedata><tw-passagedata pid="65" name="Puzzle Hide" tags="" position="1936,2794" size="100,100">&lt;&lt;silently&gt;&gt;
 &lt;&lt;set $choices[&quot;hide&quot;] to $choices[&quot;hide&quot;]+1&gt;&gt;
 &lt;&lt;endsilently&gt;&gt;
 
@@ -654,16 +673,16 @@ Seeing as the door has already seen you, and as there is nothing large enough ne
 &quot;I can still see you,&quot; the door says, exasperated. &quot;What is it you hope to accomplish with this?&quot;
 
 [[Try to sneak past the door|Puzzle Sneak]]
-[[Wait to see if the door leaves|Puzzle Wait]]</tw-passagedata><tw-passagedata pid="68" name="Puzzle Wrong" tags="" position="1487,2938" size="100,100">&quot;Ha! Not even close!&quot; the door mocks.
+[[Wait|Puzzle Wait]]</tw-passagedata><tw-passagedata pid="66" name="Puzzle Wrong" tags="" position="1548,3032" size="100,100">&quot;Ha! Not even close!&quot; the door mocks.
 
 &lt;&lt;if $inventory[&quot;magicSword&quot;] &gt; 0&gt;&gt; [[Attack the door with your Magic Sword.|Puzzle Sword]] &lt;&lt;else&gt;&gt; [[Attack the door with your Rusty Sword.|Puzzle Sword]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory[&quot;magicBow&quot;] &gt; 0&gt;&gt; [[Attack the door with your Magic Bow|Puzzle Bow]] &lt;&lt;else&gt;&gt; [[Attack the door with your Old Bow|Puzzle Bow]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory[&quot;magicBook&quot;] &gt; 0&gt;&gt; [[Attack the door with a Powerful Spell|Puzzle Magic Success]] &lt;&lt;else&gt;&gt; [[Attack the door with a Weak Spell|Puzzle Magic Fail]] &lt;&lt;endif&gt;&gt;
-[[Listen to the riddle|Puzzle Talk]]
+[[Listen to the riddle again|Puzzle Talk]]
 [[Try to bribe the door|Puzzle Bribe]]
-[[Hide from the door|Puzzle Hide]]</tw-passagedata><tw-passagedata pid="69" name="Puzzle Right" tags="" position="1637,2938" size="100,100">&quot;Ha! you&#39;re not ev... oh, wait, you actually got it. Huh, no one&#39;s ever got it before. I guess, go in?&quot; The door opens, allowing you entry.
+[[Hide from the door|Puzzle Hide]]</tw-passagedata><tw-passagedata pid="67" name="Puzzle Right" tags="" position="1672,3034" size="100,100">&quot;Ha! you&#39;re not ev... oh, wait, you actually got it. Huh, no one&#39;s ever gotten it right before. I guess, go in?&quot; The door opens, allowing you entry.
 
-[[Enter the cavern|Win]]</tw-passagedata><tw-passagedata pid="70" name="Puzzle Sneak" tags="" position="1787,2938" size="100,100">&lt;&lt;silently&gt;&gt;
+[[Enter the cavern|Win]]</tw-passagedata><tw-passagedata pid="68" name="Puzzle Sneak" tags="" position="1788,2946" size="100,100">&lt;&lt;silently&gt;&gt;
 &lt;&lt;set $choices[&quot;sneak&quot;] to $choices[&quot;sneak&quot;]+1&gt;&gt;
 &lt;&lt;endsilently&gt;&gt;
 
@@ -674,14 +693,234 @@ As you try to sneak past, you realize that you can&#39;t. There is only one ente
 &lt;&lt;if $inventory[&quot;magicBook&quot;] &gt; 0&gt;&gt; [[Attack the door with a Powerful Spell|Puzzle Magic Success]] &lt;&lt;else&gt;&gt; [[Attack the door with a Weak Spell|Puzzle Magic Fail]] &lt;&lt;endif&gt;&gt;
 [[Listen to the riddle|Puzzle Talk]]
 [[Try to bribe the door|Puzzle Bribe]]
-[[Hide from the door|Puzzle Hide]]</tw-passagedata><tw-passagedata pid="71" name="Puzzle Wait" tags="" position="1937,2938" size="100,100">&lt;&lt;silently&gt;&gt;
+[[Hide from the door|Puzzle Hide]]</tw-passagedata><tw-passagedata pid="69" name="Puzzle Wait" tags="" position="1937,2938" size="100,100">&lt;&lt;silently&gt;&gt;
 &lt;&lt;set $choices[&quot;wait&quot;] to $choices[&quot;wait&quot;]+1&gt;&gt;
 &lt;&lt;endsilently&gt;&gt;
 You stay in the same position and wait. &quot;Seriously, I can see you; I&#39;m a door; I&#39;m not going anywhere. I&#39;m not even capable of leaving!&quot; the door taunts. You continue to wait. Hours pass, the door growing increasingly frustrated, and seemingly, a bit tired. In one fateful moment, the door yawns, opening just a little, and you dive through the crack into the cavern beyond. You hear a faint sigh and grumbling discontent on the other side of the door.
 
 [[Enter the cavern|Win]]
 
-</tw-passagedata></tw-storydata>
+</tw-passagedata><tw-passagedata pid="70" name="Save Citizen Start" tags="" position="844,1999" size="100,100">&lt;&lt;set $choices[&quot;help&quot;] to $choices[&quot;help&quot;]+1&gt;&gt;
+You begin running, following the sound of the woman&#39;s screams, until you find a group of five men in leather armor brandishing their swords at an eldery woman. &quot;Come on now, you must have something of value in that bag of yours. Hand it over, and nobody needs to get hurt,&quot; one bandit says.
+
+&lt;&lt;if $inventory[&quot;magicSword&quot;] &gt; 0&gt;&gt; [[Attack with your Magic Sword|Bandits Magic Sword]] &lt;&lt;else&gt;&gt; [[Attack with your Rusty Sword|Bandits Rusty Sword]] &lt;&lt;endif&gt;&gt;
+&lt;&lt;if $inventory[&quot;magicBow&quot;] &gt; 0&gt;&gt; [[Attack with your Magic Bow|Bandits Magic Bow]] &lt;&lt;else&gt;&gt; [[Attack with your Old Bow|Bandits Old Bow]] &lt;&lt;endif&gt;&gt;
+&lt;&lt;if $inventory[&quot;magicBook&quot;] &gt; 0&gt;&gt; [[Attack with a Powerful Spell|Bandits Powerful Magic]] &lt;&lt;else&gt;&gt; [[Attack with a Weak Spell|Bandits Weak Magic]] &lt;&lt;endif&gt;&gt;
+[[Try to speak to the bandits|Bandits Talk]]
+[[Try to bribe the bandits|Bandits Bribe]]
+[[Hide behind a large tree|Bandits Hide]]
+[[Run away|Run away]]</tw-passagedata><tw-passagedata pid="71" name="Loot Camp Start" tags="" position="2558,1990" size="100,100">&lt;&lt;set $choices[&quot;loot&quot;] to $choices[&quot;loot&quot;]+1&gt;&gt;
+You decide to search the camp. After rummaging around for a few minutes, you open a crate full of weapons.
+
+[[Pick up the Magic Sword.|Camp Loot Sword]]
+[[Pick up the Magic Bow.|Camp Loot Bow]]
+[[Pick up the Magic Spell Book|Camp Loot Spellbook.]]</tw-passagedata><tw-passagedata pid="72" name="Bandits Magic Sword" tags="" position="253,2189" size="100,100">&lt;&lt;set $choices[&quot;sword&quot;] to $choices[&quot;sword&quot;]+1&gt;&gt;
+You charge the men with your sword, and easily wound the nearest bandit. He shouts in pain and flees into the forest, the other bandits following soon after.
+
+&quot;Thank you,&quot; the old woman says. &quot;That was very brave of you. Please, allow me to give you something in return.&quot; She reaches into her bag, pulls out an old tome of powerful magic spells, and hands it to you. &quot;Hopefully you can put this to good use.&quot;
+\&lt;&lt;set $inventory[&quot;magicBook&quot;] to $inventory[&quot;magicBook&quot;]+1&gt;&gt;
+
+After seeing the woman home safely, you [[continue north toward the cavern.|Puzzle Welcome]]</tw-passagedata><tw-passagedata pid="73" name="Bandits Rusty Sword" tags="" position="407,2191" size="100,100">&lt;&lt;set $choices[&quot;sword&quot;] to $choices[&quot;sword&quot;]+1&gt;&gt;
+You charge one of the men with your sword. Unfortunately, your old, rusty blade is no match for the bandits&#39; superior weapons. They easily block your attacks. A bandit&#39;s sword hits you,
+\&lt;&lt;if $inventory[&quot;armor&quot;]&gt;0&gt;&gt;
+\ but his blade fails to pierce your armor. 
+\&lt;&lt;if $inventory[&quot;magicBow&quot;] &gt; 0&gt;&gt; [[Attack with your Magic Bow|Bandits Magic Bow]] &lt;&lt;else&gt;&gt; [[Attack with your Old Bow|Bandits Old Bow]] &lt;&lt;endif&gt;&gt;
+&lt;&lt;if $inventory[&quot;magicBook&quot;] &gt; 0&gt;&gt; [[Attack with a Powerful Spell|Bandits Powerful Magic]] &lt;&lt;else&gt;&gt; [[Attack with a Weak Spell|Bandits Weak Magic]] &lt;&lt;endif&gt;&gt;
+[[Run away|Run away]]
+\&lt;&lt;else&gt;&gt;
+\ slicing into your side. [[Ouch!|Wounded]]
+\&lt;&lt;endif&gt;&gt;</tw-passagedata><tw-passagedata pid="74" name="Bandits Magic Bow" tags="" position="551,2190" size="100,100">&lt;&lt;set $choices[&quot;bow&quot;] to $choices[&quot;bow&quot;]+1&gt;&gt;
+You fire several arrows at the bandits with your bow. They shout in panic and scatter, fleeing into the forest.
+
+&quot;Thank you,&quot; the old woman says. &quot;That was very brave of you. Please, allow me to give you something in return.&quot; She reaches into her bag, pulls out an old tome of powerful magic spells, and hands it to you. &quot;Hopefully you can put this to good use.&quot;
+\&lt;&lt;set $inventory[&quot;magicBook&quot;] to $inventory[&quot;magicBook&quot;]+1&gt;&gt;
+
+
+After seeing the woman home safely, you [[continue north toward the cavern.|Puzzle Welcome]]</tw-passagedata><tw-passagedata pid="75" name="Bandits Old Bow" tags="" position="692,2189" size="100,100">&lt;&lt;set $choices[&quot;bow&quot;] to $choices[&quot;bow&quot;]+1&gt;&gt;
+You aim your bow and fire at one of the bandits, but the feeble arrow bounces off of his leather armor. The nearest bandit charges at you, swinging his sword,
+\&lt;&lt;if $inventory[&quot;armor&quot;]&gt;0&gt;&gt;
+\ which bounces harmlessly off of your armor. 
+\&lt;&lt;if $inventory[&quot;magicSword&quot;] &gt; 0&gt;&gt; [[Attack with your Magic Sword|Bandits Magic Sword]] &lt;&lt;else&gt;&gt; [[Attack with your Rusty Sword|Bandits Rusty Sword]] &lt;&lt;endif&gt;&gt;
+&lt;&lt;if $inventory[&quot;magicBook&quot;] &gt; 0&gt;&gt; [[Attack with a Powerful Spell|Bandits Powerful Magic]] &lt;&lt;else&gt;&gt; [[Attack with a Weak Spell|Bandits Weak Magic]] &lt;&lt;endif&gt;&gt;
+[[Run away|Run away]]
+\&lt;&lt;else&gt;&gt;
+\ which slices into your side, [[wounding you badly.|Wounded]]
+\&lt;&lt;endif&gt;&gt;</tw-passagedata><tw-passagedata pid="76" name="Bandits Powerful Magic" tags="" position="831,2191" size="100,100">&lt;&lt;set $choices[&quot;magic&quot;] to $choices[&quot;magic&quot;]+1&gt;&gt;
+You send a ball of fire hurtling toward the nearest bandit. The men shout in panic and scatter, fleeing into the forest.
+
+&quot;Thank you,&quot; the old woman says. &quot;That was very brave of you. Please, allow me to give you something in return.&quot; She reaches into her bag, pulls out an old tome of powerful magic spells, and hands it to you. &quot;Hopefully you can put this to good use.&quot;
+\&lt;&lt;set $inventory[&quot;magicBook&quot;] to $inventory[&quot;magicBook&quot;]+1&gt;&gt;
+
+After seeing the woman home safely, you [[continue north toward the cavern.|Puzzle Welcome]]</tw-passagedata><tw-passagedata pid="77" name="Bandits Weak Magic" tags="" position="965,2191" size="100,100">&lt;&lt;set $choices[&quot;magic&quot;] to $choices[&quot;magic&quot;]+1&gt;&gt;
+You begin chanting, but the bandits attack you before you can finish casting the spell.
+\&lt;&lt;if $inventory[&quot;armor&quot;]&gt;0&gt;&gt;
+\ One attempts to stab you, but your armor protects you from the blade. 
+\&lt;&lt;if $inventory[&quot;magicSword&quot;] &gt; 0&gt;&gt; [[Attack with your Magic Sword|Bandits Magic Sword]] &lt;&lt;else&gt;&gt; [[Attack with your Rusty Sword|Bandits Rusty Sword]] &lt;&lt;endif&gt;&gt;
+&lt;&lt;if $inventory[&quot;magicBow&quot;] &gt; 0&gt;&gt; [[Attack with your Magic Bow|Bandits Magic Bow]] &lt;&lt;else&gt;&gt; [[Attack with your Old Bow|Bandits Old Bow]] &lt;&lt;endif&gt;&gt;
+[[Run away|Run away]]
+\&lt;&lt;else&gt;&gt;
+\ One stabs you with his sword, [[wounding you badly.|Wounded]]
+\&lt;&lt;endif&gt;&gt;</tw-passagedata><tw-passagedata pid="78" name="Bandits Talk" tags="" position="1091,2193" size="100,100">&lt;&lt;set $choices[&quot;talk&quot;] to $choices[&quot;talk&quot;]+1&gt;&gt;
+You attempt to reason with the bandits, explaining that there is no need for violence. They laugh raucously, turning toward you with menacing expressions.
+
+&lt;&lt;if $inventory[&quot;magicSword&quot;] &gt; 0&gt;&gt; [[Attack with your Magic Sword|Bandits Magic Sword]] &lt;&lt;else&gt;&gt; [[Attack with your Rusty Sword|Bandits Rusty Sword]] &lt;&lt;endif&gt;&gt;
+&lt;&lt;if $inventory[&quot;magicBow&quot;] &gt; 0&gt;&gt; [[Attack with your Magic Bow|Bandits Magic Bow]] &lt;&lt;else&gt;&gt; [[Attack with your Old Bow|Bandits Old Bow]] &lt;&lt;endif&gt;&gt;
+&lt;&lt;if $inventory[&quot;magicBook&quot;] &gt; 0&gt;&gt; [[Attack with a Powerful Spell|Bandits Powerful Magic]] &lt;&lt;else&gt;&gt; [[Attack with a Weak Spell|Bandits Weak Magic]] &lt;&lt;endif&gt;&gt;
+[[Try to bribe the bandits|Bandits Bribe]]
+[[Run away|Run away]]</tw-passagedata><tw-passagedata pid="79" name="Bandits Bribe" tags="" position="1229,2194" size="100,100">&lt;&lt;set $choices[&quot;bribe&quot;] to $choices[&quot;bribe&quot;]+1&gt;&gt;
+You offer to give the bandits some treasure if they&#39;ll stop harassing the woman. &quot;Oh, I&#39;ll be happy to take whatever you&#39;ve got on you,&quot; one man says with amusement. &quot;But I don&#39;t plan on doing either of you any favors.&quot; He steps toward you with his sword raised and a menacing gleam in his eyes.
+&lt;&lt;if $inventory[&quot;magicSword&quot;] &gt; 0&gt;&gt; [[Attack with your Magic Sword|Bandits Magic Sword]] &lt;&lt;else&gt;&gt; [[Attack with your Rusty Sword|Bandits Rusty Sword]] &lt;&lt;endif&gt;&gt;
+&lt;&lt;if $inventory[&quot;magicBow&quot;] &gt; 0&gt;&gt; [[Attack with your Magic Bow|Bandits Magic Bow]] &lt;&lt;else&gt;&gt; [[Attack with your Old Bow|Bandits Old Bow]] &lt;&lt;endif&gt;&gt;
+&lt;&lt;if $inventory[&quot;magicBook&quot;] &gt; 0&gt;&gt; [[Attack with a Powerful Spell|Bandits Powerful Magic]] &lt;&lt;else&gt;&gt; [[Attack with a Weak Spell|Bandits Weak Magic]] &lt;&lt;endif&gt;&gt;
+[[Run away|Run away]]</tw-passagedata><tw-passagedata pid="80" name="Bandits Hide" tags="" position="1355,2195" size="100,100">&lt;&lt;set $choices[&quot;hide&quot;] to $choices[&quot;hide&quot;]+1&gt;&gt;
+
+You quietly slip behind the trunk of a large tree before the bandits spot you.
+
+[[Wait until the bandits leave|Bandits Wait]]
+[[Sneak away|Bandits Sneak]]
+&lt;&lt;if $inventory[&quot;magicSword&quot;] &gt; 0&gt;&gt; [[Attack with your Magic Sword|Bandits Magic Sword]] &lt;&lt;else&gt;&gt; [[Attack with your Rusty Sword|Bandits Rusty Sword]] &lt;&lt;endif&gt;&gt;
+&lt;&lt;if $inventory[&quot;magicBow&quot;] &gt; 0&gt;&gt; [[Attack with your Magic Bow|Bandits Magic Bow]] &lt;&lt;else&gt;&gt; [[Attack with your Old Bow|Bandits Old Bow]] &lt;&lt;endif&gt;&gt;
+&lt;&lt;if $inventory[&quot;magicBook&quot;] &gt; 0&gt;&gt; [[Attack with a Powerful Spell|Bandits Powerful Magic]] &lt;&lt;else&gt;&gt; [[Attack with a Weak Spell|Bandits Weak Magic]] &lt;&lt;endif&gt;&gt;
+[[Try to speak to the bandits|Bandits Talk]]
+[[Try to bribe the bandits|Bandits Bribe]]</tw-passagedata><tw-passagedata pid="81" name="Wounded" tags="" position="741,2412" size="100,100">You&#39;re too badly hurt to fight any longer.
+&lt;&lt;if $inventory[&quot;healingPotion&quot;]&gt;0&gt;&gt;
+[[Use a health potion|Use Health Potion]]
+[[Run away|Run away]]
+&lt;&lt;else&gt;&gt;
+You have no choice but to [[flee.|Puzzle Welcome]]
+&lt;&lt;endif&gt;&gt;</tw-passagedata><tw-passagedata pid="82" name="Bandits Wait" tags="" position="1503,2225" size="100,100">&lt;&lt;set $choices[&quot;wait&quot;] to $choices[&quot;wait&quot;]+1&gt;&gt;
+You remain hidden behind the tree. The old woman surrenders her satchel to the bandits and runs away, frightened. The bandits laugh raucously as they head back to their camp. After they leave, you emerge from your hiding place and [[continue north toward the cavern.|Puzzle Welcome]]</tw-passagedata><tw-passagedata pid="83" name="Bandits Sneak" tags="" position="1500,2093" size="100,100">&lt;&lt;set $choices[&quot;sneak&quot;] to $choices[&quot;sneak&quot;]+1&gt;&gt;
+Deciding not to intervene, you slip away unnoticed and [[continue north toward the cavern.|Puzzle Welcome]]</tw-passagedata><tw-passagedata pid="84" name="Use Health Potion" tags="" position="503,2522" size="100,100">&lt;&lt;set $inventory[&quot;healingPotion&quot;] to $inventory[&quot;healingPotion&quot;]-1&gt;&gt;
+Stumbling away from your attacker, you manage to grab a healing potion from your bag and quickly drink it. You immediately feel much stronger.
+
+&lt;&lt;if $inventory[&quot;magicSword&quot;] &gt; 0&gt;&gt; [[Attack with your Magic Sword|Bandits Magic Sword]] &lt;&lt;else&gt;&gt; [[Attack with your Rusty Sword|Bandits Rusty Sword]] &lt;&lt;endif&gt;&gt;
+&lt;&lt;if $inventory[&quot;magicBow&quot;] &gt; 0&gt;&gt; [[Attack with your Magic Bow|Bandits Magic Bow]] &lt;&lt;else&gt;&gt; [[Attack with your Old Bow|Bandits Old Bow]] &lt;&lt;endif&gt;&gt;
+&lt;&lt;if $inventory[&quot;magicBook&quot;] &gt; 0&gt;&gt; [[Attack with a Powerful Spell|Bandits Powerful Magic]] &lt;&lt;else&gt;&gt; [[Attack with a Weak Spell|Bandits Weak Magic]] &lt;&lt;endif&gt;&gt;
+[[Run away|Run away]]</tw-passagedata><tw-passagedata pid="85" name="Run away" tags="" position="1038,2555" size="100,100">&lt;&lt;set $choices[&quot;runAway&quot;] to $choices[&quot;runAway&quot;]+1&gt;&gt;
+You flee from the bandits and [[continue north toward the cavern.|Puzzle Welcome]]</tw-passagedata><tw-passagedata pid="86" name="Camp Loot Sword" tags="" position="2380,2128" size="100,100">&lt;&lt;set $choices[&quot;magicSword&quot;] to $choices[&quot;magicSword&quot;]+1&gt;&gt;
+&lt;&lt;if $inventory[&quot;magicSword&quot;] &gt; 0&gt;&gt;
+\You begin to pick up the sword, but realize it&#39;s no better than the one you already have, and there&#39;s no sense in carrying both.
+\&lt;&lt;else&gt;&gt;
+\You pick up the new sword and admire it.
+\&lt;&lt;set $inventory[&quot;magicSword&quot;] to $inventory[&quot;magicSword&quot;]+1
+\&lt;&lt;endif&gt;&gt;
+\Suddenly, you hear footsteps and the sound of men&#39;s voices from nearby. The bandits must be returning!
+
+&lt;&lt;if $inventory[&quot;magicSword&quot;] &gt; 0&gt;&gt; [[Attack with your Magic Sword|Camp Magic Sword]] &lt;&lt;else&gt;&gt; [[Attack with your Rusty Sword|Camp Rusty Sword]] &lt;&lt;endif&gt;&gt;
+&lt;&lt;if $inventory[&quot;magicBow&quot;] &gt; 0&gt;&gt; [[Attack with your Magic Bow|Camp Magic Bow]] &lt;&lt;else&gt;&gt; [[Attack with your Old Bow|Camp Old Bow]] &lt;&lt;endif&gt;&gt;
+&lt;&lt;if $inventory[&quot;magicBook&quot;] &gt; 0&gt;&gt; [[Attack with a Powerful Spell|Camp Powerful Magic]] &lt;&lt;else&gt;&gt; [[Attack with a Weak Spell|Camp Weak Magic]] &lt;&lt;endif&gt;&gt;
+[[Try to speak to the bandits|Camp Talk]]
+[[Try to bribe the bandits|Camp Bribe]]
+[[Hide behind a large tree|Camp Hide]]
+[[Run away|Run away]]</tw-passagedata><tw-passagedata pid="87" name="Camp Loot Bow" tags="" position="2570,2125" size="100,100">&lt;&lt;set $choices[&quot;magicBow&quot;] to $choices[&quot;magicBow&quot;]+1&gt;&gt;
+&lt;&lt;if $inventory[&quot;magicBow&quot;] &gt; 0&gt;&gt;
+\You begin to pick up the bow, but realize it&#39;s no better than the one you already have, and there&#39;s no sense in carrying both.
+\&lt;&lt;else&gt;&gt;
+\You pick up the bow and admire it.
+\&lt;&lt;set $inventory[&quot;magicBow&quot;] to $inventory[&quot;magicBow&quot;]+1
+\&lt;&lt;endif&gt;&gt;
+\Suddenly, you hear footsteps and the sound of men&#39;s voices from nearby. The bandits must be returning!
+
+&lt;&lt;if $inventory[&quot;magicSword&quot;] &gt; 0&gt;&gt; [[Attack with your Magic Sword|Camp Magic Sword]] &lt;&lt;else&gt;&gt; [[Attack with your Rusty Sword|Camp Rusty Sword]] &lt;&lt;endif&gt;&gt;
+&lt;&lt;if $inventory[&quot;magicBow&quot;] &gt; 0&gt;&gt; [[Attack with your Magic Bow|Camp Magic Bow]] &lt;&lt;else&gt;&gt; [[Attack with your Old Bow|Camp Old Bow]] &lt;&lt;endif&gt;&gt;
+&lt;&lt;if $inventory[&quot;magicBook&quot;] &gt; 0&gt;&gt; [[Attack with a Powerful Spell|Camp Powerful Magic]] &lt;&lt;else&gt;&gt; [[Attack with a Weak Spell|Camp Weak Magic]] &lt;&lt;endif&gt;&gt;
+[[Try to speak to the bandits|Camp Talk]]
+[[Try to bribe the bandits|Camp Bribe]]
+[[Hide behind a large tree|Camp Hide]]
+[[Run away|Run away]]</tw-passagedata><tw-passagedata pid="88" name="Camp Loot Spellbook." tags="" position="2759,2123" size="100,100">&lt;&lt;set $choices[&quot;magicBook&quot;] to $choices[&quot;magicBook&quot;]+1&gt;&gt;
+\You pick up the spell book and place it inside your bag.
+\&lt;&lt;set $inventory[&quot;magicBook&quot;] to $inventory[&quot;magicBook&quot;]+1
+\Suddenly, you hear footsteps and the sound of men&#39;s voices from nearby. The bandits must be returning!
+
+&lt;&lt;if $inventory[&quot;magicSword&quot;] &gt; 0&gt;&gt; [[Attack with your Magic Sword|Camp Magic Sword]] &lt;&lt;else&gt;&gt; [[Attack with your Rusty Sword|Camp Rusty Sword]] &lt;&lt;endif&gt;&gt;
+&lt;&lt;if $inventory[&quot;magicBow&quot;] &gt; 0&gt;&gt; [[Attack with your Magic Bow|Camp Magic Bow]] &lt;&lt;else&gt;&gt; [[Attack with your Old Bow|Camp Old Bow]] &lt;&lt;endif&gt;&gt;
+&lt;&lt;if $inventory[&quot;magicBook&quot;] &gt; 0&gt;&gt; [[Attack with a Powerful Spell|Camp Powerful Magic]] &lt;&lt;else&gt;&gt; [[Attack with a Weak Spell|Camp Weak Magic]] &lt;&lt;endif&gt;&gt;
+[[Try to speak to the bandits|Camp Talk]]
+[[Try to bribe the bandits|Camp Bribe]]
+[[Hide behind a large tree|Camp Hide]]
+[[Run away|Run away]]</tw-passagedata><tw-passagedata pid="89" name="Camp Magic Sword" tags="" position="2014,2376" size="100,100">&lt;&lt;set $choices[&quot;sword&quot;] to $choices[&quot;sword&quot;] + 1&gt;&gt;
+You charge the men with your sword, and easily wound the nearest bandit. He shouts in pain and flees into the forest, the other bandits following soon after.Triumphant, you grab the rest of the loot and [[continue north toward the cave.|Puzzle Welcome]].
+&lt;&lt;if $inventory[&quot;magicSword&quot;] == 0 set $inventory[&quot;magicSword&quot;] to 1&gt;&gt;
+&lt;&lt;if $inventory[&quot;magicBow&quot;] == 0 set $inventory[&quot;magicBow&quot;] to 1&gt;&gt;
+&lt;&lt;if $inventory[&quot;magicBook&quot;] == 0 set $inventory[&quot;magicBook&quot;] to 1&gt;&gt;
+&lt;&lt;set $inventory[&quot;gold&quot;] to $inventory[&quot;gold&quot;] + 20&gt;&gt;</tw-passagedata><tw-passagedata pid="90" name="Camp Rusty Sword" tags="" position="2163,2370" size="100,100">&lt;&lt;set $choices[&quot;sword&quot;] to $choices[&quot;sword&quot;]+1&gt;&gt;
+You charge one of the men with your sword. Unfortunately, your old, rusty blade is no match for the bandits&#39; superior weapons. They easily block your attacks. A bandit&#39;s sword hits you,
+\&lt;&lt;if $inventory[&quot;armor&quot;]&gt;0&gt;&gt;
+\ but his blade fails to pierce your armor. 
+\&lt;&lt;if $inventory[&quot;magicBow&quot;] &gt; 0&gt;&gt; [[Attack with your Magic Bow|Camp Magic Bow]] &lt;&lt;else&gt;&gt; [[Attack with your Old Bow|Camp Old Bow]] &lt;&lt;endif&gt;&gt;
+&lt;&lt;if $inventory[&quot;magicBook&quot;] &gt; 0&gt;&gt; [[Attack with a Powerful Spell|Camp Powerful Magic]] &lt;&lt;else&gt;&gt; [[Attack with a Weak Spell|Camp Weak Magic]] &lt;&lt;endif&gt;&gt;
+[[Run away|Run away]]
+\&lt;&lt;else&gt;&gt;
+\ slicing into your side. [[Ouch!|Wounded Camp]]
+\&lt;&lt;endif&gt;&gt;</tw-passagedata><tw-passagedata pid="91" name="Camp Magic Bow" tags="" position="2446,2372" size="100,100">&lt;&lt;set $choices[&quot;bow&quot;] to $choices[&quot;bow&quot;]+1&gt;&gt;
+You fire several arrows at the bandits with your bow. They shout in panic and scatter, fleeing into the forest. Triumphant, you grab the rest of the loot and [[continue north toward the cave.|Puzzle Welcome]].
+&lt;&lt;if $inventory[&quot;magicSword&quot;] == 0 set $inventory[&quot;magicSword&quot;] to 1&gt;&gt;
+&lt;&lt;if $inventory[&quot;magicBow&quot;] == 0 set $inventory[&quot;magicBow&quot;] to 1&gt;&gt;
+&lt;&lt;if $inventory[&quot;magicBook&quot;] == 0 set $inventory[&quot;magicBook&quot;] to 1&gt;&gt;
+&lt;&lt;set $inventory[&quot;gold&quot;] to $inventory[&quot;gold&quot;] + 20&gt;&gt;</tw-passagedata><tw-passagedata pid="92" name="Camp Old Bow" tags="" position="2304,2371" size="100,100">&lt;&lt;set $choices[&quot;bow&quot;] to $choices[&quot;bow&quot;]+1&gt;&gt;
+You aim your bow and fire at one of the bandits, but the feeble arrow bounces off of his leather armor. The nearest bandit charges at you, swinging his sword,
+\&lt;&lt;if $inventory[&quot;armor&quot;]&gt;0&gt;&gt;
+\ which bounces harmlessly off of your armor. 
+\&lt;&lt;if $inventory[&quot;magicSword&quot;] &gt; 0&gt;&gt; [[Attack with your Magic Sword|Camp Magic Sword]] &lt;&lt;else&gt;&gt; [[Attack with your Rusty Sword|Camp Rusty Sword]] &lt;&lt;endif&gt;&gt;
+&lt;&lt;if $inventory[&quot;magicBook&quot;] &gt; 0&gt;&gt; [[Attack with a Powerful Spell|Camp Powerful Magic]] &lt;&lt;else&gt;&gt; [[Attack with a Weak Spell|Camp Weak Magic]] &lt;&lt;endif&gt;&gt;
+[[Run away|Run away]]
+\&lt;&lt;else&gt;&gt;
+\ which slices into your side, [[wounding you badly.|Wounded Camp]]
+\&lt;&lt;endif&gt;&gt;</tw-passagedata><tw-passagedata pid="93" name="Camp Powerful Magic" tags="" position="2581,2377" size="100,100">&lt;&lt;set $choices[&quot;magic&quot;] to $choices[&quot;magic&quot;]+1&gt;&gt;
+You send a ball of fire hurtling toward the nearest bandit. The men shout in panic and scatter, fleeing into the forest. Triumphant, you grab the rest of the loot and [[continue north toward the cave.|Puzzle Welcome]].
+&lt;&lt;if $inventory[&quot;magicSword&quot;] == 0 set $inventory[&quot;magicSword&quot;] to 1&gt;&gt;
+&lt;&lt;if $inventory[&quot;magicBow&quot;] == 0 set $inventory[&quot;magicBow&quot;] to 1&gt;&gt;
+&lt;&lt;if $inventory[&quot;magicBook&quot;] == 0 set $inventory[&quot;magicBook&quot;] to 1&gt;&gt;
+&lt;&lt;set $inventory[&quot;gold&quot;] to $inventory[&quot;gold&quot;] + 20&gt;&gt;</tw-passagedata><tw-passagedata pid="94" name="Camp Weak Magic" tags="" position="2724,2382" size="100,100">&lt;&lt;set $choices[&quot;magic&quot;] to $choices[&quot;magic&quot;]+1&gt;&gt;
+You begin chanting, but the bandits attack you before you can finish casting the spell.
+\&lt;&lt;if $inventory[&quot;armor&quot;]&gt;0&gt;&gt;
+\ One attempts to stab you, but your armor protects you from the blade. 
+\&lt;&lt;if $inventory[&quot;magicSword&quot;] &gt; 0&gt;&gt; [[Attack with your Magic Sword|Camp Magic Sword]] &lt;&lt;else&gt;&gt; [[Attack with your Rusty Sword|Camp Rusty Sword]] &lt;&lt;endif&gt;&gt;
+&lt;&lt;if $inventory[&quot;magicBow&quot;] &gt; 0&gt;&gt; [[Attack with your Magic Bow|Camp Magic Bow]] &lt;&lt;else&gt;&gt; [[Attack with your Old Bow|Camp Old Bow]] &lt;&lt;endif&gt;&gt;
+[[Run away|Run away]]
+\&lt;&lt;else&gt;&gt;
+\ One stabs you with his sword, [[wounding you badly.|Wounded Camp]]
+\&lt;&lt;endif&gt;&gt;</tw-passagedata><tw-passagedata pid="95" name="Camp Talk" tags="" position="2870,2384" size="100,100">&lt;&lt;set $choices[&quot;talk&quot;] to $choices[&quot;talk&quot;]+1&gt;&gt;
+&quot;Oh, hello there! I didn&#39;t mean to intrude. I&#39;m just a traveller passing through,&quot; you say cheerfully. The bandits don&#39;t seem convinced. You are standing in the middle of their camp, after all. They glare at you menacingly. &quot;What do you think you&#39;re doing in our camp?&quot; one says angrily, pointing his sword toward you.
+
+&lt;&lt;if $inventory[&quot;magicSword&quot;] &gt; 0&gt;&gt; [[Attack with your Magic Sword|Camp Magic Sword]] &lt;&lt;else&gt;&gt; [[Attack with your Rusty Sword|Camp Rusty Sword]] &lt;&lt;endif&gt;&gt;
+&lt;&lt;if $inventory[&quot;magicBow&quot;] &gt; 0&gt;&gt; [[Attack with your Magic Bow|Camp Magic Bow]] &lt;&lt;else&gt;&gt; [[Attack with your Old Bow|Camp Old Bow]] &lt;&lt;endif&gt;&gt;
+&lt;&lt;if $inventory[&quot;magicBook&quot;] &gt; 0&gt;&gt; [[Attack with a Powerful Spell|Camp Powerful Magic]] &lt;&lt;else&gt;&gt; [[Attack with a Weak Spell|Camp Weak Magic]] &lt;&lt;endif&gt;&gt;
+[[Run away|Run away]]</tw-passagedata><tw-passagedata pid="96" name="Camp Bribe" tags="" position="3008,2383" size="100,100">&lt;&lt;set $choices[&quot;bribe&quot;] to $choices[&quot;bribe&quot;]+1&gt;&gt;
+You offer the bandits some treasure if they allow you to go on your way. They glare at you. &quot;What?! You steal from us, and you think you can bribe us? You&#39;ve got some nerve! No one messes with us. No, I think I&#39;ll take //everything// you&#39;ve got!&quot; The bandits advance toward you, weapons raised.
+
+&lt;&lt;if $inventory[&quot;magicSword&quot;] &gt; 0&gt;&gt; [[Attack with your Magic Sword|Camp Magic Sword]] &lt;&lt;else&gt;&gt; [[Attack with your Rusty Sword|Camp Rusty Sword]] &lt;&lt;endif&gt;&gt;
+&lt;&lt;if $inventory[&quot;magicBow&quot;] &gt; 0&gt;&gt; [[Attack with your Magic Bow|Camp Magic Bow]] &lt;&lt;else&gt;&gt; [[Attack with your Old Bow|Camp Old Bow]] &lt;&lt;endif&gt;&gt;
+&lt;&lt;if $inventory[&quot;magicBook&quot;] &gt; 0&gt;&gt; [[Attack with a Powerful Spell|Camp Powerful Magic]] &lt;&lt;else&gt;&gt; [[Attack with a Weak Spell|Camp Weak Magic]] &lt;&lt;endif&gt;&gt;
+[[Run away|Run away]]</tw-passagedata><tw-passagedata pid="97" name="Camp Hide" tags="" position="1828,2372" size="100,100">&lt;&lt;set $choices[&quot;hide&quot;] to $choices[&quot;hide&quot;]+1&gt;&gt;
+You quickly hide behind a nearby tree before the outlaws spot you. Five men enter camp, talking merrily about the gold they robbed from an old woman. They settle in, two entering their tents, the other three sitting by the fire.
+
+[[Wait|Camp Wait]]
+[[Sneak Away|Camp Sneak]]
+&lt;&lt;if $inventory[&quot;magicSword&quot;] &gt; 0&gt;&gt; [[Attack with your Magic Sword|Camp Magic Sword]] &lt;&lt;else&gt;&gt; [[Attack with your Rusty Sword|Camp Rusty Sword]] &lt;&lt;endif&gt;&gt;
+&lt;&lt;if $inventory[&quot;magicBow&quot;] &gt; 0&gt;&gt; [[Attack with your Magic Bow|Camp Magic Bow]] &lt;&lt;else&gt;&gt; [[Attack with your Old Bow|Camp Old Bow]] &lt;&lt;endif&gt;&gt;
+&lt;&lt;if $inventory[&quot;magicBook&quot;] &gt; 0&gt;&gt; [[Attack with a Powerful Spell|Camp Powerful Magic]] &lt;&lt;else&gt;&gt; [[Attack with a Weak Spell|Camp Weak Magic]] &lt;&lt;endif&gt;&gt;</tw-passagedata><tw-passagedata pid="98" name="Camp Wait" tags="" position="1914,2548" size="100,100">&lt;&lt;set $choices[&quot;wait&quot;] to $choices[&quot;wait&quot;]+1&gt;&gt;
+You wait for a while, but the outlaws don&#39;t seem to be going anywhere.
+
+[[Sneak Away|Camp Sneak]]
+&lt;&lt;if $inventory[&quot;magicSword&quot;] &gt; 0&gt;&gt; [[Attack with your Magic Sword|Camp Magic Sword]] &lt;&lt;else&gt;&gt; [[Attack with your Rusty Sword|Camp Rusty Sword]] &lt;&lt;endif&gt;&gt;
+&lt;&lt;if $inventory[&quot;magicBow&quot;] &gt; 0&gt;&gt; [[Attack with your Magic Bow|Camp Magic Bow]] &lt;&lt;else&gt;&gt; [[Attack with your Old Bow|Camp Old Bow]] &lt;&lt;endif&gt;&gt;
+&lt;&lt;if $inventory[&quot;magicBook&quot;] &gt; 0&gt;&gt; [[Attack with a Powerful Spell|Camp Powerful Magic]] &lt;&lt;else&gt;&gt; [[Attack with a Weak Spell|Camp Weak Magic]] &lt;&lt;endif&gt;&gt;</tw-passagedata><tw-passagedata pid="99" name="Camp Sneak" tags="" position="1758,2555" size="100,100">&lt;&lt;set $choices[&quot;sneak&quot;] to $choices[&quot;sneak&quot;]+1&gt;&gt;
+You quietly sneak away from the camp. Fortunately, no one sees you. You [[continue north toward the cavern.|Puzzle Welcome]]</tw-passagedata><tw-passagedata pid="100" name="Wounded Camp" tags="" position="2396,2547" size="100,100">You&#39;re too badly hurt to fight any longer. 
+&lt;&lt;if $inventory[&quot;healingPotion&quot;]&gt;0&gt;&gt;
+[[Use a health potion|Use Health Potion Camp]]
+[[Run away|Run away]].
+&lt;&lt;else&gt;&gt;
+\You have no choice but to [[flee.|Puzzle Welcome]]
+&lt;&lt;endif&gt;&gt;</tw-passagedata><tw-passagedata pid="101" name="Use Health Potion Camp" tags="" position="2186,2552" size="100,100">&lt;&lt;set $inventory[&quot;healingPotion&quot;] to $inventory[&quot;healingPotion&quot;]-1]]&gt;&gt;
+Stumbling away from your attacker, you manage to grab a healing potion from your bag and quickly drink it. You immediately feel much stronger.
+
+&lt;&lt;if $inventory[&quot;magicSword&quot;] &gt; 0&gt;&gt; [[Attack with your Magic Sword|Camp Magic Sword]] &lt;&lt;else&gt;&gt; [[Attack with your Rusty Sword|Camp Rusty Sword]] &lt;&lt;endif&gt;&gt;
+&lt;&lt;if $inventory[&quot;magicBow&quot;] &gt; 0&gt;&gt; [[Attack with your Magic Bow|Camp Magic Bow]] &lt;&lt;else&gt;&gt; [[Attack with your Old Bow|Camp Old Bow]] &lt;&lt;endif&gt;&gt;
+&lt;&lt;if $inventory[&quot;magicBook&quot;] &gt; 0&gt;&gt; [[Attack with a Powerful Spell|Camp Powerful Magic]] &lt;&lt;else&gt;&gt; [[Attack with a Weak Spell|Camp Weak Magic]] &lt;&lt;endif&gt;&gt;
+[[Run away|Run away]].</tw-passagedata><tw-passagedata pid="102" name="Puzzle Answer" tags="" position="1631,2908" size="100,100">&lt;&lt;set $response to $response.toLowerCase()&gt;&gt;
+&lt;&lt;if $response == &quot;fire&quot;&gt;&gt; &lt;&lt;goto &quot;Puzzle Right&quot;&gt;&gt;
+&lt;&lt;else&gt;&gt; &lt;&lt;goto &quot;Puzzle Wrong&quot;&gt;&gt; &lt;&lt;endif&gt;&gt;</tw-passagedata></tw-storydata>
 	<script id="script-sugarcube" type="text/javascript">
 	/*! SugarCube JS */
 	if(document.documentElement.getAttribute("data-init")==="loading"){!function(window,document,jQuery,undefined){"use strict";function _classCallCheck(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function _toConsumableArray(e){if(Array.isArray(e)){for(var t=0,r=Array(e.length);t<e.length;t++)r[t]=e[t];return r}return Array.from(e)}var _createClass=function(){function e(e,t){for(var r=0;r<t.length;r++){var n=t[r];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(e,n.key,n)}}return function(t,r,n){return r&&e(t.prototype,r),n&&e(t,n),t}}(),_slicedToArray=function(){function e(e,t){var r=[],n=!0,a=!1,i=undefined;try{for(var o,s=e[Symbol.iterator]();!(n=(o=s.next()).done)&&(r.push(o.value),!t||r.length!==t);n=!0);}catch(e){a=!0,i=e}finally{try{!n&&s.return&&s.return()}finally{if(a)throw i}}return r}return function(t,r){if(Array.isArray(t))return t;if(Symbol.iterator in Object(t))return e(t,r);throw new TypeError("Invalid attempt to destructure non-iterable instance")}}(),_typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},errorPrologRegExp=/^(?:(?:uncaught\s+(?:exception:\s+)?)?\w*(?:error|exception|_err):\s+)+/i,Alert=function(){function e(e,t,r,n){var a="fatal"===e,i="Apologies! "+(a?"A fatal":"An")+" error has occurred.";i+=a?" Aborting.":" You may be able to continue, but some parts may not work properly.",null==t&&null==r||(i+="\n\nError",null!=t&&(i+=" ["+t+"]"),i+=null!=r?": "+r.replace(errorPrologRegExp,"")+".":": unknown error."),"object"===(void 0===n?"undefined":_typeof(n))&&n.stack&&(i+="\n\nStack Trace:\n"+n.stack),window.alert(i)}function t(t,r,n){e(null,t,r,n)}function r(t,r,n){e("fatal",t,r,n)}return function(e){window.onerror=function(n,a,i,o,s){"complete"===document.readyState?t(null,n,s):(r(null,n,s),window.onerror=e,"function"==typeof window.onerror&&window.onerror.apply(this,arguments))}}(window.onerror),Object.freeze(Object.defineProperties({},{error:{value:t},fatal:{value:r}}))}(),Patterns=function(){var e=function(){var e=new Map([[" ","\\u0020"],["\f","\\f"],["\n","\\n"],["\r","\\r"],["\t","\\t"],["\v","\\v"],[" ","\\u00a0"],[" ","\\u1680"],["᠎","\\u180e"],[" ","\\u2000"],[" ","\\u2001"],[" ","\\u2002"],[" ","\\u2003"],[" ","\\u2004"],[" ","\\u2005"],[" ","\\u2006"],[" ","\\u2007"],[" ","\\u2008"],[" ","\\u2009"],[" ","\\u200a"],["\u2028","\\u2028"],["\u2029","\\u2029"],[" ","\\u202f"],[" ","\\u205f"],["　","\\u3000"],["\ufeff","\\ufeff"]]),t=/^\s$/,r="";return e.forEach(function(e,n){t.test(n)||(r+=e)}),r?"[\\s"+r+"]":"\\s"}(),t="\\s"===e?"\\S":e.replace(/^\[/,"[^"),r="[0-9A-Z_a-z\\-\\u00c0-\\u00d6\\u00d8-\\u00f6\\u00f8-\\u00ff\\u0150\\u0170\\u0151\\u0171]",n=r.replace("\\-",""),a=function(){return"("+r+"+)\\(([^\\)\\|\\n]+)\\):|("+r+"+):([^;\\|\\n]+);|((?:\\."+r+"+)+);|((?:#"+r+"+)+);"}();return Object.freeze({space:e,spaceNoTerminator:"[\\u0020\\f\\t\\v\\u00a0\\u1680\\u180e\\u2000-\\u200a\\u202f\\u205f\\u3000\\ufeff]",lineTerminator:"[\\n\\r\\u2028\\u2029]",notSpace:t,anyChar:"(?:.|[\\n\\r\\u2028\\u2029])",anyLetter:r,anyLetterStrict:n,identifierFirstChar:"[$A-Z_a-z]",identifierNextChar:"[$0-9A-Z_a-z]",identifier:"[$A-Z_a-z][$0-9A-Z_a-z]*",variableSigil:"[$_]",variable:"[$_][$A-Z_a-z][$0-9A-Z_a-z]*",macroName:"[A-Za-z][\\w-]*|[=-]",templateName:"[A-Za-z][\\w-]*",cssImage:"\\[[<>]?[Ii][Mm][Gg]\\[(?:\\s|\\S)*?\\]\\]+",inlineCss:a,url:"(?:file|https?|mailto|ftp|javascript|irc|news|data):[^\\s'\"]+"})}();!function(){!function(e){if(e&&e.prototype&&null==e.prototype.firstElementChild){var t=Node.ELEMENT_NODE;Object.defineProperty(e.prototype,"firstElementChild",{get:function(){for(var e=this.childNodes,r=0;r<e.length;++r){var n=e[r];if(n.nodeType===t)return n}return null}})}}(window.Node||window.Element)}(),function(){function e(e,t){var r=Number.parseInt(e,10)||0;if(r<1)return"";var n=void 0===t?"":String(t);for(""===n&&(n=" ");n.length<r;){var a=n.length,i=r-a;n+=a>i?n.slice(0,i):n}return n.length>r&&(n=n.slice(0,r)),n}var t=function(){function e(e,n){var a=String(e);if(!a)return a;switch(n){case"start":return t.test(a)?a.replace(t,""):a;case"end":return r.test(a)?a.replace(r,""):a;default:throw new Error('_trimString called with incorrect where parameter value: "'+n+'"')}}var t=new RegExp("^"+Patterns.space+Patterns.space+"*"),r=new RegExp(""+Patterns.space+Patterns.space+"*$");return e}();Array.prototype.flat||Object.defineProperty(Array.prototype,"flat",{configurable:!0,writable:!0,value:function(){function e(){if(null==this)throw new TypeError("Array.prototype.flat called on null or undefined");var t=0===arguments.length?1:Number(arguments[0])||0;return t<1?Array.prototype.slice.call(this):Array.prototype.reduce.call(this,function(r,n){return n instanceof Array?r.push.apply(r,_toConsumableArray(e.call(n,t-1))):r.push(n),r},[])}return e}()}),Array.prototype.flatMap||Object.defineProperty(Array.prototype,"flatMap",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.flatMap called on null or undefined");return Array.prototype.map.apply(this,arguments).flat()}}),Array.prototype.includes||Object.defineProperty(Array.prototype,"includes",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.includes called on null or undefined");if(0===arguments.length)return!1;var e=this.length>>>0;if(0===e)return!1;var t=arguments[0],r=Number(arguments[1])||0;for(r<0&&(r=Math.max(0,e+r));r<e;++r){var n=this[r];if(n===t||n!==n&&t!==t)return!0}return!1}}),Object.entries||Object.defineProperty(Object,"entries",{configurable:!0,writable:!0,value:function(e){if("object"!==(void 0===e?"undefined":_typeof(e))||null===e)throw new TypeError("Object.entries object parameter must be an object");return Object.keys(e).map(function(t){return[t,e[t]]})}}),Object.fromEntries||Object.defineProperty(Object,"fromEntries",{configurable:!0,writable:!0,value:function(e){return Array.from(e).reduce(function(e,t){if(Object(t)!==t)throw new TypeError("Object.fromEntries iterable parameter must yield objects");return t[0]in e?Object.defineProperty(e,t[0],{configurable:!0,enumerable:!0,writable:!0,value:t[1]}):e[t[0]]=t[1],e},{})}}),Object.getOwnPropertyDescriptors||Object.defineProperty(Object,"getOwnPropertyDescriptors",{configurable:!0,writable:!0,value:function(e){if(null==e)throw new TypeError("Object.getOwnPropertyDescriptors object parameter is null or undefined");var t=Object(e);return Reflect.ownKeys(t).reduce(function(e,r){var n=Object.getOwnPropertyDescriptor(t,r);return void 0!==n&&(r in e?Object.defineProperty(e,r,{configurable:!0,enumerable:!0,writable:!0,value:n}):e[r]=n),e},{})}}),Object.values||Object.defineProperty(Object,"values",{configurable:!0,writable:!0,value:function(e){if("object"!==(void 0===e?"undefined":_typeof(e))||null===e)throw new TypeError("Object.values object parameter must be an object");return Object.keys(e).map(function(t){return e[t]})}}),String.prototype.padStart||Object.defineProperty(String.prototype,"padStart",{configurable:!0,writable:!0,value:function(t,r){if(null==this)throw new TypeError("String.prototype.padStart called on null or undefined");var n=String(this),a=n.length,i=Number.parseInt(t,10);return i<=a?n:e(i-a,r)+n}}),String.prototype.padEnd||Object.defineProperty(String.prototype,"padEnd",{configurable:!0,writable:!0,value:function(t,r){if(null==this)throw new TypeError("String.prototype.padEnd called on null or undefined");var n=String(this),a=n.length,i=Number.parseInt(t,10);return i<=a?n:n+e(i-a,r)}}),String.prototype.trimStart||Object.defineProperty(String.prototype,"trimStart",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("String.prototype.trimStart called on null or undefined");return t(this,"start")}}),String.prototype.trimLeft||Object.defineProperty(String.prototype,"trimLeft",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("String.prototype.trimLeft called on null or undefined");return t(this,"start")}}),String.prototype.trimEnd||Object.defineProperty(String.prototype,"trimEnd",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("String.prototype.trimEnd called on null or undefined");return t(this,"end")}}),String.prototype.trimRight||Object.defineProperty(String.prototype,"trimRight",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("String.prototype.trimRight called on null or undefined");return t(this,"end")}})}(),function(){function _random(){var e=void 0,t=void 0;switch(arguments.length){case 0:throw new Error("_random called with insufficient parameters");case 1:e=0,t=arguments[0];break;default:e=arguments[0],t=arguments[1]}if(e>t){var r=[t,e];e=r[0],t=r[1]}return Math.floor(_nativeMathRandom()*(t-e+1))+e}function _randomIndex(e,t){var r=void 0,n=void 0;switch(t.length){case 1:r=0,n=e-1;break;case 2:r=0,n=Math.trunc(t[1]);break;default:r=Math.trunc(t[1]),n=Math.trunc(t[2])}return Number.isNaN(r)?r=0:!Number.isFinite(r)||r>=e?r=e-1:r<0&&(r=e+r)<0&&(r=0),Number.isNaN(n)?n=0:!Number.isFinite(n)||n>=e?n=e-1:n<0&&(n=e+n)<0&&(n=e-1),_random(r,n)}function _getCodePointStartAndEnd(e,t){var r=e.charCodeAt(t);if(Number.isNaN(r))return{char:"",start:-1,end:-1};if(r<55296||r>57343)return{char:e.charAt(t),start:t,end:t};if(r>=55296&&r<=56319){var n=t+1;if(n>=e.length)throw new Error("high surrogate without trailing low surrogate");var a=e.charCodeAt(n);if(a<56320||a>57343)throw new Error("high surrogate without trailing low surrogate");return{char:e.charAt(t)+e.charAt(n),start:t,end:n}}if(0===t)throw new Error("low surrogate without leading high surrogate");var i=t-1,o=e.charCodeAt(i);if(o<55296||o>56319)throw new Error("low surrogate without leading high surrogate");return{char:e.charAt(i)+e.charAt(t),start:i,end:t}}var _nativeMathRandom=Math.random;Object.defineProperty(Array,"random",{configurable:!0,writable:!0,value:function(e){if("object"!==(void 0===e?"undefined":_typeof(e))||null===e||!Object.prototype.hasOwnProperty.call(e,"length"))throw new TypeError("Array.random array parameter must be an array or array-lke object");var t=e.length>>>0;if(0!==t){return e[0===arguments.length?_random(0,t-1):_randomIndex(t,Array.prototype.slice.call(arguments,1))]}}}),Object.defineProperty(Array.prototype,"concatUnique",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.concatUnique called on null or undefined");var e=Array.from(this);if(0===arguments.length)return e;var t=Array.prototype.reduce.call(arguments,function(e,t){return e.concat(t)},[]),r=t.length;if(0===r)return e;for(var n=Array.prototype.indexOf,a=Array.prototype.push,i=0;i<r;++i){var o=t[i];-1===n.call(e,o)&&a.call(e,o)}return e}}),Object.defineProperty(Array.prototype,"count",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.count called on null or undefined");for(var e=Array.prototype.indexOf,t=arguments[0],r=Number(arguments[1])||0,n=0;-1!==(r=e.call(this,t,r));)++n,++r;return n}}),Object.defineProperty(Array.prototype,"delete",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.delete called on null or undefined");if(0===arguments.length)return[];var e=this.length>>>0;if(0===e)return[];for(var t=Array.prototype.concat.apply([],arguments),r=t.length,n=[],a=0;a<e;++a)for(var i=this[a],o=0;o<r;++o){var s=t[o];if(i===s||i!==i&&s!==s){n.push(a);break}}for(var u=[],l=0,c=n.length;l<c;++l)u[l]=this[n[l]];for(var d=Array.prototype.splice,f=n.length-1;f>=0;--f)d.call(this,n[f],1);return u}}),Object.defineProperty(Array.prototype,"deleteAt",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.deleteAt called on null or undefined");if(0===arguments.length)return[];var e=this.length>>>0;if(0===e)return[];for(var t=Array.prototype.splice,r=[].concat(_toConsumableArray(new Set(Array.prototype.concat.apply([],arguments).map(function(t){return t<0?Math.max(0,e+t):t})).values())),n=[].concat(_toConsumableArray(r)).sort(function(e,t){return t-e}),a=[],i=0,o=r.length;i<o;++i)a[i]=this[r[i]];for(var s=0,u=n.length;s<u;++s)t.call(this,n[s],1);return a}}),Object.defineProperty(Array.prototype,"deleteWith",{configurable:!0,writable:!0,value:function(e,t){if(null==this)throw new TypeError("Array.prototype.deleteWith called on null or undefined");if("function"!=typeof e)throw new Error("Array.prototype.deleteWith predicate parameter must be a function");var r=this.length>>>0;if(0===r)return[];for(var n=Array.prototype.splice,a=[],i=[],o=0;o<r;++o)e.call(t,this[o],o,this)&&(i.push(this[o]),a.push(o));for(var s=a.length-1;s>=0;--s)n.call(this,a[s],1);return i}}),Object.defineProperty(Array.prototype,"first",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.first called on null or undefined");if(0!=this.length>>>0)return this[0]}}),Object.defineProperty(Array.prototype,"includesAll",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.includesAll called on null or undefined");if(1===arguments.length)return Array.isArray(arguments[0])?Array.prototype.includesAll.apply(this,arguments[0]):Array.prototype.includes.apply(this,arguments);for(var e=0,t=arguments.length;e<t;++e)if(!Array.prototype.some.call(this,function(e){return e===this.val||e!==e&&this.val!==this.val},{val:arguments[e]}))return!1;return!0}}),Object.defineProperty(Array.prototype,"includesAny",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.includesAny called on null or undefined");if(1===arguments.length)return Array.isArray(arguments[0])?Array.prototype.includesAny.apply(this,arguments[0]):Array.prototype.includes.apply(this,arguments);for(var e=0,t=arguments.length;e<t;++e)if(Array.prototype.some.call(this,function(e){return e===this.val||e!==e&&this.val!==this.val},{val:arguments[e]}))return!0;return!1}}),Object.defineProperty(Array.prototype,"last",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.last called on null or undefined");var e=this.length>>>0;if(0!==e)return this[e-1]}}),Object.defineProperty(Array.prototype,"pluck",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.pluck called on null or undefined");var e=this.length>>>0;if(0!==e){var t=0===arguments.length?_random(0,e-1):_randomIndex(e,[].concat(Array.prototype.slice.call(arguments)));return Array.prototype.splice.call(this,t,1)[0]}}}),Object.defineProperty(Array.prototype,"pluckMany",{configurable:!0,writable:!0,value:function(e){if(null==this)throw new TypeError("Array.prototype.pluckMany called on null or undefined");var t=this.length>>>0;if(0===t)return[];var r=Math.trunc(e);if(!Number.isInteger(r))throw new Error("Array.prototype.pluckMany want parameter must be an integer");if(r<1)return[];r>t&&(r=t);var n=Array.prototype.splice,a=[],i=t-1;do{a.push(n.call(this,_random(0,i--),1)[0])}while(a.length<r);return a}}),Object.defineProperty(Array.prototype,"pushUnique",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.pushUnique called on null or undefined");var e=arguments.length;if(0===e)return this.length>>>0;for(var t=Array.prototype.indexOf,r=Array.prototype.push,n=0;n<e;++n){var a=arguments[n];-1===t.call(this,a)&&r.call(this,a)}return this.length>>>0}}),Object.defineProperty(Array.prototype,"random",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.random called on null or undefined");var e=this.length>>>0;if(0!==e){return this[0===arguments.length?_random(0,e-1):_randomIndex(e,[].concat(Array.prototype.slice.call(arguments)))]}}}),Object.defineProperty(Array.prototype,"randomMany",{configurable:!0,writable:!0,value:function(e){if(null==this)throw new TypeError("Array.prototype.randomMany called on null or undefined");var t=this.length>>>0;if(0===t)return[];var r=Math.trunc(e);if(!Number.isInteger(r))throw new Error("Array.prototype.randomMany want parameter must be an integer");if(r<1)return[];r>t&&(r=t);var n=new Map,a=[],i=t-1;do{var o=void 0;do{o=_random(0,i)}while(n.has(o));n.set(o,!0),a.push(this[o])}while(a.length<r);return a}}),Object.defineProperty(Array.prototype,"shuffle",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.shuffle called on null or undefined");var e=this.length>>>0;if(0===e)return this;for(var t=e-1;t>0;--t){var r=Math.floor(_nativeMathRandom()*(t+1));if(t!==r){var n=this[t];this[t]=this[r],this[r]=n}}return this}}),Object.defineProperty(Array.prototype,"unshiftUnique",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.unshiftUnique called on null or undefined");var e=arguments.length;if(0===e)return this.length>>>0;for(var t=Array.prototype.indexOf,r=Array.prototype.unshift,n=0;n<e;++n){var a=arguments[n];-1===t.call(this,a)&&r.call(this,a)}return this.length>>>0}}),Object.defineProperty(Function.prototype,"partial",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Function.prototype.partial called on null or undefined");var e=Array.prototype.slice,t=this,r=e.call(arguments,0);return function(){for(var n=[],a=0,i=0;i<r.length;++i)n.push(r[i]===undefined?arguments[a++]:r[i]);return t.apply(this,n.concat(e.call(arguments,a)))}}}),Object.defineProperty(Math,"clamp",{configurable:!0,writable:!0,value:function(e,t,r){var n=Number(e);return Number.isNaN(n)?NaN:n.clamp(t,r)}}),Object.defineProperty(Math,"easeInOut",{configurable:!0,writable:!0,value:function(e){return 1-(Math.cos(Number(e)*Math.PI)+1)/2}}),Object.defineProperty(Number.prototype,"clamp",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Number.prototype.clamp called on null or undefined");if(2!==arguments.length)throw new Error("Number.prototype.clamp called with an incorrect number of parameters");var e=Number(arguments[0]),t=Number(arguments[1]);if(e>t){var r=[t,e];e=r[0],t=r[1]}return Math.min(Math.max(this,e),t)}}),RegExp.escape||function(){var e=/[\\^$*+?.()|[\]{}]/g,t=new RegExp(e.source);Object.defineProperty(RegExp,"escape",{configurable:!0,writable:!0,value:function(r){var n=String(r);return n&&t.test(n)?n.replace(e,"\\$&"):n}})}(),function(){var e=/{(\d+)(?:,([+-]?\d+))?}/g,t=new RegExp(e.source);Object.defineProperty(String,"format",{configurable:!0,writable:!0,value:function(r){function n(e,t,r){if(!t)return e;var n=Math.abs(t)-e.length;if(n<1)return e;var a=String(r).repeat(n);return t<0?e+a:a+e}if(arguments.length<2)return 0===arguments.length?"":r;var a=2===arguments.length&&Array.isArray(arguments[1])?[].concat(_toConsumableArray(arguments[1])):Array.prototype.slice.call(arguments,1);return 0===a.length?r:t.test(r)?(e.lastIndex=0,r.replace(e,function(e,t,r){var i=a[t];if(null==i)return"";for(;"function"==typeof i;)i=i();switch(void 0===i?"undefined":_typeof(i)){case"string":break;case"object":i=JSON.stringify(i);break;default:i=String(i)}return n(i,r?Number.parseInt(r,10):0," ")})):r}})}(),Object.defineProperty(String.prototype,"contains",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("String.prototype.contains called on null or undefined");return-1!==String.prototype.indexOf.apply(this,arguments)}}),Object.defineProperty(String.prototype,"count",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("String.prototype.count called on null or undefined");var e=String(arguments[0]||"");if(""===e)return 0;for(var t=String.prototype.indexOf,r=e.length,n=Number(arguments[1])||0,a=0;-1!==(n=t.call(this,e,n));)++a,n+=r;return a}}),Object.defineProperty(String.prototype,"first",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("String.prototype.first called on null or undefined");return _getCodePointStartAndEnd(String(this),0).char}}),Object.defineProperty(String.prototype,"last",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("String.prototype.last called on null or undefined");var e=String(this);return _getCodePointStartAndEnd(e,e.length-1).char}}),Object.defineProperty(String.prototype,"splice",{configurable:!0,writable:!0,value:function(e,t,r){if(null==this)throw new TypeError("String.prototype.splice called on null or undefined");var n=this.length>>>0;if(0===n)return"";var a=Number(e);Number.isSafeInteger(a)?a<0&&(a+=n)<0&&(a=0):a=0,a>n&&(a=n);var i=Number(t);(!Number.isSafeInteger(i)||i<0)&&(i=0);var o=this.slice(0,a);return void 0!==r&&(o+=r),a+i<n&&(o+=this.slice(a+i)),o}}),Object.defineProperty(String.prototype,"splitOrEmpty",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("String.prototype.splitOrEmpty called on null or undefined");return""===String(this)?[]:String.prototype.split.apply(this,arguments)}}),Object.defineProperty(String.prototype,"toLocaleUpperFirst",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("String.prototype.toLocaleUpperFirst called on null or undefined");var e=String(this),t=_getCodePointStartAndEnd(e,0),r=t.char,n=t.end;return-1===n?"":r.toLocaleUpperCase()+e.slice(n+1)}}),Object.defineProperty(String.prototype,"toUpperFirst",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("String.prototype.toUpperFirst called on null or undefined");var e=String(this),t=_getCodePointStartAndEnd(e,0),r=t.char,n=t.end;return-1===n?"":r.toUpperCase()+e.slice(n+1)}}),Object.defineProperty(Date.prototype,"toJSON",{configurable:!0,writable:!0,value:function(){return["(revive:date)",this.toISOString()]}}),Object.defineProperty(Function.prototype,"toJSON",{configurable:!0,writable:!0,value:function(){return["(revive:eval)","("+this.toString()+")"]}}),Object.defineProperty(Map.prototype,"toJSON",{configurable:!0,writable:!0,value:function(){return["(revive:map)",[].concat(_toConsumableArray(this))]}}),Object.defineProperty(RegExp.prototype,"toJSON",{configurable:!0,writable:!0,value:function(){return["(revive:eval)",this.toString()]}}),Object.defineProperty(Set.prototype,"toJSON",{configurable:!0,writable:!0,value:function(){return["(revive:set)",[].concat(_toConsumableArray(this))]}}),Object.defineProperty(JSON,"reviveWrapper",{configurable:!0,writable:!0,value:function(e,t){if("string"!=typeof e)throw new TypeError("JSON.reviveWrapper code parameter must be a string");return["(revive:eval)",[e,t]]}}),Object.defineProperty(JSON,"_real_parse",{value:JSON.parse}),Object.defineProperty(JSON,"parse",{configurable:!0,writable:!0,value:function value(text,reviver){return JSON._real_parse(text,function(key,val){var value=val;if(Array.isArray(value)&&2===value.length)switch(value[0]){case"(revive:set)":value=new Set(value[1]);break;case"(revive:map)":value=new Map(value[1]);break;case"(revive:date)":value=new Date(value[1]);break;case"(revive:eval)":try{if(Array.isArray(value[1])){var $ReviveData$=value[1][1];value=eval(value[1][0])}else value=eval(value[1])}catch(e){}}else if("string"==typeof value&&"@@revive@@"===value.slice(0,10))try{value=eval(value.slice(10))}catch(e){}if("function"==typeof reviver)try{value=reviver(key,value)}catch(e){}return value})}}),Object.defineProperty(Array.prototype,"contains",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.contains called on null or undefined");return Array.prototype.includes.apply(this,arguments)}}),Object.defineProperty(Array.prototype,"containsAll",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.containsAll called on null or undefined");return Array.prototype.includesAll.apply(this,arguments)}}),Object.defineProperty(Array.prototype,"containsAny",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.containsAny called on null or undefined");return Array.prototype.includesAny.apply(this,arguments)}}),Object.defineProperty(Array.prototype,"flatten",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.flatten called on null or undefined");return Array.prototype.flat.call(this,1/0)}}),Object.defineProperty(String.prototype,"readBracketedList",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("String.prototype.readBracketedList called on null or undefined");for(var e=new RegExp("(?:\\[\\[((?:\\s|\\S)*?)\\]\\])|([^\"'\\s]\\S*)","gm"),t=[],r=void 0;null!==(r=e.exec(this));)r[1]?t.push(r[1]):r[2]&&t.push(r[2]);return t}})}();var Browser=function(){var e=navigator.userAgent.toLowerCase(),t=e.includes("windows phone"),r=Object.freeze({Android:!t&&e.includes("android"),BlackBerry:/blackberry|bb10/.test(e),iOS:!t&&/ip(?:hone|ad|od)/.test(e),Opera:!t&&("object"===_typeof(window.operamini)||e.includes("opera mini")),Windows:t||/iemobile|wpdesktop/.test(e),any:function(){return r.Android||r.BlackBerry||r.iOS||r.Opera||r.Windows}}),n=!r.Windows&&!/khtml|trident|edge/.test(e)&&e.includes("gecko"),a=!e.includes("opera")&&/msie|trident/.test(e),i=a?function(){var t=/(?:msie\s+|rv:)(\d+\.\d)/.exec(e);return t?Number(t[1]):0}():null,o=e.includes("opera")||e.includes(" opr/"),s=o?function(){var t=new RegExp((/khtml|chrome/.test(e)?"opr":"version")+"\\/(\\d+\\.\\d+)"),r=t.exec(e);return r?Number(r[1]):0}():null,u=e.includes("vivaldi");return Object.freeze({userAgent:e,isMobile:r,isGecko:n,isIE:a,ieVersion:i,isOpera:o,operaVersion:s,isVivaldi:u})}(),Has=function(){var e=function(){try{return"function"==typeof document.createElement("audio").canPlayType}catch(e){}return!1}(),t=e&&function(){try{var e=document.createElement("audio").play();return e.catch(function(){}),e instanceof Promise}catch(e){}return!1}(),r=function(){try{return"Blob"in window&&"File"in window&&"FileList"in window&&"FileReader"in window&&!Browser.isMobile.any()&&(!Browser.isOpera||Browser.operaVersion>=15)}catch(e){}return!1}(),n=function(){try{return"geolocation"in navigator&&"function"==typeof navigator.geolocation.getCurrentPosition&&"function"==typeof navigator.geolocation.watchPosition}catch(e){}return!1}(),a=function(){try{return"MutationObserver"in window&&"function"==typeof window.MutationObserver}catch(e){}return!1}(),i=function(){try{return"performance"in window&&"function"==typeof window.performance.now}catch(e){}return!1}(),o=function(){try{return"ontouchstart"in window||!!window.DocumentTouch&&document instanceof window.DocumentTouch||!!navigator.maxTouchPoints||!!navigator.msMaxTouchPoints}catch(e){}return!1}(),s=function(){try{for(var e=new Map([["transition","transitionend"],["MSTransition","msTransitionEnd"],["WebkitTransition","webkitTransitionEnd"],["MozTransition","transitionend"]]),t=[].concat(_toConsumableArray(e.keys())),r=document.createElement("div"),n=0;n<t.length;++n)if(r.style[t[n]]!==undefined)return e.get(t[n])}catch(e){}return!1}();return Object.freeze({audio:e,audioPromise:t,fileAPI:r,geolocation:n,mutationObserver:a,performance:i,touch:o,transitionEndEvent:s})}(),Visibility=function(){function e(){return Boolean(r&&document[r.hiddenProperty])}function t(){return r&&document[r.stateProperty]||"visible"}var r=function(){try{return Object.freeze([{hiddenProperty:"hidden",stateProperty:"visibilityState",changeEvent:"visibilitychange"},{hiddenProperty:"webkitHidden",stateProperty:"webkitVisibilityState",changeEvent:"webkitvisibilitychange"},{hiddenProperty:"mozHidden",stateProperty:"mozVisibilityState",changeEvent:"mozvisibilitychange"},{hiddenProperty:"msHidden",stateProperty:"msVisibilityState",changeEvent:"msvisibilitychange"}].find(function(e){return e.hiddenProperty in document}))}catch(e){}return null}();return Object.freeze(Object.defineProperties({},{isHidden:{value:e},state:{value:t},hiddenProperty:{value:r.hiddenProperty},stateProperty:{value:r.stateProperty},changeEvent:{value:r.changeEvent}}))}(),_ref3=function(){function e(t){if("object"!==(void 0===t?"undefined":_typeof(t))||null===t)return t;if(t instanceof String)return String(t);if(t instanceof Number)return Number(t);if(t instanceof Boolean)return Boolean(t);if("function"==typeof t.clone)return t.clone(!0);if(t.nodeType&&"function"==typeof t.cloneNode)return t.cloneNode(!0);var r=void 0;return t instanceof Array?r=new Array(t.length):t instanceof Date?r=new Date(t.getTime()):t instanceof Map?(r=new Map,t.forEach(function(t,n){return r.set(n,e(t))})):t instanceof RegExp?r=new RegExp(t):t instanceof Set?(r=new Set,t.forEach(function(t){return r.add(e(t))})):r=Object.create(Object.getPrototypeOf(t)),Object.keys(t).forEach(function(n){return r[n]=e(t[n])}),r}function t(e){for(var t=document.createDocumentFragment(),r=document.createElement("p"),n=void 0;null!==(n=e.firstChild);){if(n.nodeType===Node.ELEMENT_NODE){switch(n.nodeName.toUpperCase()){case"BR":if(null!==n.nextSibling&&n.nextSibling.nodeType===Node.ELEMENT_NODE&&"BR"===n.nextSibling.nodeName.toUpperCase()){e.removeChild(n.nextSibling),e.removeChild(n),t.appendChild(r),r=document.createElement("p");continue}if(!r.hasChildNodes()){e.removeChild(n);continue}break;case"ADDRESS":case"ARTICLE":case"ASIDE":case"BLOCKQUOTE":case"CENTER":case"DIV":case"DL":case"FIGURE":case"FOOTER":case"FORM":case"H1":case"H2":case"H3":case"H4":case"H5":case"H6":case"HEADER":case"HR":case"MAIN":case"NAV":case"OL":case"P":case"PRE":case"SECTION":case"TABLE":case"UL":r.hasChildNodes()&&(t.appendChild(r),r=document.createElement("p")),t.appendChild(n);continue}}r.appendChild(n)}r.hasChildNodes()&&t.appendChild(r),e.appendChild(t)}function r(){try{return document.activeElement||null}catch(e){return null}}function n(e,t,r){var n="object"===(void 0===e?"undefined":_typeof(e))?e:document.getElementById(e);if(null==n)return null;var a=Array.isArray(t)?t:[t];jQuery(n).empty();for(var i=0,o=a.length;i<o;++i)if(Story.has(a[i]))return new Wikifier(n,Story.get(a[i]).processText().trim()),n;if(null!=r){var s=String(r).trim();""!==s&&new Wikifier(n,s)}return n}function a(e,t,r){var n=jQuery(document.createElement("div")),a=jQuery(document.createElement("button")),i=jQuery(document.createElement("pre")),o=L10n.get("errorTitle")+": "+(t||"unknown error");return a.addClass("error-toggle").ariaClick({label:L10n.get("errorToggle")},function(){a.hasClass("enabled")?(a.removeClass("enabled"),i.attr({"aria-hidden":!0,hidden:"hidden"})):(a.addClass("enabled"),i.removeAttr("aria-hidden hidden"))}).appendTo(n),jQuery(document.createElement("span")).addClass("error").text(o).appendTo(n),jQuery(document.createElement("code")).text(r).appendTo(i),i.addClass("error-source").attr({"aria-hidden":!0,hidden:"hidden"}).appendTo(n),n.addClass("error-view").appendTo(e),console.warn(o+"\n\t"+r.replace(/\n/g,"\n\t")),!1}function i(e,t){var r=i;switch(void 0===e?"undefined":_typeof(e)){case"number":if(Number.isNaN(e))return t;break;case"object":if(null===e)return t;if(Array.isArray(e))return e.map(function(e){return r(e,t)}).join(", ");if(e instanceof Set)return[].concat(_toConsumableArray(e)).map(function(e){return r(e,t)}).join(", ");if(e instanceof Map){return"{ "+[].concat(_toConsumableArray(e)).map(function(e){var n=_slicedToArray(e,2),a=n[0],i=n[1];return r(a,t)+" → "+r(i,t)}).join(", ")+" }"}return e instanceof Date?e.toLocaleString():"function"==typeof e.toString?e.toString():Object.prototype.toString.call(e);case"function":case"undefined":return t}return String(e)}return Object.freeze(Object.defineProperties({},{clone:{value:e},convertBreaks:{value:t},safeActiveElement:{value:r},setPageElement:{value:n},throwError:{value:a},toStringOrDefault:{value:i}}))
