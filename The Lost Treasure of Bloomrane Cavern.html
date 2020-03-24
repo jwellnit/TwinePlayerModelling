@@ -897,9 +897,9 @@ You flee from the bandits and [[continue north toward the cavern.|Puzzle Welcome
 [[Hide behind a large tree|Camp Hide]]
 [[Run away|Run away]]</tw-passagedata><tw-passagedata pid="89" name="Camp Magic Sword" tags="" position="2014,2376" size="100,100">&lt;&lt;set $choices[&quot;sword&quot;] to $choices[&quot;sword&quot;] + 1&gt;&gt;
 You charge the men with your sword, and easily wound the nearest bandit. He shouts in pain and flees into the forest, the other bandits following soon after.Triumphant, you grab the rest of the loot and [[continue north toward the cave.|Puzzle Welcome]].
-&lt;&lt;if $inventory[&quot;magicSword&quot;] == 0 set $inventory[&quot;magicSword&quot;] to 1&gt;&gt;&lt;&lt;endif&gt;&gt;
-&lt;&lt;if $inventory[&quot;magicBow&quot;] == 0 set $inventory[&quot;magicBow&quot;] to 1&gt;&gt;&lt;&lt;endif&gt;&gt;
-&lt;&lt;if $inventory[&quot;magicBook&quot;] == 0 set $inventory[&quot;magicBook&quot;] to 1&gt;&gt;&lt;&lt;endif&gt;&gt;
+&lt;&lt;if $inventory[&quot;magicSword&quot;] == 0&gt;&gt; &lt;&lt;set $inventory[&quot;magicSword&quot;] to 1&gt;&gt;&lt;&lt;endif&gt;&gt;
+&lt;&lt;if $inventory[&quot;magicBow&quot;] == 0&gt;&gt; &lt;&lt;set $inventory[&quot;magicBow&quot;] to 1&gt;&gt;&lt;&lt;endif&gt;&gt;
+&lt;&lt;if $inventory[&quot;magicBook&quot;] == 0&gt;&gt; &lt;&lt;set $inventory[&quot;magicBook&quot;] to 1&gt;&gt;&lt;&lt;endif&gt;&gt;
 &lt;&lt;set $inventory[&quot;gold&quot;] to $inventory[&quot;gold&quot;] + 20&gt;&gt;&lt;&lt;endif&gt;&gt;</tw-passagedata><tw-passagedata pid="90" name="Camp Rusty Sword" tags="" position="2163,2370" size="100,100">&lt;&lt;set $choices[&quot;sword&quot;] to $choices[&quot;sword&quot;]+1&gt;&gt;
 You charge one of the men with your sword. Unfortunately, your old, rusty blade is no match for the bandits&#39; superior weapons. They easily block your attacks. A bandit&#39;s sword hits you,
 \&lt;&lt;if $inventory[&quot;armor&quot;]&gt;0&gt;&gt;
@@ -911,9 +911,9 @@ You charge one of the men with your sword. Unfortunately, your old, rusty blade 
 \ slicing into your side. [[Ouch!|Wounded Camp]]
 \&lt;&lt;endif&gt;&gt;</tw-passagedata><tw-passagedata pid="91" name="Camp Magic Bow" tags="" position="2446,2372" size="100,100">&lt;&lt;set $choices[&quot;bow&quot;] to $choices[&quot;bow&quot;]+1&gt;&gt;
 You fire several arrows at the bandits with your bow. They shout in panic and scatter, fleeing into the forest. Triumphant, you grab the rest of the loot and [[continue north toward the cave.|Puzzle Welcome]].
-&lt;&lt;if $inventory[&quot;magicSword&quot;] == 0 set $inventory[&quot;magicSword&quot;] to 1&gt;&gt; &lt;&lt;endif&gt;&gt;
-&lt;&lt;if $inventory[&quot;magicBow&quot;] == 0 set $inventory[&quot;magicBow&quot;] to 1&gt;&gt;&lt;&lt;endif&gt;&gt;
-&lt;&lt;if $inventory[&quot;magicBook&quot;] == 0 set $inventory[&quot;magicBook&quot;] to 1&gt;&gt;&lt;&lt;endif&gt;&gt;
+&lt;&lt;if $inventory[&quot;magicSword&quot;] == 0&gt;&gt; &lt;&lt;set $inventory[&quot;magicSword&quot;] to 1&gt;&gt; &lt;&lt;endif&gt;&gt;
+&lt;&lt;if $inventory[&quot;magicBow&quot;] == 0&gt;&gt; &lt;&lt;set $inventory[&quot;magicBow&quot;] to 1&gt;&gt;&lt;&lt;endif&gt;&gt;
+&lt;&lt;if $inventory[&quot;magicBook&quot;] == 0&gt;&gt; &lt;&lt;set $inventory[&quot;magicBook&quot;] to 1&gt;&gt;&lt;&lt;endif&gt;&gt;
 &lt;&lt;set $inventory[&quot;gold&quot;] to $inventory[&quot;gold&quot;] + 20&gt;&gt;&lt;&lt;endif&gt;&gt;</tw-passagedata><tw-passagedata pid="92" name="Camp Old Bow" tags="" position="2304,2371" size="100,100">&lt;&lt;set $choices[&quot;bow&quot;] to $choices[&quot;bow&quot;]+1&gt;&gt;
 You aim your bow and fire at one of the bandits, but the feeble arrow bounces off of his leather armor. The nearest bandit charges at you, swinging his sword,
 \&lt;&lt;if $inventory[&quot;armor&quot;]&gt;0&gt;&gt;
@@ -925,9 +925,9 @@ You aim your bow and fire at one of the bandits, but the feeble arrow bounces of
 \ which slices into your side, [[wounding you badly.|Wounded Camp]]
 \&lt;&lt;endif&gt;&gt;</tw-passagedata><tw-passagedata pid="93" name="Camp Powerful Magic" tags="" position="2581,2377" size="100,100">&lt;&lt;set $choices[&quot;magic&quot;] to $choices[&quot;magic&quot;]+1&gt;&gt;
 You send a ball of fire hurtling toward the nearest bandit. The men shout in panic and scatter, fleeing into the forest. Triumphant, you grab the rest of the loot and [[continue north toward the cave.|Puzzle Welcome]].
-&lt;&lt;if $inventory[&quot;magicSword&quot;] == 0 set $inventory[&quot;magicSword&quot;] to 1&gt;&gt;&lt;&lt;endif&gt;&gt;
-&lt;&lt;if $inventory[&quot;magicBow&quot;] == 0 set $inventory[&quot;magicBow&quot;] to 1&gt;&gt;&lt;&lt;endif&gt;&gt;
-&lt;&lt;if $inventory[&quot;magicBook&quot;] == 0 set $inventory[&quot;magicBook&quot;] to 1&gt;&gt;&lt;&lt;endif&gt;&gt;
+&lt;&lt;if $inventory[&quot;magicSword&quot;] == 0&gt;&gt; &lt;&lt;set $inventory[&quot;magicSword&quot;] to 1&gt;&gt;&lt;&lt;endif&gt;&gt;
+&lt;&lt;if $inventory[&quot;magicBow&quot;] == 0&gt;&gt; &lt;&lt;set $inventory[&quot;magicBow&quot;] to 1&gt;&gt;&lt;&lt;endif&gt;&gt;
+&lt;&lt;if $inventory[&quot;magicBook&quot;] == 0&gt;&gt; &lt;&lt;set $inventory[&quot;magicBook&quot;] to 1&gt;&gt;&lt;&lt;endif&gt;&gt;
 &lt;&lt;set $inventory[&quot;gold&quot;] to $inventory[&quot;gold&quot;] + 20&gt;&gt;</tw-passagedata><tw-passagedata pid="94" name="Camp Weak Magic" tags="" position="2724,2382" size="100,100">&lt;&lt;set $choices[&quot;magic&quot;] to $choices[&quot;magic&quot;]+1&gt;&gt;
 You begin chanting, but the bandits attack you before you can finish casting the spell.
 \&lt;&lt;if $inventory[&quot;armor&quot;]&gt;0&gt;&gt;
