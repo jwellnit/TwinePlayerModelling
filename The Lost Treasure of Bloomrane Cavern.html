@@ -522,7 +522,7 @@ You approach the group standing near the inn and greet them. You ask if they&#39
 
 You thank them for the information, and with your path clear, you head to the shop to gather supplies for your journey.
 
-[[Go to the shop|Shop Welcome]]</tw-passagedata><tw-passagedata pid="43" name="Town Bribe" tags="" position="1565.3333333333333,1250.6666666666667" size="100,100">&lt;&lt;silently&gt;&gt;
+[[Go to the shop|Shop Welcome]]</tw-passagedata><tw-passagedata pid="43" name="Town Bribe" tags="" position="1565,1250" size="100,100">&lt;&lt;silently&gt;&gt;
 &lt;&lt;set $choices[&quot;bribe&quot;] to $choices[&quot;bribe&quot;]+1&gt;&gt;
 &lt;&lt;endsilently&gt;&gt;
 
@@ -630,9 +630,9 @@ You already have a magic bow. It would be too cumbersome to carry another.
 &lt;&lt;endif&gt;&gt;
 [[Continue shopping.|Shop Welcome]]
 
-</tw-passagedata><tw-passagedata pid="55" name="Buy Magic Spell Book" tags="" position="1220,1770" size="100,100">\&lt;&lt;set $inventory[&quot;magicBook&quot;] to $inventory[&quot;magicBook&quot;]+1&gt;&gt;
-\&lt;&lt;set $choices[&quot;magicBook&quot;] to $choices[&quot;magicBook&quot;]+1&gt;&gt;
+</tw-passagedata><tw-passagedata pid="55" name="Buy Magic Spell Book" tags="" position="1220,1770" size="100,100">\&lt;&lt;set $choices[&quot;magicBook&quot;] to $choices[&quot;magicBook&quot;]+1&gt;&gt;
 \&lt;&lt;if $inventory[&quot;magicBook&quot;] == 0&gt;&gt;
+\&lt;&lt;set $inventory[&quot;magicBook&quot;] to $inventory[&quot;magicBook&quot;]+1&gt;&gt;
 \&lt;&lt;set $inventory[&quot;gold&quot;] to $inventory[&quot;gold&quot;]-3&gt;&gt;
 &quot;Here you are!&quot; The shopkeeper pulls the old spell book off of the shelf and hands it to you.
 &lt;&lt;else&gt;&gt;
