@@ -217,7 +217,7 @@ Your arrow hits its mark and the ogre roars but does not retreat.
 &lt;&lt;set $choices[&quot;magic&quot;] to $choices[&quot;magic&quot;]+1&gt;&gt;
 &lt;&lt;endsilently&gt;&gt;
 
-Blast the ogre with a bolt of lightning. &quot;Ow!&quot; he yells, &quot;Fine, I&#39;ll leave!&quot; He runs away from the road, dropping a pouch as he does.
+You blast the ogre with a bolt of lightning. &quot;Ow!&quot; he yells, &quot;Fine, I&#39;ll leave!&quot; He runs away from the road, dropping a pouch as he does.
 
 [[Loot the Pouch|Ogre Loot]]</tw-passagedata><tw-passagedata pid="8" name="Ogre Magic Wound" tags="" position="668,591" size="100,100">&lt;&lt;silently&gt;&gt;
 &lt;&lt;set $choices[&quot;magic&quot;] to $choices[&quot;magic&quot;]+1&gt;&gt;
@@ -473,7 +473,7 @@ Unfortunately, you don&#39;t have enough gold to buy anything.
 [[Loot the Camp|Loot Camp Start]]
 </tw-passagedata><tw-passagedata pid="39" name="Puzzle Welcome" tags="" position="1477,2592" size="100,100">You enter a clearing and see a cave in the side of the cliff face – Bloomrane Cavern. As you approach, however, you see that the entrance to the cave is blocked by a large stone door with a face carved onto it. When you try to open the door, the face springs to life and the door speaks, &quot;To enter the cavern and claim the treasure within, you must first answer my riddle.&quot;
 
-&lt;&lt;if $inventory[&quot;magicSword&quot;] &gt; 0&gt;&gt; [[Attack the door with your Magic Sword.|Puzzle Sword]] &lt;&lt;else&gt;&gt; [[Attack the door with your Rusty Sword.|Puzzle Sword]] &lt;&lt;endif&gt;&gt;
+&lt;&lt;if $inventory[&quot;magicSword&quot;] &gt; 0&gt;&gt; [[Attack the door with your Magic Sword|Puzzle Sword]] &lt;&lt;else&gt;&gt; [[Attack the door with your Rusty Sword|Puzzle Sword]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory[&quot;magicBow&quot;] &gt; 0&gt;&gt; [[Attack the door with your Magic Bow|Puzzle Bow]] &lt;&lt;else&gt;&gt; [[Attack the door with your Old Bow|Puzzle Bow]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory[&quot;magicBook&quot;] &gt; 0&gt;&gt; [[Attack the door with a Powerful Spell|Puzzle Magic Success]] &lt;&lt;else&gt;&gt; [[Attack the door with a Weak Spell|Puzzle Magic Fail]] &lt;&lt;endif&gt;&gt;
 [[Listen to the riddle|Puzzle Talk]]
@@ -685,7 +685,7 @@ You strike the door with your sword, leaving the door unscathed but a large chip
 
 You fire arrow after arrow at the door to no effect. &quot;Ha! That tickles!&quot; The door laughs. You aren&#39;t sure if he&#39;s mocking you, or if that does actually tickle.
 
-&lt;&lt;if $inventory[&quot;magicSword&quot;] &gt; 0&gt;&gt; [[Attack the door with your Magic Sword.|Puzzle Sword]] &lt;&lt;else&gt;&gt; [[Attack the door with your Rusty Sword.|Puzzle Sword]] &lt;&lt;endif&gt;&gt;
+&lt;&lt;if $inventory[&quot;magicSword&quot;] &gt; 0&gt;&gt; [[Attack the door with your Magic Sword|Puzzle Sword]] &lt;&lt;else&gt;&gt; [[Attack the door with your Rusty Sword|Puzzle Sword]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory[&quot;magicBook&quot;] &gt; 0&gt;&gt; [[Attack the door with a Powerful Spell|Puzzle Magic Success]] &lt;&lt;else&gt;&gt; [[Attack the door with a Weak Spell|Puzzle Magic Fail]] &lt;&lt;endif&gt;&gt;
 [[Listen to the riddle|Puzzle Talk]]
 [[Try to bribe the door|Puzzle Bribe]]
@@ -701,7 +701,7 @@ You charge a powerful spell and cast it at the door. &quot;Ahh!&quot; it yelps, 
 
 A gust of flame erupts from your hand and does absolutely nothing because this is a solid stone door. &quot;Are you done? Did you get it all out of your system?&quot; it asks.
 
-&lt;&lt;if $inventory[&quot;magicSword&quot;] &gt; 0&gt;&gt; [[Attack the door with your Magic Sword.|Puzzle Sword]] &lt;&lt;else&gt;&gt; [[Attack the door with your Rusty Sword.|Puzzle Sword]] &lt;&lt;endif&gt;&gt;
+&lt;&lt;if $inventory[&quot;magicSword&quot;] &gt; 0&gt;&gt; [[Attack the door with your Magic Sword|Puzzle Sword]] &lt;&lt;else&gt;&gt; [[Attack the door with your Rusty Sword|Puzzle Sword]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory[&quot;magicBow&quot;] &gt; 0&gt;&gt; [[Attack the door with your Magic Bow|Puzzle Bow]] &lt;&lt;else&gt;&gt; [[Attack the door with your Old Bow|Puzzle Bow]] &lt;&lt;endif&gt;&gt;
 [[Listen to the riddle|Puzzle Talk]]
 [[Try to bribe the door|Puzzle Bribe]]
@@ -711,13 +711,13 @@ A gust of flame erupts from your hand and does absolutely nothing because this i
 
 The door clears its throat and begins. &quot;I am not alive, but I grow; I don&#39;t have lungs, but I need air; I don&#39;t have a mouth, but water kills me. What am I?&quot;
 
-&lt;&lt;textbox &quot;$response&quot; &quot;&quot; &quot;Puzzle Answer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="64" name="Puzzle Bribe" tags="" position="1786,2794" size="100,100">&lt;&lt;silently&gt;&gt;
+&lt;&lt;textbox &quot;$response&quot; &quot;&quot; &quot;Puzzle Answer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="64" name="Puzzle Bribe" tags="" position="1784.3333333333333,2799" size="100,100">&lt;&lt;silently&gt;&gt;
 &lt;&lt;set $choices[&quot;bribe&quot;] to $choices[&quot;bribe&quot;]+1&gt;&gt;
 &lt;&lt;endsilently&gt;&gt;
 
 You try to offer some of your treasure and items to the door. &quot;I&#39;m a stone door guarding vast treasure; what could you possibly offer me I would want?&quot; it scoffs.
 
-&lt;&lt;if $inventory[&quot;magicSword&quot;] &gt; 0&gt;&gt; [[Attack the door with your Magic Sword.|Puzzle Sword]] &lt;&lt;else&gt;&gt; [[Attack the door with your Rusty Sword.|Puzzle Sword]] &lt;&lt;endif&gt;&gt;
+&lt;&lt;if $inventory[&quot;magicSword&quot;] &gt; 0&gt;&gt; [[Attack the door with your Magic Sword|Puzzle Sword]] &lt;&lt;else&gt;&gt; [[Attack the door with your Rusty Sword|Puzzle Sword]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory[&quot;magicBow&quot;] &gt; 0&gt;&gt; [[Attack the door with your Magic Bow|Puzzle Bow]] &lt;&lt;else&gt;&gt; [[Attack the door with your Old Bow|Puzzle Bow]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory[&quot;magicBook&quot;] &gt; 0&gt;&gt; [[Attack the door with a Powerful Spell|Puzzle Magic Success]] &lt;&lt;else&gt;&gt; [[Attack the door with a Weak Spell|Puzzle Magic Fail]] &lt;&lt;endif&gt;&gt;
 [[Listen to the riddle|Puzzle Talk]]
@@ -730,9 +730,14 @@ Seeing as the door has already seen you, and as there is nothing large enough ne
 &quot;I can still see you,&quot; the door says, exasperated. &quot;What is it you hope to accomplish with this?&quot;
 
 [[Try to sneak past the door|Puzzle Sneak]]
-[[Wait|Puzzle Wait]]</tw-passagedata><tw-passagedata pid="66" name="Puzzle Wrong" tags="" position="1526,3010" size="100,100">&quot;Ha! Not even close!&quot; the door mocks.
+[[Wait|Puzzle Wait]]
+&lt;&lt;if $inventory[&quot;magicSword&quot;] &gt; 0&gt;&gt; [[Attack the door with your Magic Sword|Puzzle Sword]] &lt;&lt;else&gt;&gt; [[Attack the door with your Rusty Sword|Puzzle Sword]] &lt;&lt;endif&gt;&gt;
+&lt;&lt;if $inventory[&quot;magicBow&quot;] &gt; 0&gt;&gt; [[Attack the door with your Magic Bow|Puzzle Bow]] &lt;&lt;else&gt;&gt; [[Attack the door with your Old Bow|Puzzle Bow]] &lt;&lt;endif&gt;&gt;
+&lt;&lt;if $inventory[&quot;magicBook&quot;] &gt; 0&gt;&gt; [[Attack the door with a Powerful Spell|Puzzle Magic Success]] &lt;&lt;else&gt;&gt; [[Attack the door with a Weak Spell|Puzzle Magic Fail]] &lt;&lt;endif&gt;&gt;
+[[Listen to the riddle|Puzzle Talk]]
+[[Try to bribe the door|Puzzle Bribe]]</tw-passagedata><tw-passagedata pid="66" name="Puzzle Wrong" tags="" position="1526,3010" size="100,100">&quot;Ha! Not even close!&quot; the door mocks.
 
-&lt;&lt;if $inventory[&quot;magicSword&quot;] &gt; 0&gt;&gt; [[Attack the door with your Magic Sword.|Puzzle Sword]] &lt;&lt;else&gt;&gt; [[Attack the door with your Rusty Sword.|Puzzle Sword]] &lt;&lt;endif&gt;&gt;
+&lt;&lt;if $inventory[&quot;magicSword&quot;] &gt; 0&gt;&gt; [[Attack the door with your Magic Sword|Puzzle Sword]] &lt;&lt;else&gt;&gt; [[Attack the door with your Rusty Sword|Puzzle Sword]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory[&quot;magicBow&quot;] &gt; 0&gt;&gt; [[Attack the door with your Magic Bow|Puzzle Bow]] &lt;&lt;else&gt;&gt; [[Attack the door with your Old Bow|Puzzle Bow]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory[&quot;magicBook&quot;] &gt; 0&gt;&gt; [[Attack the door with a Powerful Spell|Puzzle Magic Success]] &lt;&lt;else&gt;&gt; [[Attack the door with a Weak Spell|Puzzle Magic Fail]] &lt;&lt;endif&gt;&gt;
 [[Listen to the riddle again|Puzzle Talk]]
@@ -745,7 +750,7 @@ Seeing as the door has already seen you, and as there is nothing large enough ne
 
 As you try to sneak past, you realize that you can&#39;t. There is only one enterance and it is blocked by a very solid, very closed door. And the door can see you.
 
-&lt;&lt;if $inventory[&quot;magicSword&quot;] &gt; 0&gt;&gt; [[Attack the door with your Magic Sword.|Puzzle Sword]] &lt;&lt;else&gt;&gt; [[Attack the door with your Rusty Sword.|Puzzle Sword]] &lt;&lt;endif&gt;&gt;
+&lt;&lt;if $inventory[&quot;magicSword&quot;] &gt; 0&gt;&gt; [[Attack the door with your Magic Sword|Puzzle Sword]] &lt;&lt;else&gt;&gt; [[Attack the door with your Rusty Sword|Puzzle Sword]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory[&quot;magicBow&quot;] &gt; 0&gt;&gt; [[Attack the door with your Magic Bow|Puzzle Bow]] &lt;&lt;else&gt;&gt; [[Attack the door with your Old Bow|Puzzle Bow]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory[&quot;magicBook&quot;] &gt; 0&gt;&gt; [[Attack the door with a Powerful Spell|Puzzle Magic Success]] &lt;&lt;else&gt;&gt; [[Attack the door with a Weak Spell|Puzzle Magic Fail]] &lt;&lt;endif&gt;&gt;
 [[Listen to the riddle|Puzzle Talk]]
@@ -757,7 +762,7 @@ You stay in the same position and wait. &quot;Seriously, I can see you; I&#39;m 
 
 [[Enter the cavern|Win]]
 
-</tw-passagedata><tw-passagedata pid="70" name="Save Citizen Start" tags="" position="844,1999" size="100,100">&lt;&lt;set $choices[&quot;help&quot;] to $choices[&quot;help&quot;]+1&gt;&gt;
+</tw-passagedata><tw-passagedata pid="70" name="Save Citizen Start" tags="" position="844,1997.3333333333333" size="100,100">&lt;&lt;set $choices[&quot;help&quot;] to $choices[&quot;help&quot;]+1&gt;&gt;
 You begin running, following the sound of the woman&#39;s screams, until you find a group of five men in leather armor brandishing their swords at an eldery woman. &quot;Come on now, you must have something of value in that bag of yours. Hand it over, and nobody needs to get hurt,&quot; one bandit says.
 
 &lt;&lt;if $inventory[&quot;magicSword&quot;] &gt; 0&gt;&gt; [[Attack with your Magic Sword|Bandits Magic Sword]] &lt;&lt;else&gt;&gt; [[Attack with your Rusty Sword|Bandits Rusty Sword]] &lt;&lt;endif&gt;&gt;
@@ -766,11 +771,11 @@ You begin running, following the sound of the woman&#39;s screams, until you fin
 [[Try to speak to the bandits|Bandits Talk]]
 [[Try to bribe the bandits|Bandits Bribe]]
 [[Hide behind a large tree|Bandits Hide]]
-[[Run away|Run away]]</tw-passagedata><tw-passagedata pid="71" name="Loot Camp Start" tags="" position="2558,1990" size="100,100">&lt;&lt;set $choices[&quot;loot&quot;] to $choices[&quot;loot&quot;]+1&gt;&gt;
+[[Run away|Run away]]</tw-passagedata><tw-passagedata pid="71" name="Loot Camp Start" tags="" position="2558,1991.6666666666667" size="100,100">&lt;&lt;set $choices[&quot;loot&quot;] to $choices[&quot;loot&quot;]+1&gt;&gt;
 You decide to search the camp. After rummaging around for a few minutes, you open a crate full of weapons.
 
-[[Pick up the Magic Sword.|Camp Loot Sword]]
-[[Pick up the Magic Bow.|Camp Loot Bow]]
+[[Pick up the Magic Sword|Camp Loot Sword]]
+[[Pick up the Magic Bow|Camp Loot Bow]]
 [[Pick up the Magic Spell Book|Camp Loot Spellbook.]]</tw-passagedata><tw-passagedata pid="72" name="Bandits Magic Sword" tags="" position="253,2189" size="100,100">&lt;&lt;set $choices[&quot;sword&quot;] to $choices[&quot;sword&quot;]+1&gt;&gt;
 You charge the men with your sword, and easily wound the nearest bandit. He shouts in pain and flees into the forest, the other bandits following soon after.
 
@@ -781,7 +786,7 @@ After seeing the woman home safely, you [[continue north toward the cavern.|Puzz
 You charge one of the men with your sword. Unfortunately, your old, rusty blade is no match for the bandits&#39; superior weapons. They easily block your attacks. A bandit&#39;s sword hits you,
 \&lt;&lt;if $inventory[&quot;armor&quot;]&gt;0&gt;&gt;
 \ but his blade fails to pierce your armor. 
-\&lt;&lt;if $inventory[&quot;magicBow&quot;] &gt; 0&gt;&gt; [[Attack with your Magic Bow|Bandits Magic Bow]] &lt;&lt;else&gt;&gt; [[Attack with your Old Bow|Bandits Old Bow]] &lt;&lt;endif&gt;&gt;
+&lt;&lt;if $inventory[&quot;magicBow&quot;] &gt; 0&gt;&gt; [[Attack with your Magic Bow|Bandits Magic Bow]] &lt;&lt;else&gt;&gt; [[Attack with your Old Bow|Bandits Old Bow]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory[&quot;magicBook&quot;] &gt; 0&gt;&gt; [[Attack with a Powerful Spell|Bandits Powerful Magic]] &lt;&lt;else&gt;&gt; [[Attack with a Weak Spell|Bandits Weak Magic]] &lt;&lt;endif&gt;&gt;
 [[Run away|Run away]]
 \&lt;&lt;else&gt;&gt;
@@ -794,10 +799,10 @@ You fire several arrows at the bandits with your bow. They shout in panic and sc
 
 
 After seeing the woman home safely, you [[continue north toward the cavern.|Puzzle Welcome]]</tw-passagedata><tw-passagedata pid="75" name="Bandits Old Bow" tags="" position="692,2189" size="100,100">&lt;&lt;set $choices[&quot;bow&quot;] to $choices[&quot;bow&quot;]+1&gt;&gt;
-You aim your bow and fire at one of the bandits, but the feeble arrow bounces off of his leather armor. The nearest bandit charges at you, swinging his sword,
+You aim your bow and fire at one of the bandits, but the feeble arrow fails to pierce his leather armor. The nearest bandit charges at you, swinging his sword,
 \&lt;&lt;if $inventory[&quot;armor&quot;]&gt;0&gt;&gt;
 \ which bounces harmlessly off of your armor. 
-\&lt;&lt;if $inventory[&quot;magicSword&quot;] &gt; 0&gt;&gt; [[Attack with your Magic Sword|Bandits Magic Sword]] &lt;&lt;else&gt;&gt; [[Attack with your Rusty Sword|Bandits Rusty Sword]] &lt;&lt;endif&gt;&gt;
+&lt;&lt;if $inventory[&quot;magicSword&quot;] &gt; 0&gt;&gt; [[Attack with your Magic Sword|Bandits Magic Sword]] &lt;&lt;else&gt;&gt; [[Attack with your Rusty Sword|Bandits Rusty Sword]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory[&quot;magicBook&quot;] &gt; 0&gt;&gt; [[Attack with a Powerful Spell|Bandits Powerful Magic]] &lt;&lt;else&gt;&gt; [[Attack with a Weak Spell|Bandits Weak Magic]] &lt;&lt;endif&gt;&gt;
 [[Run away|Run away]]
 \&lt;&lt;else&gt;&gt;
@@ -812,13 +817,13 @@ After seeing the woman home safely, you [[continue north toward the cavern.|Puzz
 You begin chanting, but the bandits attack you before you can finish casting the spell.
 \&lt;&lt;if $inventory[&quot;armor&quot;]&gt;0&gt;&gt;
 \ One attempts to stab you, but your armor protects you from the blade. 
-\&lt;&lt;if $inventory[&quot;magicSword&quot;] &gt; 0&gt;&gt; [[Attack with your Magic Sword|Bandits Magic Sword]] &lt;&lt;else&gt;&gt; [[Attack with your Rusty Sword|Bandits Rusty Sword]] &lt;&lt;endif&gt;&gt;
+&lt;&lt;if $inventory[&quot;magicSword&quot;] &gt; 0&gt;&gt; [[Attack with your Magic Sword|Bandits Magic Sword]] &lt;&lt;else&gt;&gt; [[Attack with your Rusty Sword|Bandits Rusty Sword]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory[&quot;magicBow&quot;] &gt; 0&gt;&gt; [[Attack with your Magic Bow|Bandits Magic Bow]] &lt;&lt;else&gt;&gt; [[Attack with your Old Bow|Bandits Old Bow]] &lt;&lt;endif&gt;&gt;
 [[Run away|Run away]]
 \&lt;&lt;else&gt;&gt;
 \ One stabs you with his sword, [[wounding you badly.|Wounded]]
 \&lt;&lt;endif&gt;&gt;</tw-passagedata><tw-passagedata pid="78" name="Bandits Talk" tags="" position="1091,2193" size="100,100">&lt;&lt;set $choices[&quot;talk&quot;] to $choices[&quot;talk&quot;]+1&gt;&gt;
-You attempt to reason with the bandits, explaining that there is no need for violence. They laugh raucously, turning toward you with menacing expressions.
+You attempt to reason with the bandits, explaining that there is no need for violence. They laugh raucously, turning toward you with weapons raised.
 
 &lt;&lt;if $inventory[&quot;magicSword&quot;] &gt; 0&gt;&gt; [[Attack with your Magic Sword|Bandits Magic Sword]] &lt;&lt;else&gt;&gt; [[Attack with your Rusty Sword|Bandits Rusty Sword]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory[&quot;magicBow&quot;] &gt; 0&gt;&gt; [[Attack with your Magic Bow|Bandits Magic Bow]] &lt;&lt;else&gt;&gt; [[Attack with your Old Bow|Bandits Old Bow]] &lt;&lt;endif&gt;&gt;
@@ -826,6 +831,7 @@ You attempt to reason with the bandits, explaining that there is no need for vio
 [[Try to bribe the bandits|Bandits Bribe]]
 [[Run away|Run away]]</tw-passagedata><tw-passagedata pid="79" name="Bandits Bribe" tags="" position="1229,2194" size="100,100">&lt;&lt;set $choices[&quot;bribe&quot;] to $choices[&quot;bribe&quot;]+1&gt;&gt;
 You offer to give the bandits some treasure if they&#39;ll stop harassing the woman. &quot;Oh, I&#39;ll be happy to take whatever you&#39;ve got on you,&quot; one man says with amusement. &quot;But I don&#39;t plan on doing either of you any favors.&quot; He steps toward you with his sword raised and a menacing gleam in his eyes.
+
 &lt;&lt;if $inventory[&quot;magicSword&quot;] &gt; 0&gt;&gt; [[Attack with your Magic Sword|Bandits Magic Sword]] &lt;&lt;else&gt;&gt; [[Attack with your Rusty Sword|Bandits Rusty Sword]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory[&quot;magicBow&quot;] &gt; 0&gt;&gt; [[Attack with your Magic Bow|Bandits Magic Bow]] &lt;&lt;else&gt;&gt; [[Attack with your Old Bow|Bandits Old Bow]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory[&quot;magicBook&quot;] &gt; 0&gt;&gt; [[Attack with a Powerful Spell|Bandits Powerful Magic]] &lt;&lt;else&gt;&gt; [[Attack with a Weak Spell|Bandits Weak Magic]] &lt;&lt;endif&gt;&gt;
@@ -847,8 +853,8 @@ You quietly slip behind the trunk of a large tree before the bandits spot you.
 You have no choice but to [[flee.|Puzzle Welcome]]
 &lt;&lt;endif&gt;&gt;</tw-passagedata><tw-passagedata pid="82" name="Bandits Wait" tags="" position="1503,2225" size="100,100">&lt;&lt;set $choices[&quot;wait&quot;] to $choices[&quot;wait&quot;]+1&gt;&gt;
 You remain hidden behind the tree. The old woman surrenders her satchel to the bandits and runs away, frightened. The bandits laugh raucously as they head back to their camp. After they leave, you emerge from your hiding place and [[continue north toward the cavern.|Puzzle Welcome]]</tw-passagedata><tw-passagedata pid="83" name="Bandits Sneak" tags="" position="1500,2093" size="100,100">&lt;&lt;set $choices[&quot;sneak&quot;] to $choices[&quot;sneak&quot;]+1&gt;&gt;
-Deciding not to intervene, you slip away unnoticed and [[continue north toward the cavern.|Puzzle Welcome]]</tw-passagedata><tw-passagedata pid="84" name="Use Health Potion" tags="" position="503,2522" size="100,100">&lt;&lt;set $inventory[&quot;healingPotion&quot;] to $inventory[&quot;healingPotion&quot;]-1&gt;&gt;
-Stumbling away from your attacker, you manage to grab a healing potion from your bag and quickly drink it. You immediately feel much stronger.
+Deciding not to intervene, you slip away unnoticed and [[continue north toward the cavern.|Puzzle Welcome]]</tw-passagedata><tw-passagedata pid="84" name="Use Health Potion" tags="" position="503,2522" size="100,100">\&lt;&lt;set $inventory[&quot;healingPotion&quot;] to $inventory[&quot;healingPotion&quot;]-1&gt;&gt;
+\Stumbling away from your attacker, you manage to grab a healing potion from your bag and quickly drink it. You immediately feel much stronger.
 
 &lt;&lt;if $inventory[&quot;magicSword&quot;] &gt; 0&gt;&gt; [[Attack with your Magic Sword|Bandits Magic Sword]] &lt;&lt;else&gt;&gt; [[Attack with your Rusty Sword|Bandits Rusty Sword]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory[&quot;magicBow&quot;] &gt; 0&gt;&gt; [[Attack with your Magic Bow|Bandits Magic Bow]] &lt;&lt;else&gt;&gt; [[Attack with your Old Bow|Bandits Old Bow]] &lt;&lt;endif&gt;&gt;
@@ -856,7 +862,7 @@ Stumbling away from your attacker, you manage to grab a healing potion from your
 [[Run away|Run away]]</tw-passagedata><tw-passagedata pid="85" name="Run away" tags="" position="1038,2555" size="100,100">&lt;&lt;set $choices[&quot;runAway&quot;] to $choices[&quot;runAway&quot;]+1&gt;&gt;
 You flee from the bandits and [[continue north toward the cavern.|Puzzle Welcome]]</tw-passagedata><tw-passagedata pid="86" name="Camp Loot Sword" tags="" position="2380,2128" size="100,100">&lt;&lt;set $choices[&quot;magicSword&quot;] to $choices[&quot;magicSword&quot;]+1&gt;&gt;
 \&lt;&lt;if $inventory[&quot;magicSword&quot;] &gt; 0&gt;&gt;
-\You begin to pick up the sword, but realize it&#39;s no better than the one you already have, and there&#39;s no sense in carrying both.
+\You begin to pick up the sword, but realize it&#39;s no better than the one you already have, and there&#39;s no sense in carrying both. 
 \&lt;&lt;else&gt;&gt;
 \You pick up the new sword and admire it. 
 \&lt;&lt;set $inventory[&quot;magicSword&quot;] to $inventory[&quot;magicSword&quot;]+1&gt;&gt;
@@ -871,7 +877,7 @@ You flee from the bandits and [[continue north toward the cavern.|Puzzle Welcome
 [[Hide behind a large tree|Camp Hide]]
 [[Run away|Run away]]</tw-passagedata><tw-passagedata pid="87" name="Camp Loot Bow" tags="" position="2570,2125" size="100,100">&lt;&lt;set $choices[&quot;magicBow&quot;] to $choices[&quot;magicBow&quot;]+1&gt;&gt;
 &lt;&lt;if $inventory[&quot;magicBow&quot;] &gt; 0&gt;&gt;
-\You begin to pick up the bow, but realize it&#39;s no better than the one you already have, and there&#39;s no sense in carrying both.
+\You begin to pick up the bow, but realize it&#39;s no better than the one you already have, and there&#39;s no sense in carrying both. 
 \&lt;&lt;else&gt;&gt;
 \You pick up the bow and admire it. 
 \&lt;&lt;set $inventory[&quot;magicBow&quot;] to $inventory[&quot;magicBow&quot;]+1&gt;&gt;
@@ -896,35 +902,35 @@ You flee from the bandits and [[continue north toward the cavern.|Puzzle Welcome
 [[Try to bribe the bandits|Camp Bribe]]
 [[Hide behind a large tree|Camp Hide]]
 [[Run away|Run away]]</tw-passagedata><tw-passagedata pid="89" name="Camp Magic Sword" tags="" position="2014,2376" size="100,100">&lt;&lt;set $choices[&quot;sword&quot;] to $choices[&quot;sword&quot;] + 1&gt;&gt;
-You charge the men with your sword, and easily wound the nearest bandit. He shouts in pain and flees into the forest, the other bandits following soon after.Triumphant, you grab the rest of the loot and [[continue north toward the cave.|Puzzle Welcome]].
+You charge the men with your sword, and easily wound the nearest bandit. He shouts in pain and flees into the forest, the other bandits following soon after. Triumphant, you grab the rest of the loot and [[continue north toward the cave.|Puzzle Welcome]]
 &lt;&lt;if $inventory[&quot;magicSword&quot;] == 0&gt;&gt; &lt;&lt;set $inventory[&quot;magicSword&quot;] to 1&gt;&gt;&lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory[&quot;magicBow&quot;] == 0&gt;&gt; &lt;&lt;set $inventory[&quot;magicBow&quot;] to 1&gt;&gt;&lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory[&quot;magicBook&quot;] == 0&gt;&gt; &lt;&lt;set $inventory[&quot;magicBook&quot;] to 1&gt;&gt;&lt;&lt;endif&gt;&gt;
-&lt;&lt;set $inventory[&quot;gold&quot;] to $inventory[&quot;gold&quot;] + 20&gt;&gt;&lt;&lt;endif&gt;&gt;</tw-passagedata><tw-passagedata pid="90" name="Camp Rusty Sword" tags="" position="2163,2370" size="100,100">&lt;&lt;set $choices[&quot;sword&quot;] to $choices[&quot;sword&quot;]+1&gt;&gt;
+&lt;&lt;set $inventory[&quot;gold&quot;] to $inventory[&quot;gold&quot;] + 20&gt;&gt;</tw-passagedata><tw-passagedata pid="90" name="Camp Rusty Sword" tags="" position="2163,2370" size="100,100">&lt;&lt;set $choices[&quot;sword&quot;] to $choices[&quot;sword&quot;]+1&gt;&gt;
 You charge one of the men with your sword. Unfortunately, your old, rusty blade is no match for the bandits&#39; superior weapons. They easily block your attacks. A bandit&#39;s sword hits you,
 \&lt;&lt;if $inventory[&quot;armor&quot;]&gt;0&gt;&gt;
 \ but his blade fails to pierce your armor. 
-\&lt;&lt;if $inventory[&quot;magicBow&quot;] &gt; 0&gt;&gt; [[Attack with your Magic Bow|Camp Magic Bow]] &lt;&lt;else&gt;&gt; [[Attack with your Old Bow|Camp Old Bow]] &lt;&lt;endif&gt;&gt;
+&lt;&lt;if $inventory[&quot;magicBow&quot;] &gt; 0&gt;&gt; [[Attack with your Magic Bow|Camp Magic Bow]] &lt;&lt;else&gt;&gt; [[Attack with your Old Bow|Camp Old Bow]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory[&quot;magicBook&quot;] &gt; 0&gt;&gt; [[Attack with a Powerful Spell|Camp Powerful Magic]] &lt;&lt;else&gt;&gt; [[Attack with a Weak Spell|Camp Weak Magic]] &lt;&lt;endif&gt;&gt;
 [[Run away|Run away]]
 \&lt;&lt;else&gt;&gt;
 \ slicing into your side. [[Ouch!|Wounded Camp]]
 \&lt;&lt;endif&gt;&gt;</tw-passagedata><tw-passagedata pid="91" name="Camp Magic Bow" tags="" position="2446,2372" size="100,100">&lt;&lt;set $choices[&quot;bow&quot;] to $choices[&quot;bow&quot;]+1&gt;&gt;
-You fire several arrows at the bandits with your bow. They shout in panic and scatter, fleeing into the forest. Triumphant, you grab the rest of the loot and [[continue north toward the cave.|Puzzle Welcome]].
+You fire several arrows at the bandits with your bow. They shout in panic and scatter, fleeing into the forest. Triumphant, you grab the rest of the loot and [[continue north toward the cave.|Puzzle Welcome]]
 &lt;&lt;if $inventory[&quot;magicSword&quot;] == 0&gt;&gt; &lt;&lt;set $inventory[&quot;magicSword&quot;] to 1&gt;&gt; &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory[&quot;magicBow&quot;] == 0&gt;&gt; &lt;&lt;set $inventory[&quot;magicBow&quot;] to 1&gt;&gt;&lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory[&quot;magicBook&quot;] == 0&gt;&gt; &lt;&lt;set $inventory[&quot;magicBook&quot;] to 1&gt;&gt;&lt;&lt;endif&gt;&gt;
-&lt;&lt;set $inventory[&quot;gold&quot;] to $inventory[&quot;gold&quot;] + 20&gt;&gt;&lt;&lt;endif&gt;&gt;</tw-passagedata><tw-passagedata pid="92" name="Camp Old Bow" tags="" position="2304,2371" size="100,100">&lt;&lt;set $choices[&quot;bow&quot;] to $choices[&quot;bow&quot;]+1&gt;&gt;
-You aim your bow and fire at one of the bandits, but the feeble arrow bounces off of his leather armor. The nearest bandit charges at you, swinging his sword,
+&lt;&lt;set $inventory[&quot;gold&quot;] to $inventory[&quot;gold&quot;] + 20&gt;&gt;</tw-passagedata><tw-passagedata pid="92" name="Camp Old Bow" tags="" position="2304,2371" size="100,100">&lt;&lt;set $choices[&quot;bow&quot;] to $choices[&quot;bow&quot;]+1&gt;&gt;
+You aim your bow and fire at one of the bandits, but the feeble arrow fails to pierce his leather armor. The nearest bandit charges at you, swinging his sword,
 \&lt;&lt;if $inventory[&quot;armor&quot;]&gt;0&gt;&gt;
 \ which bounces harmlessly off of your armor. 
-\&lt;&lt;if $inventory[&quot;magicSword&quot;] &gt; 0&gt;&gt; [[Attack with your Magic Sword|Camp Magic Sword]] &lt;&lt;else&gt;&gt; [[Attack with your Rusty Sword|Camp Rusty Sword]] &lt;&lt;endif&gt;&gt;
+&lt;&lt;if $inventory[&quot;magicSword&quot;] &gt; 0&gt;&gt; [[Attack with your Magic Sword|Camp Magic Sword]] &lt;&lt;else&gt;&gt; [[Attack with your Rusty Sword|Camp Rusty Sword]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory[&quot;magicBook&quot;] &gt; 0&gt;&gt; [[Attack with a Powerful Spell|Camp Powerful Magic]] &lt;&lt;else&gt;&gt; [[Attack with a Weak Spell|Camp Weak Magic]] &lt;&lt;endif&gt;&gt;
 [[Run away|Run away]]
 \&lt;&lt;else&gt;&gt;
 \ which slices into your side, [[wounding you badly.|Wounded Camp]]
-\&lt;&lt;endif&gt;&gt;</tw-passagedata><tw-passagedata pid="93" name="Camp Powerful Magic" tags="" position="2581,2377" size="100,100">&lt;&lt;set $choices[&quot;magic&quot;] to $choices[&quot;magic&quot;]+1&gt;&gt;
-You send a ball of fire hurtling toward the nearest bandit. The men shout in panic and scatter, fleeing into the forest. Triumphant, you grab the rest of the loot and [[continue north toward the cave.|Puzzle Welcome]].
+\&lt;&lt;endif&gt;&gt;</tw-passagedata><tw-passagedata pid="93" name="Camp Powerful Magic" tags="" position="2581,2378.6666666666665" size="100,100">&lt;&lt;set $choices[&quot;magic&quot;] to $choices[&quot;magic&quot;]+1&gt;&gt;
+You send a ball of fire hurtling toward the nearest bandit. The men shout in panic and scatter, fleeing into the forest. Triumphant, you grab the rest of the loot and [[continue north toward the cave.|Puzzle Welcome]]
 &lt;&lt;if $inventory[&quot;magicSword&quot;] == 0&gt;&gt; &lt;&lt;set $inventory[&quot;magicSword&quot;] to 1&gt;&gt;&lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory[&quot;magicBow&quot;] == 0&gt;&gt; &lt;&lt;set $inventory[&quot;magicBow&quot;] to 1&gt;&gt;&lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory[&quot;magicBook&quot;] == 0&gt;&gt; &lt;&lt;set $inventory[&quot;magicBook&quot;] to 1&gt;&gt;&lt;&lt;endif&gt;&gt;
@@ -932,7 +938,7 @@ You send a ball of fire hurtling toward the nearest bandit. The men shout in pan
 You begin chanting, but the bandits attack you before you can finish casting the spell.
 \&lt;&lt;if $inventory[&quot;armor&quot;]&gt;0&gt;&gt;
 \ One attempts to stab you, but your armor protects you from the blade. 
-\&lt;&lt;if $inventory[&quot;magicSword&quot;] &gt; 0&gt;&gt; [[Attack with your Magic Sword|Camp Magic Sword]] &lt;&lt;else&gt;&gt; [[Attack with your Rusty Sword|Camp Rusty Sword]] &lt;&lt;endif&gt;&gt;
+&lt;&lt;if $inventory[&quot;magicSword&quot;] &gt; 0&gt;&gt; [[Attack with your Magic Sword|Camp Magic Sword]] &lt;&lt;else&gt;&gt; [[Attack with your Rusty Sword|Camp Rusty Sword]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory[&quot;magicBow&quot;] &gt; 0&gt;&gt; [[Attack with your Magic Bow|Camp Magic Bow]] &lt;&lt;else&gt;&gt; [[Attack with your Old Bow|Camp Old Bow]] &lt;&lt;endif&gt;&gt;
 [[Run away|Run away]]
 \&lt;&lt;else&gt;&gt;
@@ -940,6 +946,7 @@ You begin chanting, but the bandits attack you before you can finish casting the
 \&lt;&lt;endif&gt;&gt;</tw-passagedata><tw-passagedata pid="95" name="Camp Talk" tags="" position="2870,2384" size="100,100">&lt;&lt;set $choices[&quot;talk&quot;] to $choices[&quot;talk&quot;]+1&gt;&gt;
 &quot;Oh, hello there! I didn&#39;t mean to intrude. I&#39;m just a traveller passing through,&quot; you say cheerfully. The bandits don&#39;t seem convinced. You are standing in the middle of their camp, after all. They glare at you menacingly. &quot;What do you think you&#39;re doing in our camp?&quot; one says angrily, pointing his sword toward you.
 
+[[Try to bribe the bandits|Camp Bribe]]
 &lt;&lt;if $inventory[&quot;magicSword&quot;] &gt; 0&gt;&gt; [[Attack with your Magic Sword|Camp Magic Sword]] &lt;&lt;else&gt;&gt; [[Attack with your Rusty Sword|Camp Rusty Sword]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory[&quot;magicBow&quot;] &gt; 0&gt;&gt; [[Attack with your Magic Bow|Camp Magic Bow]] &lt;&lt;else&gt;&gt; [[Attack with your Old Bow|Camp Old Bow]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory[&quot;magicBook&quot;] &gt; 0&gt;&gt; [[Attack with a Powerful Spell|Camp Powerful Magic]] &lt;&lt;else&gt;&gt; [[Attack with a Weak Spell|Camp Weak Magic]] &lt;&lt;endif&gt;&gt;
@@ -956,26 +963,30 @@ You quickly hide behind a nearby tree before the outlaws spot you. Five men ente
 [[Sneak Away|Camp Sneak]]
 &lt;&lt;if $inventory[&quot;magicSword&quot;] &gt; 0&gt;&gt; [[Attack with your Magic Sword|Camp Magic Sword]] &lt;&lt;else&gt;&gt; [[Attack with your Rusty Sword|Camp Rusty Sword]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory[&quot;magicBow&quot;] &gt; 0&gt;&gt; [[Attack with your Magic Bow|Camp Magic Bow]] &lt;&lt;else&gt;&gt; [[Attack with your Old Bow|Camp Old Bow]] &lt;&lt;endif&gt;&gt;
-&lt;&lt;if $inventory[&quot;magicBook&quot;] &gt; 0&gt;&gt; [[Attack with a Powerful Spell|Camp Powerful Magic]] &lt;&lt;else&gt;&gt; [[Attack with a Weak Spell|Camp Weak Magic]] &lt;&lt;endif&gt;&gt;</tw-passagedata><tw-passagedata pid="98" name="Camp Wait" tags="" position="1914,2548" size="100,100">&lt;&lt;set $choices[&quot;wait&quot;] to $choices[&quot;wait&quot;]+1&gt;&gt;
+&lt;&lt;if $inventory[&quot;magicBook&quot;] &gt; 0&gt;&gt; [[Attack with a Powerful Spell|Camp Powerful Magic]] &lt;&lt;else&gt;&gt; [[Attack with a Weak Spell|Camp Weak Magic]] &lt;&lt;endif&gt;&gt;
+[[Try to speak to the bandits|Camp Talk]]
+[[Try to bribe the bandits|Camp Bribe]]</tw-passagedata><tw-passagedata pid="98" name="Camp Wait" tags="" position="1914,2548" size="100,100">&lt;&lt;set $choices[&quot;wait&quot;] to $choices[&quot;wait&quot;]+1&gt;&gt;
 You wait for a while, but the outlaws don&#39;t seem to be going anywhere.
 
 [[Sneak Away|Camp Sneak]]
 &lt;&lt;if $inventory[&quot;magicSword&quot;] &gt; 0&gt;&gt; [[Attack with your Magic Sword|Camp Magic Sword]] &lt;&lt;else&gt;&gt; [[Attack with your Rusty Sword|Camp Rusty Sword]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory[&quot;magicBow&quot;] &gt; 0&gt;&gt; [[Attack with your Magic Bow|Camp Magic Bow]] &lt;&lt;else&gt;&gt; [[Attack with your Old Bow|Camp Old Bow]] &lt;&lt;endif&gt;&gt;
-&lt;&lt;if $inventory[&quot;magicBook&quot;] &gt; 0&gt;&gt; [[Attack with a Powerful Spell|Camp Powerful Magic]] &lt;&lt;else&gt;&gt; [[Attack with a Weak Spell|Camp Weak Magic]] &lt;&lt;endif&gt;&gt;</tw-passagedata><tw-passagedata pid="99" name="Camp Sneak" tags="" position="1758,2555" size="100,100">&lt;&lt;set $choices[&quot;sneak&quot;] to $choices[&quot;sneak&quot;]+1&gt;&gt;
+&lt;&lt;if $inventory[&quot;magicBook&quot;] &gt; 0&gt;&gt; [[Attack with a Powerful Spell|Camp Powerful Magic]] &lt;&lt;else&gt;&gt; [[Attack with a Weak Spell|Camp Weak Magic]] &lt;&lt;endif&gt;&gt;
+[[Try to speak to the bandits|Camp Talk]]
+[[Try to bribe the bandits|Camp Bribe]]</tw-passagedata><tw-passagedata pid="99" name="Camp Sneak" tags="" position="1758,2555" size="100,100">&lt;&lt;set $choices[&quot;sneak&quot;] to $choices[&quot;sneak&quot;]+1&gt;&gt;
 You quietly sneak away from the camp. Fortunately, no one sees you. You [[continue north toward the cavern.|Puzzle Welcome]]</tw-passagedata><tw-passagedata pid="100" name="Wounded Camp" tags="" position="2396,2547" size="100,100">You&#39;re too badly hurt to fight any longer. 
 &lt;&lt;if $inventory[&quot;healingPotion&quot;]&gt;0&gt;&gt;
 [[Use a health potion|Use Health Potion Camp]]
 [[Run away|Run away]].
 &lt;&lt;else&gt;&gt;
 \You have no choice but to [[flee.|Puzzle Welcome]]
-&lt;&lt;endif&gt;&gt;</tw-passagedata><tw-passagedata pid="101" name="Use Health Potion Camp" tags="" position="2186,2552" size="100,100">&lt;&lt;set $inventory[&quot;healingPotion&quot;] to $inventory[&quot;healingPotion&quot;]-1]]&gt;&gt;
-Stumbling away from your attacker, you manage to grab a healing potion from your bag and quickly drink it. You immediately feel much stronger.
+&lt;&lt;endif&gt;&gt;</tw-passagedata><tw-passagedata pid="101" name="Use Health Potion Camp" tags="" position="2186,2552" size="100,100">\&lt;&lt;set $inventory[&quot;healingPotion&quot;] to $inventory[&quot;healingPotion&quot;]-1&gt;&gt;
+\Stumbling away from your attacker, you manage to grab a healing potion from your bag and quickly drink it. You immediately feel much stronger.
 
 &lt;&lt;if $inventory[&quot;magicSword&quot;] &gt; 0&gt;&gt; [[Attack with your Magic Sword|Camp Magic Sword]] &lt;&lt;else&gt;&gt; [[Attack with your Rusty Sword|Camp Rusty Sword]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory[&quot;magicBow&quot;] &gt; 0&gt;&gt; [[Attack with your Magic Bow|Camp Magic Bow]] &lt;&lt;else&gt;&gt; [[Attack with your Old Bow|Camp Old Bow]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory[&quot;magicBook&quot;] &gt; 0&gt;&gt; [[Attack with a Powerful Spell|Camp Powerful Magic]] &lt;&lt;else&gt;&gt; [[Attack with a Weak Spell|Camp Weak Magic]] &lt;&lt;endif&gt;&gt;
-[[Run away|Run away]].</tw-passagedata><tw-passagedata pid="102" name="Puzzle Answer" tags="" position="1631,2908" size="100,100">&lt;&lt;set $response to $response.toLowerCase()&gt;&gt;
+[[Run away|Run away]]</tw-passagedata><tw-passagedata pid="102" name="Puzzle Answer" tags="" position="1631,2908" size="100,100">&lt;&lt;set $response to $response.toLowerCase()&gt;&gt;
 &lt;&lt;if $response == &quot;fire&quot;&gt;&gt; &lt;&lt;goto &quot;Puzzle Right&quot;&gt;&gt;
 &lt;&lt;else&gt;&gt; &lt;&lt;goto &quot;Puzzle Wrong&quot;&gt;&gt; &lt;&lt;endif&gt;&gt;</tw-passagedata><tw-passagedata pid="103" name="StoryInit" tags="" position="1319,80" size="100,100">&lt;&lt;script&gt;&gt;
 Config.history.controls = false;
