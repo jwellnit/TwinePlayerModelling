@@ -1,0 +1,301 @@
+:: StoryTitle
+The Lost Treasure of Bloomrane Cavern (Path 1)
+
+:: UserStylesheet[stylesheet]
+#menu-core {
+	display: none;
+}
+
+:: StoryInit
+<<script>>
+Config.history.controls = false;
+Config.saves.isAllowed = function() {return false};
+<</script>>
+
+<<set $inventory to {}>>
+<<set $inventory["magicSword"] to 0>>
+<<set $inventory["magicBow"] to 0>>
+<<set $inventory["magicBook"] to 0>>
+<<set $inventory["armor"] to 0>>
+<<set $inventory["healingPotion"] to 0>>
+<<set $inventory["gold"] to 5>>
+<<set $choices to {}>>
+<<set $choices["near"] to 0>>
+<<set $choices["far"] to 0>>
+<<set $choices["many"] to 0>>
+<<set $choices["few"] to 0>>
+<<set $choices["loot"] to 0>>
+<<set $choices["help"] to 0>>
+<<set $choices["magicSword"] to 0>>
+<<set $choices["magicBow"] to 0>>
+<<set $choices["magicBook"] to 0>>
+<<set $choices["gold"] to 0>>
+<<set $choices["weapon"] to 0>>
+<<set $choices["sword"] to 0>>
+<<set $choices["bow"] to 0>>
+<<set $choices["magic"] to 0>>
+<<set $choices["hide"] to 0>>
+<<set $choices["wait"] to 0>>
+<<set $choices["sneak"] to 0>>
+<<set $choices["talk"] to 0>>
+<<set $choices["bribe"] to 0>>
+<<set $choices["runAway"] to 0>>
+
+:: Welcome!
+<<silently>>
+<<set $player_health to 20>>
+<<set $encounter to {}>>
+<<set $encounter["enemy"] to "Ogre">>
+<<set $encounter["enemy_article"] to "an Ogre">>
+<<set $encounter["enemy_description"] to "a massive Ogre">>
+<<set $encounter["enemy_health"] to 10>>
+<<set $encounter["enemy_damage"] to 3>>
+<<set $encounter["sword_damage"] to 5>>
+<<set $encounter["bow_damage"] to 2>>
+<<set $encounter["magic_damage"] to 2>>
+<<set $encounter["magic_sword_damage"] to 10>>
+<<set $encounter["magic_bow_damage"] to 5>>
+<<set $encounter["magic_book_damage"] to 5>>
+<<set $encounter["bribe"] to True>>
+<<set $encounter["talk"] to False>>
+<<set $encounter["sneak"] to True>>
+<<set $encounter["wait"] to False>>
+<<set $encounter["loot_1"] to "Magic Sword">>
+<<set $encounter["loot_2"] to "5 Gold">>
+<<set $encounter["gold_amount"] to 5>>
+
+<<endsilently>>
+You are a brave adventurer, seeking fame and fortune by finding the lost gold of Bloomrane Cavern.
+
+[[Continue forward.|Enemy Near Few]]
+
+:: Enemy Near Few
+<<silently>>
+<<set $choices["near"] to $choices["near"]+1>>
+<<set $choices["few"] to $choices["few"]+1>>
+<<endsilently>>
+
+Just before you stands $encounter["enemy_description"], guarding the path ahead. He seems to be distracted by a blue bird on a nearby tree, and hasn't seen you yet.
+
+<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Enemy Near Few Magic Sword Fight]] <<else>> [[Attack with your Rusty Sword|Enemy Near Few Sword Fight]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Enemy Near Few Magic Bow Fight]] <<else>> [[Attack with your Old Bow|Enemy Near Few Bow Fight]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Enemy Near Few Magic Book Fight]] <<else>> [[Attack with a Weak Spell|Enemy Near Few Magic Fight]] <<endif>>
+<<if $encounter["talk"]>> [[Try to speak to the $encounter["enemy"]|Enemy Near Few Talk Succeed]] <<else>> [[Try to speak to the $encounter["enemy"]|Enemy Near Few Talk Fail]] <<endif>>
+<<if $encounter["bribe"]>> [[Try to bribe the $encounter["enemy"] to let you pass|Enemy Near Few Bribe Succeed]] <<else>> [[Try to bribe to the $encounter["enemy"] to let you pass|Enemy Near Few Bribe Fail]] <<endif>>
+[[Try to hide in the bushes before he sees you|Enemy Near Few Hide]]
+
+:: Enemy Near Few Sword Fight
+<<silently>>
+<<set $choices["sword"] to $choices["sword"]+1>>
+<<set $encounter["enemy_health"] to $encounter["enemy_health"] - $encounter["sword_damage"]>>
+<<endsilently>>
+
+<<if $encounter["enemy_health"] <= 0>>
+You run up to the $encounter["enemy"] and swing your sword down to strike. "Ow!" he yells, "Fine, I'll leave!" He runs away from the road, dropping a pouch as he does.
+
+[[Loot the Pouch|Enemy Near Few Loot]]
+<<else>>
+<<silently>>
+<<set $player_health to $player_health - $encounter["enemy_damage"]>>
+<<endsilently>>
+
+<<if $player_health <= 0>>
+You manage to hit him with your sword, but the $encounter["enemy"] catches you with a massive blow. You're too badly hurt to fight any longer.
+
+<<if $inventory["healingPotion"]>0>>
+[[Use a health potion|Enemy Near Few Use Health Potion]]
+[[Run away|Enemy Near Few Flee]]
+<<else>>
+You have no choice but to [[flee.|Enemy Near Few Flee]]
+<<endif>>
+
+<<else>>
+You slash with your sword but take a blow from the $encounter["enemy"].
+
+<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Enemy Near Few Magic Sword Fight]] <<else>> [[Attack with your Rusty Sword|Enemy Near Few Sword Fight]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Enemy Near Few Magic Bow Fight]] <<else>> [[Attack with your Old Bow|Enemy Near Few Bow Fight]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Enemy Near Few Magic Book Fight]] <<else>> [[Attack with a Weak Spell|Enemy Near Few Magic Fight]] <<endif>>
+[[Use a health potion|Enemy Near Few Use Health Potion]]
+[[Run away|Enemy Near Few Flee]]
+<<endif>>
+<<endif>>
+
+:: Enemy Near Few Magic Sword Fight
+<<silently>>
+<<set $choices["sword"] to $choices["sword"]+1>>
+<<set $encounter["enemy_health"] to $encounter["enemy_health"] - $encounter["magic_sword_damage"]>>
+<<endsilently>>
+
+<<if $encounter["enemy_health"] <= 0>>
+You run up to the $encounter["enemy"] and swing your sword down to strike. "Ow!" he yells, "Fine, I'll leave!" He runs away from the road, dropping a pouch as he does.
+
+[[Loot the Pouch|Enemy Near Few Loot]]
+<<else>>
+<<silently>>
+<<set $player_health to $player_health - $encounter["enemy_damage"]>>
+<<endsilently>>
+
+<<if $player_health <= 0>>
+You manage to hit him with your sword, but the $encounter["enemy"] catches you with a massive blow. You're too badly hurt to fight any longer.
+
+<<if $inventory["healingPotion"]>0>>
+[[Use a health potion|Enemy Near Few Use Health Potion]]
+[[Run away|Enemy Near Few Flee]]
+<<else>>
+You have no choice but to [[flee.|Enemy Near Few Flee]]
+<<endif>>
+
+<<else>>
+You slash with your sword but take a blow from the $encounter["enemy"].
+
+<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Enemy Near Few Magic Sword Fight]] <<else>> [[Attack with your Rusty Sword|Enemy Near Few Sword Fight]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Enemy Near Few Magic Bow Fight]] <<else>> [[Attack with your Old Bow|Enemy Near Few Bow Fight]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Enemy Near Few Magic Book Fight]] <<else>> [[Attack with a Weak Spell|Enemy Near Few Magic Fight]] <<endif>>
+[[Use a health potion|Enemy Near Few Use Health Potion]]
+[[Run away|Enemy Near Few Flee]]
+<<endif>>
+<<endif>>
+
+:: Enemy Near Few Bow Fight
+<<silently>>
+<<set $choices["bow"] to $choices["bow"]+1>>
+<<set $encounter["enemy_health"] to $encounter["enemy_health"] - $encounter["bow_damage"]>>
+<<endsilently>>
+
+<<if $encounter["enemy_health"] <= 0>>
+You fire an arrow at the $encounter["enemy"] which hits its mark. "Ow!" he yells, "Fine, I'll leave!" He runs away from the road, dropping a pouch as he does.
+
+[[Loot the Pouch|Enemy Near Few Loot]]
+<<else>>
+<<silently>>
+<<set $player_health to $player_health - $encounter["enemy_damage"]>>
+<<endsilently>>
+
+<<if $player_health <= 0>>
+Your arrow hits its mark and the $encounter["enemy"] roars but does not retreat. He catches you with a massive blow. You're too badly hurt to fight any longer.
+
+<<if $inventory["healingPotion"]>0>>
+[[Use a health potion|Enemy Near Few Use Health Potion]]
+[[Run away|Enemy Near Few Flee]]
+<<else>>
+You have no choice but to [[flee.|Enemy Near Few Flee]]
+<<endif>>
+
+<<else>>
+Your arrow hits its mark and the $encounter["enemy"] roars but does not retreat. You take a blow from the $encounter["enemy"].
+
+<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Enemy Near Few Magic Sword Fight]] <<else>> [[Attack with your Rusty Sword|Enemy Near Few Sword Fight]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Enemy Near Few Magic Bow Fight]] <<else>> [[Attack with your Old Bow|Enemy Near Few Bow Fight]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Enemy Near Few Magic Book Fight]] <<else>> [[Attack with a Weak Spell|Enemy Near Few Magic Fight]] <<endif>>
+[[Use a health potion|Enemy Near Few Use Health Potion]]
+[[Run away|Enemy Near Few Flee]]
+<<endif>>
+<<endif>>
+
+:: Enemy Near Few Magic Bow Fight
+<<silently>>
+<<set $choices["bow"] to $choices["bow"]+1>>
+<<set $encounter["enemy_health"] to $encounter["enemy_health"] - $encounter["magic_bow_damage"]>>
+<<endsilently>>
+
+<<if $encounter["enemy_health"] <= 0>>
+You fire an arrow at the $encounter["enemy"] which hits its mark. "Ow!" he yells, "Fine, I'll leave!" He runs away from the road, dropping a pouch as he does.
+
+[[Loot the Pouch|Enemy Near Few Loot]]
+<<else>>
+<<silently>>
+<<set $player_health to $player_health - $encounter["enemy_damage"]>>
+<<endsilently>>
+
+<<if $player_health <= 0>>
+Your arrow hits its mark and the $encounter["enemy"] roars but does not retreat. He catches you with a massive blow. You're too badly hurt to fight any longer.
+
+<<if $inventory["healingPotion"]>0>>
+[[Use a health potion|Enemy Near Few Use Health Potion]]
+[[Run away|Enemy Near Few Flee]]
+<<else>>
+You have no choice but to [[flee.|Enemy Near Few Flee]]
+<<endif>>
+
+<<else>>
+Your arrow hits its mark and the $encounter["enemy"] roars but does not retreat. You take a blow from the $encounter["enemy"].
+
+<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Enemy Near Few Magic Sword Fight]] <<else>> [[Attack with your Rusty Sword|Enemy Near Few Sword Fight]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Enemy Near Few Magic Bow Fight]] <<else>> [[Attack with your Old Bow|Enemy Near Few Bow Fight]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Enemy Near Few Magic Book Fight]] <<else>> [[Attack with a Weak Spell|Enemy Near Few Magic Fight]] <<endif>>
+[[Use a health potion|Enemy Near Few Use Health Potion]]
+[[Run away|Enemy Near Few Flee]]
+<<endif>>
+<<endif>>
+
+:: Enemy Near Few Magic Fight
+<<silently>>
+<<set $choices["magic"] to $choices["magic"]+1>>
+<<set $encounter["enemy_health"] to $encounter["enemy_health"] - $encounter["magic_damage"]>>
+<<endsilently>>
+
+<<if $encounter["enemy_health"] <= 0>>
+You blast the $encounter["enemy"] with a bolt of lightning. "Ow!" he yells, "Fine, I'll leave!" He runs away from the road, dropping a pouch as he does.
+
+[[Loot the Pouch|Enemy Near Few Loot]]
+<<else>>
+<<silently>>
+<<set $player_health to $player_health - $encounter["enemy_damage"]>>
+<<endsilently>>
+
+<<if $player_health <= 0>>
+You send a ball of ice hurtling towards the $encounter["enemy"], who roars but does not back down. He catches you with a massive blow. You're too badly hurt to fight any longer.
+
+<<if $inventory["healingPotion"]>0>>
+[[Use a health potion|Enemy Near Few Use Health Potion]]
+[[Run away|Enemy Near Few Flee]]
+<<else>>
+You have no choice but to [[flee.|Enemy Near Few Flee]]
+<<endif>>
+
+<<else>>
+You send a ball of ice hurtling towards the $encounter["enemy"], who roars but does not back down. You take a blow from the $encounter["enemy"].
+
+<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Enemy Near Few Magic Sword Fight]] <<else>> [[Attack with your Rusty Sword|Enemy Near Few Sword Fight]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Enemy Near Few Magic Bow Fight]] <<else>> [[Attack with your Old Bow|Enemy Near Few Bow Fight]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Enemy Near Few Magic Book Fight]] <<else>> [[Attack with a Weak Spell|Enemy Near Few Magic Fight]] <<endif>>
+[[Use a health potion|Enemy Near Few Use Health Potion]]
+[[Run away|Enemy Near Few Flee]]
+<<endif>>
+<<endif>>
+
+:: Enemy Near Few Magic Book Fight
+<<silently>>
+<<set $choices["magic"] to $choices["magic"]+1>>
+<<set $encounter["enemy_health"] to $encounter["enemy_health"] - $encounter["magic_book_damage"]>>
+<<endsilently>>
+
+<<if $encounter["enemy_health"] <= 0>>
+You blast the $encounter["enemy"] with a bolt of lightning. "Ow!" he yells, "Fine, I'll leave!" He runs away from the road, dropping a pouch as he does.
+
+[[Loot the Pouch|Enemy Near Few Loot]]
+<<else>>
+<<silently>>
+<<set $player_health to $player_health - $encounter["enemy_damage"]>>
+<<endsilently>>
+
+<<if $player_health <= 0>>
+You send a ball of ice hurtling towards the $encounter["enemy"], who roars but does not back down. He catches you with a massive blow. You're too badly hurt to fight any longer.
+
+<<if $inventory["healingPotion"]>0>>
+[[Use a health potion|Enemy Near Few Use Health Potion]]
+[[Run away|Enemy Near Few Flee]]
+<<else>>
+You have no choice but to [[flee.|Enemy Near Few Flee]]
+<<endif>>
+
+<<else>>
+You send a ball of ice hurtling towards the $encounter["enemy"], who roars but does not back down. You take a blow from the $encounter["enemy"].
+
+<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Enemy Near Few Magic Sword Fight]] <<else>> [[Attack with your Rusty Sword|Enemy Near Few Sword Fight]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Enemy Near Few Magic Bow Fight]] <<else>> [[Attack with your Old Bow|Enemy Near Few Bow Fight]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Enemy Near Few Magic Book Fight]] <<else>> [[Attack with a Weak Spell|Enemy Near Few Magic Fight]] <<endif>>
+[[Use a health potion|Enemy Near Few Use Health Potion]]
+[[Run away|Enemy Near Few Flee]]
+<<endif>>
+<<endif>>

@@ -1,0 +1,1226 @@
+:: StoryTitle
+The Lost Treasure of Bloomrane Cavern
+
+:: UserScript[script]
+/*
+		A short example of how to load the Sheetrock.js library
+		using the existing jQuery library as part of Twine 2
+		and add a on-the-fly variable in SugarCube using
+		State.variables.
+
+		Sheetrock.js (https://github.com/chriszarate/sheetrock)
+*/
+// Call this function during the "ready" event
+$(function() {
+	
+	// Set the URL to load
+	// (In this case, the Sheetrock.js library for
+	//  accessing public Google Spreadsheets.)
+	var URL = "https://cdnjs.cloudflare.com/ajax/libs/jquery-sheetrock/1.1.4/dist/sheetrock.min.js";
+	
+	// Use getScript() to fetch and run remote JS
+  $.getScript( URL )
+		// If everything went well, run done()
+  	.done(function( script, textStatus ) {
+		// Call loadsheet()
+		loadSheet();
+  })
+		// If it failed, run fail()
+  .fail(function( jqxhr, settings, exception ) {
+    console.log("Remote loading failed!");
+	});
+	
+	function loadSheet() {
+		
+		// Define spreadsheet URL.
+		// (This example holds baseball data.)
+		var mySpreadsheet = 'https://docs.google.com/spreadsheets/d/1agOEXiUFP64kXddYlOtAvQOwBarVSCzTpJjwpOzxwlM/edit#gid=0';
+	
+		// Run sheetrock using an empty selector
+		$().sheetrock({
+			// Set the URL of the Google Spreadsheet
+			url: mySpreadsheet,
+			// Set a callback from the results
+			callback: function (error, options, response) {
+				// Response holds the data. 
+				// For rows, .rows
+				// For HTML, .html
+				// (https://github.com/chriszarate/sheetrock#callback)
+	
+				// In SugarCube, we can access variables through
+				//  State.variables
+				State.variables.response = response.rows[0];
+				
+			},
+			// Query is based on the SQL-like Google Query Language
+			// (https://developers.google.com/chart/interactive/docs/querylanguage)
+			// In this example, select (get) the columns A, B, and C
+			query: "select A,B,C"
+		});
+		
+	}
+	
+});
+
+:: UserStylesheet[stylesheet]
+#menu-core {
+	display: none;
+}
+
+:: Welcome!
+You are a brave adventurer, seeking fame and fortune by finding the lost gold of Bloomrane Cavern. Your first stop is the small town of Brekvern, where you hope to find information on how to reach the cave.
+
+Before you is a fork in the road. Both paths lead to Brekvern and would have you arrive in roughly the same amount of time. Down one path, is a large ogre just ahead, guarding the way forward. Down the other, is a group of goblins a ways down the road, but headed in your direction.
+
+Which path do you choose?
+
+[[Choose the ogre path|Ogre Path]]
+[[Choose the goblin path|Goblin Path]]
+
+
+
+:: Ogre Path
+<<silently>>
+<<set $choices["near"] to $choices["near"]+1>>
+<<set $choices["few"] to $choices["few"]+1>>
+<<endsilently>>
+
+Just before you stands a massive Ogre, guarding the path ahead. He seems to be distracted by a blue bird on a nearby tree, and hasn't seen you yet.
+
+<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Ogre Sword Defeat]] <<else>> [[Attack with your Rusty Sword|Ogre Sword Defeat]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Ogre Bow Defeat]] <<else>> [[Attack with your Old Bow|Ogre Bow Wound]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Ogre Magic Defeat]] <<else>> [[Attack with a Weak Spell|Ogre Magic Wound]] <<endif>>
+[[Try to speak to the Ogre|Ogre Talk]]
+[[Try to bribe the Ogre to let you pass|Ogre Bribe]]
+[[Try to hide in the bushes before he sees you|Ogre Hide]]
+
+:: Goblin Path
+<<silently>>
+<<set $choices["far"] to $choices["far"]+1>>
+<<set $choices["many"] to $choices["many"]+1>>
+<<endsilently>>
+
+A little ways down the road is a group of Goblins. They are marching in your direction, chanting and banging their weapons, but they don't seem to have noticed you yet.
+
+<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Goblins Sword Defeat]] <<else>> [[Attack with your Rusty Sword|Goblins Sword Wound]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Goblins Bow Defeat]] <<else>> [[Attack with your Old Bow|Goblins Bow Wound]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Goblins Magic Defeat]] <<else>> [[Attack with a Weak Spell|Goblins Magic Defeat]] <<endif>>
+[[Try to speak to the Goblins|Goblins Talk]]
+[[Try to bribe the Goblins to let you pass|Goblins Bribe]]
+[[Try to hide in the bushes before they see you|Goblins Hide]]
+
+:: Ogre Sword Defeat
+<<silently>>
+<<set $choices["sword"] to $choices["sword"]+1>>
+<<endsilently>>
+
+You run up to the ogre and swing your sword down to strike. "Ow!" he yells, "Fine, I'll leave!" He runs away from the road, dropping a pouch as he does.
+
+[[Loot the Pouch|Ogre Loot]]
+
+:: Ogre Bow Defeat
+<<silently>>
+<<set $choices["bow"] to $choices["bow"]+1>>
+<<endsilently>>
+
+You fire an arrow at the ogre which hits its mark. "Ow!" he yells, "Fine, I'll leave!" He runs away from the road, dropping a pouch as he does.
+
+[[Loot the Pouch|Ogre Loot]]
+
+:: Ogre Bow Wound
+<<silently>>
+<<set $choices["bow"] to $choices["bow"]+1>>
+<<endsilently>>
+
+Your arrow hits its mark and the ogre roars but does not retreat.
+
+<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Ogre Sword Defeat]] <<else>> [[Attack with your Rusty Sword|Ogre Sword Defeat]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Ogre Bow Defeat]] <<else>> [[Attack with your Old Bow|Ogre Bow Defeat]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Ogre Magic Defeat]] <<else>> [[Attack with a Weak Spell|Ogre Magic Defeat]] <<endif>>
+
+:: Ogre Magic Defeat
+<<silently>>
+<<set $choices["magic"] to $choices["magic"]+1>>
+<<endsilently>>
+
+Blast the ogre with a bolt of lightning. "Ow!" he yells, "Fine, I'll leave!" He runs away from the road, dropping a pouch as he does.
+
+[[Loot the Pouch|Ogre Loot]]
+
+:: Ogre Magic Wound
+<<silently>>
+<<set $choices["magic"] to $choices["magic"]+1>>
+<<endsilently>>
+
+You send a ball of ice hurtling towards the ogre, who roars but does not back down.
+
+<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Ogre Sword Defeat]] <<else>> [[Attack with your Rusty Sword|Ogre Sword Defeat]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Ogre Bow Defeat]] <<else>> [[Attack with your Old Bow|Ogre Bow Defeat]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Ogre Magic Defeat]] <<else>> [[Attack with a Weak Spell|Ogre Magic Defeat]] <<endif>>
+
+:: Ogre Talk
+<<silently>>
+<<set $choices["talk"] to $choices["talk"]+1>>
+<<endsilently>>
+
+"None shall pass!" the ogre belows as you approach.
+
+You ask the ogre if you may pass.
+
+"What... no!" he shouts in frustration. "Weren't you listening? I just said none shall pass!"
+
+<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Ogre Sword Defeat]] <<else>> [[Attack with your Rusty Sword|Ogre Sword Defeat]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Ogre Bow Defeat]] <<else>> [[Attack with your Old Bow|Ogre Bow Wound]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Ogre Magic Defeat]] <<else>> [[Attack with a Weak Spell|Ogre Magic Wound]] <<endif>>
+[[Try to bribe the Ogre to let you pass|Ogre Bribe]]
+
+:: Ogre Bribe
+<<silently>>
+<<set $choices["bribe"] to $choices["bribe"]+1>>
+<<endsilently>>
+
+You walk up to the ogre and ask if he'd like to trade for passage down the road. He scratches his chin and considers your offer. "What are you gonna give me?"
+
+\<<if $inventory["magicSword"] > 0>> 
+[[Offer a Magic Sword|Ogre Give Sword]]
+\<<endif>>
+\<<if $inventory["magicBow"] > 0>> 
+[[Offer a Magic Bow|Ogre Give Bow]]
+\<<endif>>
+\<<if $inventory["magicBook"] > 0>> 
+[[Offer a Magic Spell Tome|Ogre Give Magic]]
+\<<endif>>
+<<if $inventory["gold"] > 0>> [[Offer gold|Ogre Give gold]]<<endif>>
+
+
+
+:: Ogre Hide
+<<silently>>
+<<set $choices["hide"] to $choices["hide"]+1>>
+<<endsilently>>
+
+You dart into the bushes and hide before the ogre sees you.
+
+[[Try to sneak past the ogre|Ogre Sneak]]
+[[Wait to see if he leaves|Ogre Wait]]
+<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Ogre Sword Defeat]] <<else>> [[Attack with your Rusty Sword|Ogre Sword Defeat]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Ogre Bow Defeat]] <<else>> [[Attack with your Old Bow|Ogre Bow Wound Hidden]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Ogre Magic Defeat]] <<else>> [[Attack with a Weak Spell|Ogre Magic Wound]] <<endif>>
+[[Try to speak to the Ogre|Ogre Talk]]
+[[Try to bribe the Ogre to let you pass|Ogre Bribe]]
+
+:: Ogre Loot
+In the pouch you find some gold and a Magic Spell Tome. Your pack is getting heavy and you can only carry one. Which do you take?
+
+[[Take the gold|Ogre Loot gold]]
+[[Take the Magic Spell Tome|Ogre Loot Magic]]
+
+:: Ogre Give Sword
+<<silently>>
+<<set $inventory["magicSword"] to $inventory["magicSword"]-1>>
+<<endsilently>>
+
+"Thanks!" he says, as he takes your Magic Sword. "You can head on past now." With the ogre standing aside, you are free to continue to town.
+
+[[Continue on to the town|Town Welcome]]
+
+:: Ogre Give Bow
+<<silently>>
+<<set $inventory["magicBow"] to $inventory["magicBow"]-1>>
+<<endsilently>>
+
+"Thanks!" he says, as he takes your Magic Bow. "You can head on past now." With the ogre standing aside, you are free to continue to town.
+
+[[Continue on to the town|Town Welcome]]
+
+:: Ogre Give Magic
+<<silently>>
+<<set $inventory["magicBook"] to $inventory["magicBook"]-1>>
+<<endsilently>>
+
+"Thanks!" he says, as he takes your Magic Spell Tome. "You can head on past now." With the ogre standing aside, you are free to continue to town.
+
+[[Continue on to the town|Town Welcome]]
+
+:: Ogre Give gold
+<<silently>>
+<<set $inventory["gold"] to $inventory["gold"]-1>>
+<<endsilently>>
+
+"Thanks!" he says, as he takes your gold. "You can head on past now." With the ogre standing aside, you are free to continue to town.
+
+[[Continue on to the town|Town Welcome]]
+
+:: Ogre Sneak
+<<silently>>
+<<set $choices["sneak"] to $choices["sneak"]+1>>
+<<endsilently>>
+
+You creep quietly through the bushes. The ogre is quite transfixed by this bluebird, and doesn't notice as you sneak passed him and down the road. Having avoided the ogre, you are free to continue to town.
+
+[[Continue on to the town|Town Welcome]]
+
+:: Ogre Wait
+<<silently>>
+<<set $choices["wait"] to $choices["wait"]+1>>
+<<endsilently>>
+
+You wait for an hour but it doesn't seem like the ogre is going anywhere.
+
+[[Try to Sneak past the ogre|Ogre Sneak]]
+<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Ogre Sword Defeat]] <<else>> [[Attack with your Rusty Sword|Ogre Sword Defeat]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Ogre Bow Defeat]] <<else>> [[Attack with your Old Bow|Ogre Bow Wound Hidden]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Ogre Magic Defeat]] <<else>> [[Attack with a Weak Spell|Ogre Magic Wound]] <<endif>>
+[[Try to speak to the Ogre|Ogre Talk]]
+[[Try to bribe the Ogre to let you pass|Ogre Bribe]]
+
+:: Ogre Bow Wound Hidden
+<<silently>>
+<<set $choices["bow"] to $choices["bow"]+1>>
+<<endsilently>>
+
+Your arrow hits its mark. The ogre cries in pain and shouts "What?! Who did that!?" He starts searching for his attacker.
+
+<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Ogre Sword Defeat]] <<else>> [[Attack with your Rusty Sword|Ogre Sword Defeat]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Ogre Bow Defeat]] <<else>> [[Attack with your Old Bow|Ogre Bow Defeat]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Ogre Magic Defeat]] <<else>> [[Attack with a Weak Spell|Ogre Magic Defeat]] <<endif>>
+[[Try to Sneak past the ogre|Ogre Sneak]]
+
+:: Town Welcome
+As you walk through the main gates of Brekvern, you see a busy town square. There is a small shop where you can purchase weapons and supplies for your journey. But first, you need to find out exactly where Bloomrane Cavern is located. Near the inn, some townsfolk are discussing the local news and gossip. There are several market stalls, including one for a cartographer. You also see two cloaked figures slip into an alleyway.
+
+[[You brandish your Sword|Town Sword]]
+[[You draw your Bow|Town Bow]]
+[[You begin casting a Spell|Town Magic]]
+[[Go talk to the people near the inn|Town Talk]]
+[[Go to the cartographer's booth|Town Bribe]]
+[[Try to follow the hooded figures without them noticing you|Town Hide]]
+
+:: Ogre Loot gold
+<<silently>>
+<<set $inventory["gold"] to $inventory["gold"]+1>>
+<<set $choices["gold"] to $choices["gold"]+1 >>
+<<endsilently>>
+
+You take the gold and continue on your journey to town.
+
+[[Continue on to the town|Town Welcome]]
+
+:: Ogre Loot Magic
+<<silently>>
+<<set $inventory["magicBook"] to $inventory["magicBook"]+1>>
+<<set $choices["weapon"] to $choices["weapon"]+1 >>
+<<endsilently>>
+
+You take the Spell Tome and continue on your journey to town.
+
+[[Continue on to the town|Town Welcome]]
+
+:: Goblins Sword Defeat
+<<silently>>
+<<set $choices["sword"] to $choices["sword"]+1>>
+<<endsilently>>
+
+You charge the Goblins and swing your sword in a wide arc. The Goblins scream and sprint in to the woods shouting "Okay! You win!" as they do, leaving behind some of their possessions in the chaos.
+
+[[Search through their possessions|Goblin Loot]]
+
+:: Goblins Sword Wound
+<<silently>>
+<<set $choices["sword"] to $choices["sword"]+1>>
+<<endsilently>>
+
+You swing your sword at the nearest Goblin, pushing him back as the rest charge towards you.
+
+<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Goblins Sword Defeat]] <<else>> [[Attack with your Rusty Sword|Goblins Sword Defeat]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Goblins Bow Defeat]] <<else>> [[Attack with your Old Bow|Goblins Bow Defeat]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Goblins Magic Defeat]] <<else>> [[Attack with a Weak Spell|Goblins Magic Defeat]] <<endif>>
+
+:: Goblins Bow Defeat
+<<silently>>
+<<set $choices["bow"] to $choices["bow"]+1>>
+<<endsilently>>
+
+Your arrows fly forward, hitting several Goblins and terrifying the rest. The Goblins scream and sprint in to the woods shouting "Okay! You win!" as they do, leaving behind some of their possessions in the chaos.
+
+[[Search through their possessions|Goblin Loot]]
+
+:: Goblins Bow Wound
+<<silently>>
+<<set $choices["bow"] to $choices["bow"]+1>>
+<<endsilently>>
+
+You fire an arrow into the crowd, riling the Goblins as they hiss and shriek.
+
+<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Goblins Sword Defeat]] <<else>> [[Attack with your Rusty Sword|Goblins Sword Defeat]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Goblins Bow Defeat]] <<else>> [[Attack with your Old Bow|Goblins Bow Defeat]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Goblins Magic Defeat]] <<else>> [[Attack with a Weak Spell|Goblins Magic Defeat]] <<endif>>
+
+:: Goblins Magic Defeat
+<<silently>>
+<<set $choices["magic"] to $choices["magic"]+1>>
+<<endsilently>>
+
+You blast a ball of fire into the center of the group, elliciting shrieks and shouts. The Goblins scream and sprint in to the woods shouting "Okay! You win!" as they do and leaving behind some of their possessions in the chaos.
+
+[[Search through their possessions|Goblin Loot]]
+
+:: Goblins Talk
+<<silently>>
+<<set $choices["talk"] to $choices["talk"]+1>>
+<<endsilently>>
+
+"Hey, who are you? You wanna fight?" one of the Goblins ask as you approach. You explain that you in fact do not want to fight, and that you are a simple traveller, just trying to get by on the road. "Oh... okay. I suppose that's reasonable. Have a nice day!" The Goblins continue on past you, allowing you to travel to town.
+
+[[Continue on to the town|Town Welcome]]
+
+:: Goblins Bribe
+<<silently>>
+<<set $choices["bribe"] to $choices["bribe"]+1>>
+<<endsilently>>
+
+"What?! What do you want?" one of the Goblins demands as you approach to speak to them. You offer to pay them to allow you passage. "No!" They shout in outrage. "We aren't taking bribes; we just want to fight!!"
+
+<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Goblins Sword Defeat]] <<else>> [[Attack with your Rusty Sword|Goblins Sword Wound]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Goblins Bow Defeat]] <<else>> [[Attack with your Old Bow|Goblins Bow Wound]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Goblins Magic Defeat]] <<else>> [[Attack with a Weak Spell|Goblins Magic Defeat]] <<endif>>
+[[Try to talk the Goblins|Goblins Talk]]
+
+:: Goblins Hide
+<<silently>>
+<<set $choices["hide"] to $choices["hide"]+1>>
+<<endsilently>>
+
+You crouch behind a thicket of bushes before the goblins can spot you.
+
+[[Try to sneak past the Goblins|Goblin Sneak]]
+[[Wait to see if they contiue past your hiding spot|Goblin Wait]]
+<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Goblins Sword Defeat]] <<else>> [[Attack with your Rusty Sword|Goblins Sword Wound]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Goblins Bow Defeat]] <<else>> [[Attack with your Old Bow|Goblins Bow Wound Hidden]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Goblins Magic Defeat]] <<else>> [[Attack with a Weak Spell|Goblins Magic Defeat]] <<endif>>
+[[Try to speak to the Goblins|Goblins Talk]]
+[[Try to bribe the Goblins to let you pass|Goblins Bribe]]
+
+:: Goblin Loot
+Amongst the discarded belongings, you find some gold and a Magic Bow. Your pack is getting heavy and you can only carry one. Which do you take?
+
+[[Take the gold|Goblin Loot gold]]
+[[Take the Magic Bow|Goblin Loot Bow]]
+
+:: Goblin Sneak
+<<silently>>
+<<set $choices["sneak"] to $choices["sneak"]+1>>
+<<endsilently>>
+
+You try to slip past the Goblins by sticking to the woods, but as your paths cross, you step on an inopportune branch, making a loud crack.
+
+"Who's that!?" shouts one of the Goblins. "You wanna fight?"
+
+<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Goblins Sword Defeat]] <<else>> [[Attack with your Rusty Sword|Goblins Sword Wound]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Goblins Bow Defeat]] <<else>> [[Attack with your Old Bow|Goblins Bow Wound Hidden]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Goblins Magic Defeat]] <<else>> [[Attack with a Weak Spell|Goblins Magic Defeat]] <<endif>>
+[[Try to speak to the Goblins|Goblins Talk]]
+[[Try to bribe the Goblins to let you pass|Goblins Bribe]]
+
+:: Goblin Wait
+<<silently>>
+<<set $choices["wait"] to $choices["wait"]+1>>
+<<endsilently>>
+
+You stay hidden behind the bushes and with all of the clamour of their passage, the Goblins do not notice you as they continue down the road. With them gone, you are free to continue on to the town.
+
+[[Continue on to the town|Town Welcome]]
+
+:: Goblins Bow Wound Hidden
+<<silently>>
+<<set $choices["bow"] to $choices["bow"]+1>>
+<<endsilently>>
+
+You fire an arrow into the crowd, riling the Goblins as they hiss and shriek. "What?!" one of them shouts. "Who did that!?"
+
+<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Goblins Sword Defeat]] <<else>> [[Attack with your Rusty Sword|Goblins Sword Defeat]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Goblins Bow Defeat]] <<else>> [[Attack with your Old Bow|Goblins Bow Defeat]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Goblins Magic Defeat]] <<else>> [[Attack with a Weak Spell|Goblins Magic Defeat]] <<endif>>
+[[Try to Sneak away|Goblin Sneak]]
+
+:: Goblin Loot gold
+<<silently>>
+<<set $inventory["gold"] to $inventory["gold"]+1>>
+<<set $choices["gold"] to $choices["gold"]+1 >>
+<<endsilently>>
+
+You take the gold and continue on your journey to town.
+
+[[Continue on to the town|Town Welcome]]
+
+:: Goblin Loot Bow
+<<silently>>
+<<set $inventory["magicBow"] to $inventory["magicBow"]+1>>
+<<set $choices["weapon"] to $choices["weapon"]+1 >>
+<<endsilently>>
+
+You take the Magic Bow and continue on your journey to town.
+
+[[Continue on to the town|Town Welcome]]
+
+:: Shop Welcome
+"Hello!" The shopkeeper greets you warmly. "Welcome to my little shop. What can I interest you in today? A new weapon? Or perhaps a suit of armor?"
+
+You look at the items for sale. There is a gleaming magic sword, a beautiful magic bow, and a tome of powerful magic spells. Each weapon costs 3 gold. There is also a set of steel armor, and some healing potions, each for 2 gold. A wooden sign on the wall informs you, "No Trades - Gold Only!"
+
+\<<if $inventory["gold"] < 2 >> 
+Unfortunately, you don't have enough gold to buy anything. 
+\<<endif>>
+\<<if $inventory["gold"] >= 3>> 
+[[Buy a Magic Sword|Buy Magic Sword]]
+\<<endif>>
+\<<if $inventory["gold"] >= 3>> 
+[[Buy a Magic Bow|Buy Magic Bow]] 
+\<<endif>>
+\<<if $inventory["gold"] >= 3>> 
+[[Buy a Magic Spell Tome|Buy Magic Spell Book]] 
+\<<endif>>
+<<if $inventory["gold"] >= 2>> [[Buy Armor|Buy Armor]] <<endif>>
+<<if $inventory["gold"] >= 2 >> [[Buy Healing Potion|Buy Healing Potion]] <<endif>>
+
+[[Leave the shop and continue your journey.|Choice 4]]
+
+:: Choice 4
+You exit the shop and begin following the road north toward the cavern. You remain alert, having heard rumors of a group of bandits living north of Brekvern. Eventually, the road narrows to a simple dirt path through the forest. Making your way through the forest, you come across a small campsite--several tents, crates and sacks of supplies, and a still-smouldering campfire--but no one seems to be around. Suddenly, you hear a woman's scream. "Help! Somebody help me!" Ah. You suppose you've located the bandits--and their campsite. The woman is clearly in need of rescue. On the other hand, you could take advantage of the outlaws' temporary absence and see whether they have any useful supplies you could "borrow."
+
+[[Save Citizen|Save Citizen Start]]
+[[Loot the Camp|Loot Camp Start]]
+
+
+:: Puzzle Welcome
+You enter a clearing and see a cave in the side of the cliff face – Bloomrane Cavern. As you approach, however, you see that the entrance to the cave is blocked by a large stone door with a face carved onto it. When you try to open the door, the face springs to life and the door speaks, "To enter the cavern and claim the treasure within, you must first answer my riddle."
+
+<<if $inventory["magicSword"] > 0>> [[Attack the door with your Magic Sword.|Puzzle Sword]] <<else>> [[Attack the door with your Rusty Sword.|Puzzle Sword]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack the door with your Magic Bow|Puzzle Bow]] <<else>> [[Attack the door with your Old Bow|Puzzle Bow]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack the door with a Powerful Spell|Puzzle Magic Success]] <<else>> [[Attack the door with a Weak Spell|Puzzle Magic Fail]] <<endif>>
+[[Listen to the riddle|Puzzle Talk]]
+[[Try to bribe the door|Puzzle Bribe]]
+[[Hide from the door|Puzzle Hide]]
+
+:: Win
+As you enter the cave, you come upon a chamber filled with glimmering treasure. Heaps of shimmering gold coins, brilliant jewels of all colors, and magnificent weapons lay before you. Your discovery will surely become legendary.
+
+Congratulations! You found the lost treasure of Bloomrane Cavern!
+
+Your Choices:
+near: $choices["near"]
+far: $choices["far"]
+many: $choices["many"]
+few: $choices["few"]
+loot: $choices["loot"]
+help: $choices["help"]
+magicSword: $choices["magicSword"]
+magicBow: $choices["magicBow"]
+magicBook: $choices["magicBook"]
+gold: $choices["gold"]
+weapon: $choices["weapon"]
+sword: $choices["sword"]
+bow: $choices["bow"]
+magic: $choices["magic"]
+hide: $choices["hide"]
+wait: $choices["wait"]
+sneak: $choices["sneak"]
+talk: $choices["talk"]
+bribe: $choices["bribe"]
+runAway: $choices["runAway"]
+
+<<for _i = 0; _i < State.length; _i++>>
+	<<print State.index(_i).title>>
+<</for>>
+
+:: Town Magic
+<<silently>>
+<<set $choices["magic"] to $choices["magic"]+1>>
+<<endsilently>>
+
+You open your spell tome and begin channeling your magic and within moments one of the town guard has spotted you. "Hey!" she shouts. "What do you think you're doing?! This is a city, not the woods. Stop that at once!"
+
+The gossips begin staring at you and whispering and the hooded figures narrow their eyes at you before quickly fleeing down the alley. You get the sense that violence was not the answer.
+
+[[Go to the cartographer's booth|Town Bribe]]
+
+:: Town Talk
+<<silently>>
+<<set $choices["talk"] to $choices["talk"]+1>>
+<<endsilently>>
+
+You approach the group standing near the inn and greet them. You ask if they've heard any interesting news lately. "I heard a passing trader say that she stumbled upon some sort of magic cave, a few miles up the north road. She said she couldn't get into it, though. I'm not sure why." 
+
+You thank them for the information, and with your path clear, you head to the shop to gather supplies for your journey.
+
+[[Go to the shop|Shop Welcome]]
+
+:: Town Bribe
+<<silently>>
+<<set $choices["bribe"] to $choices["bribe"]+1>>
+<<endsilently>>
+
+You approach the cartographer as he smiles and gestures to his merchandise. You if he has a map to Bloomrane Cavern. "I do," he says. "What are you willing to give me for it?"
+
+\<<if $inventory["magicSword"] > 0>> 
+[[Offer a Magic Sword|Town Bribe Sword]]\
+\<<endif>>
+\<<if $inventory["magicBow"] > 0>> 
+[[Offer a Magic Bow|Town Bribe Bow]]
+\<<endif>>
+\<<if $inventory["magicBook"] > 0>> 
+[[Offer a Magic Spell Tome|Town Bribe Magic]]
+\<<endif>>
+<<if $inventory["gold"] > 0>> [[Offer gold|Town Bribe gold]]<<endif>>
+[[Try to talk to the gossips instead|Town Talk]]
+
+:: Town Hide
+<<silently>>
+<<set $choices["hide"] to $choices["hide"]+1>>
+<<endsilently>>
+
+You silently creep toward the alley and reach the hooded figures without them noticing. They are whispering about something, and the one nearst to you has a piece of paper sticking out of her pocket.
+
+[[Try to grab the piece of paper and sneak away|Town Sneak]]
+[[Stay hidden and listen in on their conversation|Town Wait]]
+
+:: Town Sword
+<<silently>>
+<<set $choices["sword"] to $choices["sword"]+1>>
+<<endsilently>>
+
+You draw your sword and within moments one of the town guard has spotted you. "Hey!" she shouts. "What do you think you're doing?! This is a city, not the woods. Put that away!"
+
+The gossips begin staring at you and whispering and the hooded figures narrow their eyes at you before quickly fleeing down the alley. You get the sense that violence was not the answer.
+
+[[Go to the cartographer's booth|Town Bribe]]
+
+:: Town Bow
+<<silently>>
+<<set $choices["bow"] to $choices["bow"]+1>>
+<<endsilently>>
+
+You draw your bow and within moments one of the town guard has spotted you. "Hey!" she shouts. "What do you think you're doing?! This is a city, not the woods. Put that away!"
+
+The gossips begin staring at you and whispering and the hooded figures narrow their eyes at you before quickly fleeing down the alley. You get the sense that violence was not the answer.
+
+[[Go to the cartographer's booth|Town Bribe]]
+
+:: Town Bribe Sword
+<<silently>>
+<<set $inventory["magicSword"] to $inventory["magicSword"]-1>>
+<<endsilently>>
+
+"Perfect," he says enthusiatically. "Enjoy!" He hands you the map and takes your Magic Sword.
+
+You thank him for the map, and with your path clear, you head to the shop to gather supplies for your journey.
+
+[[Go to the shop|Shop Welcome]]
+
+:: Town Bribe Bow
+<<silently>>
+<<set $inventory["magicBow"] to $inventory["magicBow"]-1>>
+<<endsilently>>
+
+"Perfect," he says enthusiatically. "Enjoy!" He hands you the map and takes your Magic Bow.
+
+You thank him for the map, and with your path clear, you head to the shop to gather supplies for your journey.
+
+[[Go to the shop|Shop Welcome]]
+
+:: Town Bribe Magic
+<<silently>>
+<<set $inventory["magicBook"] to $inventory["magicBook"]-1>>
+<<endsilently>>
+
+"Perfect," he says enthusiatically. "Enjoy!" He hands you the map and takes your Magic Spell Tome.
+
+You thank him for the map, and with your path clear, you head to the shop to gather supplies for your journey.
+
+[[Go to the shop|Shop Welcome]]
+
+:: Town Bribe gold
+<<silently>>
+<<set $inventory["gold"] to $inventory["gold"]-1>>
+<<endsilently>>
+
+"Perfect," he says enthusiatically. "Enjoy!" He hands you the map and takes your Treausre.
+
+You thank him for the map, and with your path clear, you head to the shop to gather supplies for your journey.
+
+[[Go to the shop|Shop Welcome]]
+
+:: Town Sneak
+<<silently>>
+<<set $choices["sneak"] to $choices["sneak"]+1>>
+<<endsilently>>
+
+You quickly grab the note and sneak back out of the alley. You unfold the note and read it. On it are instructions. "Follow the north road up to the cave. I'll meet you there."
+
+With your path clear, you head to the shop to gather supplies for your journey.
+
+[[Go to the shop|Shop Welcome]]
+
+:: Town Wait
+<<silently>>
+<<set $choices["sneak"] to $choices["sneak"]+1>>
+<<endsilently>>
+
+"The boss says we're supposed to take the north road up to the cave," one of the hooded figures whispers. "He's getting the key for it now and once we open it we'll be rich!"
+
+"Great! But do you think we could do that in like, a couple hours? I kinda want to get lunch before we leave town," the other responds. "Oh yeah, for sure. It'll take him a little while to steal the key anyway. Might as well enjoy ourselves," the first answers.
+
+You sneak away as the hooded figures leave for lunch, and with your path clear, you head to the shop to gather supplies for your journey.
+
+[[Go to the shop|Shop Welcome]]
+
+:: Buy Magic Sword
+\<<set $choices["magicSword"] to $choices["magicSword"]+1>>
+\<<if $inventory["magicSword"] == 0>>
+\<<set $inventory["gold"] to $inventory["gold"]-3>>
+\<<set $inventory["magicSword"] to $inventory["magicSword"]+1>>
+"Excellent choice!" The shopkeeper hands you the magic sword.
+<<else>>
+You already have a magic sword. It would be too cumbersome to carry another.
+<<endif>>
+[[Continue shopping.|Shop Welcome]]
+
+
+
+:: Buy Magic Bow
+\<<if $inventory["magicBow"] == 0>>
+\<<set $inventory["gold"] to $inventory["gold"]-3>>
+\<<set $inventory["magicBow"] to $inventory["magicBow"]+1>>
+\<<set $choices["magicBow"] to $choices["magicBow"]+1>>
+"Ah, yes, she's a beauty." The shopkeeper hands you the magic bow.
+<<else>>
+You already have a magic bow. It would be too cumbersome to carry another.
+<<endif>>
+[[Continue shopping.|Shop Welcome]]
+
+
+
+:: Buy Magic Spell Book
+\<<set $inventory["magicBook"] to $inventory["magicBook"]+1>>
+\<<set $choices["magicBook"] to $choices["magicBook"]+1>>
+\<<if $inventory["magicBook"] == 0>>
+\<<set $inventory["gold"] to $inventory["gold"]-3>>
+"Here you are!" The shopkeeper pulls the old spell book off of the shelf and hands it to you.
+<<else>>
+You alrady have a magic spell book. You don't need another.
+<<endif>>
+[[Continue shopping.|Shop Welcome]]
+
+
+:: Buy Armor
+\<<if $inventory["armor"] == 0>>
+\<<set $inventory["gold"] to $inventory["gold"]-2>>
+\<<set $inventory["armor"] to $inventory["armor"]+1>>
+\<<set $choices["armor"] to $choices["armor"]+1>>
+"Very good!" The shopkeeper hands you the armor.
+<<else>>
+You already have a set of armor. It would be too cumbersome to carry another.
+<<endif>>
+[[Continue shopping.|Shop Welcome]]
+
+
+
+:: Buy Healing Potion
+<<silently>>
+<<set $inventory["gold"] to $inventory["gold"]-2>>
+<<set $inventory["healingPotion"] to $inventory["healingPotion"]+1>>
+<<set $choices["healingPotion"] to $choices["healingPotion"]+1>>
+<<endsilently>>
+
+"Excellent choice!" The shopkeeper hands you a small vial of green liquid.
+
+[[Continue shopping.|Shop Welcome]]
+
+
+
+:: StoryCaption
+Inventory:
+$inventory["gold"] gold
+<<if $inventory["magicSword"] > 0>> Magic Sword <<else>> Rusty Sword <<endif>>
+<<if $inventory["magicBow"] > 0>> Magic Bow <<else>> Old Bow <<endif>>
+<<if $inventory["magicBook"] > 0>> Powerful Spell Book <<else>> Weak Spell Book <<endif>>
+\<<if $inventory["armor"] > 0>> 
+$inventory["armor"] Armor
+\<<endif>>
+\<<if $inventory["healingPotion"] > 0>> 
+$inventory["healingPotion"] Healing Potion<<if $inventory["healingPotion"] > 1>>s<<endif>> <<endif>>
+
+:: Puzzle Sword
+<<silently>>
+<<set $choices["sword"] to $choices["sword"]+1>>
+<<endsilently>>
+
+You strike the door with your sword, leaving the door unscathed but a large chip in your sword. "I'm made of stone. You're just going to ruin that sword." The door chides.
+
+<<if $inventory["magicBow"] > 0>> [[Attack the door with your Magic Bow|Puzzle Bow]] <<else>> [[Attack the door with your Old Bow|Puzzle Bow]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack the door with a Powerful Spell|Puzzle Magic Success]] <<else>> [[Attack the door with a Weak Spell|Puzzle Magic Fail]] <<endif>>
+[[Listen to the riddle|Puzzle Talk]]
+[[Try to bribe the door|Puzzle Bribe]]
+[[Hide from the door|Puzzle Hide]]
+
+:: Puzzle Bow
+<<silently>>
+<<set $choices["bow"] to $choices["bow"]+1>>
+<<endsilently>>
+
+You fire arrow after arrow at the door to no effect. "Ha! That tickles!" The door laughs. You aren't sure if he's mocking you, or if that does actually tickle.
+
+<<if $inventory["magicSword"] > 0>> [[Attack the door with your Magic Sword.|Puzzle Sword]] <<else>> [[Attack the door with your Rusty Sword.|Puzzle Sword]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack the door with a Powerful Spell|Puzzle Magic Success]] <<else>> [[Attack the door with a Weak Spell|Puzzle Magic Fail]] <<endif>>
+[[Listen to the riddle|Puzzle Talk]]
+[[Try to bribe the door|Puzzle Bribe]]
+[[Hide from the door|Puzzle Hide]]
+
+:: Puzzle Magic Success
+<<silently>>
+<<set $choices["magic"] to $choices["magic"]+1>>
+<<endsilently>>
+
+You charge a powerful spell and cast it at the door. "Ahh!" it yelps, seemingly out of surprise more than anything else. The door begins to open, reacting to your magic. "Wait, that's not supposed to happen!" the door shouts as the face is obscured from veiw, leaving a clear and open entryway into Bloomrane Cavern.
+
+[[Enter the cavern|Win]]
+
+:: Puzzle Magic Fail
+<<silently>>
+<<set $choices["magic"] to $choices["magic"]+1>>
+<<endsilently>>
+
+A gust of flame erupts from your hand and does absolutely nothing because this is a solid stone door. "Are you done? Did you get it all out of your system?" it asks.
+
+<<if $inventory["magicSword"] > 0>> [[Attack the door with your Magic Sword.|Puzzle Sword]] <<else>> [[Attack the door with your Rusty Sword.|Puzzle Sword]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack the door with your Magic Bow|Puzzle Bow]] <<else>> [[Attack the door with your Old Bow|Puzzle Bow]] <<endif>>
+[[Listen to the riddle|Puzzle Talk]]
+[[Try to bribe the door|Puzzle Bribe]]
+[[Hide from the door|Puzzle Hide]]
+
+:: Puzzle Talk
+<<silently>>
+<<set $choices["talk"] to $choices["talk"]+1>>
+<<endsilently>>
+
+The door clears its throat and begins. "I am not alive, but I grow; I don't have lungs, but I need air; I don't have a mouth, but water kills me. What am I?"
+
+<<textbox "$response" "" "Puzzle Answer">>
+
+:: Puzzle Bribe
+<<silently>>
+<<set $choices["bribe"] to $choices["bribe"]+1>>
+<<endsilently>>
+
+You try to offer some of your treasure and items to the door. "I'm a stone door guarding vast treasure; what could you possibly offer me I would want?" it scoffs.
+
+<<if $inventory["magicSword"] > 0>> [[Attack the door with your Magic Sword.|Puzzle Sword]] <<else>> [[Attack the door with your Rusty Sword.|Puzzle Sword]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack the door with your Magic Bow|Puzzle Bow]] <<else>> [[Attack the door with your Old Bow|Puzzle Bow]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack the door with a Powerful Spell|Puzzle Magic Success]] <<else>> [[Attack the door with a Weak Spell|Puzzle Magic Fail]] <<endif>>
+[[Listen to the riddle|Puzzle Talk]]
+[[Hide from the door|Puzzle Hide]]
+
+:: Puzzle Hide
+<<silently>>
+<<set $choices["hide"] to $choices["hide"]+1>>
+<<endsilently>>
+
+Seeing as the door has already seen you, and as there is nothing large enough nearby to hide behind, you simply crouch down in the hopes that the door won't be able to see you anymore.
+
+"I can still see you," the door says, exasperated. "What is it you hope to accomplish with this?"
+
+[[Try to sneak past the door|Puzzle Sneak]]
+[[Wait|Puzzle Wait]]
+
+:: Puzzle Wrong
+"Ha! Not even close!" the door mocks.
+
+<<if $inventory["magicSword"] > 0>> [[Attack the door with your Magic Sword.|Puzzle Sword]] <<else>> [[Attack the door with your Rusty Sword.|Puzzle Sword]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack the door with your Magic Bow|Puzzle Bow]] <<else>> [[Attack the door with your Old Bow|Puzzle Bow]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack the door with a Powerful Spell|Puzzle Magic Success]] <<else>> [[Attack the door with a Weak Spell|Puzzle Magic Fail]] <<endif>>
+[[Listen to the riddle again|Puzzle Talk]]
+[[Try to bribe the door|Puzzle Bribe]]
+[[Hide from the door|Puzzle Hide]]
+
+:: Puzzle Right
+"Ha! you're not ev... oh, wait, you actually got it. Huh, no one's ever gotten it right before. I guess, go in?" The door opens, allowing you entry.
+
+[[Enter the cavern|Win]]
+
+:: Puzzle Sneak
+<<silently>>
+<<set $choices["sneak"] to $choices["sneak"]+1>>
+<<endsilently>>
+
+As you try to sneak past, you realize that you can't. There is only one enterance and it is blocked by a very solid, very closed door. And the door can see you.
+
+<<if $inventory["magicSword"] > 0>> [[Attack the door with your Magic Sword.|Puzzle Sword]] <<else>> [[Attack the door with your Rusty Sword.|Puzzle Sword]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack the door with your Magic Bow|Puzzle Bow]] <<else>> [[Attack the door with your Old Bow|Puzzle Bow]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack the door with a Powerful Spell|Puzzle Magic Success]] <<else>> [[Attack the door with a Weak Spell|Puzzle Magic Fail]] <<endif>>
+[[Listen to the riddle|Puzzle Talk]]
+[[Try to bribe the door|Puzzle Bribe]]
+[[Hide from the door|Puzzle Hide]]
+
+:: Puzzle Wait
+<<silently>>
+<<set $choices["wait"] to $choices["wait"]+1>>
+<<endsilently>>
+You stay in the same position and wait. "Seriously, I can see you; I'm a door; I'm not going anywhere. I'm not even capable of leaving!" the door taunts. You continue to wait. Hours pass, the door growing increasingly frustrated, and seemingly, a bit tired. In one fateful moment, the door yawns, opening just a little, and you dive through the crack into the cavern beyond. You hear a faint sigh and grumbling discontent on the other side of the door.
+
+[[Enter the cavern|Win]]
+
+
+
+:: Save Citizen Start
+<<set $choices["help"] to $choices["help"]+1>>
+You begin running, following the sound of the woman's screams, until you find a group of five men in leather armor brandishing their swords at an eldery woman. "Come on now, you must have something of value in that bag of yours. Hand it over, and nobody needs to get hurt," one bandit says.
+
+<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Bandits Magic Sword]] <<else>> [[Attack with your Rusty Sword|Bandits Rusty Sword]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Bandits Magic Bow]] <<else>> [[Attack with your Old Bow|Bandits Old Bow]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Bandits Powerful Magic]] <<else>> [[Attack with a Weak Spell|Bandits Weak Magic]] <<endif>>
+[[Try to speak to the bandits|Bandits Talk]]
+[[Try to bribe the bandits|Bandits Bribe]]
+[[Hide behind a large tree|Bandits Hide]]
+[[Run away|Run away]]
+
+:: Loot Camp Start
+<<set $choices["loot"] to $choices["loot"]+1>>
+You decide to search the camp. After rummaging around for a few minutes, you open a crate full of weapons.
+
+[[Pick up the Magic Sword.|Camp Loot Sword]]
+[[Pick up the Magic Bow.|Camp Loot Bow]]
+[[Pick up the Magic Spell Book|Camp Loot Spellbook.]]
+
+:: Bandits Magic Sword
+<<set $choices["sword"] to $choices["sword"]+1>>
+You charge the men with your sword, and easily wound the nearest bandit. He shouts in pain and flees into the forest, the other bandits following soon after.
+
+"Thank you," the old woman says. "That was very brave of you. Please, allow me to give you something in return." She reaches into her bag, pulls out an old tome of powerful magic spells, and hands it to you. "Hopefully you can put this to good use."
+\<<set $inventory["magicBook"] to $inventory["magicBook"]+1>>
+
+After seeing the woman home safely, you [[continue north toward the cavern.|Puzzle Welcome]]
+
+:: Bandits Rusty Sword
+<<set $choices["sword"] to $choices["sword"]+1>>
+You charge one of the men with your sword. Unfortunately, your old, rusty blade is no match for the bandits' superior weapons. They easily block your attacks. A bandit's sword hits you,
+\<<if $inventory["armor"]>0>>
+\ but his blade fails to pierce your armor. 
+\<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Bandits Magic Bow]] <<else>> [[Attack with your Old Bow|Bandits Old Bow]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Bandits Powerful Magic]] <<else>> [[Attack with a Weak Spell|Bandits Weak Magic]] <<endif>>
+[[Run away|Run away]]
+\<<else>>
+\ slicing into your side. [[Ouch!|Wounded]]
+\<<endif>>
+
+:: Bandits Magic Bow
+<<set $choices["bow"] to $choices["bow"]+1>>
+You fire several arrows at the bandits with your bow. They shout in panic and scatter, fleeing into the forest.
+
+"Thank you," the old woman says. "That was very brave of you. Please, allow me to give you something in return." She reaches into her bag, pulls out an old tome of powerful magic spells, and hands it to you. "Hopefully you can put this to good use."
+\<<set $inventory["magicBook"] to $inventory["magicBook"]+1>>
+
+
+After seeing the woman home safely, you [[continue north toward the cavern.|Puzzle Welcome]]
+
+:: Bandits Old Bow
+<<set $choices["bow"] to $choices["bow"]+1>>
+You aim your bow and fire at one of the bandits, but the feeble arrow bounces off of his leather armor. The nearest bandit charges at you, swinging his sword,
+\<<if $inventory["armor"]>0>>
+\ which bounces harmlessly off of your armor. 
+\<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Bandits Magic Sword]] <<else>> [[Attack with your Rusty Sword|Bandits Rusty Sword]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Bandits Powerful Magic]] <<else>> [[Attack with a Weak Spell|Bandits Weak Magic]] <<endif>>
+[[Run away|Run away]]
+\<<else>>
+\ which slices into your side, [[wounding you badly.|Wounded]]
+\<<endif>>
+
+:: Bandits Powerful Magic
+<<set $choices["magic"] to $choices["magic"]+1>>
+You send a ball of fire hurtling toward the nearest bandit. The men shout in panic and scatter, fleeing into the forest.
+
+"Thank you," the old woman says. "That was very brave of you. Please, allow me to give you something in return." She reaches into her bag, pulls out an old tome of powerful magic spells, and hands it to you. "Hopefully you can put this to good use."
+\<<set $inventory["magicBook"] to $inventory["magicBook"]+1>>
+
+After seeing the woman home safely, you [[continue north toward the cavern.|Puzzle Welcome]]
+
+:: Bandits Weak Magic
+<<set $choices["magic"] to $choices["magic"]+1>>
+You begin chanting, but the bandits attack you before you can finish casting the spell.
+\<<if $inventory["armor"]>0>>
+\ One attempts to stab you, but your armor protects you from the blade. 
+\<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Bandits Magic Sword]] <<else>> [[Attack with your Rusty Sword|Bandits Rusty Sword]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Bandits Magic Bow]] <<else>> [[Attack with your Old Bow|Bandits Old Bow]] <<endif>>
+[[Run away|Run away]]
+\<<else>>
+\ One stabs you with his sword, [[wounding you badly.|Wounded]]
+\<<endif>>
+
+:: Bandits Talk
+<<set $choices["talk"] to $choices["talk"]+1>>
+You attempt to reason with the bandits, explaining that there is no need for violence. They laugh raucously, turning toward you with menacing expressions.
+
+<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Bandits Magic Sword]] <<else>> [[Attack with your Rusty Sword|Bandits Rusty Sword]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Bandits Magic Bow]] <<else>> [[Attack with your Old Bow|Bandits Old Bow]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Bandits Powerful Magic]] <<else>> [[Attack with a Weak Spell|Bandits Weak Magic]] <<endif>>
+[[Try to bribe the bandits|Bandits Bribe]]
+[[Run away|Run away]]
+
+:: Bandits Bribe
+<<set $choices["bribe"] to $choices["bribe"]+1>>
+You offer to give the bandits some treasure if they'll stop harassing the woman. "Oh, I'll be happy to take whatever you've got on you," one man says with amusement. "But I don't plan on doing either of you any favors." He steps toward you with his sword raised and a menacing gleam in his eyes.
+<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Bandits Magic Sword]] <<else>> [[Attack with your Rusty Sword|Bandits Rusty Sword]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Bandits Magic Bow]] <<else>> [[Attack with your Old Bow|Bandits Old Bow]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Bandits Powerful Magic]] <<else>> [[Attack with a Weak Spell|Bandits Weak Magic]] <<endif>>
+[[Run away|Run away]]
+
+:: Bandits Hide
+<<set $choices["hide"] to $choices["hide"]+1>>
+
+You quietly slip behind the trunk of a large tree before the bandits spot you.
+
+[[Wait until the bandits leave|Bandits Wait]]
+[[Sneak away|Bandits Sneak]]
+<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Bandits Magic Sword]] <<else>> [[Attack with your Rusty Sword|Bandits Rusty Sword]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Bandits Magic Bow]] <<else>> [[Attack with your Old Bow|Bandits Old Bow]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Bandits Powerful Magic]] <<else>> [[Attack with a Weak Spell|Bandits Weak Magic]] <<endif>>
+[[Try to speak to the bandits|Bandits Talk]]
+[[Try to bribe the bandits|Bandits Bribe]]
+
+:: Wounded
+You're too badly hurt to fight any longer.
+<<if $inventory["healingPotion"]>0>>
+[[Use a health potion|Use Health Potion]]
+[[Run away|Run away]]
+<<else>>
+You have no choice but to [[flee.|Puzzle Welcome]]
+<<endif>>
+
+:: Bandits Wait
+<<set $choices["wait"] to $choices["wait"]+1>>
+You remain hidden behind the tree. The old woman surrenders her satchel to the bandits and runs away, frightened. The bandits laugh raucously as they head back to their camp. After they leave, you emerge from your hiding place and [[continue north toward the cavern.|Puzzle Welcome]]
+
+:: Bandits Sneak
+<<set $choices["sneak"] to $choices["sneak"]+1>>
+Deciding not to intervene, you slip away unnoticed and [[continue north toward the cavern.|Puzzle Welcome]]
+
+:: Use Health Potion
+<<set $inventory["healingPotion"] to $inventory["healingPotion"]-1>>
+Stumbling away from your attacker, you manage to grab a healing potion from your bag and quickly drink it. You immediately feel much stronger.
+
+<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Bandits Magic Sword]] <<else>> [[Attack with your Rusty Sword|Bandits Rusty Sword]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Bandits Magic Bow]] <<else>> [[Attack with your Old Bow|Bandits Old Bow]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Bandits Powerful Magic]] <<else>> [[Attack with a Weak Spell|Bandits Weak Magic]] <<endif>>
+[[Run away|Run away]]
+
+:: Run away
+<<set $choices["runAway"] to $choices["runAway"]+1>>
+You flee from the bandits and [[continue north toward the cavern.|Puzzle Welcome]]
+
+:: Camp Loot Sword
+<<set $choices["magicSword"] to $choices["magicSword"]+1>>
+\<<if $inventory["magicSword"] > 0>>
+\You begin to pick up the sword, but realize it's no better than the one you already have, and there's no sense in carrying both.
+\<<else>>
+\You pick up the new sword and admire it. 
+\<<set $inventory["magicSword"] to $inventory["magicSword"]+1>>
+\<<endif>>
+\Suddenly, you hear footsteps and the sound of men's voices from nearby. The bandits must be returning!
+
+<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Camp Magic Sword]] <<else>> [[Attack with your Rusty Sword|Camp Rusty Sword]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Camp Magic Bow]] <<else>> [[Attack with your Old Bow|Camp Old Bow]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Camp Powerful Magic]] <<else>> [[Attack with a Weak Spell|Camp Weak Magic]] <<endif>>
+[[Try to speak to the bandits|Camp Talk]]
+[[Try to bribe the bandits|Camp Bribe]]
+[[Hide behind a large tree|Camp Hide]]
+[[Run away|Run away]]
+
+:: Camp Loot Bow
+<<set $choices["magicBow"] to $choices["magicBow"]+1>>
+<<if $inventory["magicBow"] > 0>>
+\You begin to pick up the bow, but realize it's no better than the one you already have, and there's no sense in carrying both.
+\<<else>>
+\You pick up the bow and admire it. 
+\<<set $inventory["magicBow"] to $inventory["magicBow"]+1>>
+\<<endif>>
+\Suddenly, you hear footsteps and the sound of men's voices from nearby. The bandits must be returning!
+
+<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Camp Magic Sword]] <<else>> [[Attack with your Rusty Sword|Camp Rusty Sword]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Camp Magic Bow]] <<else>> [[Attack with your Old Bow|Camp Old Bow]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Camp Powerful Magic]] <<else>> [[Attack with a Weak Spell|Camp Weak Magic]] <<endif>>
+[[Try to speak to the bandits|Camp Talk]]
+[[Try to bribe the bandits|Camp Bribe]]
+[[Hide behind a large tree|Camp Hide]]
+[[Run away|Run away]]
+
+:: Camp Loot Spellbook.
+<<set $choices["magicBook"] to $choices["magicBook"]+1>>
+\You pick up the spell book and place it inside your bag. 
+\<<set $inventory["magicBook"] to $inventory["magicBook"]+1>>
+\Suddenly, you hear footsteps and the sound of men's voices from nearby. The bandits must be returning!
+
+<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Camp Magic Sword]] <<else>> [[Attack with your Rusty Sword|Camp Rusty Sword]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Camp Magic Bow]] <<else>> [[Attack with your Old Bow|Camp Old Bow]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Camp Powerful Magic]] <<else>> [[Attack with a Weak Spell|Camp Weak Magic]] <<endif>>
+[[Try to speak to the bandits|Camp Talk]]
+[[Try to bribe the bandits|Camp Bribe]]
+[[Hide behind a large tree|Camp Hide]]
+[[Run away|Run away]]
+
+:: Camp Magic Sword
+<<set $choices["sword"] to $choices["sword"] + 1>>
+You charge the men with your sword, and easily wound the nearest bandit. He shouts in pain and flees into the forest, the other bandits following soon after.Triumphant, you grab the rest of the loot and [[continue north toward the cave.|Puzzle Welcome]].
+<<if $inventory["magicSword"] == 0 set $inventory["magicSword"] to 1>>
+<<if $inventory["magicBow"] == 0 set $inventory["magicBow"] to 1>>
+<<if $inventory["magicBook"] == 0 set $inventory["magicBook"] to 1>>
+<<set $inventory["gold"] to $inventory["gold"] + 20>>
+
+:: Camp Rusty Sword
+<<set $choices["sword"] to $choices["sword"]+1>>
+You charge one of the men with your sword. Unfortunately, your old, rusty blade is no match for the bandits' superior weapons. They easily block your attacks. A bandit's sword hits you,
+\<<if $inventory["armor"]>0>>
+\ but his blade fails to pierce your armor. 
+\<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Camp Magic Bow]] <<else>> [[Attack with your Old Bow|Camp Old Bow]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Camp Powerful Magic]] <<else>> [[Attack with a Weak Spell|Camp Weak Magic]] <<endif>>
+[[Run away|Run away]]
+\<<else>>
+\ slicing into your side. [[Ouch!|Wounded Camp]]
+\<<endif>>
+
+:: Camp Magic Bow
+<<set $choices["bow"] to $choices["bow"]+1>>
+You fire several arrows at the bandits with your bow. They shout in panic and scatter, fleeing into the forest. Triumphant, you grab the rest of the loot and [[continue north toward the cave.|Puzzle Welcome]].
+<<if $inventory["magicSword"] == 0 set $inventory["magicSword"] to 1>>
+<<if $inventory["magicBow"] == 0 set $inventory["magicBow"] to 1>>
+<<if $inventory["magicBook"] == 0 set $inventory["magicBook"] to 1>>
+<<set $inventory["gold"] to $inventory["gold"] + 20>>
+
+:: Camp Old Bow
+<<set $choices["bow"] to $choices["bow"]+1>>
+You aim your bow and fire at one of the bandits, but the feeble arrow bounces off of his leather armor. The nearest bandit charges at you, swinging his sword,
+\<<if $inventory["armor"]>0>>
+\ which bounces harmlessly off of your armor. 
+\<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Camp Magic Sword]] <<else>> [[Attack with your Rusty Sword|Camp Rusty Sword]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Camp Powerful Magic]] <<else>> [[Attack with a Weak Spell|Camp Weak Magic]] <<endif>>
+[[Run away|Run away]]
+\<<else>>
+\ which slices into your side, [[wounding you badly.|Wounded Camp]]
+\<<endif>>
+
+:: Camp Powerful Magic
+<<set $choices["magic"] to $choices["magic"]+1>>
+You send a ball of fire hurtling toward the nearest bandit. The men shout in panic and scatter, fleeing into the forest. Triumphant, you grab the rest of the loot and [[continue north toward the cave.|Puzzle Welcome]].
+<<if $inventory["magicSword"] == 0 set $inventory["magicSword"] to 1>>
+<<if $inventory["magicBow"] == 0 set $inventory["magicBow"] to 1>>
+<<if $inventory["magicBook"] == 0 set $inventory["magicBook"] to 1>>
+<<set $inventory["gold"] to $inventory["gold"] + 20>>
+
+:: Camp Weak Magic
+<<set $choices["magic"] to $choices["magic"]+1>>
+You begin chanting, but the bandits attack you before you can finish casting the spell.
+\<<if $inventory["armor"]>0>>
+\ One attempts to stab you, but your armor protects you from the blade. 
+\<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Camp Magic Sword]] <<else>> [[Attack with your Rusty Sword|Camp Rusty Sword]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Camp Magic Bow]] <<else>> [[Attack with your Old Bow|Camp Old Bow]] <<endif>>
+[[Run away|Run away]]
+\<<else>>
+\ One stabs you with his sword, [[wounding you badly.|Wounded Camp]]
+\<<endif>>
+
+:: Camp Talk
+<<set $choices["talk"] to $choices["talk"]+1>>
+"Oh, hello there! I didn't mean to intrude. I'm just a traveller passing through," you say cheerfully. The bandits don't seem convinced. You are standing in the middle of their camp, after all. They glare at you menacingly. "What do you think you're doing in our camp?" one says angrily, pointing his sword toward you.
+
+<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Camp Magic Sword]] <<else>> [[Attack with your Rusty Sword|Camp Rusty Sword]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Camp Magic Bow]] <<else>> [[Attack with your Old Bow|Camp Old Bow]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Camp Powerful Magic]] <<else>> [[Attack with a Weak Spell|Camp Weak Magic]] <<endif>>
+[[Run away|Run away]]
+
+:: Camp Bribe
+<<set $choices["bribe"] to $choices["bribe"]+1>>
+You offer the bandits some treasure if they allow you to go on your way. They glare at you. "What?! You steal from us, and you think you can bribe us? You've got some nerve! No one messes with us. No, I think I'll take //everything// you've got!" The bandits advance toward you, weapons raised.
+
+<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Camp Magic Sword]] <<else>> [[Attack with your Rusty Sword|Camp Rusty Sword]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Camp Magic Bow]] <<else>> [[Attack with your Old Bow|Camp Old Bow]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Camp Powerful Magic]] <<else>> [[Attack with a Weak Spell|Camp Weak Magic]] <<endif>>
+[[Run away|Run away]]
+
+:: Camp Hide
+<<set $choices["hide"] to $choices["hide"]+1>>
+You quickly hide behind a nearby tree before the outlaws spot you. Five men enter camp, talking merrily about the gold they robbed from an old woman. They settle in, two entering their tents, the other three sitting by the fire.
+
+[[Wait|Camp Wait]]
+[[Sneak Away|Camp Sneak]]
+<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Camp Magic Sword]] <<else>> [[Attack with your Rusty Sword|Camp Rusty Sword]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Camp Magic Bow]] <<else>> [[Attack with your Old Bow|Camp Old Bow]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Camp Powerful Magic]] <<else>> [[Attack with a Weak Spell|Camp Weak Magic]] <<endif>>
+
+:: Camp Wait
+<<set $choices["wait"] to $choices["wait"]+1>>
+You wait for a while, but the outlaws don't seem to be going anywhere.
+
+[[Sneak Away|Camp Sneak]]
+<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Camp Magic Sword]] <<else>> [[Attack with your Rusty Sword|Camp Rusty Sword]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Camp Magic Bow]] <<else>> [[Attack with your Old Bow|Camp Old Bow]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Camp Powerful Magic]] <<else>> [[Attack with a Weak Spell|Camp Weak Magic]] <<endif>>
+
+:: Camp Sneak
+<<set $choices["sneak"] to $choices["sneak"]+1>>
+You quietly sneak away from the camp. Fortunately, no one sees you. You [[continue north toward the cavern.|Puzzle Welcome]]
+
+:: Wounded Camp
+You're too badly hurt to fight any longer. 
+<<if $inventory["healingPotion"]>0>>
+[[Use a health potion|Use Health Potion Camp]]
+[[Run away|Run away]].
+<<else>>
+\You have no choice but to [[flee.|Puzzle Welcome]]
+<<endif>>
+
+:: Use Health Potion Camp
+<<set $inventory["healingPotion"] to $inventory["healingPotion"]-1]]>>
+Stumbling away from your attacker, you manage to grab a healing potion from your bag and quickly drink it. You immediately feel much stronger.
+
+<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Camp Magic Sword]] <<else>> [[Attack with your Rusty Sword|Camp Rusty Sword]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Camp Magic Bow]] <<else>> [[Attack with your Old Bow|Camp Old Bow]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Camp Powerful Magic]] <<else>> [[Attack with a Weak Spell|Camp Weak Magic]] <<endif>>
+[[Run away|Run away]].
+
+:: Puzzle Answer
+<<set $response to $response.toLowerCase()>>
+<<if $response == "fire">> <<goto "Puzzle Right">>
+<<else>> <<goto "Puzzle Wrong">> <<endif>>
+
+:: StoryInit
+<<script>>
+Config.history.controls = false;
+Config.saves.isAllowed = function() {return false};
+<</script>>
+
+<<set $inventory to {}>>
+<<set $inventory["magicSword"] to 0>>
+<<set $inventory["magicBow"] to 0>>
+<<set $inventory["magicBook"] to 0>>
+<<set $inventory["armor"] to 0>>
+<<set $inventory["healingPotion"] to 0>>
+<<set $inventory["gold"] to 5>>
+<<set $choices to {}>>
+<<set $choices["near"] to 0>>
+<<set $choices["far"] to 0>>
+<<set $choices["many"] to 0>>
+<<set $choices["few"] to 0>>
+<<set $choices["loot"] to 0>>
+<<set $choices["help"] to 0>>
+<<set $choices["magicSword"] to 0>>
+<<set $choices["magicBow"] to 0>>
+<<set $choices["magicBook"] to 0>>
+<<set $choices["gold"] to 0>>
+<<set $choices["weapon"] to 0>>
+<<set $choices["sword"] to 0>>
+<<set $choices["bow"] to 0>>
+<<set $choices["magic"] to 0>>
+<<set $choices["hide"] to 0>>
+<<set $choices["wait"] to 0>>
+<<set $choices["sneak"] to 0>>
+<<set $choices["talk"] to 0>>
+<<set $choices["bribe"] to 0>>
+<<set $choices["runAway"] to 0>>
