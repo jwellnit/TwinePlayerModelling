@@ -1022,7 +1022,7 @@ You take the gold and continue on your journey.
 <<set $inventory["magicBow"] to $inventory["magicBow"]-1>>
 <<endsilently>>
 
-"Alright, I guess that works" they says, as they takes your Magic Sword. "You can head on past now." With the $encounter["enemy"] standing aside, you are free to continue to down the road.
+"Alright, I guess that works" they says, as they takes your Magic Bow. "You can head on past now." With the $encounter["enemy"] standing aside, you are free to continue to down the road.
 
 [[Continue on your Quest|Next Encounter]]
 
@@ -1031,7 +1031,7 @@ You take the gold and continue on your journey.
 <<set $inventory["magicBook"] to $inventory["magicBook"]-1>>
 <<endsilently>>
 
-"Alright, I guess that works" they says, as they takes your Magic Sword. "You can head on past now." With the $encounter["enemy"] standing aside, you are free to continue to down the road.
+"Alright, I guess that works" they says, as they takes your Magic Spell Tome. "You can head on past now." With the $encounter["enemy"] standing aside, you are free to continue to down the road.
 
 [[Continue on your Quest|Next Encounter]]
 
@@ -1040,7 +1040,7 @@ You take the gold and continue on your journey.
 <<set $inventory["gold"] to $inventory["gold"]-1>>
 <<endsilently>>
 
-"Alright, I guess that works" they says, as they takes your Magic Sword. "You can head on past now." With the $encounter["enemy"] standing aside, you are free to continue to down the road.
+"Alright, I guess that works" they says, as they takes your gold. "You can head on past now." With the $encounter["enemy"] standing aside, you are free to continue to down the road.
 
 [[Continue on your Quest|Next Encounter]]
 
@@ -1659,3 +1659,478 @@ You wait for an hour but it doesn't seem like the $encounter["enemy"] is going a
 <<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Enemy Far Few Magic Book Fight]] <<else>> [[Attack with a Weak Spell|Enemy Far Few Magic Fight]] <<endif>>
 <<if $encounter["talk"]>> [[Try to speak to the $encounter["enemy"]|Enemy Far Few Talk Succeed]] <<else>> [[Try to speak to the $encounter["enemy"]|Enemy Far Few Talk Fail]] <<endif>>
 <<if $encounter["bribe"]>> [[Try to bribe the $encounter["enemy"] to let you pass|Enemy Far Few Bribe Succeed]] <<else>> [[Try to bribe to the $encounter["enemy"] to let you pass|Enemy Far Few Bribe Fail]] <<endif>>
+
+
+:: Enemy Near Many
+<<silently>>
+<<set $choices["near"] to $choices["near"]+1>>
+<<set $choices["many"] to $choices["many"]+1>>
+<<endsilently>>
+
+You round a bend in the road to find a group of $encounter["enemy_description"]. They don't seem to have noticed you yet, but they are blocking your way.
+
+<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Enemy Near Many Magic Sword Fight]] <<else>> [[Attack with your Rusty Sword|Enemy Near Many Sword Fight]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Enemy Near Many Magic Bow Fight]] <<else>> [[Attack with your Old Bow|Enemy Near Many Bow Fight]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Enemy Near Many Magic Book Fight]] <<else>> [[Attack with a Weak Spell|Enemy Near Many Magic Fight]] <<endif>>
+<<if $encounter["talk"]>> [[Try to shoo away the $encounter["enemy"]|Enemy Near Many Talk Succeed]] <<else>> [[Try to shoo away the $encounter["enemy"]|Enemy Near Many Talk Fail]] <<endif>>
+<<if $encounter["bribe"]>> [[Try to distract the $encounter["enemy"] to let you pass|Enemy Near Many Bribe Succeed]] <<else>> [[Try to distract to the $encounter["enemy"] to let you pass|Enemy Near Many Bribe Fail]] <<endif>>
+[[Try to hide in the bushes before they see you|Enemy Near Many Hide]]
+
+:: Enemy Near Many Sword Fight
+<<silently>>
+<<set $choices["sword"] to $choices["sword"]+1>>
+<<set $encounter["enemy_health"] to $encounter["enemy_health"] - $encounter["sword_damage"]>>
+<<endsilently>>
+
+<<if $encounter["enemy_health"] <= 0>>
+You swing your sword in a wide arc, striking several of the $encounter["enemy"] and scaring the rest. They yelp and howl as they run into the woods. There seems to be some treasure in the thicket they were sitting in before.
+
+[[Loot the Treasure|Enemy Near Many Loot]]
+<<else>>
+<<silently>>
+<<set $player_health to $player_health - $encounter["enemy_damage"]>>
+<<endsilently>>
+
+<<if $player_health <= 0>>
+You swing your sword down, hitting one of the $encounter["enemy"] as the rest lunge at you. You take several slashed and bites, wounding you. You're too badly hurt to fight any longer.
+
+<<if $inventory["healingPotion"]>0>>
+[[Use a health potion|Enemy Near Many Use Health Potion]]
+[[Run away|Enemy Near Many Flee]]
+<<else>>
+You have no choice but to [[flee.|Enemy Near Many Flee]]
+<<endif>>
+
+<<else>>
+You swing your sword down, hitting one of the $encounter["enemy"] as the rest lunge at you. You take several slashed and bites, but you shrug them off and keep fighting.
+
+<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Enemy Near Many Magic Sword Fight]] <<else>> [[Attack with your Rusty Sword|Enemy Near Many Sword Fight]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Enemy Near Many Magic Bow Fight]] <<else>> [[Attack with your Old Bow|Enemy Near Many Bow Fight]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Enemy Near Many Magic Book Fight]] <<else>> [[Attack with a Weak Spell|Enemy Near Many Magic Fight]] <<endif>>
+[[Use a health potion|Enemy Near Many Use Health Potion]]
+[[Run away|Enemy Near Many Flee]]
+<<endif>>
+<<endif>>
+
+:: Enemy Near Many Magic Sword Fight
+<<silently>>
+<<set $choices["sword"] to $choices["sword"]+1>>
+<<set $encounter["enemy_health"] to $encounter["enemy_health"] - $encounter["magic_sword_damage"]>>
+<<endsilently>>
+
+<<if $encounter["enemy_health"] <= 0>>
+You swing your sword in a wide arc, striking several of the $encounter["enemy"] and scaring the rest. They yelp and howl as they run into the woods. There seems to be some treasure in the thicket they were sitting in before.
+
+[[Loot the Treasure|Enemy Near Many Loot]]
+<<else>>
+<<silently>>
+<<set $player_health to $player_health - $encounter["enemy_damage"]>>
+<<endsilently>>
+
+<<if $player_health <= 0>>
+You swing your sword down, hitting one of the $encounter["enemy"] as the rest lunge at you. You take several slashed and bites, wounding you. You're too badly hurt to fight any longer.
+
+<<if $inventory["healingPotion"]>0>>
+[[Use a health potion|Enemy Near Many Use Health Potion]]
+[[Run away|Enemy Near Many Flee]]
+<<else>>
+You have no choice but to [[flee.|Enemy Near Many Flee]]
+<<endif>>
+
+<<else>>
+You swing your sword down, hitting one of the $encounter["enemy"] as the rest lunge at you. You take several slashed and bites, but you shrug them off and keep fighting.
+
+<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Enemy Near Many Magic Sword Fight]] <<else>> [[Attack with your Rusty Sword|Enemy Near Many Sword Fight]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Enemy Near Many Magic Bow Fight]] <<else>> [[Attack with your Old Bow|Enemy Near Many Bow Fight]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Enemy Near Many Magic Book Fight]] <<else>> [[Attack with a Weak Spell|Enemy Near Many Magic Fight]] <<endif>>
+[[Use a health potion|Enemy Near Many Use Health Potion]]
+[[Run away|Enemy Near Many Flee]]
+<<endif>>
+<<endif>>
+
+:: Enemy Near Many Bow Fight
+<<silently>>
+<<set $choices["bow"] to $choices["bow"]+1>>
+<<set $encounter["enemy_health"] to $encounter["enemy_health"] - $encounter["bow_damage"]>>
+<<endsilently>>
+
+<<if $encounter["enemy_health"] <= 0>>
+One of your arrows strikes the leader of the group, causing the rest to panic. They yelp and howl as they run into the woods. There seems to be some treasure in the thicket they were sitting in before.
+
+[[Loot the Treasure|Enemy Near Many Loot]]
+<<else>>
+<<silently>>
+<<set $player_health to $player_health - $encounter["enemy_damage"]>>
+<<endsilently>>
+
+<<if $player_health <= 0>>
+You fire an arrow into the crowd, but they bite at you before you can loose another. You're too badly hurt to fight any longer.
+
+<<if $inventory["healingPotion"]>0>>
+[[Use a health potion|Enemy Near Many Use Health Potion]]
+[[Run away|Enemy Near Many Flee]]
+<<else>>
+You have no choice but to [[flee.|Enemy Near Many Flee]]
+<<endif>>
+
+<<else>>
+You fire an arrow into the crowd, but they bite at you before you can loose another. You mange to shrug their attacks off and keep fighting.
+
+<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Enemy Near Many Magic Sword Fight]] <<else>> [[Attack with your Rusty Sword|Enemy Near Many Sword Fight]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Enemy Near Many Magic Bow Fight]] <<else>> [[Attack with your Old Bow|Enemy Near Many Bow Fight]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Enemy Near Many Magic Book Fight]] <<else>> [[Attack with a Weak Spell|Enemy Near Many Magic Fight]] <<endif>>
+[[Use a health potion|Enemy Near Many Use Health Potion]]
+[[Run away|Enemy Near Many Flee]]
+<<endif>>
+<<endif>>
+
+:: Enemy Near Many Magic Bow Fight
+<<silently>>
+<<set $choices["bow"] to $choices["bow"]+1>>
+<<set $encounter["enemy_health"] to $encounter["enemy_health"] - $encounter["magic_bow_damage"]>>
+<<endsilently>>
+
+<<if $encounter["enemy_health"] <= 0>>
+One of your arrows strikes the leader of the group, causing the rest to panic. They yelp and howl as they run into the woods. There seems to be some treasure in the thicket they were sitting in before.
+
+[[Loot the Treasure|Enemy Near Many Loot]]
+<<else>>
+<<silently>>
+<<set $player_health to $player_health - $encounter["enemy_damage"]>>
+<<endsilently>>
+
+<<if $player_health <= 0>>
+You fire an arrow into the crowd, but they bite at you before you can loose another. You're too badly hurt to fight any longer.
+
+<<if $inventory["healingPotion"]>0>>
+[[Use a health potion|Enemy Near Many Use Health Potion]]
+[[Run away|Enemy Near Many Flee]]
+<<else>>
+You have no choice but to [[flee.|Enemy Near Many Flee]]
+<<endif>>
+
+<<else>>
+You fire an arrow into the crowd, but they bite at you before you can loose another. You mange to shrug their attacks off and keep fighting.
+
+<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Enemy Near Many Magic Sword Fight]] <<else>> [[Attack with your Rusty Sword|Enemy Near Many Sword Fight]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Enemy Near Many Magic Bow Fight]] <<else>> [[Attack with your Old Bow|Enemy Near Many Bow Fight]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Enemy Near Many Magic Book Fight]] <<else>> [[Attack with a Weak Spell|Enemy Near Many Magic Fight]] <<endif>>
+[[Use a health potion|Enemy Near Many Use Health Potion]]
+[[Run away|Enemy Near Many Flee]]
+<<endif>>
+<<endif>>
+
+:: Enemy Near Many Magic Fight
+<<silently>>
+<<set $choices["magic"] to $choices["magic"]+1>>
+<<set $encounter["enemy_health"] to $encounter["enemy_health"] - $encounter["magic_damage"]>>
+<<endsilently>>
+
+<<if $encounter["enemy_health"] <= 0>>
+You create a large flash of light, startling and blinding the $encounter["enemy"]. They yelp and howl as they run into the woods. There seems to be some treasure in the thicket they were sitting in before.
+
+[[Loot the Treasure|Enemy Near Many Loot]]
+<<else>>
+<<silently>>
+<<set $player_health to $player_health - $encounter["enemy_damage"]>>
+<<endsilently>>
+
+<<if $player_health <= 0>>
+You blast a few of the $encounter["enemy"] with ice, but the rest rush you and lunge, biting and slashing at you. You're too badly hurt to fight any longer.
+
+<<if $inventory["healingPotion"]>0>>
+[[Use a health potion|Enemy Near Many Use Health Potion]]
+[[Run away|Enemy Near Many Flee]]
+<<else>>
+You have no choice but to [[flee.|Enemy Near Many Flee]]
+<<endif>>
+
+<<else>>
+You blast a few of the $encounter["enemy"] with ice, but the rest rush you and lunge, biting and slashing at you.
+
+<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Enemy Near Many Magic Sword Fight]] <<else>> [[Attack with your Rusty Sword|Enemy Near Many Sword Fight]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Enemy Near Many Magic Bow Fight]] <<else>> [[Attack with your Old Bow|Enemy Near Many Bow Fight]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Enemy Near Many Magic Book Fight]] <<else>> [[Attack with a Weak Spell|Enemy Near Many Magic Fight]] <<endif>>
+[[Use a health potion|Enemy Near Many Use Health Potion]]
+[[Run away|Enemy Near Many Flee]]
+<<endif>>
+<<endif>>
+
+:: Enemy Near Many Magic Book Fight
+<<silently>>
+<<set $choices["magic"] to $choices["magic"]+1>>
+<<set $encounter["enemy_health"] to $encounter["enemy_health"] - $encounter["magic_book_damage"]>>
+<<endsilently>>
+
+<<if $encounter["enemy_health"] <= 0>>
+You create a large flash of light, startling and blinding the $encounter["enemy"]. They yelp and howl as they run into the woods. There seems to be some treasure in the thicket they were sitting in before.
+
+[[Loot the Treasure|Enemy Near Many Loot]]
+<<else>>
+<<silently>>
+<<set $player_health to $player_health - $encounter["enemy_damage"]>>
+<<endsilently>>
+
+<<if $player_health <= 0>>
+You blast a few of the $encounter["enemy"] with ice, but the rest rush you and lunge, biting and slashing at you. You're too badly hurt to fight any longer.
+
+<<if $inventory["healingPotion"]>0>>
+[[Use a health potion|Enemy Near Many Use Health Potion]]
+[[Run away|Enemy Near Many Flee]]
+<<else>>
+You have no choice but to [[flee.|Enemy Near Many Flee]]
+<<endif>>
+
+<<else>>
+You blast a few of the $encounter["enemy"] with ice, but the rest rush you and lunge, biting and slashing at you.
+
+<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Enemy Near Many Magic Sword Fight]] <<else>> [[Attack with your Rusty Sword|Enemy Near Many Sword Fight]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Enemy Near Many Magic Bow Fight]] <<else>> [[Attack with your Old Bow|Enemy Near Many Bow Fight]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Enemy Near Many Magic Book Fight]] <<else>> [[Attack with a Weak Spell|Enemy Near Many Magic Fight]] <<endif>>
+[[Use a health potion|Enemy Near Many Use Health Potion]]
+[[Run away|Enemy Near Many Flee]]
+<<endif>>
+<<endif>>
+
+:: Enemy Near Many Bow Hidden
+<<silently>>
+<<set $choices["bow"] to $choices["bow"]+1>>
+<<set $encounter["enemy_health"] to $encounter["enemy_health"] - $encounter["bow_damage"]>>
+<<endsilently>>
+
+<<if $encounter["enemy_health"] <= 0>>
+One of your arrows strikes the leader of the group, causing the rest to panic. They yelp and howl as they run into the woods. There seems to be some treasure in the thicket they were sitting in before.
+
+[[Loot the Treasure|Enemy Near Many Loot]]
+<<else>>
+You fire an arrow into the crowd, wounding one of the $encounter["enemy"] and startling all of them. The $encounter["enemy"] fan out and search for you. Before you can fire off another shot, one of them spots you, and lets out a terrifying shriek.
+
+<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Enemy Near Many Magic Sword Fight]] <<else>> [[Attack with your Rusty Sword|Enemy Near Many Sword Fight]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Enemy Near Many Magic Bow Fight]] <<else>> [[Attack with your Old Bow|Enemy Near Many Bow Fight]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Enemy Near Many Magic Book Fight]] <<else>> [[Attack with a Weak Spell|Enemy Near Many Magic Fight]] <<endif>>
+[[Run away|Enemy Near Many Flee]]
+<<endif>>
+
+:: Enemy Near Many Magic Bow Hidden
+<<silently>>
+<<set $choices["bow"] to $choices["bow"]+1>>
+<<set $encounter["enemy_health"] to $encounter["enemy_health"] - $encounter["magic_bow_damage"]>>
+<<endsilently>>
+
+<<if $encounter["enemy_health"] <= 0>>
+One of your arrows strikes the leader of the group, causing the rest to panic. They yelp and howl as they run into the woods. There seems to be some treasure in the thicket they were sitting in before.
+
+[[Loot the Treasure|Enemy Near Many Loot]]
+<<else>>
+You fire an arrow into the crowd, wounding one of the $encounter["enemy"] and startling all of them. The $encounter["enemy"] fan out and search for you. Before you can fire off another shot, one of them spots you, and lets out a terrifying shriek.
+
+<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Enemy Near Many Magic Sword Fight]] <<else>> [[Attack with your Rusty Sword|Enemy Near Many Sword Fight]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Enemy Near Many Magic Bow Fight]] <<else>> [[Attack with your Old Bow|Enemy Near Many Bow Fight]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Enemy Near Many Magic Book Fight]] <<else>> [[Attack with a Weak Spell|Enemy Near Many Magic Fight]] <<endif>>
+[[Run away|Enemy Near Many Flee]]
+<<endif>>
+
+:: Enemy Near Many Use Health Potion
+<<silently>>
+<<set $inventory["healingPotion"] to $inventory["healingPotion"]-1>>
+<<set $player_health to 20>>
+<<endsilently
+Stumbling away from your attacker, you manage to grab a healing potion from your bag and quickly drink it. You immediately feel much stronger.
+
+<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Enemy Near Many Magic Sword Fight]] <<else>> [[Attack with your Rusty Sword|Enemy Near Many Sword Fight]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Enemy Near Many Magic Bow Fight]] <<else>> [[Attack with your Old Bow|Enemy Near Many Bow Fight]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Enemy Near Many Magic Book Fight]] <<else>> [[Attack with a Weak Spell|Enemy Near Many Magic Fight]] <<endif>>
+[[Run away|Enemy Near Many Flee]]
+
+:: Enemy Near Many Flee
+<<set $choices["runAway"] to $choices["runAway"]+1>>
+You flee from the $encounter["enemy"] and [[continue on your quest.|Next Encounter]]
+
+:: Enemy Near Many Loot
+Amongst the treasure, you find a $encounter["loot_1"] and $encounter["gold_amount"] Gold Pieces. Your pack is getting heavy and you can only carry one. Which do you take?
+
+[[Take the $encounter["loot_1"]|Enemy Near Many Loot 1]]
+[[Take the $encounter["gold_amount"] Gold Pieces|Enemy Near Many Loot 2]]
+
+:: Enemy Near Many Loot 1
+<<if $encounter["loot_1"] == "Magic Sword">>
+<<silently>>
+<<set $inventory["magicSword"] to $inventory["magicSword"]+1>>
+<<set $choices["weapon"] to $choices["weapon"]+1 >>
+<<endsilently>>
+
+You take the Magic Sword and continue on your journey.
+<<else if $encounter["loot_1"] == "Magic Bow">>
+<<silently>>
+<<set $inventory["magicBow"] to $inventory["magicBow"]+1>>
+<<set $choices["weapon"] to $choices["weapon"]+1 >>
+<<endsilently>>
+
+You take the Magic Bow and continue on your journey.
+<<else if $encounter["loot_1"] == "Magic Book">>
+<<silently>>
+<<set $inventory["magicBook"] to $inventory["magicBook"]+1>>
+<<set $choices["weapon"] to $choices["weapon"]+1 >>
+<<endsilently>>
+
+You take the Spell Tome and continue on your journey.
+<<endif>>
+
+[[Continue on your Quest|Next Encounter]]
+
+:: Enemy Near Many Loot 2
+<<silently>>
+<<set $inventory["gold"] to $inventory["gold"]+$encounter["gold_amount"]>>
+<<set $choices["gold"] to $choices["gold"]+1 >>
+<<endsilently>>
+
+You take the gold and continue on your journey.
+
+[[Continue on your Quest|Next Encounter]]
+
+:: Enemy Near Many Talk Fail
+<<silently>>
+<<set $choices["talk"] to $choices["talk"]+1>>
+<<endsilently>>
+
+You rush up to the $encounter["enemy"] and make loud noises, trying to look big and imposing. Unfortunately, you don't look quite big and imposing enough, and the $encounter["enemy"] growl angrily at you.
+
+<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Enemy Near Many Magic Sword Fight]] <<else>> [[Attack with your Rusty Sword|Enemy Near Many Sword Fight]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Enemy Near Many Magic Bow Fight]] <<else>> [[Attack with your Old Bow|Enemy Near Many Bow Fight]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Enemy Near Many Magic Book Fight]] <<else>> [[Attack with a Weak Spell|Enemy Near Many Magic Fight]] <<endif>>
+<<if $encounter["bribe"]>> [[Try to distract the $encounter["enemy"] to let you pass|Enemy Near Many Bribe Succeed]] <<else>> [[Try to distract to the $encounter["enemy"] to let you pass|Enemy Near Many Bribe Fail]] <<endif>>
+
+:: Enemy Near Many Talk Success
+<<silently>>
+<<set $choices["talk"] to $choices["talk"]+1>>
+<<endsilently>>
+
+You rush up to the $encounter["enemy"] and make loud noises, trying to look big and imposing. Startled, the $encounter["enemy"] yelp and run into the forest, leaving the road clear for you to continue.
+
+[[Continue on your Quest|Next Encounter]]
+
+:: Enemy Near Many Bribe Fail
+<<silently>>
+<<set $choices["bribe"] to $choices["bribe"]+1>>
+<<endsilently>>
+
+You jingle your bag, trying to catch the $encounter["enemy"] attention. You had hoped that if you threw something out of your bag, they would all chase it. It seems, however, that they're more interested in chasing you.
+
+<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Enemy Near Many Magic Sword Fight]] <<else>> [[Attack with your Rusty Sword|Enemy Near Many Sword Fight]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Enemy Near Many Magic Bow Fight]] <<else>> [[Attack with your Old Bow|Enemy Near Many Bow Fight]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Enemy Near Many Magic Book Fight]] <<else>> [[Attack with a Weak Spell|Enemy Near Many Magic Fight]] <<endif>>
+<<if $encounter["talk"]>> [[Try to shoo away the $encounter["enemy"]|Enemy Near Many Talk Succeed]] <<else>> [[Try to shoo away the $encounter["enemy"]|Enemy Near Many Talk Fail]] <<endif>>
+
+:: Enemy Near Many Bribe Succeed
+<<silently>>
+<<set $choices["bribe"] to $choices["bribe"]+1>>
+<<endsilently>>
+
+You jingle your bag, trying to catch the $encounter["enemy"] attention. Their eyes affix to the source of the sound. You get the idea that if you threw something, they would chase after it, allowing you to pass.
+
+\<<if $inventory["magicSword"] > 0>>
+[[Throw a Magic Sword|Enemy Near Many Give Sword]]
+\<<endif>>
+\<<if $inventory["magicBow"] > 0>>
+[[Throw a Magic Bow|Enemy Near Many Give Bow]]
+\<<endif>>
+\<<if $inventory["magicBook"] > 0>>
+[[Throw a Magic Spell Tome|Enemy Near Many Give Magic]]
+\<<endif>>
+<<if $inventory["gold"] > 0>> [[Throw some gold|Enemy Near Many Give gold]]<<endif>>
+
+:: Enemy Near Many Give Give Sword
+<<silently>>
+<<set $inventory["magicSword"] to $inventory["magicSword"]-1>>
+<<endsilently>>
+
+You throw your Magic Sword into the forest. Immediately, the $encounter["enemy"] dart into the woods, leaving a clear road for you to pass.
+
+[[Continue on your Quest|Next Encounter]]
+
+:: Enemy Near Many Give Give Bow
+<<silently>>
+<<set $inventory["magicBow"] to $inventory["magicBow"]-1>>
+<<endsilently>>
+
+You throw your Magic Bow into the forest. Immediately, the $encounter["enemy"] dart into the woods, leaving a clear road for you to pass.
+
+[[Continue on your Quest|Next Encounter]]
+
+:: Enemy Near Many Give Give Magic
+<<silently>>
+<<set $inventory["magicBook"] to $inventory["magicBook"]-1>>
+<<endsilently>>
+
+You throw your Magic Book into the forest. Immediately, the $encounter["enemy"] dart into the woods, leaving a clear road for you to pass.
+
+[[Continue on your Quest|Next Encounter]]
+
+:: Enemy Near Many Give Give gold
+<<silently>>
+<<set $inventory["gold"] to $inventory["gold"]-1>>
+<<endsilently>>
+
+You throw your gold into the forest. Immediately, the $encounter["enemy"] dart into the woods, leaving a clear road for you to pass.
+
+[[Continue on your Quest|Next Encounter]]
+
+:: Enemy Near Many Hide
+<<silently>>
+<<set $choices["hide"] to $choices["hide"]+1>>
+<<endsilently>>
+
+You crouch behind a thicket of bushes before the $encounter["enemy"] can spot you.
+
+<<if $encounter["sneak"]>>[[Try to sneak past the $encounter["enemy"]|Enemy Near Many Sneak Succeed]] <<else>> [[Try to sneak past the $encounter["enemy"]|Enemy Near Many Sneak Fail]] <<endif>>
+<<if $encounter["wait"]>>[[[Wait to see if they leave|Enemy Near Many Wait Succeed]] <<else>> [[[Wait to see if they contiue past your hiding spot|Enemy Near Many Wait Fail]] <<endif>>
+<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Enemy Near Many Magic Sword Fight]] <<else>> [[Attack with your Rusty Sword|Enemy Near Many Sword Fight]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Enemy Near Many Magic Bow Hidden]] <<else>> [[Attack with your Old Bow|Enemy Near Many Bow Hidden]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Enemy Near Many Magic Book Fight]] <<else>> [[Attack with a Weak Spell|Enemy Near Many Magic Fight]] <<endif>>
+<<if $encounter["talk"]>> [[Try to shoo away the $encounter["enemy"]|Enemy Near Many Talk Succeed]] <<else>> [[Try to shoo away the $encounter["enemy"]|Enemy Near Many Talk Fail]] <<endif>>
+<<if $encounter["bribe"]>> [[Try to distract the $encounter["enemy"] to let you pass|Enemy Near Many Bribe Succeed]] <<else>> [[Try to distract to the $encounter["enemy"] to let you pass|Enemy Near Many Bribe Fail]] <<endif>>
+
+:: Enemy Near Many Sneak Succeed
+<<silently>>
+<<set $choices["sneak"] to $choices["sneak"]+1>>
+<<endsilently>>
+
+You creep quietly through the bushes, managing not to draw the attention of any of the $encounter["enemy"]. Having avoided the $encounter["enemy"], you are free to continue on your quest.
+
+[[Continue on your Quest|Next Encounter]]
+
+:: Enemy Near Many Sneak Fail
+<<silently>>
+<<set $choices["sneak"] to $choices["sneak"]+1>>
+<<endsilently>>
+
+You creep quietly through the bushes, but after a few moments you hear a low growl. The $encounter["enemy"] could smell you.
+
+<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Enemy Near Many Magic Sword Fight]] <<else>> [[Attack with your Rusty Sword|Enemy Near Many Sword Fight]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Enemy Near Many Magic Bow Fight]] <<else>> [[Attack with your Old Bow|Enemy Near Many Bow Fight]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Enemy Near Many Magic Book Fight]] <<else>> [[Attack with a Weak Spell|Enemy Near Many Magic Fight]] <<endif>>
+<<if $encounter["talk"]>> [[Try to shoo away the $encounter["enemy"]|Enemy Near Many Talk Succeed]] <<else>> [[Try to shoo away the $encounter["enemy"]|Enemy Near Many Talk Fail]] <<endif>>
+<<if $encounter["bribe"]>> [[Try to distract the $encounter["enemy"] to let you pass|Enemy Near Many Bribe Succeed]] <<else>> [[Try to distract to the $encounter["enemy"] to let you pass|Enemy Near Many Bribe Fail]] <<endif>>
+
+:: Enemy Near Many Wait Succeed
+<<silently>>
+<<set $choices["wait"] to $choices["wait"]+1>>
+<<endsilently>>
+
+You stay hidden in the bushes. It seems like the $encounter["enemy"] are eating something. After an hour or so, their meal seems to be done and they move on, leaving you with a clear road to continue down.
+
+[[Continue on your Quest|Next Encounter]]
+
+:: Enemy Near Many Wait Fail
+<<silently>>
+<<set $choices["wait"] to $choices["wait"]+1>>
+<<endsilently>>
+
+You wait for an hour but the $encounter["enemy"] seem very comfortable on this particular patch of road, and don't seem to be planning on leaving anytime soon.
+
+<<if $encounter["sneak"]>>[[Try to sneak past the $encounter["enemy"]|Enemy Near Many Sneak Succeed]] <<else>> [[Try to sneak past the $encounter["enemy"]|Enemy Near Many Sneak Fail]] <<endif>>
+<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Enemy Near Many Magic Sword Fight]] <<else>> [[Attack with your Rusty Sword|Enemy Near Many Sword Fight]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Enemy Near Many Magic Bow Hidden]] <<else>> [[Attack with your Old Bow|Enemy Near Many Bow Hidden]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Enemy Near Many Magic Book Fight]] <<else>> [[Attack with a Weak Spell|Enemy Near Many Magic Fight]] <<endif>>
+<<if $encounter["talk"]>> [[Try to shoo away the $encounter["enemy"]|Enemy Near Many Talk Succeed]] <<else>> [[Try to shoo away the $encounter["enemy"]|Enemy Near Many Talk Fail]] <<endif>>
+<<if $encounter["bribe"]>> [[Try to distract the $encounter["enemy"] to let you pass|Enemy Near Many Bribe Succeed]] <<else>> [[Try to distract to the $encounter["enemy"] to let you pass|Enemy Near Many Bribe Fail]] <<endif>>
