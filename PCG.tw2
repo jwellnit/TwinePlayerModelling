@@ -415,6 +415,7 @@ You walk up to the $encounter["enemy"] and ask if he'd like to trade for passage
 [[Offer a Magic Spell Tome|Enemy Near Few Give Magic]]
 \<<endif>>
 <<if $inventory["gold"] > 0>> [[Offer gold|Enemy Near Few Give gold]]<<endif>>
+<<if $encounter["talk"]>> [[Try to speak to the $encounter["enemy"]|Enemy Near Few Talk Succeed]] <<else>> [[Try to speak to the $encounter["enemy"]|Enemy Near Few Talk Fail]] <<endif>>
 
 :: Enemy Near Few Give Give Sword
 <<silently>>
@@ -1007,6 +1008,7 @@ You take the gold and continue on your journey.
 [[Offer a Magic Spell Tome|Enemy Far Many Give Magic]]
 \<<endif>>
 <<if $inventory["gold"] > 0>> [[Offer gold|Enemy Far Many Give gold]]<<endif>>
+<<if $encounter["talk"]>> [[Try to speak to the $encounter["enemy"]|Enemy Far Many Talk Succeed]] <<else>> [[Try to speak to the $encounter["enemy"]|Enemy Far Many Talk Fail]] <<endif>>
 
 :: Enemy Far Many Give Give Sword
 <<silently>>
@@ -1052,7 +1054,7 @@ You take the gold and continue on your journey.
 You crouch behind a thicket of bushes before the $encounter["enemy"] can spot you.
 
 <<if $encounter["sneak"]>>[[Try to sneak past the $encounter["enemy"]|Enemy Far Many Sneak Succeed]] <<else>> [[Try to sneak past the $encounter["enemy"]|Enemy Far Many Sneak Fail]] <<endif>>
-<<if $encounter["wait"]>>[[[Wait to see if they contiue past your hiding spot|Enemy Far Many Wait Succeed]] <<else>> [[[Wait to see if they contiue past your hiding spot|Enemy Far Many Wait Fail]] <<endif>>
+<<if $encounter["wait"]>>[[Wait to see if they contiue past your hiding spot|Enemy Far Many Wait Succeed]] <<else>> [[Wait to see if they contiue past your hiding spot|Enemy Far Many Wait Fail]] <<endif>>
 <<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Enemy Far Many Magic Sword Fight]] <<else>> [[Attack with your Rusty Sword|Enemy Far Many Sword Fight]] <<endif>>
 <<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Enemy Far Many Magic Bow Hidden]] <<else>> [[Attack with your Old Bow|Enemy Far Many Bow Hidden]] <<endif>>
 <<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Enemy Far Many Magic Book Fight]] <<else>> [[Attack with a Weak Spell|Enemy Far Many Magic Fight]] <<endif>>
@@ -1526,6 +1528,7 @@ You walk up to the $encounter["enemy"] and ask if she'd like to trade for passag
 [[Offer a Magic Spell Tome|Enemy Far Few Give Magic]]
 \<<endif>>
 <<if $inventory["gold"] > 0>> [[Offer gold|Enemy Far Few Give gold]]<<endif>>
+<<if $encounter["talk"]>> [[Try to speak to the $encounter["enemy"]|Enemy Far Few Talk Succeed]] <<else>> [[Try to speak to the $encounter["enemy"]|Enemy Far Few Talk Fail]] <<endif>>
 
 :: Enemy Far Few Give Give Sword
 <<silently>>
@@ -2038,6 +2041,7 @@ You jingle your bag, trying to catch the $encounter["enemy"] attention. Their ey
 [[Throw a Magic Spell Tome|Enemy Near Many Give Magic]]
 \<<endif>>
 <<if $inventory["gold"] > 0>> [[Throw some gold|Enemy Near Many Give gold]]<<endif>>
+<<if $encounter["talk"]>> [[Try to shoo away the $encounter["enemy"]|Enemy Near Many Talk Succeed]] <<else>> [[Try to shoo away the $encounter["enemy"]|Enemy Near Many Talk Fail]] <<endif>>
 
 :: Enemy Near Many Give Give Sword
 <<silently>>
@@ -2083,7 +2087,7 @@ You throw your gold into the forest. Immediately, the $encounter["enemy"] dart i
 You crouch behind a thicket of bushes before the $encounter["enemy"] can spot you.
 
 <<if $encounter["sneak"]>>[[Try to sneak past the $encounter["enemy"]|Enemy Near Many Sneak Succeed]] <<else>> [[Try to sneak past the $encounter["enemy"]|Enemy Near Many Sneak Fail]] <<endif>>
-<<if $encounter["wait"]>>[[[Wait to see if they leave|Enemy Near Many Wait Succeed]] <<else>> [[[Wait to see if they contiue past your hiding spot|Enemy Near Many Wait Fail]] <<endif>>
+<<if $encounter["wait"]>>[[Wait to see if they leave|Enemy Near Many Wait Succeed]] <<else>> [[Wait to see if they contiue past your hiding spot|Enemy Near Many Wait Fail]] <<endif>>
 <<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Enemy Near Many Magic Sword Fight]] <<else>> [[Attack with your Rusty Sword|Enemy Near Many Sword Fight]] <<endif>>
 <<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Enemy Near Many Magic Bow Hidden]] <<else>> [[Attack with your Old Bow|Enemy Near Many Bow Hidden]] <<endif>>
 <<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Enemy Near Many Magic Book Fight]] <<else>> [[Attack with a Weak Spell|Enemy Near Many Magic Fight]] <<endif>>
@@ -2134,3 +2138,296 @@ You wait for an hour but the $encounter["enemy"] seem very comfortable on this p
 <<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Enemy Near Many Magic Book Fight]] <<else>> [[Attack with a Weak Spell|Enemy Near Many Magic Fight]] <<endif>>
 <<if $encounter["talk"]>> [[Try to shoo away the $encounter["enemy"]|Enemy Near Many Talk Succeed]] <<else>> [[Try to shoo away the $encounter["enemy"]|Enemy Near Many Talk Fail]] <<endif>>
 <<if $encounter["bribe"]>> [[Try to distract the $encounter["enemy"] to let you pass|Enemy Near Many Bribe Succeed]] <<else>> [[Try to distract to the $encounter["enemy"] to let you pass|Enemy Near Many Bribe Fail]] <<endif>>
+
+
+:: Town
+You come across a small town with a busy town square. There is a small shop where you can purchase weapons and supplies for your journey. But first, you need to find out exactly where Bloomrane Cavern is located. Near the inn, some townsfolk are discussing the local news and gossip. There are several market stalls, including one for a cartographer. You also see two cloaked figures slip into an alleyway.
+
+[[You brandish your Sword|Town Sword]]
+[[You draw your Bow|Town Bow]]
+[[You begin casting a Spell|Town Magic]]
+<<if $encounter["talk"]>> [[Go talk to the people near the inn|Town Talk Succeed]] <<else>> [[Go talk to the people near the inn|Town Talk Fail]] <<endif>>
+<<if $encounter["bribe"]>> [[Go to the cartographer's booth|Town Bribe Succeed]] <<else>> [[Go to the cartographer's booth|Town Bribe Fail]] <<endif>>
+[[Try to follow the hooded figures without them noticing you|Town Hide]]
+
+:: Town Magic
+<<silently>>
+<<set $choices["magic"] to $choices["magic"]+1>>
+<<endsilently>>
+
+You open your spell tome and begin channeling your magic and within moments one of the town guard has spotted you. "Hey!" she shouts. "What do you think you're doing?! This is a city, not the woods. Stop that at once!"
+
+The gossips begin staring at you and whispering and the hooded figures narrow their eyes at you before quickly fleeing down the alley. You get the sense that violence was not the answer.
+
+<<if $encounter["bribe"]>> [[Go to the cartographer's booth|Town Bribe Succeed]] <<else>> [[Go to the cartographer's booth|Town Bribe Fail]] <<endif>>
+
+:: Town Sword
+<<silently>>
+<<set $choices["sword"] to $choices["sword"]+1>>
+<<endsilently>>
+
+You draw your sword and within moments one of the town guard has spotted you. "Hey!" she shouts. "What do you think you're doing?! This is a city, not the woods. Put that away!"
+
+The gossips begin staring at you and whispering and the hooded figures narrow their eyes at you before quickly fleeing down the alley. You get the sense that violence was not the answer.
+
+<<if $encounter["bribe"]>> [[Go to the cartographer's booth|Town Bribe Succeed]] <<else>> [[Go to the cartographer's booth|Town Bribe Fail]] <<endif>>
+
+:: Town Bow
+<<silently>>
+<<set $choices["bow"] to $choices["bow"]+1>>
+<<endsilently>>
+
+You draw your bow and within moments one of the town guard has spotted you. "Hey!" she shouts. "What do you think you're doing?! This is a city, not the woods. Put that away!"
+
+The gossips begin staring at you and whispering and the hooded figures narrow their eyes at you before quickly fleeing down the alley. You get the sense that violence was not the answer.
+
+<<if $encounter["bribe"]>> [[Go to the cartographer's booth|Town Bribe Succeed]] <<else>> [[Go to the cartographer's booth|Town Bribe Fail]] <<endif>>
+
+:: Town Talk Fail
+<<silently>>
+<<set $choices["talk"] to $choices["talk"]+1>>
+<<endsilently>>
+
+You approach the group standing near the inn and greet them. You ask if they've heard any interesting news lately. They share some stories from about town which, while interesting, are not particularly helpful to your quest.
+
+[[You brandish your Sword|Town Sword]]
+[[You draw your Bow|Town Bow]]
+[[You begin casting a Spell|Town Magic]]
+<<if $encounter["bribe"]>> [[Go to the cartographer's booth|Town Bribe Succeed]] <<else>> [[Go to the cartographer's booth|Town Bribe Fail]] <<endif>>
+
+:: Town Talk Success
+<<silently>>
+<<set $choices["talk"] to $choices["talk"]+1>>
+<<endsilently>>
+
+You approach the group standing near the inn and greet them. You ask if they've heard any interesting news lately. "I heard a passing trader say that she stumbled upon some sort of magic cave, a few miles up the north road. She said she couldn't get into it, though. I'm not sure why."
+
+You thank them for the information, and with your path clear, you head to the shop to gather supplies for your journey.
+
+[[Go to the shop|Shop Welcome]]
+
+:: Town Bribe Fail
+<<silently>>
+<<set $choices["bribe"] to $choices["bribe"]+1>>
+<<endsilently>>
+
+You approach the cartographer as he smiles and gestures to his merchandise. You ask if he has a map to Bloomrane Cavern. "Sorry, never heard of it," he replies.
+
+[[You brandish your Sword|Town Sword]]
+[[You draw your Bow|Town Bow]]
+[[You begin casting a Spell|Town Magic]]
+<<if $encounter["talk"]>> [[Go talk to the people near the inn|Town Talk Succeed]] <<else>> [[Go talk to the people near the inn|Town Talk Fail]] <<endif>>
+
+:: Town Bribe Succeed
+<<silently>>
+<<set $choices["bribe"] to $choices["bribe"]+1>>
+<<endsilently>>
+
+You approach the cartographer as he smiles and gestures to his merchandise. You ask if he has a map to Bloomrane Cavern. "I do," he says. "What are you willing to give me for it?"
+
+\<<if $inventory["magicSword"] > 0>>
+[[Throw a Magic Sword|Town Give Sword]]
+\<<endif>>
+\<<if $inventory["magicBow"] > 0>>
+[[Throw a Magic Bow|Town Give Bow]]
+\<<endif>>
+\<<if $inventory["magicBook"] > 0>>
+[[Throw a Magic Spell Tome|Town Give Magic]]
+\<<endif>>
+<<if $inventory["gold"] > 0>> [[Throw some gold|Town Give gold]]<<endif>>
+<<if $encounter["talk"]>> [[Go talk to the people near the inn|Town Talk Succeed]] <<else>> [[Go talk to the people near the inn|Town Talk Fail]] <<endif>>
+
+:: Town Give Give Sword
+<<silently>>
+<<set $inventory["magicSword"] to $inventory["magicSword"]-1>>
+<<endsilently>>
+
+"Perfect," he says enthusiatically. "Enjoy!" He hands you the map and takes your Magic Sword.
+
+You thank him for the map, and with your path clear, you head to the shop to gather supplies for your journey.
+
+[[Go to the shop|Shop Welcome]]
+
+:: Town Give Give Bow
+<<silently>>
+<<set $inventory["magicBow"] to $inventory["magicBow"]-1>>
+<<endsilently>>
+
+"Perfect," he says enthusiatically. "Enjoy!" He hands you the map and takes your Magic Bow.
+
+You thank him for the map, and with your path clear, you head to the shop to gather supplies for your journey.
+
+[[Go to the shop|Shop Welcome]]
+
+:: Town Give Give Magic
+<<silently>>
+<<set $inventory["magicBook"] to $inventory["magicBook"]-1>>
+<<endsilently>>
+
+"Perfect," he says enthusiatically. "Enjoy!" He hands you the map and takes your Magic Spell Tome.
+
+You thank him for the map, and with your path clear, you head to the shop to gather supplies for your journey.
+
+[[Go to the shop|Shop Welcome]]
+
+:: Town Give Give gold
+<<silently>>
+<<set $inventory["gold"] to $inventory["gold"]-1>>
+<<endsilently>>
+
+"Perfect," he says enthusiatically. "Enjoy!" He hands you the map and takes your Treausre.
+
+You thank him for the map, and with your path clear, you head to the shop to gather supplies for your journey.
+
+[[Go to the shop|Shop Welcome]]
+
+:: Town Hide
+<<silently>>
+<<set $choices["hide"] to $choices["hide"]+1>>
+<<endsilently>>
+
+You silently creep toward the alley and reach the hooded figures without them noticing. They are whispering about something, and the one nearst to you has a piece of paper sticking out of her pocket.
+
+<<if $encounter["sneak"]>>[[Try to grab the piece of paper and sneak away|Town Sneak Succeed]] <<else>> [[Try to grab the piece of paper and sneak away|Town Sneak Fail]] <<endif>>
+<<if $encounter["wait"]>>[[Stay hidden and listen in on their conversation|Town Wait Succeed]] <<else>> [[Stay hidden and listen in on their conversationt|Town Wait Fail]] <<endif>>
+[[You brandish your Sword|Town Sword]]
+[[You draw your Bow|Town Bow]]
+[[You begin casting a Spell|Town Magic]]
+<<if $encounter["talk"]>> [[Go talk to the people near the inn|Town Talk Succeed]] <<else>> [[Go talk to the people near the inn|Town Talk Fail]] <<endif>>
+<<if $encounter["bribe"]>> [[Go to the cartographer's booth|Town Bribe Succeed]] <<else>> [[Go to the cartographer's booth|Town Bribe Fail]] <<endif>>
+
+:: Town Sneak Succeed
+<<silently>>
+<<set $choices["sneak"] to $choices["sneak"]+1>>
+<<endsilently>>
+
+You quickly grab the note and sneak back out of the alley. You unfold the note and read it. On it are instructions. "Follow the north road up to the cave. I'll meet you there."
+
+With your path clear, you head to the shop to gather supplies for your journey.
+
+[[Go to the shop|Shop Welcome]]
+
+:: Town Sneak Fail
+<<silently>>
+<<set $choices["sneak"] to $choices["sneak"]+1>>
+<<endsilently>>
+
+Try to grab the note, but the hooded figure notices you and slaps your hand away. The two of them chase you out of the alleyway.
+
+[[You brandish your Sword|Town Sword]]
+[[You draw your Bow|Town Bow]]
+[[You begin casting a Spell|Town Magic]]
+<<if $encounter["talk"]>> [[Go talk to the people near the inn|Town Talk Succeed]] <<else>> [[Go talk to the people near the inn|Town Talk Fail]] <<endif>>
+<<if $encounter["bribe"]>> [[Go to the cartographer's booth|Town Bribe Succeed]] <<else>> [[Go to the cartographer's booth|Town Bribe Fail]] <<endif>>
+
+:: Town Wait Succeed
+<<silently>>
+<<set $choices["wait"] to $choices["wait"]+1>>
+<<endsilently>>
+
+"The boss says we're supposed to take the north road up to the cave," one of the hooded figures whispers. "He's getting the key for it now and once we open it we'll be rich!"
+
+"Great! But do you think we could do that in like, a couple hours? I kinda want to get lunch before we leave town," the other responds. "Oh yeah, for sure. It'll take him a little while to steal the key anyway. Might as well enjoy ourselves," the first answers.
+
+You sneak away as the hooded figures leave for lunch, and with your path clear, you head to the shop to gather supplies for your journey.
+
+[[Go to the shop|Shop Welcome]]
+
+:: Town Wait Fail
+<<silently>>
+<<set $choices["wait"] to $choices["wait"]+1>>
+<<endsilently>>
+
+You try to eavesdrop on the conversation, but you aren't able to hear as well as you thought, and you miss what they were saying as they start to walk away.
+
+<<if $encounter["sneak"]>>[[Try to grab the piece of paper and sneak away|Town Sneak Succeed]] <<else>> [[Try to grab the piece of paper and sneak away|Town Sneak Fail]] <<endif>>
+[[You brandish your Sword|Town Sword]]
+[[You draw your Bow|Town Bow]]
+[[You begin casting a Spell|Town Magic]]
+<<if $encounter["talk"]>> [[Go talk to the people near the inn|Town Talk Succeed]] <<else>> [[Go talk to the people near the inn|Town Talk Fail]] <<endif>>
+<<if $encounter["bribe"]>> [[Go to the cartographer's booth|Town Bribe Succeed]] <<else>> [[Go to the cartographer's booth|Town Bribe Fail]] <<endif>>
+
+
+:: Shop Welcome
+"Hello!" The shopkeeper greets you warmly. "Welcome to my little shop. What can I interest you in today? A new weapon? Or perhaps a suit of armor?"
+
+You look at the items for sale. There is a gleaming magic sword, a beautiful magic bow, and a tome of powerful magic spells. Each weapon costs 3 gold. There is also a set of steel armor, and some healing potions, each for 2 gold. A wooden sign on the wall informs you, "No Trades - Gold Only!"
+
+\<<if $inventory["gold"] < 2 >>
+Unfortunately, you don't have enough gold to buy anything.
+\<<endif>>
+\<<if $inventory["gold"] >= 3>>
+[[Buy a Magic Sword|Buy Magic Sword]]
+\<<endif>>
+\<<if $inventory["gold"] >= 3>>
+[[Buy a Magic Bow|Buy Magic Bow]]
+\<<endif>>
+\<<if $inventory["gold"] >= 3>>
+[[Buy a Magic Spell Tome|Buy Magic Spell Book]]
+\<<endif>>
+<<if $inventory["gold"] >= 2>> [[Buy Armor|Buy Armor]] <<endif>>
+<<if $inventory["gold"] >= 2 >> [[Buy Healing Potion|Buy Healing Potion]] <<endif>>
+
+[[Leave the shop and continue your journey.|Next Encounter]]
+
+:: Buy Magic Sword
+\<<set $choices["magicSword"] to $choices["magicSword"]+1>>
+\<<if $inventory["magicSword"] == 0>>
+\<<set $inventory["gold"] to $inventory["gold"]-3>>
+\<<set $inventory["magicSword"] to $inventory["magicSword"]+1>>
+"Excellent choice!" The shopkeeper hands you the magic sword.
+<<else>>
+You already have a magic sword. It would be too cumbersome to carry another.
+<<endif>>
+[[Continue shopping.|Shop Welcome]]
+
+
+
+:: Buy Magic Bow
+\<<if $inventory["magicBow"] == 0>>
+\<<set $inventory["gold"] to $inventory["gold"]-3>>
+\<<set $inventory["magicBow"] to $inventory["magicBow"]+1>>
+\<<set $choices["magicBow"] to $choices["magicBow"]+1>>
+"Ah, yes, she's a beauty." The shopkeeper hands you the magic bow.
+<<else>>
+You already have a magic bow. It would be too cumbersome to carry another.
+<<endif>>
+[[Continue shopping.|Shop Welcome]]
+
+
+
+:: Buy Magic Spell Book
+\<<set $inventory["magicBook"] to $inventory["magicBook"]+1>>
+\<<set $choices["magicBook"] to $choices["magicBook"]+1>>
+\<<if $inventory["magicBook"] == 0>>
+\<<set $inventory["gold"] to $inventory["gold"]-3>>
+"Here you are!" The shopkeeper pulls the old spell book off of the shelf and hands it to you.
+<<else>>
+You alrady have a magic spell book. You don't need another.
+<<endif>>
+[[Continue shopping.|Shop Welcome]]
+
+
+:: Buy Armor
+\<<if $inventory["armor"] == 0>>
+\<<set $inventory["gold"] to $inventory["gold"]-2>>
+\<<set $inventory["armor"] to $inventory["armor"]+1>>
+\<<set $choices["armor"] to $choices["armor"]+1>>
+"Very good!" The shopkeeper hands you the armor.
+<<else>>
+You already have a set of armor. It would be too cumbersome to carry another.
+<<endif>>
+[[Continue shopping.|Shop Welcome]]
+
+
+
+:: Buy Healing Potion
+<<silently>>
+<<set $inventory["gold"] to $inventory["gold"]-2>>
+<<set $inventory["healingPotion"] to $inventory["healingPotion"]+1>>
+<<set $choices["healingPotion"] to $choices["healingPotion"]+1>>
+<<endsilently>>
+
+"Excellent choice!" The shopkeeper hands you a small vial of green liquid.
+
+[[Continue shopping.|Shop Welcome]]
