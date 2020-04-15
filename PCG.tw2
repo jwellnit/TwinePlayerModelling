@@ -2437,60 +2437,60 @@ You already have a set of armor. It would be too cumbersome to carry another.
 <<set $total to 0>>
 
 <<if $encounter["type"] is "enemy_near_few">>
-<<set $enemy_near_few_stop to $player_model["enemy_near_few"]>>/2
+<<set $enemy_near_few_stop to $player_model["enemy_near_few"]/2>>
 <<else>>
 <<set $enemy_near_few_stop to $player_model["enemy_near_few"]>>
 <<endif>>
-<<set $total to $total + $enemy_near_few_stop>>
+<<set $total to $enemy_near_few_stop>>
 
 <<if $encounter["type"] is "enemy_near_many">>
-<<set $enemy_near_many_stop to $total + $player_model["enemy_near_many"]>>/2
+<<set $enemy_near_many_stop to $total + $player_model["enemy_near_many"]/2>>
 <<else>>
 <<set $enemy_near_many_stop to $total + $player_model["enemy_near_many"]>>
 <<endif>>
-<<set $total to $total + $enemy_near_many_stop>>
+<<set $total to $enemy_near_many_stop>>
 
 <<if $encounter["type"] is "enemy_far_few">>
-<<set $enemy_far_few_stop to $total + $player_model["enemy_far_few"]>>/2
+<<set $enemy_far_few_stop to $total + $player_model["enemy_far_few"]/2>>
 <<else>>
 <<set $enemy_far_few_stop to $total + $player_model["enemy_far_few"]>>
 <<endif>>
-<<set $total to $total + $enemy_far_few_stop>>
+<<set $total to $enemy_far_few_stop>>
 
 <<if $encounter["type"] is "enemy_far_many">>
-<<set $enemy_far_many_stop to $total + $player_model["enemy_far_many"]>>/2
+<<set $enemy_far_many_stop to $total + $player_model["enemy_far_many"]/2>>
 <<else>>
 <<set $enemy_far_many_stop to $total + $player_model["enemy_far_many"]>>
 <<endif>>
-<<set $total to $total + $enemy_far_many_stop>>
+<<set $total to $enemy_far_many_stop>>
 
 <<if $encounter["type"] is "town_shop">>
-<<set $town_shop_stop to $total + $player_model["town_shop"]>>/2
+<<set $town_shop_stop to $total + $player_model["town_shop"]/2>>
 <<else>>
 <<set $town_shop_stop to $total + $player_model["town_shop"]>>
 <<endif>>
-<<set $total to $total + $town_shop_stop>>
+<<set $total to $town_shop_stop>>
 
 <<if $encounter["type"] is "help">>
-<<set $help_stop to $total + $player_model["help"]>>/2
+<<set $help_stop to $total + $player_model["help"]/2>>
 <<else>>
 <<set $help_stop to $total + $player_model["help"]>>
 <<endif>>
-<<set $total to $total + $help_stop>>
+<<set $total to $help_stop>>
 
 <<if $encounter["type"] is "loot">>
-<<set $loot_stop to $total + $player_model["loot"]>>/2
+<<set $loot_stop to $total + $player_model["loot"]/2>>
 <<else>>
 <<set $loot_stop to $total + $player_model["loot"]>>
 <<endif>>
-<<set $total to $total + $loot_stop>>
+<<set $total to $loot_stop>>
 
 <<if $encounter["type"] is "puzzle">>
-<<set $puzzle_stop to $total + $player_model["puzzle"]>>/2
+<<set $puzzle_stop to $total + $player_model["puzzle"]/2>>
 <<else>>
 <<set $puzzle_stop to $total + $player_model["puzzle"]>>
 <<endif>>
-<<set $total to $total + $puzzle_stop>>
+<<set $total to $puzzle_stop>>
 
 <<set $roll to random($total)>>
 
@@ -2518,89 +2518,89 @@ You already have a set of armor. It would be too cumbersome to carry another.
 <<set $enemy_near_few_stop to 0
 <<else>>
 <<if $encounter["type"] is "enemy_near_few">>
-<<set $enemy_near_few_stop to $player_model["enemy_near_few"]>>/2
+<<set $enemy_near_few_stop to $player_model["enemy_near_few"]/2>>
 <<else>>
 <<set $enemy_near_few_stop to $player_model["enemy_near_few"]>>
 <<endif>>
+<<set $total to $enemy_near_few_stop>>
 <<endif>>
-<<set $total to $total + $enemy_near_few_stop>>
 
 <<if $encounter1["type"] is "enemy_near_many">>
 <<set $enemy_near_many_stop to 0
 <<else>>
 <<if $encounter["type"] is "enemy_near_many">>
-<<set $enemy_near_many_stop to $total + $player_model["enemy_near_many"]>>/2
+<<set $enemy_near_many_stop to $total + $player_model["enemy_near_many"]/2>>
 <<else>>
 <<set $enemy_near_many_stop to $total + $player_model["enemy_near_many"]>>
 <<endif>>
+<<set $total to $enemy_near_many_stop>>
 <<endif>>
-<<set $total to $total + $enemy_near_many_stop>>
 
 <<if $encounter1["type"] is "enemy_far_few">>
 <<set $enemy_far_few_stop to 0
 <<else>>
 <<if $encounter["type"] is "enemy_far_few">>
-<<set $enemy_far_few_stop to $total + $player_model["enemy_far_few"]>>/2
+<<set $enemy_far_few_stop to $total + $player_model["enemy_far_few"]/2>>
 <<else>>
 <<set $enemy_far_few_stop to $total + $player_model["enemy_far_few"]>>
 <<endif>>
+<<set $total to $enemy_far_few_stop>>
 <<endif>>
-<<set $total to $total + $enemy_far_few_stop>>
 
 <<if $encounter1["type"] is "enemy_far_many">>
 <<set $enemy_far_many_stop to 0
 <<else>>
 <<if $encounter["type"] is "enemy_far_many">>
-<<set $enemy_far_many_stop to $total + $player_model["enemy_far_many"]>>/2
+<<set $enemy_far_many_stop to $total + $player_model["enemy_far_many"]/2>>
 <<else>>
 <<set $enemy_far_many_stop to $total + $player_model["enemy_far_many"]>>
 <<endif>>
+<<set $total to $enemy_far_many_stop>>
 <<endif>>
-<<set $total to $total + $enemy_far_many_stop>>
 
 <<if $encounter1["type"] is "town_shop">>
 <<set $town_shop_stop to 0
 <<else>>
 <<if $encounter["type"] is "town_shop">>
-<<set $town_shop_stop to $total + $player_model["town_shop"]>>/2
+<<set $town_shop_stop to $total + $player_model["town_shop"]/2>>
 <<else>>
 <<set $town_shop_stop to $total + $player_model["town_shop"]>>
 <<endif>>
+<<set $total to $town_shop_stop>>
 <<endif>>
-<<set $total to $total + $town_shop_stop>>
 
 <<if $encounter1["type"] is "help">>
 <<set $help_stop to 0
 <<else>>
 <<if $encounter["type"] is "help">>
-<<set $help_stop to $total + $player_model["help"]>>/2
+<<set $help_stop to $total + $player_model["help"]/2>>
 <<else>>
 <<set $help_stop to $total + $player_model["help"]>>
 <<endif>>
+<<set $total to $help_stop>>
 <<endif>>
-<<set $total to $total + $help_stop>>
 
 <<if $encounter1["type"] is "loot">>
 <<set $loot_stop to 0
 <<else>>
 <<if $encounter["type"] is "loot">>
-<<set $loot_stop to $total + $player_model["loot"]>>/2
+<<set $loot_stop to $total + $player_model["loot"]/2>>
 <<else>>
 <<set $loot_stop to $total + $player_model["loot"]>>
 <<endif>>
+<<set $total to $loot_stop>>
 <<endif>>
-<<set $total to $total + $loot_stop>>
 
 <<if $encounter1["type"] is "puzzle">>
 <<set $puzzle_stop to 0
 <<else>>
 <<if $encounter["type"] is "puzzle">>
-<<set $puzzle_stop to $total + $player_model["puzzle"]>>/2
+<<set $puzzle_stop to $total + $player_model["puzzle"]/2>>
 <<else>>
 <<set $puzzle_stop to $total + $player_model["puzzle"]>>
 <<endif>>
+<<set $total to $puzzle_stop>>
 <<endif>>
-<<set $total to $total + $puzzle_stop>>
 
 <<set $roll to random($total)>>
 
@@ -2622,5 +2622,349 @@ You already have a set of armor. It would be too cumbersome to carry another.
 <<set $encounter2["type"] to "puzzle">>
 <<endif>>
 
+<<set $total to 0>>
+<<set $encounter1["talk"] to False>>
+<<set $encounter1["bribe"] to False>>
+<<set $encounter1["sneak"] to False>>
+<<set $encounter1["wait"] to False>>
+<<set $encounter2["talk"] to False>>
+<<set $encounter2["bribe"] to False>>
+<<set $encounter2["sneak"] to False>>
+<<set $encounter2["wait"] to False>>
 
+<<if $encounter["talk"]>>
+<<set $talk_stop to $total + $player_model["talk"]/2>>
+<<else>>
+<<set $talk_stop to $total + $player_model["talk"]>>
+<<endif>>
+<<set $total to $talk_stop>>
+
+<<if $encounter["bribe"]>>
+<<set $bribe_stop to $total + $player_model["bribe"]/2>>
+<<else>>
+<<set $bribe_stop to $total + $player_model["bribe"]>>
+<<endif>>
+<<set $total to $bribe_stop>>
+
+<<if $encounter["sneak"]>>
+<<set $sneak_stop to $total + $player_model["sneak"]/2>>
+<<else>>
+<<set $sneak_stop to $total + $player_model["sneak"]>>
+<<endif>>
+<<set $total to $sneak_stop>>
+
+<<if $encounter["wait"]>>
+<<set $wait_stop to $total + $player_model["wait"]/2>>
+<<else>>
+<<set $wait_stop to $total + $player_model["wait"]>>
+<<endif>>
+<<set $total to $wait_stop>>
+
+<<set $roll to random($total)>>
+
+<<if $roll < $talk_stop>>
+<<set $encounter1["talk"] to True>>
+<<elseif $roll < $bribe_stop>>
+<<set $encounter1["bribe"] to True>>
+<<elseif $roll < $sneak_stop>>
+<<set $encounter1["sneak"] to True>>
+<<elseif $roll < $wait_stop>>
+<<set $encounter1["wait"] to True>>
+<<endif>>
+
+<<set $total to 0>>
+
+<<if $encounter1["talk"]>>
+<<set $talk_stop to 0
+<<else>>
+<<if $encounter["talk"]>>
+<<set $talk_stop to $total + $player_model["talk"]/2>>
+<<else>>
+<<set $talk_stop to $total + $player_model["talk"]>>
+<<endif>>
+<<set $total to $talk_stop>>
+<<endif>>
+
+<<if $encounter1["bribe"]>>
+<<set $bribe_stop to 0
+<<else>>
+<<if $encounter["bribe"]>>
+<<set $bribe_stop to $total + $player_model["bribe"]/2>>
+<<else>>
+<<set $bribe_stop to $total + $player_model["bribe"]>>
+<<endif>>
+<<set $total to $bribe_stop>>
+<<endif>>
+
+<<if $encounter1["sneak"]>>
+<<set $sneak_stop to 0
+<<else>>
+<<if $encounter["sneak"]>>
+<<set $sneak_stop to $total + $player_model["sneak"]/2>>
+<<else>>
+<<set $sneak_stop to $total + $player_model["sneak"]>>
+<<endif>>
+<<set $total to $sneak_stop>>
+<<endif>>
+
+<<if $encounter1["wait"]>>
+<<set $wait_stop to 0
+<<else>>
+<<if $encounter["wait"]>>
+<<set $wait_stop to $total + $player_model["wait"]/2>>
+<<else>>
+<<set $wait_stop to $total + $player_model["wait"]>>
+<<endif>>
+<<set $total to $wait_stop>>
+<<endif>>
+
+<<set $roll to random($total)>>
+
+<<if $roll < $talk_stop>>
+<<set $encounter1["talk"] to True>>
+<<elseif $roll < $bribe_stop>>
+<<set $encounter1["bribe"] to True>>
+<<elseif $roll < $sneak_stop>>
+<<set $encounter1["sneak"] to True>>
+<<elseif $roll < $wait_stop>>
+<<set $encounter1["wait"] to True>>
+<<endif>>
+
+<<if $encounter1["type"] is "town_shop">>
+<<set $total to 0>>
+
+<<if $encounter1["talk"]>>
+<<set $talk_stop to 0
+<<else>>
+<<if $encounter["talk"]>>
+<<set $talk_stop to $total + $player_model["talk"]/2>>
+<<else>>
+<<set $talk_stop to $total + $player_model["talk"]>>
+<<endif>>
+<<set $total to $talk_stop>>
+<<endif>>
+
+<<if $encounter1["bribe"]>>
+<<set $bribe_stop to 0
+<<else>>
+<<if $encounter["bribe"]>>
+<<set $bribe_stop to $total + $player_model["bribe"]/2>>
+<<else>>
+<<set $bribe_stop to $total + $player_model["bribe"]>>
+<<endif>>
+<<set $total to $bribe_stop>>
+<<endif>>
+
+<<if $encounter1["sneak"]>>
+<<set $sneak_stop to 0
+<<else>>
+<<if $encounter["sneak"]>>
+<<set $sneak_stop to $total + $player_model["sneak"]/2>>
+<<else>>
+<<set $sneak_stop to $total + $player_model["sneak"]>>
+<<endif>>
+<<set $total to $sneak_stop>>
+<<endif>>
+
+<<if $encounter1["wait"]>>
+<<set $wait_stop to 0
+<<else>>
+<<if $encounter["wait"]>>
+<<set $wait_stop to $total + $player_model["wait"]/2>>
+<<else>>
+<<set $wait_stop to $total + $player_model["wait"]>>
+<<endif>>
+<<set $total to $wait_stop>>
+<<endif>>
+
+<<set $roll to random($total)>>
+
+<<if $roll < $talk_stop>>
+<<set $encounter1["talk"] to True>>
+<<elseif $roll < $bribe_stop>>
+<<set $encounter1["bribe"] to True>>
+<<elseif $roll < $sneak_stop>>
+<<set $encounter1["sneak"] to True>>
+<<elseif $roll < $wait_stop>>
+<<set $encounter1["wait"] to True>>
+<<endif>>
+<<endif>>
+
+<<set $total to 0>>
+
+<<if $encounter["talk"]>>
+<<set $talk_stop to $total + $player_model["talk"]/2>>
+<<else>>
+<<set $talk_stop to $total + $player_model["talk"]>>
+<<endif>>
+<<set $total to $talk_stop>>
+
+<<if $encounter["bribe"]>>
+<<set $bribe_stop to $total + $player_model["bribe"]/2>>
+<<else>>
+<<set $bribe_stop to $total + $player_model["bribe"]>>
+<<endif>>
+<<set $total to $bribe_stop>>
+
+<<if $encounter["sneak"]>>
+<<set $sneak_stop to $total + $player_model["sneak"]/2>>
+<<else>>
+<<set $sneak_stop to $total + $player_model["sneak"]>>
+<<endif>>
+<<set $total to $sneak_stop>>
+
+<<if $encounter["wait"]>>
+<<set $wait_stop to $total + $player_model["wait"]/2>>
+<<else>>
+<<set $wait_stop to $total + $player_model["wait"]>>
+<<endif>>
+<<set $total to $wait_stop>>
+
+<<set $roll to random($total)>>
+
+<<if $roll < $talk_stop>>
+<<set $encounter2["talk"] to True>>
+<<elseif $roll < $bribe_stop>>
+<<set $encounter2["bribe"] to True>>
+<<elseif $roll < $sneak_stop>>
+<<set $encounter2["sneak"] to True>>
+<<elseif $roll < $wait_stop>>
+<<set $encounter2["wait"] to True>>
+<<endif>>
+
+<<set $total to 0>>
+
+<<if $encounter2["talk"]>>
+<<set $talk_stop to 0
+<<else>>
+<<if $encounter["talk"]>>
+<<set $talk_stop to $total + $player_model["talk"]/2>>
+<<else>>
+<<set $talk_stop to $total + $player_model["talk"]>>
+<<endif>>
+<<set $total to $talk_stop>>
+<<endif>>
+
+<<if $encounter2["bribe"]>>
+<<set $bribe_stop to 0
+<<else>>
+<<if $encounter["bribe"]>>
+<<set $bribe_stop to $total + $player_model["bribe"]/2>>
+<<else>>
+<<set $bribe_stop to $total + $player_model["bribe"]>>
+<<endif>>
+<<set $total to $bribe_stop>>
+<<endif>>
+
+<<if $encounter2["sneak"]>>
+<<set $sneak_stop to 0
+<<else>>
+<<if $encounter["sneak"]>>
+<<set $sneak_stop to $total + $player_model["sneak"]/2>>
+<<else>>
+<<set $sneak_stop to $total + $player_model["sneak"]>>
+<<endif>>
+<<set $total to $sneak_stop>>
+<<endif>>
+
+<<if $encounter2["wait"]>>
+<<set $wait_stop to 0
+<<else>>
+<<if $encounter["wait"]>>
+<<set $wait_stop to $total + $player_model["wait"]/2>>
+<<else>>
+<<set $wait_stop to $total + $player_model["wait"]>>
+<<endif>>
+<<set $total to $wait_stop>>
+<<endif>>
+
+<<set $roll to random($total)>>
+
+<<if $roll < $talk_stop>>
+<<set $encounter2["talk"] to True>>
+<<elseif $roll < $bribe_stop>>
+<<set $encounter2["bribe"] to True>>
+<<elseif $roll < $sneak_stop>>
+<<set $encounter2["sneak"] to True>>
+<<elseif $roll < $wait_stop>>
+<<set $encounter2["wait"] to True>>
+<<endif>>
+
+<<if $encounter2["type"] is "town_shop">>
+<<set $total to 0>>
+
+<<if $encounter2["talk"]>>
+<<set $talk_stop to 0
+<<else>>
+<<if $encounter["talk"]>>
+<<set $talk_stop to $total + $player_model["talk"]/2>>
+<<else>>
+<<set $talk_stop to $total + $player_model["talk"]>>
+<<endif>>
+<<set $total to $talk_stop>>
+<<endif>>
+
+<<if $encounter2["bribe"]>>
+<<set $bribe_stop to 0
+<<else>>
+<<if $encounter["bribe"]>>
+<<set $bribe_stop to $total + $player_model["bribe"]/2>>
+<<else>>
+<<set $bribe_stop to $total + $player_model["bribe"]>>
+<<endif>>
+<<set $total to $bribe_stop>>
+<<endif>>
+
+<<if $encounter2["sneak"]>>
+<<set $sneak_stop to 0
+<<else>>
+<<if $encounter["sneak"]>>
+<<set $sneak_stop to $total + $player_model["sneak"]/2>>
+<<else>>
+<<set $sneak_stop to $total + $player_model["sneak"]>>
+<<endif>>
+<<set $total to $sneak_stop>>
+<<endif>>
+
+<<if $encounter2["wait"]>>
+<<set $wait_stop to 0
+<<else>>
+<<if $encounter["wait"]>>
+<<set $wait_stop to $total + $player_model["wait"]/2>>
+<<else>>
+<<set $wait_stop to $total + $player_model["wait"]>>
+<<endif>>
+<<set $total to $wait_stop>>
+<<endif>>
+
+<<set $roll to random($total)>>
+
+<<if $roll < $talk_stop>>
+<<set $encounter2["talk"] to True>>
+<<elseif $roll < $bribe_stop>>
+<<set $encounter2["bribe"] to True>>
+<<elseif $roll < $sneak_stop>>
+<<set $encounter2["sneak"] to True>>
+<<elseif $roll < $wait_stop>>
+<<set $encounter2["wait"] to True>>
+<<endif>>
+<<endif>>
+
+<<if $encounter1["type"] is "enemy_near_few">>
+
+<<else if $encounter1["type"] is "enemy_near_many">>
+
+<<else if $encounter1["type"] is "enemy_far_few">>
+
+<<else if $encounter1["type"] is "enemy_far_many">>
+
+<<else if $encounter1["type"] is "town_shop">>
+
+<<else if $encounter1["type"] is "help">>
+
+<<else if $encounter1["type"] is "loot">>
+
+<<else>>
+
+<<endif>>
 <<endsilently>>
