@@ -104,7 +104,7 @@ Config.saves.isAllowed = function() {return false};
 <<endsilently>>
 You are a brave adventurer, seeking fame and fortune by finding the lost gold of Bloomrane Cavern.
 
-[[Continue forward.|Enemy Near Few]]
+[[Continue forward.|Next Encounter]]
 
 :: Enemy Near Few
 <<silently>>
@@ -2985,6 +2985,54 @@ You already have a set of armor. It would be too cumbersome to carry another.
 <<set $encounter2["sneak"] to True>>
 <<elseif $roll < $wait_stop>>
 <<set $encounter2["wait"] to True>>
+<<endif>>
+<<endif>>
+
+<<set $encounter1["sword_damage"] to random(1,10)>>
+<<set $encounter1["bow_damage"] to random(1,10)>>
+<<set $encounter1["magic_damage"] to random(1,10)>>
+<<set $encounter1["magic_sword_damage"] to 2*$encounter1["sword_damage"]>>
+<<set $encounter1["magic_bow_damage"] to 2*$encounter1["bow_damage"]>>
+<<set $encounter1["magic_book_damage"] to 2*$encounter1["magic_damage"]>>
+
+<<if encounter1["type"] is "puzzle">>
+<<set $encounter1["sword_damage"] to 0>>
+<<set $encounter1["bow_damage"] to 0>>
+<<set $encounter1["magic_damage"] to 0>>
+<<set $encounter1["magic_sword_damage"] to 0>>
+<<set $encounter1["magic_bow_damage"] to 0>>
+<<set $encounter1["magic_book_damage"] to 0>>
+<<set $roll to random(3)>>
+<<if $roll < 1>>
+<<set $encounter1["magic_sword_damage"] to 1>>
+<<elseif $roll < 2>>
+<<set $encounter1["magic_bow_damage"] to 1>>
+<<else>>
+<<set $encounter1["magic_book_damage"] to 1>>
+<<endif>>
+<<endif>>
+
+<<set $encounter2["sword_damage"] to random(1,10)>>
+<<set $encounter2["bow_damage"] to random(1,10)>>
+<<set $encounter2["magic_damage"] to random(1,10)>>
+<<set $encounter2["magic_sword_damage"] to 2*$encounter2["sword_damage"]>>
+<<set $encounter2["magic_bow_damage"] to 2*$encounter2["bow_damage"]>>
+<<set $encounter2["magic_book_damage"] to 2*$encounter2["magic_damage"]>>
+
+<<if encounter2["type"] is "puzzle">>
+<<set $encounter2["sword_damage"] to 0>>
+<<set $encounter2["bow_damage"] to 0>>
+<<set $encounter2["magic_damage"] to 0>>
+<<set $encounter2["magic_sword_damage"] to 0>>
+<<set $encounter2["magic_bow_damage"] to 0>>
+<<set $encounter2["magic_book_damage"] to 0>>
+<<set $roll to random(3)>>
+<<if $roll < 1>>
+<<set $encounter2["magic_sword_damage"] to 1>>
+<<elseif $roll < 2>>
+<<set $encounter2["magic_bow_damage"] to 1>>
+<<else>>
+<<set $encounter2["magic_book_damage"] to 1>>
 <<endif>>
 <<endif>>
 
