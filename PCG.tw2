@@ -3036,6 +3036,70 @@ You already have a set of armor. It would be too cumbersome to carry another.
 <<endif>>
 <<endif>>
 
+<<set $total to 0>>
+
+<<if $encounter["loot_1"] is "magicSword">>
+<<set $sword_stop to $total + $player_model["magicSword"]/2>>
+<<else>>
+<<set $sword_stop to $total + $player_model["magicSword"]>>
+<<endif>>
+<<set $total to $sword_stop>>
+
+<<if $encounter["loot_1"] is "magicBow">>
+<<set $bow_stop to $total + $player_model["magicBow"]/2>>
+<<else>>
+<<set $bow_stop to $total + $player_model["magicBow"]>>
+<<endif>>
+<<set $total to $bow_stop>>
+
+<<if $encounter["loot_1"] is "magicBook">>
+<<set $book_stop to $total + $player_model["magicBook"]/2>>
+<<else>>
+<<set $book_stop to $total + $player_model["magicBook"]>>
+<<endif>>
+<<set $total to $book_stop>>
+
+<<set $roll to random($total)>>
+<<if $roll < $sword_stop>>
+<<set $encounter1["loot_1"] to "magicSword">>
+<<elseif $roll < $bow_stop>>
+<<set $encounter1["loot_1"] to "magicBow">>
+<<else>>
+<<set $encounter1["loot_1"] to "magicBook">>
+<<endif>>
+
+<<set $total to 0>>
+
+<<if $encounter["loot_1"] is "magicSword">>
+<<set $sword_stop to $total + $player_model["magicSword"]/2>>
+<<else>>
+<<set $sword_stop to $total + $player_model["magicSword"]>>
+<<endif>>
+<<set $total to $sword_stop>>
+
+<<if $encounter["loot_1"] is "magicBow">>
+<<set $bow_stop to $total + $player_model["magicBow"]/2>>
+<<else>>
+<<set $bow_stop to $total + $player_model["magicBow"]>>
+<<endif>>
+<<set $total to $bow_stop>>
+
+<<if $encounter["loot_1"] is "magicBook">>
+<<set $book_stop to $total + $player_model["magicBook"]/2>>
+<<else>>
+<<set $book_stop to $total + $player_model["magicBook"]>>
+<<endif>>
+<<set $total to $book_stop>>
+
+<<set $roll to random($total)>>
+<<if $roll < $sword_stop>>
+<<set $encounter2["loot_1"] to "magicSword">>
+<<elseif $roll < $bow_stop>>
+<<set $encounter2["loot_1"] to "magicBow">>
+<<else>>
+<<set $encounter2["loot_1"] to "magicBook">>
+<<endif>>
+
 <<if $encounter1["type"] is "enemy_near_few">>
 
 <<else if $encounter1["type"] is "enemy_near_many">>
