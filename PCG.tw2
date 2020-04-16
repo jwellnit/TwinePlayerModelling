@@ -40,28 +40,66 @@ Config.saves.isAllowed = function() {return false};
 <<set $choices["talk"] to 0>>
 <<set $choices["bribe"] to 0>>
 <<set $choices["runAway"] to 0>>
+<<set $player_model to {}>>
+<<set $player_model["enemy_near_few"] to 1>>
+<<set $player_model["enemy_near_many"] to 1>>
+<<set $player_model["enemy_far_few"] to 1>>
+<<set $player_model["enemy_far_many"] to 1>>
+<<set $player_model["town_shop"] to 1>>
+<<set $player_model["help"] to 1>>
+<<set $player_model["loot"] to 1>>
+<<set $player_model["puzzle"] to 1>>
+<<set $player_model["magicSword"] to 1>>
+<<set $player_model["magicBow"] to 1>>
+<<set $player_model["magicBook"] to 1>>
+<<set $player_model["talk"] to 1>>
+<<set $player_model["bribe"] to 1>>
+<<set $player_model["sneak"] to 1>>
+<<set $player_model["wait"] to 1>>
+<<set $ogre to ["Ogre", "an Ogre", "a massive Ogre"]>>
+<<set $giant to ["Giant", "a Giant", "a towering Giant"]>>
+<<set $cyclops to ["Cyclops", "a Cyclops", "a powerful Cyclops"]>>
+<<set $ent to ["Treant", "a Treant", "an imposing Treant"]>>
+<<set $near_few_list to [$ogre, $giant, $cyclops, $ent]>>
+<<set $giraffes to ["Giraffes", "Giraffes", "carnivorous fantasy Giraffes"]>>
+<<set $wolves to ["Wolves", "Wolves", "vicious Wolves"]>>
+<<set $unicorns to ["Unicorns", "Unicorns", "bloodthirsty Unicorns"]>>
+<<set $wyverns to ["Wyverns", "Wyverns", "snarling Wyverns"]>>
+<<set $near_many_list to [$giraffes, $wolves, $unicorns, $wyverns]>>
+<<set $lamia to ["Lamia", "a Lamia", "a slithery Lamia"]>>
+<<set $harpy to ["Harpy", "a Harpy", "a sleek Harpy"]>>
+<<set $werewolf to ["Werewolf", "a Werewolf", "a muscular Werewolf"]>>
+<<set $troll to ["Troll", "a Troll", "a mossy troll"]>>
+<<set $far_few_list to [$lamia, $harpy, $werewolf, $troll]>>
+<<set $goblins to ["Goblins", "Goblins", "rowdy Goblins"]>>
+<<set $kobolds to ["Kobolds", "Kobolds", "skittery Kobolds"]>>
+<<set $gnolls to ["Gnolls", "Gnolls", "howling Gnolls"]>>
+<<set $gnomes to ["Gnomes", "Gnomes", "crazed ex-Garden Gnomes"]>>
+<<set $far_many_list to [$goblins, $kobolds, $gnolls, $gnomes]>>
 
 :: Welcome!
 <<silently>>
 <<set $player_health to 20>>
 <<set $encounter to {}>>
-<<set $encounter["enemy"] to "Ogre">>
-<<set $encounter["enemy_article"] to "an Ogre">>
-<<set $encounter["enemy_description"] to "a massive Ogre">>
-<<set $encounter["enemy_health"] to 10>>
-<<set $encounter["enemy_damage"] to 3>>
-<<set $encounter["sword_damage"] to 5>>
-<<set $encounter["bow_damage"] to 2>>
-<<set $encounter["magic_damage"] to 2>>
-<<set $encounter["magic_sword_damage"] to 10>>
-<<set $encounter["magic_bow_damage"] to 5>>
-<<set $encounter["magic_book_damage"] to 5>>
-<<set $encounter["bribe"] to True>>
+<<set $encounter["enemy"] to "none">>
+<<set $encounter["enemy_article"] to "none">>
+<<set $encounter["enemy_description"] to "none">>
+<<set $encounter["enemy_health"] to 0>>
+<<set $encounter["enemy_damage"] to 0>>
+<<set $encounter["sword_damage"] to 0>>
+<<set $encounter["bow_damage"] to 0>>
+<<set $encounter["magic_damage"] to 0>>
+<<set $encounter["magic_sword_damage"] to 0>>
+<<set $encounter["magic_bow_damage"] to 0>>
+<<set $encounter["magic_book_damage"] to 0>>
+<<set $encounter["bribe"] to False>>
 <<set $encounter["talk"] to False>>
-<<set $encounter["sneak"] to True>>
+<<set $encounter["sneak"] to False>>
 <<set $encounter["wait"] to False>>
-<<set $encounter["loot_1"] to "Magic Sword">>
-<<set $encounter["gold_amount"] to 5>>
+<<set $encounter["loot_1"] to "none"">>
+<<set $encounter["gold_amount"] to 0>>
+<<set $encounter1 to {}>>
+<<set $encounter2 to {}>>
 
 <<endsilently>>
 You are a brave adventurer, seeking fame and fortune by finding the lost gold of Bloomrane Cavern.
