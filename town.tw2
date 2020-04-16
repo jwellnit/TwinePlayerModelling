@@ -1,0 +1,206 @@
+:: Town
+You come across a small town with a busy town square. There is a small shop where you can purchase weapons and supplies for your journey. But first, you need to find out exactly where Bloomrane Cavern is located. Near the inn, some townsfolk are discussing the local news and gossip. There are several market stalls, including one for a cartographer. You also see two cloaked figures slip into an alleyway.
+
+[[You brandish your Sword|Town Sword]]
+[[You draw your Bow|Town Bow]]
+[[You begin casting a Spell|Town Magic]]
+<<if $encounter["talk"]>> [[Go talk to the people near the inn|Town Talk Succeed]] <<else>> [[Go talk to the people near the inn|Town Talk Fail]] <<endif>>
+<<if $encounter["bribe"]>> [[Go to the cartographer's booth|Town Bribe Succeed]] <<else>> [[Go to the cartographer's booth|Town Bribe Fail]] <<endif>>
+[[Try to follow the hooded figures without them noticing you|Town Hide]]
+
+:: Town Magic
+<<silently>>
+<<set $choices["magic"] to $choices["magic"]+1>>
+<<endsilently>>
+
+You open your spell tome and begin channeling your magic and within moments one of the town guard has spotted you. "Hey!" she shouts. "What do you think you're doing?! This is a city, not the woods. Stop that at once!"
+
+The gossips begin staring at you and whispering and the hooded figures narrow their eyes at you before quickly fleeing down the alley. You get the sense that violence was not the answer.
+
+<<if $encounter["bribe"]>> [[Go to the cartographer's booth|Town Bribe Succeed]] <<else>> [[Go to the cartographer's booth|Town Bribe Fail]] <<endif>>
+
+:: Town Sword
+<<silently>>
+<<set $choices["sword"] to $choices["sword"]+1>>
+<<endsilently>>
+
+You draw your sword and within moments one of the town guard has spotted you. "Hey!" she shouts. "What do you think you're doing?! This is a city, not the woods. Put that away!"
+
+The gossips begin staring at you and whispering and the hooded figures narrow their eyes at you before quickly fleeing down the alley. You get the sense that violence was not the answer.
+
+<<if $encounter["bribe"]>> [[Go to the cartographer's booth|Town Bribe Succeed]] <<else>> [[Go to the cartographer's booth|Town Bribe Fail]] <<endif>>
+
+:: Town Bow
+<<silently>>
+<<set $choices["bow"] to $choices["bow"]+1>>
+<<endsilently>>
+
+You draw your bow and within moments one of the town guard has spotted you. "Hey!" she shouts. "What do you think you're doing?! This is a city, not the woods. Put that away!"
+
+The gossips begin staring at you and whispering and the hooded figures narrow their eyes at you before quickly fleeing down the alley. You get the sense that violence was not the answer.
+
+<<if $encounter["bribe"]>> [[Go to the cartographer's booth|Town Bribe Succeed]] <<else>> [[Go to the cartographer's booth|Town Bribe Fail]] <<endif>>
+
+:: Town Talk Fail
+<<silently>>
+<<set $choices["talk"] to $choices["talk"]+1>>
+<<endsilently>>
+
+You approach the group standing near the inn and greet them. You ask if they've heard any interesting news lately. They share some stories from about town which, while interesting, are not particularly helpful to your quest.
+
+[[You brandish your Sword|Town Sword]]
+[[You draw your Bow|Town Bow]]
+[[You begin casting a Spell|Town Magic]]
+<<if $encounter["bribe"]>> [[Go to the cartographer's booth|Town Bribe Succeed]] <<else>> [[Go to the cartographer's booth|Town Bribe Fail]] <<endif>>
+
+:: Town Talk Success
+<<silently>>
+<<set $choices["talk"] to $choices["talk"]+1>>
+<<endsilently>>
+
+You approach the group standing near the inn and greet them. You ask if they've heard any interesting news lately. "I heard a passing trader say that she stumbled upon some sort of magic cave, a few miles up the north road. She said she couldn't get into it, though. I'm not sure why."
+
+You thank them for the information, and with your path clear, you head to the shop to gather supplies for your journey.
+
+[[Go to the shop|Shop Welcome]]
+
+:: Town Bribe Fail
+<<silently>>
+<<set $choices["bribe"] to $choices["bribe"]+1>>
+<<endsilently>>
+
+You approach the cartographer as he smiles and gestures to his merchandise. You ask if he has a map to Bloomrane Cavern. "Sorry, never heard of it," he replies.
+
+[[You brandish your Sword|Town Sword]]
+[[You draw your Bow|Town Bow]]
+[[You begin casting a Spell|Town Magic]]
+<<if $encounter["talk"]>> [[Go talk to the people near the inn|Town Talk Succeed]] <<else>> [[Go talk to the people near the inn|Town Talk Fail]] <<endif>>
+
+:: Town Bribe Succeed
+<<silently>>
+<<set $choices["bribe"] to $choices["bribe"]+1>>
+<<endsilently>>
+
+You approach the cartographer as he smiles and gestures to his merchandise. You ask if he has a map to Bloomrane Cavern. "I do," he says. "What are you willing to give me for it?"
+
+\<<if $inventory["magicSword"] > 0>>
+[[Throw a Magic Sword|Town Give Sword]]
+\<<endif>>
+\<<if $inventory["magicBow"] > 0>>
+[[Throw a Magic Bow|Town Give Bow]]
+\<<endif>>
+\<<if $inventory["magicBook"] > 0>>
+[[Throw a Magic Spell Tome|Town Give Magic]]
+\<<endif>>
+<<if $inventory["gold"] > 0>> [[Throw some gold|Town Give gold]]<<endif>>
+<<if $encounter["talk"]>> [[Go talk to the people near the inn|Town Talk Succeed]] <<else>> [[Go talk to the people near the inn|Town Talk Fail]] <<endif>>
+
+:: Town Give Give Sword
+<<silently>>
+<<set $inventory["magicSword"] to $inventory["magicSword"]-1>>
+<<endsilently>>
+
+"Perfect," he says enthusiatically. "Enjoy!" He hands you the map and takes your Magic Sword.
+
+You thank him for the map, and with your path clear, you head to the shop to gather supplies for your journey.
+
+[[Go to the shop|Shop Welcome]]
+
+:: Town Give Give Bow
+<<silently>>
+<<set $inventory["magicBow"] to $inventory["magicBow"]-1>>
+<<endsilently>>
+
+"Perfect," he says enthusiatically. "Enjoy!" He hands you the map and takes your Magic Bow.
+
+You thank him for the map, and with your path clear, you head to the shop to gather supplies for your journey.
+
+[[Go to the shop|Shop Welcome]]
+
+:: Town Give Give Magic
+<<silently>>
+<<set $inventory["magicBook"] to $inventory["magicBook"]-1>>
+<<endsilently>>
+
+"Perfect," he says enthusiatically. "Enjoy!" He hands you the map and takes your Magic Spell Tome.
+
+You thank him for the map, and with your path clear, you head to the shop to gather supplies for your journey.
+
+[[Go to the shop|Shop Welcome]]
+
+:: Town Give Give gold
+<<silently>>
+<<set $inventory["gold"] to $inventory["gold"]-1>>
+<<endsilently>>
+
+"Perfect," he says enthusiatically. "Enjoy!" He hands you the map and takes your Treausre.
+
+You thank him for the map, and with your path clear, you head to the shop to gather supplies for your journey.
+
+[[Go to the shop|Shop Welcome]]
+
+:: Town Hide
+<<silently>>
+<<set $choices["hide"] to $choices["hide"]+1>>
+<<endsilently>>
+
+You silently creep toward the alley and reach the hooded figures without them noticing. They are whispering about something, and the one nearst to you has a piece of paper sticking out of her pocket.
+
+<<if $encounter["sneak"]>>[[Try to grab the piece of paper and sneak away|Town Sneak Succeed]] <<else>> [[Try to grab the piece of paper and sneak away|Town Sneak Fail]] <<endif>>
+<<if $encounter["wait"]>>[[Stay hidden and listen in on their conversation|Town Wait Succeed]] <<else>> [[Stay hidden and listen in on their conversationt|Town Wait Fail]] <<endif>>
+[[You brandish your Sword|Town Sword]]
+[[You draw your Bow|Town Bow]]
+[[You begin casting a Spell|Town Magic]]
+<<if $encounter["talk"]>> [[Go talk to the people near the inn|Town Talk Succeed]] <<else>> [[Go talk to the people near the inn|Town Talk Fail]] <<endif>>
+<<if $encounter["bribe"]>> [[Go to the cartographer's booth|Town Bribe Succeed]] <<else>> [[Go to the cartographer's booth|Town Bribe Fail]] <<endif>>
+
+:: Town Sneak Succeed
+<<silently>>
+<<set $choices["sneak"] to $choices["sneak"]+1>>
+<<endsilently>>
+
+You quickly grab the note and sneak back out of the alley. You unfold the note and read it. On it are instructions. "Follow the north road up to the cave. I'll meet you there."
+
+With your path clear, you head to the shop to gather supplies for your journey.
+
+[[Go to the shop|Shop Welcome]]
+
+:: Town Sneak Fail
+<<silently>>
+<<set $choices["sneak"] to $choices["sneak"]+1>>
+<<endsilently>>
+
+Try to grab the note, but the hooded figure notices you and slaps your hand away. The two of them chase you out of the alleyway.
+
+[[You brandish your Sword|Town Sword]]
+[[You draw your Bow|Town Bow]]
+[[You begin casting a Spell|Town Magic]]
+<<if $encounter["talk"]>> [[Go talk to the people near the inn|Town Talk Succeed]] <<else>> [[Go talk to the people near the inn|Town Talk Fail]] <<endif>>
+<<if $encounter["bribe"]>> [[Go to the cartographer's booth|Town Bribe Succeed]] <<else>> [[Go to the cartographer's booth|Town Bribe Fail]] <<endif>>
+
+:: Town Wait Succeed
+<<silently>>
+<<set $choices["wait"] to $choices["wait"]+1>>
+<<endsilently>>
+
+"The boss says we're supposed to take the north road up to the cave," one of the hooded figures whispers. "He's getting the key for it now and once we open it we'll be rich!"
+
+"Great! But do you think we could do that in like, a couple hours? I kinda want to get lunch before we leave town," the other responds. "Oh yeah, for sure. It'll take him a little while to steal the key anyway. Might as well enjoy ourselves," the first answers.
+
+You sneak away as the hooded figures leave for lunch, and with your path clear, you head to the shop to gather supplies for your journey.
+
+[[Go to the shop|Shop Welcome]]
+
+:: Town Wait Fail
+<<silently>>
+<<set $choices["wait"] to $choices["wait"]+1>>
+<<endsilently>>
+
+You try to eavesdrop on the conversation, but you aren't able to hear as well as you thought, and you miss what they were saying as they start to walk away.
+
+<<if $encounter["sneak"]>>[[Try to grab the piece of paper and sneak away|Town Sneak Succeed]] <<else>> [[Try to grab the piece of paper and sneak away|Town Sneak Fail]] <<endif>>
+[[You brandish your Sword|Town Sword]]
+[[You draw your Bow|Town Bow]]
+[[You begin casting a Spell|Town Magic]]
+<<if $encounter["talk"]>> [[Go talk to the people near the inn|Town Talk Succeed]] <<else>> [[Go talk to the people near the inn|Town Talk Fail]] <<endif>>
+<<if $encounter["bribe"]>> [[Go to the cartographer's booth|Town Bribe Succeed]] <<else>> [[Go to the cartographer's booth|Town Bribe Fail]] <<endif>>

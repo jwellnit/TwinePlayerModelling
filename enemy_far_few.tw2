@@ -1,0 +1,555 @@
+
+:: Enemy Far Few
+<<silently>>
+<<set $choices["far"] to $choices["far"]+1>>
+<<set $choices["few"] to $choices["few"]+1>>
+<<endsilently>>
+
+The road leads to a narrow bridge, and on the other side, blocking your way, stands $encounter["enemy_description"].
+
+<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Enemy Far Few Magic Sword Fight]] <<else>> [[Attack with your Rusty Sword|Enemy Far Few Sword Fight]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Enemy Far Few Magic Bow Far]] <<else>> [[Attack with your Old Bow|Enemy Far Few Bow Far]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Enemy Far Few Magic Book Far]] <<else>> [[Attack with a Weak Spell|Enemy Far Few Magic Far]] <<endif>>
+<<if $encounter["talk"]>> [[Try to speak to the $encounter["enemy"]|Enemy Far Few Talk Succeed]] <<else>> [[Try to speak to the $encounter["enemy"]|Enemy Far Few Talk Fail]] <<endif>>
+<<if $encounter["bribe"]>> [[Try to bribe the $encounter["enemy"] to let you pass|Enemy Far Few Bribe Succeed]] <<else>> [[Try to bribe to the $encounter["enemy"] to let you pass|Enemy Far Few Bribe Fail]] <<endif>>
+[[Try to hide in the forest on your side of the bridge|Enemy Far Few Hide]]
+
+:: Enemy Far Few Sword Fight
+<<silently>>
+<<set $choices["sword"] to $choices["sword"]+1>>
+<<set $encounter["enemy_health"] to $encounter["enemy_health"] - $encounter["sword_damage"]>>
+<<endsilently>>
+
+<<if $encounter["enemy_health"] <= 0>>
+You dash towards the $encounter["enemy"], striking true with your sword. She screams and flees, allowing you to cross the bridge. You notice a small pouch of her belongings on the other side of the bridge.
+
+[[Loot the Pouch|Enemy Far Few Loot]]
+<<else>>
+<<silently>>
+<<set $player_health to $player_health - $encounter["enemy_damage"]>>
+<<endsilently>>
+
+<<if $player_health <= 0>>
+You close ground and hit her with your sword, but fighting is such close quarters is dangerous and she manages to seriously wound you. You are too hurt to continue fighting.
+
+<<if $inventory["healingPotion"]>0>>
+[[Use a health potion|Enemy Far Few Use Health Potion]]
+[[Run away|Enemy Far Few Flee]]
+<<else>>
+You have no choice but to [[flee.|Enemy Far Few Flee]]
+<<endif>>
+
+<<else>>
+You close ground and hit her with your sword, but fighting is such close quarters is dangerous and she manages to strike back.
+
+<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Enemy Far Few Magic Sword Fight]] <<else>> [[Attack with your Rusty Sword|Enemy Far Few Sword Fight]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Enemy Far Few Magic Bow Fight]] <<else>> [[Attack with your Old Bow|Enemy Far Few Bow Fight]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Enemy Far Few Magic Book Fight]] <<else>> [[Attack with a Weak Spell|Enemy Far Few Magic Fight]] <<endif>>
+[[Use a health potion|Enemy Far Few Use Health Potion]]
+[[Run away|Enemy Far Few Flee]]
+<<endif>>
+<<endif>>
+
+:: Enemy Far Few Magic Sword Fight
+<<silently>>
+<<set $choices["sword"] to $choices["sword"]+1>>
+<<set $encounter["enemy_health"] to $encounter["enemy_health"] - $encounter["magic_sword_damage"]>>
+<<endsilently>>
+
+<<if $encounter["enemy_health"] <= 0>>
+You dash towards the $encounter["enemy"], striking true with your sword. She screams and flees, allowing you to cross the bridge. You notice a small pouch of her belongings on the other side of the bridge.
+
+[[Loot the Pouch|Enemy Far Few Loot]]
+<<else>>
+<<silently>>
+<<set $player_health to $player_health - $encounter["enemy_damage"]>>
+<<endsilently>>
+
+<<if $player_health <= 0>>
+You close ground and hit her with your sword, but fighting is such close quarters is dangerous and she manages to seriously wound you. You are too hurt to continue fighting.
+
+<<if $inventory["healingPotion"]>0>>
+[[Use a health potion|Enemy Far Few Use Health Potion]]
+[[Run away|Enemy Far Few Flee]]
+<<else>>
+You have no choice but to [[flee.|Enemy Far Few Flee]]
+<<endif>>
+
+<<else>>
+You close ground and hit her with your sword, but fighting is such close quarters is dangerous and she manages to strike back.
+
+<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Enemy Far Few Magic Sword Fight]] <<else>> [[Attack with your Rusty Sword|Enemy Far Few Sword Fight]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Enemy Far Few Magic Bow Fight]] <<else>> [[Attack with your Old Bow|Enemy Far Few Bow Fight]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Enemy Far Few Magic Book Fight]] <<else>> [[Attack with a Weak Spell|Enemy Far Few Magic Fight]] <<endif>>
+[[Use a health potion|Enemy Far Few Use Health Potion]]
+[[Run away|Enemy Far Few Flee]]
+<<endif>>
+<<endif>>
+
+:: Enemy Far Few Bow Fight
+<<silently>>
+<<set $choices["bow"] to $choices["bow"]+1>>
+<<set $encounter["enemy_health"] to $encounter["enemy_health"] - $encounter["bow_damage"]>>
+<<endsilently>>
+
+<<if $encounter["enemy_health"] <= 0>>
+Your arrow flies at the $encounter["enemy"]; she screams and flees, allowing you to cross the bridge. You notice a small pouch of her belongings on the other side of the bridge.
+
+[[Loot the Pouch|Enemy Far Few Loot]]
+<<else>>
+<<silently>>
+<<set $player_health to $player_health - $encounter["enemy_damage"]>>
+<<endsilently>>
+
+<<if $player_health <= 0>>
+You loose an arrow, catching her as she swipes at you, but she manages to slash deep with her claws before you have a chance to draw your bow again. You are too hurt to continue fighting
+
+<<if $inventory["healingPotion"]>0>>
+[[Use a health potion|Enemy Far Few Use Health Potion]]
+[[Run away|Enemy Far Few Flee]]
+<<else>>
+You have no choice but to [[flee.|Enemy Far Few Flee]]
+<<endif>>
+
+<<else>>
+You loose an arrow, catching her as she swipes at you, but she manages to slash you with her claws before you have a chance to draw your bow again.
+
+<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Enemy Far Few Magic Sword Fight]] <<else>> [[Attack with your Rusty Sword|Enemy Far Few Sword Fight]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Enemy Far Few Magic Bow Fight]] <<else>> [[Attack with your Old Bow|Enemy Far Few Bow Fight]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Enemy Far Few Magic Book Fight]] <<else>> [[Attack with a Weak Spell|Enemy Far Few Magic Fight]] <<endif>>
+[[Use a health potion|Enemy Far Few Use Health Potion]]
+[[Run away|Enemy Far Few Flee]]
+<<endif>>
+<<endif>>
+
+:: Enemy Far Few Magic Bow Fight
+<<silently>>
+<<set $choices["bow"] to $choices["bow"]+1>>
+<<set $encounter["enemy_health"] to $encounter["enemy_health"] - $encounter["magic_bow_damage"]>>
+<<endsilently>>
+
+<<if $encounter["enemy_health"] <= 0>>
+Your arrow flies at the $encounter["enemy"]; she screams and flees, allowing you to cross the bridge. You notice a small pouch of her belongings on the other side of the bridge.
+
+[[Loot the Pouch|Enemy Far Few Loot]]
+<<else>>
+<<silently>>
+<<set $player_health to $player_health - $encounter["enemy_damage"]>>
+<<endsilently>>
+
+<<if $player_health <= 0>>
+You loose an arrow, catching her as she swipes at you, but she manages to slash deep with her claws before you have a chance to draw your bow again. You are too hurt to continue fighting
+
+<<if $inventory["healingPotion"]>0>>
+[[Use a health potion|Enemy Far Few Use Health Potion]]
+[[Run away|Enemy Far Few Flee]]
+<<else>>
+You have no choice but to [[flee.|Enemy Far Few Flee]]
+<<endif>>
+
+<<else>>
+You loose an arrow, catching her as she swipes at you, but she manages to slash you with her claws before you have a chance to draw your bow again.
+
+<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Enemy Far Few Magic Sword Fight]] <<else>> [[Attack with your Rusty Sword|Enemy Far Few Sword Fight]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Enemy Far Few Magic Bow Fight]] <<else>> [[Attack with your Old Bow|Enemy Far Few Bow Fight]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Enemy Far Few Magic Book Fight]] <<else>> [[Attack with a Weak Spell|Enemy Far Few Magic Fight]] <<endif>>
+[[Use a health potion|Enemy Far Few Use Health Potion]]
+[[Run away|Enemy Far Few Flee]]
+<<endif>>
+<<endif>>
+
+:: Enemy Far Few Magic Fight
+<<silently>>
+<<set $choices["magic"] to $choices["magic"]+1>>
+<<set $encounter["enemy_health"] to $encounter["enemy_health"] - $encounter["magic_damage"]>>
+<<endsilently>>
+
+<<if $encounter["enemy_health"] <= 0>>
+You call a gust of wind to blow the $encounter["enemy"] back off the bridge and into the forest beyond. With the bridge cleared, you are free to move on. You notice a small pouch of her belongings on the other side of the bridge.
+
+[[Loot the Pouch|Enemy Far Few Loot]]
+<<else>>
+<<silently>>
+<<set $player_health to $player_health - $encounter["enemy_damage"]>>
+<<endsilently>>
+
+<<if $player_health <= 0>>
+You send a wave of thunderous force into the $encounter["enemy"], who manages to stay on her feet. She slashes at you with sharp claws and manages to cut deep. You're too badly hurt to fight any longer.
+
+<<if $inventory["healingPotion"]>0>>
+[[Use a health potion|Enemy Far Few Use Health Potion]]
+[[Run away|Enemy Far Few Flee]]
+<<else>>
+You have no choice but to [[flee.|Enemy Far Few Flee]]
+<<endif>>
+
+<<else>>
+You send a wave of thunderous force into the $encounter["enemy"], who manages to stay on her feet. She slashes at you with sharp claws but only manages a scratch.
+
+<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Enemy Far Few Magic Sword Fight]] <<else>> [[Attack with your Rusty Sword|Enemy Far Few Sword Fight]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Enemy Far Few Magic Bow Fight]] <<else>> [[Attack with your Old Bow|Enemy Far Few Bow Fight]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Enemy Far Few Magic Book Fight]] <<else>> [[Attack with a Weak Spell|Enemy Far Few Magic Fight]] <<endif>>
+[[Use a health potion|Enemy Far Few Use Health Potion]]
+[[Run away|Enemy Far Few Flee]]
+<<endif>>
+<<endif>>
+
+:: Enemy Far Few Magic Book Fight
+<<silently>>
+<<set $choices["magic"] to $choices["magic"]+1>>
+<<set $encounter["enemy_health"] to $encounter["enemy_health"] - $encounter["magic_book_damage"]>>
+<<endsilently>>
+
+<<if $encounter["enemy_health"] <= 0>>
+You call a gust of wind to blow the $encounter["enemy"] back off the bridge and into the forest beyond. With the bridge cleared, you are free to move on. You notice a small pouch of her belongings on the other side of the bridge.
+
+[[Loot the Pouch|Enemy Far Few Loot]]
+<<else>>
+<<silently>>
+<<set $player_health to $player_health - $encounter["enemy_damage"]>>
+<<endsilently>>
+
+<<if $player_health <= 0>>
+You send a wave of thunderous force into the $encounter["enemy"], who manages to stay on her feet. She slashes at you with sharp claws and manages to cut deep. You're too badly hurt to fight any longer.
+
+<<if $inventory["healingPotion"]>0>>
+[[Use a health potion|Enemy Far Few Use Health Potion]]
+[[Run away|Enemy Far Few Flee]]
+<<else>>
+You have no choice but to [[flee.|Enemy Far Few Flee]]
+<<endif>>
+
+<<else>>
+You send a wave of thunderous force into the $encounter["enemy"], who manages to stay on her feet. She slashes at you with sharp claws but only manages a scratch.
+
+<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Enemy Far Few Magic Sword Fight]] <<else>> [[Attack with your Rusty Sword|Enemy Far Few Sword Fight]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Enemy Far Few Magic Bow Fight]] <<else>> [[Attack with your Old Bow|Enemy Far Few Bow Fight]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Enemy Far Few Magic Book Fight]] <<else>> [[Attack with a Weak Spell|Enemy Far Few Magic Fight]] <<endif>>
+[[Use a health potion|Enemy Far Few Use Health Potion]]
+[[Run away|Enemy Far Few Flee]]
+<<endif>>
+<<endif>>
+
+:: Enemy Far Few Bow Far
+<<silently>>
+<<set $choices["bow"] to $choices["bow"]+1>>
+<<set $encounter["enemy_health"] to $encounter["enemy_health"] - $encounter["bow_damage"]>>
+<<endsilently>>
+
+<<if $encounter["enemy_health"] <= 0>>
+Your arrow flies at the $encounter["enemy"]; she screams and flees, allowing you to cross the bridge. You notice a small pouch of her belongings on the other side of the bridge.
+
+[[Loot the Pouch|Enemy Far Few Loot]]
+<<else>>
+
+You loose an arrow down the bridge, hitting the $encounter["enemy"] as she charges you.
+
+<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Enemy Far Few Magic Sword Fight]] <<else>> [[Attack with your Rusty Sword|Enemy Far Few Sword Fight]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Enemy Far Few Magic Bow Fight]] <<else>> [[Attack with your Old Bow|Enemy Far Few Bow Fight]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Enemy Far Few Magic Book Fight]] <<else>> [[Attack with a Weak Spell|Enemy Far Few Magic Fight]] <<endif>>
+[[Run away|Enemy Far Few Flee]]
+<<endif>>
+
+:: Enemy Far Few Magic Bow Far
+<<silently>>
+<<set $choices["bow"] to $choices["bow"]+1>>
+<<set $encounter["enemy_health"] to $encounter["enemy_health"] - $encounter["magic_bow_damage"]>>
+<<endsilently>>
+
+<<if $encounter["enemy_health"] <= 0>>
+Your arrow flies at the $encounter["enemy"]; she screams and flees, allowing you to cross the bridge. You notice a small pouch of her belongings on the other side of the bridge.
+
+[[Loot the Pouch|Enemy Far Few Loot]]
+<<else>>
+
+You loose an arrow down the bridge, hitting the $encounter["enemy"] as she charges you.
+
+<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Enemy Far Few Magic Sword Fight]] <<else>> [[Attack with your Rusty Sword|Enemy Far Few Sword Fight]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Enemy Far Few Magic Bow Fight]] <<else>> [[Attack with your Old Bow|Enemy Far Few Bow Fight]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Enemy Far Few Magic Book Fight]] <<else>> [[Attack with a Weak Spell|Enemy Far Few Magic Fight]] <<endif>>
+[[Run away|Enemy Far Few Flee]]
+<<endif>>
+
+:: Enemy Far Few Magic Far
+<<silently>>
+<<set $choices["magic"] to $choices["magic"]+1>>
+<<set $encounter["enemy_health"] to $encounter["enemy_health"] - $encounter["magic_damage"]>>
+<<endsilently>>
+
+<<if $encounter["enemy_health"] <= 0>>
+You call a gust of wind to blow the $encounter["enemy"] back off the bridge and into the forest beyond. With the bridge cleared, you are free to move on. You notice a small pouch of her belongings on the other side of the bridge.
+
+[[Loot the Pouch|Enemy Far Few Loot]]
+<<else>>
+You send a wave of thunderous force into the $encounter["enemy"], who manages to stay on her feet. She closes the distance before you can cast another spell.
+
+<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Enemy Far Few Magic Sword Fight]] <<else>> [[Attack with your Rusty Sword|Enemy Far Few Sword Fight]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Enemy Far Few Magic Bow Fight]] <<else>> [[Attack with your Old Bow|Enemy Far Few Bow Fight]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Enemy Far Few Magic Book Fight]] <<else>> [[Attack with a Weak Spell|Enemy Far Few Magic Fight]] <<endif>>
+[[Run away|Enemy Far Few Flee]]
+<<endif>>
+
+:: Enemy Far Few Magic Book Far
+<<silently>>
+<<set $choices["magic"] to $choices["magic"]+1>>
+<<set $encounter["enemy_health"] to $encounter["enemy_health"] - $encounter["magic_book_damage"]>>
+<<endsilently>>
+
+<<if $encounter["enemy_health"] <= 0>>
+You call a gust of wind to blow the $encounter["enemy"] back off the bridge and into the forest beyond. With the bridge cleared, you are free to move on. You notice a small pouch of her belongings on the other side of the bridge.
+
+[[Loot the Pouch|Enemy Far Few Loot]]
+<<else>>
+You send a wave of thunderous force into the $encounter["enemy"], who manages to stay on her feet. She closes the distance before you can cast another spell.
+
+<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Enemy Far Few Magic Sword Fight]] <<else>> [[Attack with your Rusty Sword|Enemy Far Few Sword Fight]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Enemy Far Few Magic Bow Fight]] <<else>> [[Attack with your Old Bow|Enemy Far Few Bow Fight]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Enemy Far Few Magic Book Fight]] <<else>> [[Attack with a Weak Spell|Enemy Far Few Magic Fight]] <<endif>>
+[[Run away|Enemy Far Few Flee]]
+<<endif>>
+
+:: Enemy Far Few Use Health Potion
+<<silently>>
+<<set $inventory["healingPotion"] to $inventory["healingPotion"]-1>>
+<<set $player_health to 20>>
+<<endsilently
+Stumbling away from your attacker, you manage to grab a healing potion from your bag and quickly drink it. You immediately feel much stronger.
+
+<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Enemy Far Few Magic Sword Fight]] <<else>> [[Attack with your Rusty Sword|Enemy Far Few Sword Fight]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Enemy Far Few Magic Bow Fight]] <<else>> [[Attack with your Old Bow|Enemy Far Few Bow Fight]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Enemy Far Few Magic Book Fight]] <<else>> [[Attack with a Weak Spell|Enemy Far Few Magic Fight]] <<endif>>
+[[Run away|Enemy Far Few Flee]]
+
+:: Enemy Far Few Flee
+<<set $choices["runAway"] to $choices["runAway"]+1>>
+You flee from the $encounter["enemy"] and [[continue on your quest.|Next Encounter]]
+
+:: Enemy Far Few Loot
+In the pouch you find a $encounter["loot_1"] and $encounter["gold_amount"] Gold Pieces. Your pack is getting heavy and you can only carry one. Which do you take?
+
+[[Take the $encounter["loot_1"]|Enemy Far Few Loot 1]]
+[[Take the $encounter["gold_amount"] Gold Pieces|Enemy Far Few Loot 2]]
+
+:: Enemy Far Few Loot 1
+<<if $encounter["loot_1"] == "Magic Sword">>
+<<silently>>
+<<set $inventory["magicSword"] to $inventory["magicSword"]+1>>
+<<set $choices["weapon"] to $choices["weapon"]+1 >>
+<<endsilently>>
+
+You take the Magic Sword and continue on your journey.
+<<else if $encounter["loot_1"] == "Magic Bow">>
+<<silently>>
+<<set $inventory["magicBow"] to $inventory["magicBow"]+1>>
+<<set $choices["weapon"] to $choices["weapon"]+1 >>
+<<endsilently>>
+
+You take the Magic Bow and continue on your journey.
+<<else if $encounter["loot_1"] == "Magic Book">>
+<<silently>>
+<<set $inventory["magicBook"] to $inventory["magicBook"]+1>>
+<<set $choices["weapon"] to $choices["weapon"]+1 >>
+<<endsilently>>
+
+You take the Spell Tome and continue on your journey.
+<<endif>>
+
+[[Continue on your Quest|Next Encounter]]
+
+:: Enemy Far Few Loot 2
+<<silently>>
+<<set $inventory["gold"] to $inventory["gold"]+$encounter["gold_amount"]>>
+<<set $choices["gold"] to $choices["gold"]+1 >>
+<<endsilently>>
+
+You take the gold and continue on your journey.
+
+[[Continue on your Quest|Next Encounter]]
+
+:: Enemy Far Few Talk Fail
+<<silently>>
+<<set $choices["talk"] to $choices["talk"]+1>>
+<<endsilently>>
+
+You approach the $encounter["enemy"] and ask if you may cross the bridge. "No!" she yells. "No one else may cross the bridge!"
+
+<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Enemy Far Few Magic Sword Fight]] <<else>> [[Attack with your Rusty Sword|Enemy Far Few Sword Fight]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Enemy Far Few Magic Bow Fight]] <<else>> [[Attack with your Old Bow|Enemy Far Few Bow Fight]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Enemy Far Few Magic Book Fight]] <<else>> [[Attack with a Weak Spell|Enemy Far Few Magic Fight]] <<endif>>
+<<if $encounter["bribe"]>> [[Try to bribe the $encounter["enemy"] to let you pass|Enemy Far Few Bribe Succeed]] <<else>> [[Try to bribe to the $encounter["enemy"] to let you pass|Enemy Far Few Bribe Fail]] <<endif>>
+
+:: Enemy Far Few Talk Success
+<<silently>>
+<<set $choices["talk"] to $choices["talk"]+1>>
+<<endsilently>>
+
+You approach the $encounter["enemy"] and ask if you may cross the bridge. "Oh, yeah totally" she says. "All you had to do was ask."
+
+She stands aside and allows you to cross.
+
+[[Continue on your Quest|Next Encounter]]
+
+:: Enemy Far Few Bribe Fail
+<<silently>>
+<<set $choices["bribe"] to $choices["bribe"]+1>>
+<<endsilently>>
+
+You walk up to the $encounter["enemy"] and ask if she'd like to trade for passage across the bridge. "Ugh. No!" she hisses. "What do you think this is? A toll bridge?"
+
+<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Enemy Far Few Magic Sword Fight]] <<else>> [[Attack with your Rusty Sword|Enemy Far Few Sword Fight]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Enemy Far Few Magic Bow Fight]] <<else>> [[Attack with your Old Bow|Enemy Far Few Bow Fight]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Enemy Far Few Magic Book Fight]] <<else>> [[Attack with a Weak Spell|Enemy Far Few Magic Fight]] <<endif>>
+<<if $encounter["talk"]>> [[Try to speak to the $encounter["enemy"]|Enemy Far Few Talk Succeed]] <<else>> [[Try to speak to the $encounter["enemy"]|Enemy Far Few Talk Fail]] <<endif>>
+
+:: Enemy Far Few Bribe Succeed
+<<silently>>
+<<set $choices["bribe"] to $choices["bribe"]+1>>
+<<endsilently>>
+
+You walk up to the $encounter["enemy"] and ask if she'd like to trade for passage across the bridge. "Well, this is a toll bridge," she answers. "How would you like to pay?"
+
+\<<if $inventory["magicSword"] > 0>>
+[[Offer a Magic Sword|Enemy Far Few Give Sword]]
+\<<endif>>
+\<<if $inventory["magicBow"] > 0>>
+[[Offer a Magic Bow|Enemy Far Few Give Bow]]
+\<<endif>>
+\<<if $inventory["magicBook"] > 0>>
+[[Offer a Magic Spell Tome|Enemy Far Few Give Magic]]
+\<<endif>>
+<<if $inventory["gold"] > 0>> [[Offer gold|Enemy Far Few Give gold]]<<endif>>
+<<if $encounter["talk"]>> [[Try to speak to the $encounter["enemy"]|Enemy Far Few Talk Succeed]] <<else>> [[Try to speak to the $encounter["enemy"]|Enemy Far Few Talk Fail]] <<endif>>
+
+:: Enemy Far Few Give Give Sword
+<<silently>>
+<<set $inventory["magicSword"] to $inventory["magicSword"]-1>>
+<<endsilently>>
+
+"That is sufficient payment" she says, as she takes your Magic Sword. "You can head on past now." With the $encounter["enemy"] standing aside, you are free to continue to down the road.
+
+[[Continue on your Quest|Next Encounter]]
+
+:: Enemy Far Few Give Give Bow
+<<silently>>
+<<set $inventory["magicBow"] to $inventory["magicBow"]-1>>
+<<endsilently>>
+"That is sufficient payment" she says, as she takes your Magic Bow. "You can head on past now." With the $encounter["enemy"] standing aside, you are free to continue to down the road.
+
+[[Continue on your Quest|Next Encounter]]
+
+:: Enemy Far Few Give Give Magic
+<<silently>>
+<<set $inventory["magicBook"] to $inventory["magicBook"]-1>>
+<<endsilently>>
+
+"That is sufficient payment" she says, as she takes your Magic Spell Tome. "You can head on past now." With the $encounter["enemy"] standing aside, you are free to continue to down the road.
+
+[[Continue on your Quest|Next Encounter]]
+
+:: Enemy Far Few Give Give gold
+<<silently>>
+<<set $inventory["gold"] to $inventory["gold"]-1>>
+<<endsilently>>
+
+"That is sufficient payment" she says, as she takes your gold. "You can head on past now." With the $encounter["enemy"] standing aside, you are free to continue to down the road.
+
+[[Continue on your Quest|Next Encounter]]
+
+:: Enemy Far Few Hide
+<<silently>>
+<<set $choices["hide"] to $choices["hide"]+1>>
+<<endsilently>>
+
+You dart into the forest and hide. The $encounter["enemy"] Doesn't seem to have spotted you from so far away.
+
+<<if $encounter["sneak"]>>[[Try to sneak past the $encounter["enemy"]|Enemy Far Few Sneak Succeed]] <<else>> [[Try to sneak past the $encounter["enemy"]|Enemy Far Few Sneak Fail]] <<endif>>
+<<if $encounter["wait"]>>[[Wait to see if she leaves|Enemy Far Few Wait Succeed]] <<else>> [[Wait to see if he leaves|Enemy Far Few Wait Fail]] <<endif>>
+<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Enemy Far Few Magic Sword Fight]] <<else>> [[Attack with your Rusty Sword|Enemy Far Few Sword Fight]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Enemy Far Few Magic Bow Hidden]] <<else>> [[Attack with your Old Bow|Enemy Far Few Bow Hidden]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Enemy Far Few Magic Book Far]] <<else>> [[Attack with a Weak Spell|Enemy Far Few Magic Far]] <<endif>>
+<<if $encounter["talk"]>> [[Try to speak to the $encounter["enemy"]|Enemy Far Few Talk Succeed]] <<else>> [[Try to speak to the $encounter["enemy"]|Enemy Far Few Talk Fail]] <<endif>>
+<<if $encounter["bribe"]>> [[Try to bribe the $encounter["enemy"] to let you pass|Enemy Far Few Bribe Succeed]] <<else>> [[Try to bribe to the $encounter["enemy"] to let you pass|Enemy Far Few Bribe Fail]] <<endif>>
+
+:: Enemy Far Few Bow Hidden
+<<silently>>
+<<set $choices["bow"] to $choices["bow"]+1>>
+<<set $encounter["enemy_health"] to $encounter["enemy_health"] - $encounter["bow_damage"]>>
+<<endsilently>>
+
+<<if $encounter["enemy_health"] <= 0>>
+Your arrow flies at the $encounter["enemy"]; she screams and flees, allowing you to cross the bridge. You notice a small pouch of her belongings on the other side of the bridge.
+
+[[Loot the Pouch|Enemy Far Few Loot]]
+<<else>>
+You loose an arrow down the bridge, hitting the $encounter["enemy"]. She looks around the bridge but can't seem to make you out. "Who was that?!" she shouts.
+
+<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Enemy Far Few Magic Sword Fight]] <<else>> [[Attack with your Rusty Sword|Enemy Far Few Sword Fight]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Enemy Far Few Magic Bow Hidden]] <<else>> [[Attack with your Old Bow|Enemy Far Few Bow Hidden]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Enemy Far Few Magic Book Far]] <<else>> [[Attack with a Weak Spell|Enemy Far Few Magic Far]] <<endif>>
+[[Run away|Enemy Far Few Flee]]
+<<endif>>
+
+:: Enemy Far Few Magic Bow Hidden
+<<silently>>
+<<set $choices["bow"] to $choices["bow"]+1>>
+<<set $encounter["enemy_health"] to $encounter["enemy_health"] - $encounter["magic_bow_damage"]>>
+<<endsilently>>
+
+<<if $encounter["enemy_health"] <= 0>>
+Your arrow flies at the $encounter["enemy"]; she screams and flees, allowing you to cross the bridge. You notice a small pouch of her belongings on the other side of the bridge.
+
+[[Loot the Pouch|Enemy Far Few Loot]]
+<<else>>
+You loose an arrow down the bridge, hitting the $encounter["enemy"]. She looks around the bridge but can't seem to make you out. "Who was that?!" she shouts.
+
+<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Enemy Far Few Magic Sword Fight]] <<else>> [[Attack with your Rusty Sword|Enemy Far Few Sword Fight]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Enemy Far Few Magic Bow Hidden]] <<else>> [[Attack with your Old Bow|Enemy Far Few Bow Hidden]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Enemy Far Few Magic Book Far]] <<else>> [[Attack with a Weak Spell|Enemy Far Few Magic Far]] <<endif>>
+[[Run away|Enemy Far Few Flee]]
+<<endif>>
+
+:: Enemy Far Few Sneak Succeed
+<<silently>>
+<<set $choices["sneak"] to $choices["sneak"]+1>>
+<<endsilently>>
+
+You throw a small rock into the ravine below. The sound distracts the $encounter["enemy"], causing her to look over the side of the bridge to see what it was. In that moment, you sprint down the bridge and past the $encounter["enemy"]. Having avoided the $encounter["enemy"], you are free to continue on your quest.
+
+[[Continue on your Quest|Next Encounter]]
+
+:: Enemy Far Few Sneak Fail
+<<silently>>
+<<set $choices["sneak"] to $choices["sneak"]+1>>
+<<endsilently>>
+
+You take a few steps across the bridge, but it is quite thin and there is no cover to be found. "Hey!" the $encounter["enemy"] yells, "I can see you, y'know!"
+
+<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Enemy Far Few Magic Sword Fight]] <<else>> [[Attack with your Rusty Sword|Enemy Far Few Sword Fight]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Enemy Far Few Magic Bow Fight]] <<else>> [[Attack with your Old Bow|Enemy Far Few Bow Fight]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Enemy Far Few Magic Book Fight]] <<else>> [[Attack with a Weak Spell|Enemy Far Few Magic Fight]] <<endif>>
+<<if $encounter["talk"]>> [[Try to speak to the $encounter["enemy"]|Enemy Far Few Talk Succeed]] <<else>> [[Try to speak to the $encounter["enemy"]|Enemy Far Few Talk Fail]] <<endif>>
+<<if $encounter["bribe"]>> [[Try to bribe the $encounter["enemy"] to let you pass|Enemy Far Few Bribe Succeed]] <<else>> [[Try to bribe to the $encounter["enemy"] to let you pass|Enemy Far Few Bribe Fail]] <<endif>>
+
+:: Enemy Far Few Wait Succeed
+<<silently>>
+<<set $choices["wait"] to $choices["wait"]+1>>
+<<endsilently>>
+
+After about an hour, the $encounter["enemy"] checks her watch and then picks up her rucksack. She walks down the road, away from the bridge. Having avoided the $encounter["enemy"], you are free to continue on your quest.
+
+[[Continue on your Quest|Next Encounter]]
+
+:: Enemy Far Few Wait Fail
+<<silently>>
+<<set $choices["wait"] to $choices["wait"]+1>>
+<<endsilently>>
+
+You wait for an hour but it doesn't seem like the $encounter["enemy"] is going anywhere.
+
+<<if $encounter["sneak"]>>[[Try to sneak past the $encounter["enemy"]|Enemy Far Few Sneak Succeed]] <<else>> [[Try to sneak past the $encounter["enemy"]|Enemy Far Few Sneak Fail]] <<endif>>
+<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Enemy Far Few Magic Sword Fight]] <<else>> [[Attack with your Rusty Sword|Enemy Far Few Sword Fight]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Enemy Far Few Magic Bow Hidden]] <<else>> [[Attack with your Old Bow|Enemy Far Few Bow Hidden]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Enemy Far Few Magic Book Fight]] <<else>> [[Attack with a Weak Spell|Enemy Far Few Magic Fight]] <<endif>>
+<<if $encounter["talk"]>> [[Try to speak to the $encounter["enemy"]|Enemy Far Few Talk Succeed]] <<else>> [[Try to speak to the $encounter["enemy"]|Enemy Far Few Talk Fail]] <<endif>>
+<<if $encounter["bribe"]>> [[Try to bribe the $encounter["enemy"] to let you pass|Enemy Far Few Bribe Succeed]] <<else>> [[Try to bribe to the $encounter["enemy"] to let you pass|Enemy Far Few Bribe Fail]] <<endif>>
+

@@ -1,0 +1,71 @@
+:: Shop Welcome
+"Hello!" The shopkeeper greets you warmly. "Welcome to my little shop. What can I interest you in today? A new weapon? Or perhaps a suit of armor?"
+
+You look at the items for sale. There is a gleaming magic sword, a beautiful magic bow, and a tome of powerful magic spells. Each weapon costs 3 gold. There is also a set of steel armor, and some healing potions, each for 2 gold. A wooden sign on the wall informs you, "No Trades - Gold Only!"
+
+\<<if $inventory["gold"] < 2 >>
+Unfortunately, you don't have enough gold to buy anything.
+\<<endif>>
+\<<if $inventory["gold"] >= 3>>
+[[Buy a Magic Sword|Buy Magic Sword]]
+\<<endif>>
+\<<if $inventory["gold"] >= 3>>
+[[Buy a Magic Bow|Buy Magic Bow]]
+\<<endif>>
+\<<if $inventory["gold"] >= 3>>
+[[Buy a Magic Spell Tome|Buy Magic Spell Book]]
+\<<endif>>
+<<if $inventory["gold"] >= 2>> [[Buy Armor|Buy Armor]] <<endif>>
+<<if $inventory["gold"] >= 2 >> [[Buy Healing Potion|Buy Healing Potion]] <<endif>>
+
+[[Leave the shop and continue your journey.|Next Encounter]]
+
+:: Buy Magic Sword
+\<<set $choices["magicSword"] to $choices["magicSword"]+1>>
+\<<set $inventory["gold"] to $inventory["gold"]-3>>
+\<<set $inventory["magicSword"] to $inventory["magicSword"]+1>>
+"Excellent choice!" The shopkeeper hands you the magic sword.
+
+[[Continue shopping.|Shop Welcome]]
+
+
+
+:: Buy Magic Bow
+\<<set $inventory["gold"] to $inventory["gold"]-3>>
+\<<set $inventory["magicBow"] to $inventory["magicBow"]+1>>
+\<<set $choices["magicBow"] to $choices["magicBow"]+1>>
+"Ah, yes, she's a beauty." The shopkeeper hands you the magic bow.
+[[Continue shopping.|Shop Welcome]]
+
+
+
+:: Buy Magic Spell Book
+\<<set $inventory["magicBook"] to $inventory["magicBook"]+1>>
+\<<set $choices["magicBook"] to $choices["magicBook"]+1>>
+\<<set $inventory["gold"] to $inventory["gold"]-3>>
+"Here you are!" The shopkeeper pulls the old spell book off of the shelf and hands it to you.
+[[Continue shopping.|Shop Welcome]]
+
+
+:: Buy Armor
+\<<if $inventory["armor"] == 0>>
+\<<set $inventory["gold"] to $inventory["gold"]-2>>
+\<<set $inventory["armor"] to $inventory["armor"]+1>>
+\<<set $choices["armor"] to $choices["armor"]+1>>
+"Very good!" The shopkeeper hands you the armor.
+<<else>>
+You already have a set of armor. It would be too cumbersome to carry another.
+<<endif>>
+[[Continue shopping.|Shop Welcome]]
+
+
+:: Buy Healing Potion
+<<silently>>
+<<set $inventory["gold"] to $inventory["gold"]-2>>
+<<set $inventory["healingPotion"] to $inventory["healingPotion"]+1>>
+<<set $choices["healingPotion"] to $choices["healingPotion"]+1>>
+<<endsilently>>
+
+"Excellent choice!" The shopkeeper hands you a small vial of green liquid.
+
+[[Continue shopping.|Shop Welcome]]

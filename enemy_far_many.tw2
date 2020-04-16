@@ -1,0 +1,554 @@
+:: Enemy Far Many
+<<silently>>
+<<set $choices["far"] to $choices["far"]+1>>
+<<set $choices["many"] to $choices["many"]+1>>
+<<endsilently>>
+
+A little ways down the road is a group of $encounter["enemy"]. They are marching in your direction, chanting and banging their weapons, but they don't seem to have noticed you yet.
+
+<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Enemy Far Many Magic Sword Fight]] <<else>> [[Attack with your Rusty Sword|Enemy Far Many Sword Fight]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Enemy Far Many Magic Bow Far]] <<else>> [[Attack with your Old Bow|Enemy Far Many Bow Far]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Enemy Far Many Magic Book Far]] <<else>> [[Attack with a Weak Spell|Enemy Far Many Magic Far]] <<endif>>
+<<if $encounter["talk"]>> [[Try to speak to the $encounter["enemy"]|Enemy Far Many Talk Succeed]] <<else>> [[Try to speak to the $encounter["enemy"]|Enemy Far Many Talk Fail]] <<endif>>
+<<if $encounter["bribe"]>> [[Try to bribe the $encounter["enemy"] to let you pass|Enemy Far Many Bribe Succeed]] <<else>> [[Try to bribe to the $encounter["enemy"] to let you pass|Enemy Far Many Bribe Fail]] <<endif>>
+[[Try to hide in the bushes before they see you|Enemy Far Many Hide]]
+
+:: Enemy Far Many Sword Fight
+<<silently>>
+<<set $choices["sword"] to $choices["sword"]+1>>
+<<set $encounter["enemy_health"] to $encounter["enemy_health"] - $encounter["sword_damage"]>>
+<<endsilently>>
+
+<<if $encounter["enemy_health"] <= 0>>
+You charge the $encounter["enemy"] and swing your sword in a wide arc. The $encounter["enemy"] scream and sprint in to the woods shouting "Okay! You win!" as they do, leaving behind some of their possessions in the chaos.
+
+[[Loot the Pouch|Enemy Far Many Loot]]
+<<else>>
+<<silently>>
+<<set $player_health to $player_health - $encounter["enemy_damage"]>>
+<<endsilently>>
+
+<<if $player_health <= 0>>
+You swing your sword at the nearest of the $encounter["enemy"], pushing him back as the rest charge towards you, managing to wound you in the process. You're too badly hurt to fight any longer.
+
+<<if $inventory["healingPotion"]>0>>
+[[Use a health potion|Enemy Far Many Use Health Potion]]
+[[Run away|Enemy Far Many Flee]]
+<<else>>
+You have no choice but to [[flee.|Enemy Far Many Flee]]
+<<endif>>
+
+<<else>>
+You swing your sword at the nearest of the $encounter["enemy"], pushing him back as the rest charge towards you, managing to get a few good hits in.
+
+<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Enemy Far Many Magic Sword Fight]] <<else>> [[Attack with your Rusty Sword|Enemy Far Many Sword Fight]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Enemy Far Many Magic Bow Fight]] <<else>> [[Attack with your Old Bow|Enemy Far Many Bow Fight]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Enemy Far Many Magic Book Fight]] <<else>> [[Attack with a Weak Spell|Enemy Far Many Magic Fight]] <<endif>>
+[[Use a health potion|Enemy Far Many Use Health Potion]]
+[[Run away|Enemy Far Many Flee]]
+<<endif>>
+<<endif>>
+
+:: Enemy Far Many Magic Sword Fight
+<<silently>>
+<<set $choices["sword"] to $choices["sword"]+1>>
+<<set $encounter["enemy_health"] to $encounter["enemy_health"] - $encounter["magic_sword_damage"]>>
+<<endsilently>>
+
+<<if $encounter["enemy_health"] <= 0>>
+You charge the $encounter["enemy"] and swing your sword in a wide arc. The $encounter["enemy"] scream and sprint in to the woods shouting "Okay! You win!" as they do, leaving behind some of their possessions in the chaos.
+
+[[Loot the Pouch|Enemy Far Many Loot]]
+<<else>>
+<<silently>>
+<<set $player_health to $player_health - $encounter["enemy_damage"]>>
+<<endsilently>>
+
+<<if $player_health <= 0>>
+You swing your sword at the nearest of the $encounter["enemy"], pushing him back as the rest charge towards you, managing to wound you in the process. You're too badly hurt to fight any longer.
+
+<<if $inventory["healingPotion"]>0>>
+[[Use a health potion|Enemy Far Many Use Health Potion]]
+[[Run away|Enemy Far Many Flee]]
+<<else>>
+You have no choice but to [[flee.|Enemy Far Many Flee]]
+<<endif>>
+
+<<else>>
+You swing your sword at the nearest of the $encounter["enemy"], pushing him back as the rest charge towards you, managing to get a few good hits in.
+
+<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Enemy Far Many Magic Sword Fight]] <<else>> [[Attack with your Rusty Sword|Enemy Far Many Sword Fight]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Enemy Far Many Magic Bow Fight]] <<else>> [[Attack with your Old Bow|Enemy Far Many Bow Fight]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Enemy Far Many Magic Book Fight]] <<else>> [[Attack with a Weak Spell|Enemy Far Many Magic Fight]] <<endif>>
+[[Use a health potion|Enemy Far Many Use Health Potion]]
+[[Run away|Enemy Far Many Flee]]
+<<endif>>
+<<endif>>
+
+:: Enemy Far Many Bow Fight
+<<silently>>
+<<set $choices["bow"] to $choices["bow"]+1>>
+<<set $encounter["enemy_health"] to $encounter["enemy_health"] - $encounter["bow_damage"]>>
+<<endsilently>>
+
+<<if $encounter["enemy_health"] <= 0>>
+Your arrows fly forward, hitting several $encounter["enemy"] and terrifying the rest. The $encounter["enemy"] scream and sprint in to the woods shouting "Okay! You win!" as they do, leaving behind some of their possessions in the chaos.
+
+[[Loot the Pouch|Enemy Far Many Loot]]
+<<else>>
+<<silently>>
+<<set $player_health to $player_health - $encounter["enemy_damage"]>>
+<<endsilently>>
+
+<<if $player_health <= 0>>
+You fire an arrow into the crowd, riling the $encounter["enemy"] as they hiss and shriek. A few of them rush and overwhelm you as you try to notch another arrow. You're too badly hurt to fight any longer.
+
+<<if $inventory["healingPotion"]>0>>
+[[Use a health potion|Enemy Far Many Use Health Potion]]
+[[Run away|Enemy Far Many Flee]]
+<<else>>
+You have no choice but to [[flee.|Enemy Far Many Flee]]
+<<endif>>
+
+<<else>>
+You fire an arrow into the crowd, riling the $encounter["enemy"] as they hiss and shriek. A few of them rush you but you manage to sidestep them before being too badly hurt.
+
+<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Enemy Far Many Magic Sword Fight]] <<else>> [[Attack with your Rusty Sword|Enemy Far Many Sword Fight]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Enemy Far Many Magic Bow Fight]] <<else>> [[Attack with your Old Bow|Enemy Far Many Bow Fight]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Enemy Far Many Magic Book Fight]] <<else>> [[Attack with a Weak Spell|Enemy Far Many Magic Fight]] <<endif>>
+[[Use a health potion|Enemy Far Many Use Health Potion]]
+[[Run away|Enemy Far Many Flee]]
+<<endif>>
+<<endif>>
+
+:: Enemy Far Many Magic Bow Fight
+<<silently>>
+<<set $choices["bow"] to $choices["bow"]+1>>
+<<set $encounter["enemy_health"] to $encounter["enemy_health"] - $encounter["magic_bow_damage"]>>
+<<endsilently>>
+
+<<if $encounter["enemy_health"] <= 0>>
+Your arrows fly forward, hitting several $encounter["enemy"] and terrifying the rest. The $encounter["enemy"] scream and sprint in to the woods shouting "Okay! You win!" as they do, leaving behind some of their possessions in the chaos.
+
+[[Loot the Pouch|Enemy Far Many Loot]]
+<<else>>
+<<silently>>
+<<set $player_health to $player_health - $encounter["enemy_damage"]>>
+<<endsilently>>
+
+<<if $player_health <= 0>>
+You fire an arrow into the crowd, riling the $encounter["enemy"] as they hiss and shriek. A few of them rush and overwhelm you as you try to notch another arrow. You're too badly hurt to fight any longer.
+
+<<if $inventory["healingPotion"]>0>>
+[[Use a health potion|Enemy Far Many Use Health Potion]]
+[[Run away|Enemy Far Many Flee]]
+<<else>>
+You have no choice but to [[flee.|Enemy Far Many Flee]]
+<<endif>>
+
+<<else>>
+You fire an arrow into the crowd, riling the $encounter["enemy"] as they hiss and shriek. A few of them rush you but you manage to sidestep them before being too badly hurt.
+
+<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Enemy Far Many Magic Sword Fight]] <<else>> [[Attack with your Rusty Sword|Enemy Far Many Sword Fight]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Enemy Far Many Magic Bow Fight]] <<else>> [[Attack with your Old Bow|Enemy Far Many Bow Fight]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Enemy Far Many Magic Book Fight]] <<else>> [[Attack with a Weak Spell|Enemy Far Many Magic Fight]] <<endif>>
+[[Use a health potion|Enemy Far Many Use Health Potion]]
+[[Run away|Enemy Far Many Flee]]
+<<endif>>
+<<endif>>
+
+:: Enemy Far Many Magic Fight
+<<silently>>
+<<set $choices["magic"] to $choices["magic"]+1>>
+<<set $encounter["enemy_health"] to $encounter["enemy_health"] - $encounter["magic_damage"]>>
+<<endsilently>>
+
+<<if $encounter["enemy_health"] <= 0>>
+You blast a ball of fire into the center of the group, elliciting shrieks and shouts. The $encounter["enemy"] scream and sprint in to the woods shouting "Okay! You win!" as they do and leaving behind some of their possessions in the chaos.
+
+[[Loot the Pouch|Enemy Far Many Loot]]
+<<else>>
+<<silently>>
+<<set $player_health to $player_health - $encounter["enemy_damage"]>>
+<<endsilently>>
+
+<<if $player_health <= 0>>
+You strike several of the $encounter["enemy"] with bolts of energy, but the rest charge up the road at you. You are quickly surrounded as they attack from all sides. You're too badly hurt to fight any longer.
+
+<<if $inventory["healingPotion"]>0>>
+[[Use a health potion|Enemy Far Many Use Health Potion]]
+[[Run away|Enemy Far Many Flee]]
+<<else>>
+You have no choice but to [[flee.|Enemy Far Many Flee]]
+<<endif>>
+
+<<else>>
+You strike several of the $encounter["enemy"] with bolts of energy, but the rest charge up the road at you. You take a few nasty hits as you duck out of the way of the $encounter["enemy"], but manage not to get surrounded.
+
+<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Enemy Far Many Magic Sword Fight]] <<else>> [[Attack with your Rusty Sword|Enemy Far Many Sword Fight]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Enemy Far Many Magic Bow Fight]] <<else>> [[Attack with your Old Bow|Enemy Far Many Bow Fight]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Enemy Far Many Magic Book Fight]] <<else>> [[Attack with a Weak Spell|Enemy Far Many Magic Fight]] <<endif>>
+[[Use a health potion|Enemy Far Many Use Health Potion]]
+[[Run away|Enemy Far Many Flee]]
+<<endif>>
+<<endif>>
+
+:: Enemy Far Many Magic Book Fight
+<<silently>>
+<<set $choices["magic"] to $choices["magic"]+1>>
+<<set $encounter["enemy_health"] to $encounter["enemy_health"] - $encounter["magic_book_damage"]>>
+<<endsilently>>
+
+<<if $encounter["enemy_health"] <= 0>>
+You blast a ball of fire into the center of the group, elliciting shrieks and shouts. The $encounter["enemy"] scream and sprint in to the woods shouting "Okay! You win!" as they do and leaving behind some of their possessions in the chaos.
+
+[[Loot the Pouch|Enemy Far Many Loot]]
+<<else>>
+<<silently>>
+<<set $player_health to $player_health - $encounter["enemy_damage"]>>
+<<endsilently>>
+
+<<if $player_health <= 0>>
+You strike several of the $encounter["enemy"] with bolts of energy, but the rest charge up the road at you. You are quickly surrounded as they attack from all sides. You're too badly hurt to fight any longer.
+
+<<if $inventory["healingPotion"]>0>>
+[[Use a health potion|Enemy Far Many Use Health Potion]]
+[[Run away|Enemy Far Many Flee]]
+<<else>>
+You have no choice but to [[flee.|Enemy Far Many Flee]]
+<<endif>>
+
+<<else>>
+You strike several of the $encounter["enemy"] with bolts of energy, but the rest charge up the road at you. You take a few nasty hits as you duck out of the way of the $encounter["enemy"], but manage not to get surrounded.
+
+<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Enemy Far Many Magic Sword Fight]] <<else>> [[Attack with your Rusty Sword|Enemy Far Many Sword Fight]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Enemy Far Many Magic Bow Fight]] <<else>> [[Attack with your Old Bow|Enemy Far Many Bow Fight]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Enemy Far Many Magic Book Fight]] <<else>> [[Attack with a Weak Spell|Enemy Far Many Magic Fight]] <<endif>>
+[[Use a health potion|Enemy Far Many Use Health Potion]]
+[[Run away|Enemy Far Many Flee]]
+<<endif>>
+<<endif>>
+
+:: Enemy Far Many Bow Hidden
+<<silently>>
+<<set $choices["bow"] to $choices["bow"]+1>>
+<<set $encounter["enemy_health"] to $encounter["enemy_health"] - $encounter["bow_damage"]>>
+<<endsilently>>
+
+<<if $encounter["enemy_health"] <= 0>>
+Your arrows fly forward, hitting several $encounter["enemy"] and terrifying the rest. The $encounter["enemy"] scream and sprint in to the woods shouting "Okay! You win!" as they do, leaving behind some of their possessions in the chaos.
+
+[[Loot the Pouch|Enemy Far Many Loot]]
+<<else>>
+You fire an arrow into the crowd, riling the $encounter["enemy"] as they hiss and shriek. "What?!" one of them shouts. "Who did that!?"
+
+<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Enemy Far Many Magic Sword Fight]] <<else>> [[Attack with your Rusty Sword|Enemy Far Many Sword Fight]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Enemy Far Many Magic Bow Hidden]] <<else>> [[Attack with your Old Bow|Enemy Far Many Bow Hidden]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Enemy Far Many Magic Book Far]] <<else>> [[Attack with a Weak Spell|Enemy Far Many Magic Far]] <<endif>>
+[[Run away|Enemy Far Many Flee]]
+<<endif>>
+
+:: Enemy Far Many Magic Bow Hidden
+<<silently>>
+<<set $choices["bow"] to $choices["bow"]+1>>
+<<set $encounter["enemy_health"] to $encounter["enemy_health"] - $encounter["magic_bow_damage"]>>
+<<endsilently>>
+
+<<if $encounter["enemy_health"] <= 0>>
+Your arrows fly forward, hitting several $encounter["enemy"] and terrifying the rest. The $encounter["enemy"] scream and sprint in to the woods shouting "Okay! You win!" as they do, leaving behind some of their possessions in the chaos.
+
+[[Loot the Pouch|Enemy Far Many Loot]]
+<<else>>
+You fire an arrow into the crowd, riling the $encounter["enemy"] as they hiss and shriek. "What?!" one of them shouts. "Who did that!?"
+
+<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Enemy Far Many Magic Sword Fight]] <<else>> [[Attack with your Rusty Sword|Enemy Far Many Sword Fight]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Enemy Far Many Magic Bow Hidden]] <<else>> [[Attack with your Old Bow|Enemy Far Many Bow Hidden]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Enemy Far Many Magic Book Far]] <<else>> [[Attack with a Weak Spell|Enemy Far Many Magic Far]] <<endif>>
+[[Run away|Enemy Far Many Flee]]
+<<endif>>
+
+:: Enemy Far Many Bow Far
+<<silently>>
+<<set $choices["bow"] to $choices["bow"]+1>>
+<<set $encounter["enemy_health"] to $encounter["enemy_health"] - $encounter["bow_damage"]>>
+<<endsilently>>
+
+<<if $encounter["enemy_health"] <= 0>>
+Your arrows fly forward, hitting several $encounter["enemy"] and terrifying the rest. The $encounter["enemy"] scream and sprint in to the woods shouting "Okay! You win!" as they do, leaving behind some of their possessions in the chaos.
+
+[[Loot the Pouch|Enemy Far Many Loot]]
+<<else>>
+
+You fire an arrow into the crowd, riling the $encounter["enemy"] as they hiss and shriek. The group charge forward, reaching you before you can let off another shot.
+
+<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Enemy Far Many Magic Sword Fight]] <<else>> [[Attack with your Rusty Sword|Enemy Far Many Sword Fight]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Enemy Far Many Magic Bow Fight]] <<else>> [[Attack with your Old Bow|Enemy Far Many Bow Fight]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Enemy Far Many Magic Book Fight]] <<else>> [[Attack with a Weak Spell|Enemy Far Many Magic Fight]] <<endif>>
+[[Run away|Enemy Far Many Flee]]
+<<endif>>
+
+:: Enemy Far Many Magic Bow Far
+<<silently>>
+<<set $choices["bow"] to $choices["bow"]+1>>
+<<set $encounter["enemy_health"] to $encounter["enemy_health"] - $encounter["magic_bow_damage"]>>
+<<endsilently>>
+
+<<if $encounter["enemy_health"] <= 0>>
+Your arrows fly forward, hitting several $encounter["enemy"] and terrifying the rest. The $encounter["enemy"] scream and sprint in to the woods shouting "Okay! You win!" as they do, leaving behind some of their possessions in the chaos.
+
+[[Loot the Pouch|Enemy Far Many Loot]]
+<<else>>
+
+You fire an arrow into the crowd, riling the $encounter["enemy"] as they hiss and shriek. The group charge forward, reaching you before you can let off another shot.
+
+<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Enemy Far Many Magic Sword Fight]] <<else>> [[Attack with your Rusty Sword|Enemy Far Many Sword Fight]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Enemy Far Many Magic Bow Fight]] <<else>> [[Attack with your Old Bow|Enemy Far Many Bow Fight]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Enemy Far Many Magic Book Fight]] <<else>> [[Attack with a Weak Spell|Enemy Far Many Magic Fight]] <<endif>>
+[[Run away|Enemy Far Many Flee]]
+<<endif>>
+
+:: Enemy Far Many Magic Far
+<<silently>>
+<<set $choices["magic"] to $choices["magic"]+1>>
+<<set $encounter["enemy_health"] to $encounter["enemy_health"] - $encounter["magic_damage"]>>
+<<endsilently>>
+
+<<if $encounter["enemy_health"] <= 0>>
+You blast a ball of fire into the center of the group, elliciting shrieks and shouts. The $encounter["enemy"] scream and sprint in to the woods shouting "Okay! You win!" as they do and leaving behind some of their possessions in the chaos.
+
+[[Loot the Pouch|Enemy Far Many Loot]]
+<<else>>
+You strike several of the $encounter["enemy"] with bolts of energy, but the rest charge up the road at you. The group is on you before you manage to cast another spell.
+
+<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Enemy Far Many Magic Sword Fight]] <<else>> [[Attack with your Rusty Sword|Enemy Far Many Sword Fight]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Enemy Far Many Magic Bow Fight]] <<else>> [[Attack with your Old Bow|Enemy Far Many Bow Fight]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Enemy Far Many Magic Book Fight]] <<else>> [[Attack with a Weak Spell|Enemy Far Many Magic Fight]] <<endif>>
+[[Run away|Enemy Far Many Flee]]
+<<endif>>
+
+:: Enemy Far Many Magic Book Far
+<<silently>>
+<<set $choices["magic"] to $choices["magic"]+1>>
+<<set $encounter["enemy_health"] to $encounter["enemy_health"] - $encounter["magic_book_damage"]>>
+<<endsilently>>
+
+<<if $encounter["enemy_health"] <= 0>>
+You blast a ball of fire into the center of the group, elliciting shrieks and shouts. The $encounter["enemy"] scream and sprint in to the woods shouting "Okay! You win!" as they do and leaving behind some of their possessions in the chaos.
+
+[[Loot the Pouch|Enemy Far Many Loot]]
+<<else>>
+You strike several of the $encounter["enemy"] with bolts of energy, but the rest charge up the road at you. The group is on you before you manage to cast another spell.
+
+<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Enemy Far Many Magic Sword Fight]] <<else>> [[Attack with your Rusty Sword|Enemy Far Many Sword Fight]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Enemy Far Many Magic Bow Fight]] <<else>> [[Attack with your Old Bow|Enemy Far Many Bow Fight]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Enemy Far Many Magic Book Fight]] <<else>> [[Attack with a Weak Spell|Enemy Far Many Magic Fight]] <<endif>>
+[[Run away|Enemy Far Many Flee]]
+<<endif>>
+
+:: Enemy Far Many Use Health Potion
+<<silently>>
+<<set $inventory["healingPotion"] to $inventory["healingPotion"]-1>>
+<<set $player_health to 20>>
+<<endsilently
+Stumbling away from your attacker, you manage to grab a healing potion from your bag and quickly drink it. You immediately feel much stronger.
+
+<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Enemy Far Many Magic Sword Fight]] <<else>> [[Attack with your Rusty Sword|Enemy Far Many Sword Fight]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Enemy Far Many Magic Bow Fight]] <<else>> [[Attack with your Old Bow|Enemy Far Many Bow Fight]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Enemy Far Many Magic Book Fight]] <<else>> [[Attack with a Weak Spell|Enemy Far Many Magic Fight]] <<endif>>
+[[Run away|Enemy Far Many Flee]]
+
+:: Enemy Far Many Flee
+<<set $choices["runAway"] to $choices["runAway"]+1>>
+You flee from the $encounter["enemy"] and [[continue on your quest.|Next Encounter]]
+
+:: Enemy Far Many Loot
+Amongst the discarded belongings, you find a $encounter["loot_1"] and $encounter["gold_amount"] Gold Pieces. Your pack is getting heavy and you can only carry one. Which do you take?
+
+[[Take the $encounter["loot_1"]|Enemy Far Many Loot 1]]
+[[Take the $encounter["gold_amount"] Gold Pieces|Enemy Far Many Loot 2]]
+
+:: Enemy Far Many Loot 1
+<<if $encounter["loot_1"] == "Magic Sword">>
+<<silently>>
+<<set $inventory["magicSword"] to $inventory["magicSword"]+1>>
+<<set $choices["weapon"] to $choices["weapon"]+1 >>
+<<endsilently>>
+
+You take the Magic Sword and continue on your journey.
+<<else if $encounter["loot_1"] == "Magic Bow">>
+<<silently>>
+<<set $inventory["magicBow"] to $inventory["magicBow"]+1>>
+<<set $choices["weapon"] to $choices["weapon"]+1 >>
+<<endsilently>>
+
+You take the Magic Bow and continue on your journey.
+<<else if $encounter["loot_1"] == "Magic Book">>
+<<silently>>
+<<set $inventory["magicBook"] to $inventory["magicBook"]+1>>
+<<set $choices["weapon"] to $choices["weapon"]+1 >>
+<<endsilently>>
+
+You take the Spell Tome and continue on your journey.
+<<endif>>
+
+[[Continue on your Quest|Next Encounter]]
+
+:: Enemy Far Many Loot 2
+<<silently>>
+<<set $inventory["gold"] to $inventory["gold"]+$encounter["gold_amount"]>>
+<<set $choices["gold"] to $choices["gold"]+1 >>
+<<endsilently>>
+
+You take the gold and continue on your journey.
+
+[[Continue on your Quest|Next Encounter]]
+
+:: Enemy Far Many Talk Fail
+<<silently>>
+<<set $choices["talk"] to $choices["talk"]+1>>
+<<endsilently>>
+
+"Hey, who are you? You wanna fight?" one of the $encounter["enemy"] ask as you approach. You explain that you in fact do not want to fight, and that you are a simple traveller, just trying to get by on the road. "Yeah, but like... we wanna fight. So... that's not really gonna work for us." The $encounter["enemy"] grin and seem to be working themselves up for a fight.
+
+<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Enemy Far Many Magic Sword Fight]] <<else>> [[Attack with your Rusty Sword|Enemy Far Many Sword Fight]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Enemy Far Many Magic Bow Fight]] <<else>> [[Attack with your Old Bow|Enemy Far Many Bow Fight]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Enemy Far Many Magic Book Fight]] <<else>> [[Attack with a Weak Spell|Enemy Far Many Magic Fight]] <<endif>>
+<<if $encounter["bribe"]>> [[Try to bribe the $encounter["enemy"] to let you pass|Enemy Far Many Bribe Succeed]] <<else>> [[Try to bribe to the $encounter["enemy"] to let you pass|Enemy Far Many Bribe Fail]] <<endif>>
+
+:: Enemy Far Many Talk Success
+<<silently>>
+<<set $choices["talk"] to $choices["talk"]+1>>
+<<endsilently>>
+
+"Hey, who are you? You wanna fight?" one of the $encounter["enemy"] ask as you approach. You explain that you in fact do not want to fight, and that you are a simple traveller, just trying to get by on the road. "Oh... okay. I suppose that's reasonable. Have a nice day!" The $encounter["enemy"] continue on past you, allowing you to travel further.
+
+[[Continue on your Quest|Next Encounter]]
+
+:: Enemy Far Many Bribe Fail
+<<silently>>
+<<set $choices["bribe"] to $choices["bribe"]+1>>
+<<endsilently>>
+
+"What?! What do you want?" one of the $encounter["enemy"] demands as you approach to speak to them. You offer to pay them to allow you passage. "No!" They shout in outrage. "We aren't taking bribes; we just want to fight!!"
+
+<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Enemy Far Many Magic Sword Fight]] <<else>> [[Attack with your Rusty Sword|Enemy Far Many Sword Fight]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Enemy Far Many Magic Bow Fight]] <<else>> [[Attack with your Old Bow|Enemy Far Many Bow Fight]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Enemy Far Many Magic Book Fight]] <<else>> [[Attack with a Weak Spell|Enemy Far Many Magic Fight]] <<endif>>
+<<if $encounter["talk"]>> [[Try to speak to the $encounter["enemy"]|Enemy Far Many Talk Succeed]] <<else>> [[Try to speak to the $encounter["enemy"]|Enemy Far Many Talk Fail]] <<endif>>
+
+:: Enemy Far Many Bribe Succeed
+<<silently>>
+<<set $choices["bribe"] to $choices["bribe"]+1>>
+<<endsilently>>
+
+"What?! What do you want?" one of the $encounter["enemy"] demands as you approach to speak to them. You offer to pay them to allow you passage. "Eh," They sigh, discontented. "Bribes are better than a fight, I guess. What do you got to offer?"
+
+\<<if $inventory["magicSword"] > 0>>
+[[Offer a Magic Sword|Enemy Far Many Give Sword]]
+\<<endif>>
+\<<if $inventory["magicBow"] > 0>>
+[[Offer a Magic Bow|Enemy Far Many Give Bow]]
+\<<endif>>
+\<<if $inventory["magicBook"] > 0>>
+[[Offer a Magic Spell Tome|Enemy Far Many Give Magic]]
+\<<endif>>
+<<if $inventory["gold"] > 0>> [[Offer gold|Enemy Far Many Give gold]]<<endif>>
+<<if $encounter["talk"]>> [[Try to speak to the $encounter["enemy"]|Enemy Far Many Talk Succeed]] <<else>> [[Try to speak to the $encounter["enemy"]|Enemy Far Many Talk Fail]] <<endif>>
+
+:: Enemy Far Many Give Give Sword
+<<silently>>
+<<set $inventory["magicSword"] to $inventory["magicSword"]-1>>
+<<endsilently>>
+
+"Alright, I guess that works" they says, as they takes your Magic Sword. "You can head on past now." With the $encounter["enemy"] standing aside, you are free to continue to down the road.
+
+[[Continue on your Quest|Next Encounter]]
+
+:: Enemy Far Many Give Give Bow
+<<silently>>
+<<set $inventory["magicBow"] to $inventory["magicBow"]-1>>
+<<endsilently>>
+
+"Alright, I guess that works" they says, as they takes your Magic Bow. "You can head on past now." With the $encounter["enemy"] standing aside, you are free to continue to down the road.
+
+[[Continue on your Quest|Next Encounter]]
+
+:: Enemy Far Many Give Give Magic
+<<silently>>
+<<set $inventory["magicBook"] to $inventory["magicBook"]-1>>
+<<endsilently>>
+
+"Alright, I guess that works" they says, as they takes your Magic Spell Tome. "You can head on past now." With the $encounter["enemy"] standing aside, you are free to continue to down the road.
+
+[[Continue on your Quest|Next Encounter]]
+
+:: Enemy Far Many Give Give gold
+<<silently>>
+<<set $inventory["gold"] to $inventory["gold"]-1>>
+<<endsilently>>
+
+"Alright, I guess that works" they says, as they takes your gold. "You can head on past now." With the $encounter["enemy"] standing aside, you are free to continue to down the road.
+
+[[Continue on your Quest|Next Encounter]]
+
+:: Enemy Far Many Hide
+<<silently>>
+<<set $choices["hide"] to $choices["hide"]+1>>
+<<endsilently>>
+
+You crouch behind a thicket of bushes before the $encounter["enemy"] can spot you.
+
+<<if $encounter["sneak"]>>[[Try to sneak past the $encounter["enemy"]|Enemy Far Many Sneak Succeed]] <<else>> [[Try to sneak past the $encounter["enemy"]|Enemy Far Many Sneak Fail]] <<endif>>
+<<if $encounter["wait"]>>[[Wait to see if they contiue past your hiding spot|Enemy Far Many Wait Succeed]] <<else>> [[Wait to see if they contiue past your hiding spot|Enemy Far Many Wait Fail]] <<endif>>
+<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Enemy Far Many Magic Sword Fight]] <<else>> [[Attack with your Rusty Sword|Enemy Far Many Sword Fight]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Enemy Far Many Magic Bow Hidden]] <<else>> [[Attack with your Old Bow|Enemy Far Many Bow Hidden]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Enemy Far Many Magic Book Fight]] <<else>> [[Attack with a Weak Spell|Enemy Far Many Magic Fight]] <<endif>>
+<<if $encounter["talk"]>> [[Try to speak to the $encounter["enemy"]|Enemy Far Many Talk Succeed]] <<else>> [[Try to speak to the $encounter["enemy"]|Enemy Far Many Talk Fail]] <<endif>>
+<<if $encounter["bribe"]>> [[Try to bribe the $encounter["enemy"] to let you pass|Enemy Far Many Bribe Succeed]] <<else>> [[Try to bribe to the $encounter["enemy"] to let you pass|Enemy Far Many Bribe Fail]] <<endif>>
+
+:: Enemy Far Many Sneak Succeed
+<<silently>>
+<<set $choices["sneak"] to $choices["sneak"]+1>>
+<<endsilently>>
+
+You creep quietly through the bushes. You and the $encounter["enemy"] pass eachother as you sneak next to the road, and they don't seem to notice you. Having avoided the $encounter["enemy"], you are free to continue on your quest.
+
+[[Continue on your Quest|Next Encounter]]
+
+:: Enemy Far Many Sneak Fail
+<<silently>>
+<<set $choices["sneak"] to $choices["sneak"]+1>>
+<<endsilently>>
+
+You try to slip past the Goblins by sticking to the woods, but as your paths cross, you step on an inopportune branch, making a loud crack.
+
+"Who's that!?" shouts one of the $encounter["enemy"]. "You wanna fight?"
+
+<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Enemy Far Many Magic Sword Fight]] <<else>> [[Attack with your Rusty Sword|Enemy Far Many Sword Fight]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Enemy Far Many Magic Bow Fight]] <<else>> [[Attack with your Old Bow|Enemy Far Many Bow Fight]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Enemy Far Many Magic Book Fight]] <<else>> [[Attack with a Weak Spell|Enemy Far Many Magic Fight]] <<endif>>
+<<if $encounter["talk"]>> [[Try to speak to the $encounter["enemy"]|Enemy Far Many Talk Succeed]] <<else>> [[Try to speak to the $encounter["enemy"]|Enemy Far Many Talk Fail]] <<endif>>
+<<if $encounter["bribe"]>> [[Try to bribe the $encounter["enemy"] to let you pass|Enemy Far Many Bribe Succeed]] <<else>> [[Try to bribe to the $encounter["enemy"] to let you pass|Enemy Far Many Bribe Fail]] <<endif>>
+
+:: Enemy Far Many Wait Succeed
+<<silently>>
+<<set $choices["wait"] to $choices["wait"]+1>>
+<<endsilently>>
+
+You stay hidden behind the bushes and with all of the clamour of their passage, the $encounter["enemy"] do not notice you as they continue down the road. With them gone, you are free to continue on to the town.
+
+[[Continue on your Quest|Next Encounter]]
+
+:: Enemy Far Many Wait Fail
+<<silently>>
+<<set $choices["wait"] to $choices["wait"]+1>>
+<<endsilently>>
+
+You wait for an hour but the $encounter["enemy"] have stopped for lunch and don't seem to be planning on leaving anytime soon.
+
+<<if $encounter["sneak"]>>[[Try to sneak past the $encounter["enemy"]|Enemy Far Many Sneak Succeed]] <<else>> [[Try to sneak past the $encounter["enemy"]|Enemy Far Many Sneak Fail]] <<endif>>
+<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Enemy Far Many Magic Sword Fight]] <<else>> [[Attack with your Rusty Sword|Enemy Far Many Sword Fight]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Enemy Far Many Magic Bow Hidden]] <<else>> [[Attack with your Old Bow|Enemy Far Many Bow Hidden]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Enemy Far Many Magic Book Fight]] <<else>> [[Attack with a Weak Spell|Enemy Far Many Magic Fight]] <<endif>>
+<<if $encounter["talk"]>> [[Try to speak to the $encounter["enemy"]|Enemy Far Many Talk Succeed]] <<else>> [[Try to speak to the $encounter["enemy"]|Enemy Far Many Talk Fail]] <<endif>>
+<<if $encounter["bribe"]>> [[Try to bribe the $encounter["enemy"] to let you pass|Enemy Far Many Bribe Succeed]] <<else>> [[Try to bribe to the $encounter["enemy"] to let you pass|Enemy Far Many Bribe Fail]] <<endif>>

@@ -1,0 +1,140 @@
+::Puzzle
+You enter a clearing and see a cave in the side of the cliff face – Bloomrane Cavern. As you approach, however, you see that the entrance to the cave is blocked by a large stone door with a face carved onto it. When you try to open the door, the face springs to life and the door speaks, "To enter the cavern and claim the treasure within, you must first answer my riddle."
+
+<<if $inventory["magicSword"] > 0>> [[Attack the door with your Magic Sword|Puzzle Sword]] <<else>> [[Attack the door with your Rusty Sword|Puzzle Sword]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack the door with your Magic Bow|Puzzle Bow]] <<else>> [[Attack the door with your Old Bow|Puzzle Bow]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack the door with a Powerful Spell|Puzzle Magic Success]] <<else>> [[Attack the door with a Weak Spell|Puzzle Magic Fail]] <<endif>>
+[[Listen to the riddle|Puzzle Talk]]
+[[Try to bribe the door|Puzzle Bribe]]
+[[Hide from the door|Puzzle Hide]]
+
+::Puzzle Sword
+<<silently>>
+<<set $choices["sword"] to $choices["sword"]+1>>
+<<endsilently>>
+You strike the door with your sword, leaving the door unscathed but a large chip in your sword. "I'm made of stone. You're just going to ruin that sword." The door chides.
+
+<<if $inventory["magicBow"] > 0>> [[Attack the door with your Magic Bow|Puzzle Bow]] <<else>> [[Attack the door with your Old Bow|Puzzle Bow]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack the door with a Powerful Spell|Puzzle Magic Success]] <<else>> [[Attack the door with a Weak Spell|Puzzle Magic Fail]] <<endif>>
+[[Listen to the riddle|Puzzle Talk]]
+[[Try to bribe the door|Puzzle Bribe]]
+[[Hide from the door|Puzzle Hide]]
+
+
+::Puzzle Bow
+<<silently>>
+<<set $choices["bow"] to $choices["bow"]+1>>
+<<endsilently>>
+You fire arrow after arrow at the door to no effect. "Ha! That tickles!" The door laughs. You aren't sure if he's mocking you, or if that does actually tickle.
+
+<<if $inventory["magicSword"] > 0>> [[Attack the door with your Magic Sword|Puzzle Sword]] <<else>> [[Attack the door with your Rusty Sword|Puzzle Sword]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack the door with a Powerful Spell|Puzzle Magic Success]] <<else>> [[Attack the door with a Weak Spell|Puzzle Magic Fail]] <<endif>>
+[[Listen to the riddle|Puzzle Talk]]
+[[Try to bribe the door|Puzzle Bribe]]
+[[Hide from the door|Puzzle Hide]]
+
+
+::Puzzle Magic Success
+<<silently>>
+<<set $choices["magic"] to $choices["magic"]+1>>
+<<endsilently>>
+
+You charge a powerful spell and cast it at the door. "Ahh!" it yelps, seemingly out of surprise more than anything else. The door begins to open, reacting to your magic. "Wait, that's not supposed to happen!" the door shouts as the face is obscured from view, leaving a clear and open entryway into Bloomrane Cavern.
+
+[[Enter the cavern|Win]]
+
+::Puzzle Magic Fail
+<<silently>>
+<<set $choices["magic"] to $choices["magic"]+1>>
+<<endsilently>>
+A gust of flame erupts from your hand and does absolutely nothing because this is a solid stone door. "Are you done? Did you get it all out of your system?" it asks.
+
+<<if $inventory["magicSword"] > 0>> [[Attack the door with your Magic Sword|Puzzle Sword]] <<else>> [[Attack the door with your Rusty Sword|Puzzle Sword]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack the door with your Magic Bow|Puzzle Bow]] <<else>> [[Attack the door with your Old Bow|Puzzle Bow]] <<endif>>
+[[Listen to the riddle|Puzzle Talk]]
+[[Try to bribe the door|Puzzle Bribe]]
+[[Hide from the door|Puzzle Hide]]
+
+::Puzzle Bribe
+<<silently>>
+<<set $choices["bribe"] to $choices["bribe"]+1>>
+<<endsilently>>
+You try to offer some of your treasure and items to the door. "I'm a stone door guarding vast treasure; what could you possibly offer me I would want?" it scoffs.
+
+<<if $inventory["magicSword"] > 0>> [[Attack the door with your Magic Sword|Puzzle Sword]] <<else>> [[Attack the door with your Rusty Sword|Puzzle Sword]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack the door with your Magic Bow|Puzzle Bow]] <<else>> [[Attack the door with your Old Bow|Puzzle Bow]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack the door with a Powerful Spell|Puzzle Magic Success]] <<else>> [[Attack the door with a Weak Spell|Puzzle Magic Fail]] <<endif>>
+[[Listen to the riddle|Puzzle Talk]]
+[[Hide from the door|Puzzle Hide]]
+
+::Puzzle Hide
+<<silently>>
+<<set $choices["hide"] to $choices["hide"]+1>>
+<<endsilently>>
+Seeing as the door has already seen you, and as there is nothing large enough nearby to hide behind, you simply crouch down in the hopes that the door won't be able to see you anymore.
+
+"I can still see you," the door says, exasperated. "What is it you hope to accomplish with this?"
+
+[[Try to sneak past the door|Puzzle Sneak]]
+[[Wait|Puzzle Wait]]
+<<if $inventory["magicSword"] > 0>> [[Attack the door with your Magic Sword|Puzzle Sword]] <<else>> [[Attack the door with your Rusty Sword|Puzzle Sword]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack the door with your Magic Bow|Puzzle Bow]] <<else>> [[Attack the door with your Old Bow|Puzzle Bow]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack the door with a Powerful Spell|Puzzle Magic Success]] <<else>> [[Attack the door with a Weak Spell|Puzzle Magic Fail]] <<endif>>
+[[Listen to the riddle|Puzzle Talk]]
+[[Try to bribe the door|Puzzle Bribe]]
+
+::Puzzle Sneak
+<<silently>>
+<<set $choices["sneak"] to $choices["sneak"]+1>>
+<<endsilently>>
+As you try to sneak past, you realize that you can't. There is only one entrance and it is blocked by a very solid, very closed door. And the door can see you.
+
+<<if $inventory["magicSword"] > 0>> [[Attack the door with your Magic Sword|Puzzle Sword]] <<else>> [[Attack the door with your Rusty Sword|Puzzle Sword]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack the door with your Magic Bow|Puzzle Bow]] <<else>> [[Attack the door with your Old Bow|Puzzle Bow]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack the door with a Powerful Spell|Puzzle Magic Success]] <<else>> [[Attack the door with a Weak Spell|Puzzle Magic Fail]] <<endif>>
+[[Listen to the riddle|Puzzle Talk]]
+[[Try to bribe the door|Puzzle Bribe]]
+[[Hide from the door|Puzzle Hide]]
+
+::Puzzle Wait
+<<silently>>
+<<set $choices["wait"] to $choices["wait"]+1>>
+<<endsilently>>
+You stay in the same position and wait. "Seriously, I can see you! I'm a door; I'm not going anywhere. I'm not even capable of leaving!" the door taunts. You continue to wait. Hours pass, the door growing increasingly frustrated, and seemingly, a bit tired. In one fateful moment, the door yawns, opening just a little, and you dive through the crack into the cavern beyond. You hear a faint sigh and grumbling discontent on the other side of the door.
+
+[[Enter the cavern|Win]]
+
+::Puzzle Talk
+<<silently>>
+<<set $choices["talk"] to $choices["talk"]+1>>
+<<endsilently>>
+The door clears its throat and begins. "I have a bed, but do not sleep. I have a mouth, but cannot eat. I run, but have no feet. What am I?"
+
+<<textbox "$response" "" "Puzzle Answer">>
+
+:: Puzzle Answer
+<<set $response to $response.toLowerCase()>>
+<<if $response == "river">> <<goto "Puzzle Right">>
+<<else if $response == "a river">> <<goto "Puzzle Right">>
+<<else>> <<goto "Puzzle Wrong">> <<endif>>
+
+::Puzzle Wrong
+"Ha! Not even close!" the door mocks.
+
+<<if $inventory["magicSword"] > 0>> [[Attack the door with your Magic Sword|Puzzle Sword]] <<else>> [[Attack the door with your Rusty Sword|Puzzle Sword]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack the door with your Magic Bow|Puzzle Bow]] <<else>> [[Attack the door with your Old Bow|Puzzle Bow]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack the door with a Powerful Spell|Puzzle Magic Success]] <<else>> [[Attack the door with a Weak Spell|Puzzle Magic Fail]] <<endif>>
+[[Listen to the riddle again|Puzzle Talk]]
+[[Try to bribe the door|Puzzle Bribe]]
+[[Hide from the door|Puzzle Hide]]
+
+
+::Puzzle Right
+"Ha! you're not ev... oh, wait, you actually got it. Huh, no one's ever gotten it right before. I guess, go in?" The door opens, allowing you entry.
+
+[[Enter the cavern|Win]]
+
+::Win
+As you enter the cave, you come upon a chamber filled with glimmering treasure. Heaps of shimmering gold coins, brilliant jewels of all colors, and magnificent weapons lay before you. Your discovery will surely become legendary.
+
+Congratulations! You found the lost treasure of Bloomrane Cavern!
