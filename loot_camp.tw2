@@ -8,54 +8,62 @@ You begin searching through the camp. After rummaging around for a few minutes, 
 [[Pick up the coin pouch|Camp Loot Gold]]
 
 ::Camp Loot Gold
+<<silently>>
 <<set $choices["gold"] to $choices["gold"]+1>>
-\<<set $inventory["gold"] to $encounter["gold_amount"]+1>>
-\You pick up the pouch and check its contents. $encounter["gold_amount"] gold coins. Suddenly, you hear footsteps and the sound of men's voices from nearby. The bandits must be returning!
+<<set $inventory["gold"] to $encounter["gold_amount"]+1>>
+<<endsilently>>
+You pick up the pouch and check its contents. $encounter["gold_amount"] gold coins. Suddenly, you hear footsteps and the sound of men's voices from nearby. The bandits must be returning!
 
 <<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Camp Sword Fight]] <<else>> [[Attack with your Rusty Sword|Camp Sword Fight]] <<endif>>
 <<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Camp Bow Fight]] <<else>> [[Attack with your Old Bow|Camp Bow Fight]] <<endif>>
 <<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Camp Magic Fight]] <<else>> [[Attack with a Weak Spell|Camp Magic Fight]] <<endif>>
-[[Try to speak to the bandits|Camp Talk]]
-[[Try to bribe the bandits|Camp Bribe]]
+<<if $encounter["talk"]>> [[Try to speak to the bandits|Camp Talk Succeed]] <<else>> [[Try to speak to the bandits|Camp Talk Fail]] <<endif>>
+<<if $encounter["bribe"]>> [[Try to bribe the bandits|Camp Bribe Succeed]] <<else>> [[Try to bribe the bandits|Camp Bribe Fail]] <<endif>>
 [[Hide|Camp Hide]]
 [[Run away|Camp Flee]]
 
 :: Camp Loot Sword
+<<silently>>
 <<set $choices["magicSword"] to $choices["magicSword"]+1>>
-\<<set $inventory["magicSword"] to $inventory["magicSword"]+1>>
-\You pick up the new sword and admire it. Suddenly, you hear footsteps and the sound of men's voices from nearby. The bandits must be returning!
+<<set $inventory["magicSword"] to $inventory["magicSword"]+1>>
+<<endsilently>>
+You pick up the new sword and admire it. Suddenly, you hear footsteps and the sound of men's voices from nearby. The bandits must be returning!
 
 <<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Camp Sword Fight]] <<else>> [[Attack with your Rusty Sword|Camp Sword Fight]] <<endif>>
 <<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Camp Bow Fight]] <<else>> [[Attack with your Old Bow|Camp Bow Fight]] <<endif>>
 <<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Camp Magic Fight]] <<else>> [[Attack with a Weak Spell|Camp Magic Fight]] <<endif>>
-[[Try to speak to the bandits|Camp Talk]]
-[[Try to bribe the bandits|Camp Bribe]]
+<<if $encounter["talk"]>> [[Try to speak to the bandits|Camp Talk Succeed]] <<else>> [[Try to speak to the bandits|Camp Talk Fail]] <<endif>>
+<<if $encounter["bribe"]>> [[Try to bribe the bandits|Camp Bribe Succeed]] <<else>> [[Try to bribe the bandits|Camp Bribe Fail]] <<endif>>
 [[Hide|Camp Hide]]
 [[Run away|Camp Flee]]
 
 :: Camp Loot Bow
-\<<set $choices["magicBow"] to $choices["magicBow"]+1>>
-\<<set $inventory["magicBow"] to $inventory["magicBow"]+1>>
+<<silently>>
+<<set $choices["magicBow"] to $choices["magicBow"]+1>>
+<<set $inventory["magicBow"] to $inventory["magicBow"]+1>>
+<<endsilently>>
 \You pick up the bow and admire it. Suddenly, you hear footsteps and the sound of men's voices from nearby. The bandits must be returning!
 
 <<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Camp Sword Fight]] <<else>> [[Attack with your Rusty Sword|Camp Sword Fight]] <<endif>>
 <<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Camp Bow Fight]] <<else>> [[Attack with your Old Bow|Camp Bow Fight]] <<endif>>
 <<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Camp Magic Fight]] <<else>> [[Attack with a Weak Spell|Camp Magic Fight]] <<endif>>
-[[Try to speak to the bandits|Camp Talk]]
-[[Try to bribe the bandits|Camp Bribe]]
+<<if $encounter["talk"]>> [[Try to speak to the bandits|Camp Talk Succeed]] <<else>> [[Try to speak to the bandits|Camp Talk Fail]] <<endif>>
+<<if $encounter["bribe"]>> [[Try to bribe the bandits|Camp Bribe Succeed]] <<else>> [[Try to bribe the bandits|Camp Bribe Fail]] <<endif>>
 [[Hide|Camp Hide]]
 [[Run away|Camp Flee]]
 
 :: Camp Loot Spellbook
-\<<set $choices["magicBook"] to $choices["magicBook"]+1>>
-\<<set $inventory["magicBook"] to $inventory["magicBook"]+1>>
-\You pick up the spell book and place it inside your bag. Suddenly, you hear footsteps and the sound of men's voices from nearby. The bandits must be returning!
+<<silently>>
+<<set $choices["magicBook"] to $choices["magicBook"]+1>>
+<<set $inventory["magicBook"] to $inventory["magicBook"]+1>>
+<<endsilently>>
+You pick up the spell book and place it inside your bag. Suddenly, you hear footsteps and the sound of men's voices from nearby. The bandits must be returning!
 
 <<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Camp Sword Fight]] <<else>> [[Attack with your Rusty Sword|Camp Sword Fight]] <<endif>>
 <<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Camp Bow Fight]] <<else>> [[Attack with your Old Bow|Camp Bow Fight]] <<endif>>
 <<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Camp Magic Fight]] <<else>> [[Attack with a Weak Spell|Camp Magic Fight]] <<endif>>
-[[Try to speak to the bandits|Camp Talk]]
-[[Try to bribe the bandits|Camp Bribe]]
+<<if $encounter["talk"]>> [[Try to speak to the bandits|Camp Talk Succeed]] <<else>> [[Try to speak to the bandits|Camp Talk Fail]] <<endif>>
+<<if $encounter["bribe"]>> [[Try to bribe the bandits|Camp Bribe Succeed]] <<else>> [[Try to bribe the bandits|Camp Bribe Fail]] <<endif>>
 [[Hide|Camp Hide]]
 [[Run away|Camp Flee]]
 
@@ -92,7 +100,7 @@ You charge the bandits with your sword. You deal a couple of good blows and mana
 
 <<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Camp Sword Fight]] <<else>> [[Attack with your Rusty Sword|Camp Sword Fight]] <<endif>>
 <<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Camp Bow Fight]] <<else>> [[Attack with your Old Bow|Camp Bow Fight]] <<endif>>
-<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Camp Magic Fight]] <<else>> [[Attack with a Weak Spell|Camp Magic Fight]] <<endif>> Bandits Magic Fight]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Camp Magic Fight]] <<else>> [[Attack with a Weak Spell|Camp Magic Fight]] <<endif>>
 [[Use a health potion|Camp Use Health Potion]]
 [[Run away|Camp Flee]]
 <<endif>>
@@ -132,7 +140,7 @@ You fire a few successful shots with your bow, but one of the men manages to cha
 
 <<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Camp Sword Fight]] <<else>> [[Attack with your Rusty Sword|Camp Sword Fight]] <<endif>>
 <<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Camp Bow Fight]] <<else>> [[Attack with your Old Bow|Camp Bow Fight]] <<endif>>
-<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Camp Magic Fight]] <<else>> [[Attack with a Weak Spell|Camp Magic Fight]] <<endif>> Bandits Magic Fight]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Camp Magic Fight]] <<else>> [[Attack with a Weak Spell|Camp Magic Fight]] <<endif>>
 [[Use a health potion|Camp Use Health Potion]]
 [[Run away|Camp Flee]]
 <<endif>>
@@ -170,7 +178,7 @@ You blast most of the men with ice, but one dodges the attack and manages to str
 
 <<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Camp Sword Fight]] <<else>> [[Attack with your Rusty Sword|Camp Sword Fight]] <<endif>>
 <<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Camp Bow Fight]] <<else>> [[Attack with your Old Bow|Camp Bow Fight]] <<endif>>
-<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Camp Magic Fight]] <<else>> [[Attack with a Weak Spell|Camp Magic Fight]] <<endif>> Bandits Magic Fight]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Camp Magic Fight]] <<else>> [[Attack with a Weak Spell|Camp Magic Fight]] <<endif>>
 [[Use a health potion|Camp Use Health Potion]]
 [[Run away|Camp Flee]]
 <<endif>>
@@ -199,8 +207,8 @@ You quickly hide behind a stack of large crates before the bandits spot you. Fiv
 <<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Camp Sword Fight]] <<else>> [[Attack with your Rusty Sword|Camp Sword Fight]] <<endif>>
 <<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Camp Bow Fight]] <<else>> [[Attack with your Old Bow|Camp Bow Fight]] <<endif>>
 <<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Camp Magic Fight]] <<else>> [[Attack with a Weak Spell|Camp Magic Fight]] <<endif>>
-[[Try to speak to the bandits|Camp Talk]]
-[[Try to bribe the bandits|Camp Bribe]]
+<<if $encounter["talk"]>> [[Try to speak to the bandits|Camp Talk Succeed]] <<else>> [[Try to speak to the bandits|Camp Talk Fail]] <<endif>>
+<<if $encounter["bribe"]>> [[Try to bribe the bandits|Camp Bribe Succeed]] <<else>> [[Try to bribe the bandits|Camp Bribe Fail]] <<endif>>
 
 ::Camp Wait Succeed
 <<silently>>
@@ -219,8 +227,8 @@ You remain hidden for a long while, but the bandits don't seem like they're goin
 <<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Camp Sword Fight]] <<else>> [[Attack with your Rusty Sword|Camp Sword Fight]] <<endif>>
 <<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Camp Bow Fight]] <<else>> [[Attack with your Old Bow|Camp Bow Fight]] <<endif>>
 <<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Camp Magic Fight]] <<else>> [[Attack with a Weak Spell|Camp Magic Fight]] <<endif>>
-[[Try to speak to the bandits|Camp Talk]]
-[[Try to bribe the bandits|Camp Bribe]]
+<<if $encounter["talk"]>> [[Try to speak to the bandits|Camp Talk Succeed]] <<else>> [[Try to speak to the bandits|Camp Talk Fail]] <<endif>>
+<<if $encounter["bribe"]>> [[Try to bribe the bandits|Camp Bribe Succeed]] <<else>> [[Try to bribe the bandits|Camp Bribe Fail]] <<endif>>
 
 
 ::Camp Sneak Succeed
@@ -265,15 +273,15 @@ You attempt to sneak away, but you accidentally knock over a stack of canned goo
 <<set $choices["bribe"] to $choices["bribe"]+1>>
 <<endsilently>>
 You offer the bandits some treasure if they allow you to go on your way. "Alright then," one man, the apparent leader of the group, says. "What're you offering?"
-\<<if $inventory["magicSword"] > 0>>
+<<if $inventory["magicSword"] > 0>>
 [[Offer a Magic Sword|Camp Give Sword]]
-\<<endif>>
-\<<if $inventory["magicBow"] > 0>>
+<<endif>>
+<<if $inventory["magicBow"] > 0>>
 [[Offer a Magic Bow|Camp Give Bow]]
-\<<endif>>
-\<<if $inventory["magicBook"] > 0>>
+<<endif>>
+<<if $inventory["magicBook"] > 0>>
 [[Offer a Magic Spell Tome|Camp Give Magic]]
-\<<endif>>
+<<endif>>
 <<if $inventory["gold"] > 2>> [[Offer 3 gold|Camp Give gold]]<<endif>>
 
 ::Camp Give Sword
@@ -324,8 +332,8 @@ You flee from the bandits and [[continue on your quest.|Next Encounter]]
 
 
 ::Camp Loot
-<<if $inventory["magicSword"] == 0 set $inventory["magicSword"] to 1>>
-<<if $inventory["magicBow"] == 0 set $inventory["magicBow"] to 1>>
-<<if $inventory["magicBook"] == 0 set $inventory["magicBook"] to 1>>
+<<if $inventory["magicSword"] == 0>> <<set $inventory["magicSword"] to 1>> <<endif>>
+<<if $inventory["magicBow"] == 0>> <<set $inventory["magicBow"] to 1>> <<endif>>
+<<if $inventory["magicBook"] == 0>> <<set $inventory["magicBook"] to 1>> <<endif>>
 <<set $inventory["gold"] to $inventory["gold"] + $encounter["gold_amount"]>>
 Triumphant, you finish looting the camp and [[continue on your quest.|Next Encounter]]

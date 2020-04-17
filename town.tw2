@@ -53,7 +53,7 @@ You approach the group standing near the inn and greet them. You ask if they've 
 [[You begin casting a Spell|Town Magic]]
 <<if $encounter["bribe"]>> [[Go to the cartographer's booth|Town Bribe Succeed]] <<else>> [[Go to the cartographer's booth|Town Bribe Fail]] <<endif>>
 
-:: Town Talk Success
+:: Town Talk Succeed
 <<silently>>
 <<set $choices["talk"] to $choices["talk"]+1>>
 <<endsilently>>
@@ -83,19 +83,19 @@ You approach the cartographer as he smiles and gestures to his merchandise. You 
 
 You approach the cartographer as he smiles and gestures to his merchandise. You ask if he has a map to Bloomrane Cavern. "I do," he says. "What are you willing to give me for it?"
 
-\<<if $inventory["magicSword"] > 0>>
-[[Throw a Magic Sword|Town Give Sword]]
-\<<endif>>
-\<<if $inventory["magicBow"] > 0>>
-[[Throw a Magic Bow|Town Give Bow]]
-\<<endif>>
-\<<if $inventory["magicBook"] > 0>>
-[[Throw a Magic Spell Tome|Town Give Magic]]
-\<<endif>>
-<<if $inventory["gold"] > 0>> [[Throw some gold|Town Give gold]]<<endif>>
+<<if $inventory["magicSword"] > 0>>
+[[Offer a Magic Sword|Town Give Sword]]
+<<endif>>
+<<if $inventory["magicBow"] > 0>>
+[[Offer a Magic Bow|Town Give Bow]]
+<<endif>>
+<<if $inventory["magicBook"] > 0>>
+[[Offer a Magic Spell Tome|Town Give Magic]]
+<<endif>>
+<<if $inventory["gold"] > 0>> [[Offer some gold|Town Give gold]]<<endif>>
 <<if $encounter["talk"]>> [[Go talk to the people near the inn|Town Talk Succeed]] <<else>> [[Go talk to the people near the inn|Town Talk Fail]] <<endif>>
 
-:: Town Give Give Sword
+:: Town Give Sword
 <<silently>>
 <<set $inventory["magicSword"] to $inventory["magicSword"]-1>>
 <<endsilently>>
@@ -106,7 +106,7 @@ You thank him for the map, and with your path clear, you head to the shop to gat
 
 [[Go to the shop|Shop Welcome]]
 
-:: Town Give Give Bow
+:: Town Give Bow
 <<silently>>
 <<set $inventory["magicBow"] to $inventory["magicBow"]-1>>
 <<endsilently>>
@@ -117,7 +117,7 @@ You thank him for the map, and with your path clear, you head to the shop to gat
 
 [[Go to the shop|Shop Welcome]]
 
-:: Town Give Give Magic
+:: Town Give Magic
 <<silently>>
 <<set $inventory["magicBook"] to $inventory["magicBook"]-1>>
 <<endsilently>>
@@ -128,7 +128,7 @@ You thank him for the map, and with your path clear, you head to the shop to gat
 
 [[Go to the shop|Shop Welcome]]
 
-:: Town Give Give gold
+:: Town Give gold
 <<silently>>
 <<set $inventory["gold"] to $inventory["gold"]-1>>
 <<endsilently>>

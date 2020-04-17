@@ -259,14 +259,14 @@ In the pouch you find a $encounter["loot_1"] and $encounter["gold_amount"] Gold 
 <<endsilently>>
 
 You take the Magic Sword and continue on your journey.
-<<else if $encounter["loot_1"] == "Magic Bow">>
+<<elseif $encounter["loot_1"] == "Magic Bow">>
 <<silently>>
 <<set $inventory["magicBow"] to $inventory["magicBow"]+1>>
 <<set $choices["weapon"] to $choices["weapon"]+1 >>
 <<endsilently>>
 
 You take the Magic Bow and continue on your journey.
-<<else if $encounter["loot_1"] == "Magic Book">>
+<<elseif $encounter["loot_1"] == "Magic Book">>
 <<silently>>
 <<set $inventory["magicBook"] to $inventory["magicBook"]+1>>
 <<set $choices["weapon"] to $choices["weapon"]+1 >>
@@ -303,7 +303,7 @@ You ask the $encounter["enemy"] if you may pass.
 <<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Enemy Near Few Magic Book Fight]] <<else>> [[Attack with a Weak Spell|Enemy Near Few Magic Fight]] <<endif>>
 <<if $encounter["bribe"]>> [[Try to bribe the $encounter["enemy"] to let you pass|Enemy Near Few Bribe Succeed]] <<else>> [[Try to bribe to the $encounter["enemy"] to let you pass|Enemy Near Few Bribe Fail]] <<endif>>
 
-:: Enemy Near Few Talk Success
+:: Enemy Near Few Talk Succeed
 <<silently>>
 <<set $choices["talk"] to $choices["talk"]+1>>
 <<endsilently>>

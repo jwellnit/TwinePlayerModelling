@@ -297,14 +297,14 @@ Amongst the treasure, you find a $encounter["loot_1"] and $encounter["gold_amoun
 <<endsilently>>
 
 You take the Magic Sword and continue on your journey.
-<<else if $encounter["loot_1"] == "Magic Bow">>
+<<elseif $encounter["loot_1"] == "Magic Bow">>
 <<silently>>
 <<set $inventory["magicBow"] to $inventory["magicBow"]+1>>
 <<set $choices["weapon"] to $choices["weapon"]+1 >>
 <<endsilently>>
 
 You take the Magic Bow and continue on your journey.
-<<else if $encounter["loot_1"] == "Magic Book">>
+<<elseif $encounter["loot_1"] == "Magic Book">>
 <<silently>>
 <<set $inventory["magicBook"] to $inventory["magicBook"]+1>>
 <<set $choices["weapon"] to $choices["weapon"]+1 >>
@@ -337,7 +337,7 @@ You rush up to the $encounter["enemy"] and make loud noises, trying to look big 
 <<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Enemy Near Many Magic Book Fight]] <<else>> [[Attack with a Weak Spell|Enemy Near Many Magic Fight]] <<endif>>
 <<if $encounter["bribe"]>> [[Try to distract the $encounter["enemy"] to let you pass|Enemy Near Many Bribe Succeed]] <<else>> [[Try to distract to the $encounter["enemy"] to let you pass|Enemy Near Many Bribe Fail]] <<endif>>
 
-:: Enemy Near Many Talk Success
+:: Enemy Near Many Talk Succeed
 <<silently>>
 <<set $choices["talk"] to $choices["talk"]+1>>
 <<endsilently>>

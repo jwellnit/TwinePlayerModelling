@@ -115,7 +115,7 @@ The door clears its throat and begins. "I have a bed, but do not sleep. I have a
 :: Puzzle Answer
 <<set $response to $response.toLowerCase()>>
 <<if $response == "river">> <<goto "Puzzle Right">>
-<<else if $response == "a river">> <<goto "Puzzle Right">>
+<<elseif $response == "a river">> <<goto "Puzzle Right">>
 <<else>> <<goto "Puzzle Wrong">> <<endif>>
 
 ::Puzzle Wrong
