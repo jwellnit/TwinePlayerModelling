@@ -109,7 +109,7 @@ Config.saves.isAllowed = function() {return false};
 <<set $encounter["talk"] to False>>
 <<set $encounter["sneak"] to False>>
 <<set $encounter["wait"] to False>>
-<<set $encounter["loot_1"] to "none"">>
+<<set $encounter["loot_1"] to "none">>
 <<set $encounter["gold_amount"] to 0>>
 <<set $encounter1 to {}>>
 <<set $encounter2 to {}>>
@@ -638,6 +638,9 @@ You are a brave adventurer, seeking fame and fortune by finding the lost gold of
 <<endif>>
 <<endif>>
 
+<<set $encounter1["gold_amount"] to random(1,5)>>
+<<set $encounter1["enemy_health"] to random(5,15)>>
+<<set $encounter1["enemy_damage"] to random(3,8)>>
 <<set $encounter1["sword_damage"] to random(1,10)>>
 <<set $encounter1["bow_damage"] to random(1,10)>>
 <<set $encounter1["magic_damage"] to random(1,10)>>
@@ -662,6 +665,9 @@ You are a brave adventurer, seeking fame and fortune by finding the lost gold of
 <<endif>>
 <<endif>>
 
+<<set $encounter2["gold_amount"] to random(1,5)>>
+<<set $encounter2["enemy_health"] to random(5,15)>>
+<<set $encounter2["enemy_damage"] to random(3,8)>>
 <<set $encounter2["sword_damage"] to random(1,10)>>
 <<set $encounter2["bow_damage"] to random(1,10)>>
 <<set $encounter2["magic_damage"] to random(1,10)>>
@@ -751,20 +757,169 @@ You are a brave adventurer, seeking fame and fortune by finding the lost gold of
 <<endif>>
 
 <<if $encounter1["type"] is "enemy_near_few">>
-
+<<set $enemy_list to $near_few_list.random()>>
+<<set $encounter1["enemy"] to $enemy_list[0]>>
+<<set $encounter1["enemy_article"] to $enemy_list[1]>>
+<<set $encounter1["enemy_description"] to $enemy_list[2]>>
 <<else if $encounter1["type"] is "enemy_near_many">>
-
+<<set $enemy_list to $near_many_list.random()>>
+<<set $encounter1["enemy"] to $enemy_list[0]>>
+<<set $encounter1["enemy_article"] to $enemy_list[1]>>
+<<set $encounter1["enemy_description"] to $enemy_list[2]>>
 <<else if $encounter1["type"] is "enemy_far_few">>
-
+<<set $enemy_list to $far_few_list.random()>>
+<<set $encounter1["enemy"] to $enemy_list[0]>>
+<<set $encounter1["enemy_article"] to $enemy_list[1]>>
+<<set $encounter1["enemy_description"] to $enemy_list[2]>>
 <<else if $encounter1["type"] is "enemy_far_many">>
+<<set $enemy_list to $far_many_list.random()>>
+<<set $encounter1["enemy"] to $enemy_list[0]>>
+<<set $encounter1["enemy_article"] to $enemy_list[1]>>
+<<set $encounter1["enemy_description"] to $enemy_list[2]>>
+<<endif>>
 
-<<else if $encounter1["type"] is "town_shop">>
-
-<<else if $encounter1["type"] is "help">>
-
-<<else if $encounter1["type"] is "loot">>
-
-<<else>>
-
+<<if $encounter2["type"] is "enemy_near_few">>
+<<set $enemy_list to $near_few_list.random()>>
+<<set $encounter2["enemy"] to $enemy_list[0]>>
+<<set $encounter2["enemy_article"] to $enemy_list[1]>>
+<<set $encounter2["enemy_description"] to $enemy_list[2]>>
+<<else if $encounter2["type"] is "enemy_near_many">>
+<<set $enemy_list to $near_many_list.random()>>
+<<set $encounter2["enemy"] to $enemy_list[0]>>
+<<set $encounter2["enemy_article"] to $enemy_list[1]>>
+<<set $encounter2["enemy_description"] to $enemy_list[2]>>
+<<else if $encounter2["type"] is "enemy_far_few">>
+<<set $enemy_list to $far_few_list.random()>>
+<<set $encounter2["enemy"] to $enemy_list[0]>>
+<<set $encounter2["enemy_article"] to $enemy_list[1]>>
+<<set $encounter2["enemy_description"] to $enemy_list[2]>>
+<<else if $encounter2["type"] is "enemy_far_many">>
+<<set $enemy_list to $far_many_list.random()>>
+<<set $encounter2["enemy"] to $enemy_list[0]>>
+<<set $encounter2["enemy_article"] to $enemy_list[1]>>
+<<set $encounter2["enemy_description"] to $enemy_list[2]>>
 <<endif>>
 <<endsilently>>
+
+Before you is a fork in the road. Both paths will bring you closer to your destination.
+
+To the left <<if $encounter1["type"] is "enemy_near_few">>
+you see a large figure bloacking your path just ahead.
+<<else if $encounter1["type"] is "enemy_near_many">>
+you hear rustling and growling around a bend in the road.
+<<else if $encounter1["type"] is "enemy_far_few">>
+you see a long bridge over a ravine, an a figure blocking your path.
+<<else if $encounter1["type"] is "enemy_far_many">>
+you hear a loud commotion coming from down the road.
+<<else if $encounter1["type"] is "town_shop">>
+you see a sign indicating there is a town ahead.
+<<else if $encounter1["type"] is "help">>
+you hear a cry for help coming form down the road.
+<<else if $encounter1["type"] is "loot">>
+you see signs of a camp of some sort nearby.
+<<else>>
+you see the path go into a tunnel, with a strange door blocking the way
+<<endif>>
+
+To the right <<if $encounter2["type"] is "enemy_near_few">>
+you see a large figure bloacking your path just ahead.
+<<else if $encounter2["type"] is "enemy_near_many">>
+you hear rustling and growling around a bend in the road.
+<<else if $encounter2["type"] is "enemy_far_few">>
+you see a long bridge over a ravine, an a figure blocking your path.
+<<else if $encounter2["type"] is "enemy_far_many">>
+you hear a loud commotion coming from down the road.
+<<else if $encounter2["type"] is "town_shop">>
+you see a sign indicating there is a town ahead.
+<<else if $encounter2["type"] is "help">>
+you hear a cry for help coming form down the road.
+<<else if $encounter2["type"] is "loot">>
+you see signs of a camp of some sort nearby.
+<<else>>
+you see the path go into a tunnel, with a strange door blocking the way
+<<endif>>
+
+Which path do you choose?
+
+[[Take the left path|Choose Left]]
+[[Take the right path|Choose Right]]
+
+:: Choose Left
+<<silently>>
+<<set $encounter["enemy"] to $encounter1["enemy"]>>
+<<set $encounter["enemy_article"] to $encounter1["enemy_article"]>>
+<<set $encounter["enemy_description"] to $encounter1["enemy_description"]>>
+<<set $encounter["enemy_health"] to $encounter1["enemy_health"]>>
+<<set $encounter["enemy_damage"] to $encounter1["enemy_damage"]>>
+<<set $encounter["sword_damage"] to $encounter1["sword_damage"]>>
+<<set $encounter["bow_damage"] to $encounter1["bow_damage"]>>
+<<set $encounter["magic_damage"] to $encounter1["magic_damage"]>>
+<<set $encounter["magic_sword_damage"] to $encounter1["magic_sword_damage"]>>
+<<set $encounter["magic_bow_damage"] to $encounter1["magic_bow_damage"]>>
+<<set $encounter["magic_book_damage"] to $encounter1["magic_book_damage"]>>
+<<set $encounter["bribe"] to $encounter1["bribe"]>>
+<<set $encounter["talk"] to $encounter1["talk"]>>
+<<set $encounter["sneak"] to $encounter1["sneak"]>>
+<<set $encounter["wait"] to $encounter1["wait"]>>
+<<set $encounter["loot_1"] to $encounter1["loot_1"]>>
+<<set $encounter["gold_amount"] to $encounter1["gold_amount"]>>
+<<endsilently>>
+You turn left and keep walking.
+
+<<if $encounter["type"] is "enemy_near_few">>
+[[Continue forward.|Enemy Near Few]]
+<<else if $encounter["type"] is "enemy_near_many">>
+[[Continue forward.|Enemy Near Many]]
+<<else if $encounter["type"] is "enemy_far_few">>
+[[Continue forward.|Enemy Far Few]]
+<<else if $encounter["type"] is "enemy_far_many">>
+[[Continue forward.|Enemy Far Many]]
+<<else if $encounter["type"] is "town_shop">>
+[[Continue forward.|Town Shop]]
+<<else if $encounter["type"] is "help">>
+[[Continue forward.|Help]]
+<<else if $encounter["type"] is "loot">>
+[[Continue forward.|Loot]]
+<<else>>
+[[Continue forward.|Puzzle]]
+<<endif>>
+
+:: Choose Right
+<<silently>>
+<<set $encounter["enemy"] to $encounter2["enemy"]>>
+<<set $encounter["enemy_article"] to $encounter2["enemy_article"]>>
+<<set $encounter["enemy_description"] to $encounter2["enemy_description"]>>
+<<set $encounter["enemy_health"] to $encounter2["enemy_health"]>>
+<<set $encounter["enemy_damage"] to $encounter2["enemy_damage"]>>
+<<set $encounter["sword_damage"] to $encounter2["sword_damage"]>>
+<<set $encounter["bow_damage"] to $encounter2["bow_damage"]>>
+<<set $encounter["magic_damage"] to $encounter2["magic_damage"]>>
+<<set $encounter["magic_sword_damage"] to $encounter2["magic_sword_damage"]>>
+<<set $encounter["magic_bow_damage"] to $encounter2["magic_bow_damage"]>>
+<<set $encounter["magic_book_damage"] to $encounter2["magic_book_damage"]>>
+<<set $encounter["bribe"] to $encounter2["bribe"]>>
+<<set $encounter["talk"] to $encounter2["talk"]>>
+<<set $encounter["sneak"] to $encounter2["sneak"]>>
+<<set $encounter["wait"] to $encounter2["wait"]>>
+<<set $encounter["loot_1"] to $encounter2["loot_1"]>>
+<<set $encounter["gold_amount"] to $encounter2["gold_amount"]>>
+<<endsilently>>
+You turn right and keep walking.
+
+<<if $encounter["type"] is "enemy_near_few">>
+[[Continue forward.|Enemy Near Few]]
+<<else if $encounter["type"] is "enemy_near_many">>
+[[Continue forward.|Enemy Near Many]]
+<<else if $encounter["type"] is "enemy_far_few">>
+[[Continue forward.|Enemy Far Few]]
+<<else if $encounter["type"] is "enemy_far_many">>
+[[Continue forward.|Enemy Far Many]]
+<<else if $encounter["type"] is "town_shop">>
+[[Continue forward.|Town Shop]]
+<<else if $encounter["type"] is "help">>
+[[Continue forward.|Help]]
+<<else if $encounter["type"] is "loot">>
+[[Continue forward.|Loot]]
+<<else>>
+[[Continue forward.|Puzzle]]
+<<endif>>
