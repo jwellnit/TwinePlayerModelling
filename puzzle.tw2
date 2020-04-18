@@ -149,7 +149,7 @@ You look around and notice a crevice in the stone wall of the cliff. It looks ju
 <<endsilently>>
 You stay in the same position and wait. "Seriously, I can see you! I'm a door; I'm not going anywhere. I'm not even capable of leaving!" the door taunts. You continue to wait. Hours pass, the door growing increasingly frustrated, and seemingly, a bit tired. In one fateful moment, the door yawns, opening just a little, and you dive through the crack into the cavern beyond. You hear a faint sigh and grumbling discontent on the other side of the door.
 
-[[Enter the cavern|Win]]
+[[Enter the cavern|Next Encounter]]
 
 
 :Puzzle Wait Fail
@@ -176,7 +176,7 @@ The door clears its throat and begins. "I have a bed, but do not sleep. I have a
 :: Puzzle Answer
 <<set $response to $response.toLowerCase()>>
 <<if $response == "river">> <<goto "Puzzle Right">>
-<<else if $response == "a river">> <<goto "Puzzle Right">>
+<<elseif $response == "a river">> <<goto "Puzzle Right">>
 <<else>> <<goto "Puzzle Wrong">> <<endif>>
 
 ::Puzzle Wrong
@@ -193,9 +193,4 @@ The door clears its throat and begins. "I have a bed, but do not sleep. I have a
 ::Puzzle Right
 "Ha! you're not ev... oh, wait, you actually got it. Huh, no one's ever gotten it right before. I guess, go in?" The door opens, allowing you entry.
 
-[[Enter the cavern|Win]]
-
-::Win
-As you enter the cave, you come upon a chamber filled with glimmering treasure. Heaps of shimmering gold coins, brilliant jewels of all colors, and magnificent weapons lay before you. Your discovery will surely become legendary.
-
-Congratulations! You found the lost treasure of Bloomrane Cavern!
+[[Enter the cavern|Next Encounter]]

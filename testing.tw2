@@ -1,5 +1,5 @@
 :: StoryTitle
-The Lost Treasure of Bloomrane Cavern (Path A)
+The Lost Treasure of Bloomrane Cavern (Path 1)
 
 :: UserStylesheet[stylesheet]
 #menu-core {
@@ -16,18 +16,6 @@ shop.tw2
 save_woman_from_bandits.tw2
 loot_camp.tw2
 puzzle.tw2
-
-::StoryCaption
-Inventory:
-$inventory["gold"] gold
-<<if $inventory["magicSword"] > 0>> Magic Sword <<else>> Rusty Sword <<endif>>
-<<if $inventory["magicBow"] > 0>> Magic Bow <<else>> Old Bow <<endif>>
-<<if $inventory["magicBook"] > 0>> Powerful Spell Book <<else>> Weak Spell Book <<endif>>
-\<<if $inventory["armor"] > 0>>
-$inventory["armor"] Armor
-\<<endif>>
-\<<if $inventory["healingPotion"] > 0>>
-$inventory["healingPotion"] Healing Potion<<if $inventory["healingPotion"] > 1>>s<<endif>> <<endif>>
 
 
 :: StoryInit
@@ -129,199 +117,10 @@ You are a brave adventurer, seeking fame and fortune by finding the lost gold of
 
 
 :: Next Encounter
-<<if $encounters >= 5>>
-You see the yawning mouth of a cave up ahead!
-
-[[Continue into Bloomrane Cavern|Win]]
-<<else>>
 <<silently>>
-<<set $total to 0>>
 
-<<if $encounter["type"] is "enemy_near_few">>
-<<set $enemy_near_few_stop to $player_model["enemy_near_few"]/2>>
-<<else>>
-<<set $enemy_near_few_stop to $player_model["enemy_near_few"]>>
-<<endif>>
-<<set $total to $enemy_near_few_stop>>
-
-<<if $encounter["type"] is "enemy_near_many">>
-<<set $enemy_near_many_stop to $total + $player_model["enemy_near_many"]/2>>
-<<else>>
-<<set $enemy_near_many_stop to $total + $player_model["enemy_near_many"]>>
-<<endif>>
-<<set $total to $enemy_near_many_stop>>
-
-<<if $encounter["type"] is "enemy_far_few">>
-<<set $enemy_far_few_stop to $total + $player_model["enemy_far_few"]/2>>
-<<else>>
-<<set $enemy_far_few_stop to $total + $player_model["enemy_far_few"]>>
-<<endif>>
-<<set $total to $enemy_far_few_stop>>
-
-<<if $encounter["type"] is "enemy_far_many">>
-<<set $enemy_far_many_stop to $total + $player_model["enemy_far_many"]/2>>
-<<else>>
-<<set $enemy_far_many_stop to $total + $player_model["enemy_far_many"]>>
-<<endif>>
-<<set $total to $enemy_far_many_stop>>
-
-<<if $encounter["type"] is "town_shop">>
-<<set $town_shop_stop to $total + $player_model["town_shop"]/2>>
-<<else>>
-<<set $town_shop_stop to $total + $player_model["town_shop"]>>
-<<endif>>
-<<set $total to $town_shop_stop>>
-
-<<if $encounter["type"] is "help">>
-<<set $help_stop to $total + $player_model["help"]/2>>
-<<else>>
-<<set $help_stop to $total + $player_model["help"]>>
-<<endif>>
-<<set $total to $help_stop>>
-
-<<if $encounter["type"] is "loot">>
-<<set $loot_stop to $total + $player_model["loot"]/2>>
-<<else>>
-<<set $loot_stop to $total + $player_model["loot"]>>
-<<endif>>
-<<set $total to $loot_stop>>
-
-<<if $encounter["type"] is "puzzle">>
-<<set $puzzle_stop to $total + $player_model["puzzle"]/2>>
-<<else>>
-<<set $puzzle_stop to $total + $player_model["puzzle"]>>
-<<endif>>
-<<set $total to $puzzle_stop>>
-
-<<set $roll to Math.random()*$total>>
-
-<<if $roll < $enemy_near_few_stop>>
 <<set $encounter1["type"] to "enemy_near_few">>
-<<elseif $roll < $enemy_near_many_stop>>
-<<set $encounter1["type"] to "enemy_near_many">>
-<<elseif $roll < $enemy_far_few_stop>>
-<<set $encounter1["type"] to "enemy_far_few">>
-<<elseif $roll < $enemy_far_many_stop>>
-<<set $encounter1["type"] to "enemy_far_many">>
-<<elseif $roll < $town_shop_stop>>
-<<set $encounter1["type"] to "town_shop">>
-<<elseif $roll < $help_stop>>
-<<set $encounter1["type"] to "help">>
-<<elseif $roll < $loot_stop>>
-<<set $encounter1["type"] to "loot">>
-<<else>>
-<<set $encounter1["type"] to "puzzle">>
-<<endif>>
-
-<<set $total to 0>>
-
-<<if $encounter1["type"] is "enemy_near_few">>
-<<set $enemy_near_few_stop to 0>>
-<<else>>
-<<if $encounter["type"] is "enemy_near_few">>
-<<set $enemy_near_few_stop to $player_model["enemy_near_few"]/2>>
-<<else>>
-<<set $enemy_near_few_stop to $player_model["enemy_near_few"]>>
-<<endif>>
-<<set $total to $enemy_near_few_stop>>
-<<endif>>
-
-<<if $encounter1["type"] is "enemy_near_many">>
-<<set $enemy_near_many_stop to 0>>
-<<else>>
-<<if $encounter["type"] is "enemy_near_many">>
-<<set $enemy_near_many_stop to $total + $player_model["enemy_near_many"]/2>>
-<<else>>
-<<set $enemy_near_many_stop to $total + $player_model["enemy_near_many"]>>
-<<endif>>
-<<set $total to $enemy_near_many_stop>>
-<<endif>>
-
-<<if $encounter1["type"] is "enemy_far_few">>
-<<set $enemy_far_few_stop to 0>>
-<<else>>
-<<if $encounter["type"] is "enemy_far_few">>
-<<set $enemy_far_few_stop to $total + $player_model["enemy_far_few"]/2>>
-<<else>>
-<<set $enemy_far_few_stop to $total + $player_model["enemy_far_few"]>>
-<<endif>>
-<<set $total to $enemy_far_few_stop>>
-<<endif>>
-
-<<if $encounter1["type"] is "enemy_far_many">>
-<<set $enemy_far_many_stop to 0>>
-<<else>>
-<<if $encounter["type"] is "enemy_far_many">>
-<<set $enemy_far_many_stop to $total + $player_model["enemy_far_many"]/2>>
-<<else>>
-<<set $enemy_far_many_stop to $total + $player_model["enemy_far_many"]>>
-<<endif>>
-<<set $total to $enemy_far_many_stop>>
-<<endif>>
-
-<<if $encounter1["type"] is "town_shop">>
-<<set $town_shop_stop to 0>>
-<<else>>
-<<if $encounter["type"] is "town_shop">>
-<<set $town_shop_stop to $total + $player_model["town_shop"]/2>>
-<<else>>
-<<set $town_shop_stop to $total + $player_model["town_shop"]>>
-<<endif>>
-<<set $total to $town_shop_stop>>
-<<endif>>
-
-<<if $encounter1["type"] is "help">>
-<<set $help_stop to 0>>
-<<else>>
-<<if $encounter["type"] is "help">>
-<<set $help_stop to $total + $player_model["help"]/2>>
-<<else>>
-<<set $help_stop to $total + $player_model["help"]>>
-<<endif>>
-<<set $total to $help_stop>>
-<<endif>>
-
-<<if $encounter1["type"] is "loot">>
-<<set $loot_stop to 0>>
-<<else>>
-<<if $encounter["type"] is "loot">>
-<<set $loot_stop to $total + $player_model["loot"]/2>>
-<<else>>
-<<set $loot_stop to $total + $player_model["loot"]>>
-<<endif>>
-<<set $total to $loot_stop>>
-<<endif>>
-
-<<if $encounter1["type"] is "puzzle">>
-<<set $puzzle_stop to 0>>
-<<else>>
-<<if $encounter["type"] is "puzzle">>
-<<set $puzzle_stop to $total + $player_model["puzzle"]/2>>
-<<else>>
-<<set $puzzle_stop to $total + $player_model["puzzle"]>>
-<<endif>>
-<<set $total to $puzzle_stop>>
-<<endif>>
-
-<<set $roll to Math.random()*$total>>
-
-<<if $roll < $enemy_near_few_stop>>
-<<set $encounter2["type"] to "enemy_near_few">>
-<<elseif $roll < $enemy_near_many_stop>>
 <<set $encounter2["type"] to "enemy_near_many">>
-<<elseif $roll < $enemy_far_few_stop>>
-<<set $encounter2["type"] to "enemy_far_few">>
-<<elseif $roll < $enemy_far_many_stop>>
-<<set $encounter2["type"] to "enemy_far_many">>
-<<elseif $roll < $town_shop_stop>>
-<<set $encounter2["type"] to "town_shop">>
-<<elseif $roll < $help_stop>>
-<<set $encounter2["type"] to "help">>
-<<elseif $roll < $loot_stop>>
-<<set $encounter2["type"] to "loot">>
-<<else>>
-<<set $encounter2["type"] to "puzzle">>
-<<endif>>
 
 <<set $total to 0>>
 <<set $encounter1["talk"] to false>>
@@ -812,9 +611,6 @@ You see the yawning mouth of a cave up ahead!
 <<set $encounter2["enemy_article"] to $enemy_list[1]>>
 <<set $encounter2["enemy_description"] to $enemy_list[2]>>
 <<endif>>
-
-<<set $encounters  to $encounters + 1>>
-
 <<endsilently>>
 
 Before you is a fork in the road. Both paths will bring you closer to your destination.
@@ -824,7 +620,7 @@ you see a large figure bloacking your path just ahead.
 <<elseif $encounter1["type"] is "enemy_near_many">>
 you hear rustling and growling around a bend in the road.
 <<elseif $encounter1["type"] is "enemy_far_few">>
-you see a long bridge over a ravine, and a figure blocking your path.
+you see a long bridge over a ravine, an a figure blocking your path.
 <<elseif $encounter1["type"] is "enemy_far_many">>
 you hear a loud commotion coming from down the road.
 <<elseif $encounter1["type"] is "town_shop">>
@@ -842,7 +638,7 @@ you see a large figure bloacking your path just ahead.
 <<elseif $encounter2["type"] is "enemy_near_many">>
 you hear rustling and growling around a bend in the road.
 <<elseif $encounter2["type"] is "enemy_far_few">>
-you see a long bridge over a ravine, and a figure blocking your path.
+you see a long bridge over a ravine, an a figure blocking your path.
 <<elseif $encounter2["type"] is "enemy_far_many">>
 you hear a loud commotion coming from down the road.
 <<elseif $encounter2["type"] is "town_shop">>
@@ -860,7 +656,45 @@ Which path do you choose?
 [[Take the left path|Choose Left]]
 [[Take the right path|Choose Right]]
 
-<<endif>>
+encounter 1:
+enemy: $encounter1["enemy"]
+enemy article: $encounter1["enemy_article"]
+enemy description: $encounter1["enemy_description"]
+enemy health: $encounter1["enemy_health"]
+enemy damage: $encounter1["enemy_damage"]
+sword damage: $encounter1["sword_damage"]
+bow damage: $encounter1["bow_damage"]
+magic damage: $encounter1["magic_damage"]
+magic sword damage: $encounter1["magic_sword_damage"]
+magic bow damage: $encounter1["magic_bow_damage"]
+magic book damage: $encounter1["magic_book_damage"]
+bribe: $encounter1["bribe"]
+talk: $encounter1["talk"]
+sneak: $encounter1["sneak"]
+wait: $encounter1["wait"]
+loot: $encounter1["loot_1"]
+gold: $encounter1["gold_amount"]
+
+encounter 2:
+enemy: $encounter2["enemy"]
+enemy article: $encounter2["enemy_article"]
+enemy description: $encounter2["enemy_description"]
+enemy health: $encounter2["enemy_health"]
+enemy damage: $encounter2["enemy_damage"]
+sword damage: $encounter2["sword_damage"]
+bow damage: $encounter2["bow_damage"]
+magic damage: $encounter2["magic_damage"]
+magic sword damage: $encounter2["magic_sword_damage"]
+magic bow damage: $encounter2["magic_bow_damage"]
+magic book damage: $encounter2["magic_book_damage"]
+bribe: $encounter2["bribe"]
+talk: $encounter2["talk"]
+sneak: $encounter2["sneak"]
+wait: $encounter2["wait"]
+loot: $encounter2["loot_1"]
+gold: $encounter2["gold_amount"]
+
+[[test|Test]]
 
 :: Choose Left
 <<silently>>
@@ -903,6 +737,25 @@ You turn left and keep walking.
 [[Continue forward.|Puzzle]]
 <<endif>>
 
+encounter:
+enemy: $encounter["enemy"]
+enemy article: $encounter["enemy_article"]
+enemy description: $encounter["enemy_description"]
+enemy health: $encounter["enemy_health"]
+enemy damage: $encounter["enemy_damage"]
+sword damage: $encounter["sword_damage"]
+bow damage: $encounter["bow_damage"]
+magic damage: $encounter["magic_damage"]
+magic sword damage: $encounter["magic_sword_damage"]
+magic bow damage: $encounter["magic_bow_damage"]
+magic book damage: $encounter["magic_book_damage"]
+bribe: $encounter["bribe"]
+talk: $encounter["talk"]
+sneak: $encounter["sneak"]
+wait: $encounter["wait"]
+loot: $encounter["loot_1"]
+gold: $encounter["gold_amount"]
+
 :: Choose Right
 <<silently>>
 <<set $encounter["type"] to $encounter2["type"]>>
@@ -944,7 +797,220 @@ You turn right and keep walking.
 [[Continue forward.|Puzzle]]
 <<endif>>
 
-::Win
-As you enter the cave, you come upon a chamber filled with glimmering treasure. Heaps of shimmering gold coins, brilliant jewels of all colors, and magnificent weapons lay before you. Your discovery will surely become legendary.
+encounter:
+enemy: $encounter["enemy"]
+enemy article: $encounter["enemy_article"]
+enemy description: $encounter["enemy_description"]
+enemy health: $encounter["enemy_health"]
+enemy damage: $encounter["enemy_damage"]
+sword damage: $encounter["sword_damage"]
+bow damage: $encounter["bow_damage"]
+magic damage: $encounter["magic_damage"]
+magic sword damage: $encounter["magic_sword_damage"]
+magic bow damage: $encounter["magic_bow_damage"]
+magic book damage: $encounter["magic_book_damage"]
+bribe: $encounter["bribe"]
+talk: $encounter["talk"]
+sneak: $encounter["sneak"]
+wait: $encounter["wait"]
+loot: $encounter["loot_1"]
+gold: $encounter["gold_amount"]
 
-Congratulations! You found the lost treasure of Bloomrane Cavern!
+:: Test
+
+<<set $total to 0>>
+<<set $encounter1["talk"] to false>>
+<<set $encounter1["bribe"] to false>>
+<<set $encounter1["sneak"] to false>>
+<<set $encounter1["wait"] to false>>
+<<set $encounter2["talk"] to false>>
+<<set $encounter2["bribe"] to false>>
+<<set $encounter2["sneak"] to false>>
+<<set $encounter2["wait"] to false>>
+
+<<if $encounter["talk"]>>
+<<set $talk_stop to $total + $player_model["talk"]/2>>
+<<else>>
+<<set $talk_stop to $total + $player_model["talk"]>>
+<<endif>>
+<<set $total to $talk_stop>>
+$talk_stop $total
+
+<<if $encounter["bribe"]>>
+<<set $bribe_stop to $total + $player_model["bribe"]/2>>
+<<else>>
+<<set $bribe_stop to $total + $player_model["bribe"]>>
+<<endif>>
+<<set $total to $bribe_stop>>
+$bribe_stop $total
+
+<<if $encounter["sneak"]>>
+<<set $sneak_stop to $total + $player_model["sneak"]/2>>
+<<else>>
+<<set $sneak_stop to $total + $player_model["sneak"]>>
+<<endif>>
+<<set $total to $sneak_stop>>
+$sneak_stop $total
+
+<<if $encounter["wait"]>>
+<<set $wait_stop to $total + $player_model["wait"]/2>>
+<<else>>
+<<set $wait_stop to $total + $player_model["wait"]>>
+<<endif>>
+<<set $total to $wait_stop>>
+$wait_stop $total
+
+<<set $roll to Math.random()*$total>>
+$roll
+
+<<if $roll < $talk_stop>>
+<<set $encounter1["talk"] to true>>
+<<elseif $roll < $bribe_stop>>
+<<set $encounter1["bribe"] to true>>
+<<elseif $roll < $sneak_stop>>
+<<set $encounter1["sneak"] to true>>
+<<elseif $roll < $wait_stop>>
+<<set $encounter1["wait"] to true>>
+<<endif>>
+$encounter1["talk"]
+$encounter1["bribe"]
+$encounter1["sneak"]
+$encounter1["wait"]
+
+<<set $total to 0>>
+
+<<if $encounter1["talk"]>>
+<<set $talk_stop to 0>>
+<<else>>
+<<if $encounter["talk"]>>
+<<set $talk_stop to $total + $player_model["talk"]/2>>
+<<else>>
+<<set $talk_stop to $total + $player_model["talk"]>>
+<<endif>>
+<<set $total to $talk_stop>>
+<<endif>>
+$talk_stop $total
+
+<<if $encounter1["bribe"]>>
+<<set $bribe_stop to 0>>
+<<else>>
+<<if $encounter["bribe"]>>
+<<set $bribe_stop to $total + $player_model["bribe"]/2>>
+<<else>>
+<<set $bribe_stop to $total + $player_model["bribe"]>>
+<<endif>>
+<<set $total to $bribe_stop>>
+<<endif>>
+$bribe_stop $total
+
+<<if $encounter1["sneak"]>>
+<<set $sneak_stop to 0>>
+<<else>>
+<<if $encounter["sneak"]>>
+<<set $sneak_stop to $total + $player_model["sneak"]/2>>
+<<else>>
+<<set $sneak_stop to $total + $player_model["sneak"]>>
+<<endif>>
+<<set $total to $sneak_stop>>
+<<endif>>
+$sneak_stop $total
+
+<<if $encounter1["wait"]>>
+<<set $wait_stop to 0>>
+<<else>>
+<<if $encounter["wait"]>>
+<<set $wait_stop to $total + $player_model["wait"]/2>>
+<<else>>
+<<set $wait_stop to $total + $player_model["wait"]>>
+<<endif>>
+<<set $total to $wait_stop>>
+<<endif>>
+$wait_stop $total
+
+<<set $roll to Math.random()*$total>>
+$roll
+
+<<if $roll < $talk_stop>>
+<<set $encounter1["talk"] to true>>
+<<elseif $roll < $bribe_stop>>
+<<set $encounter1["bribe"] to true>>
+<<elseif $roll < $sneak_stop>>
+<<set $encounter1["sneak"] to true>>
+<<elseif $roll < $wait_stop>>
+<<set $encounter1["wait"] to true>>
+<<endif>>
+$encounter1["talk"]
+$encounter1["bribe"]
+$encounter1["sneak"]
+$encounter1["wait"]
+
+<<if $encounter1["type"] is "town_shop">>
+<<set $total to 0>>
+
+<<if $encounter1["talk"]>>
+<<set $talk_stop to 0>>
+<<else>>
+<<if $encounter["talk"]>>
+<<set $talk_stop to $total + $player_model["talk"]/2>>
+<<else>>
+<<set $talk_stop to $total + $player_model["talk"]>>
+<<endif>>
+<<set $total to $talk_stop>>
+<<endif>>
+$talk_stop $total
+
+<<if $encounter1["bribe"]>>
+<<set $bribe_stop to 0>>
+<<else>>
+<<if $encounter["bribe"]>>
+<<set $bribe_stop to $total + $player_model["bribe"]/2>>
+<<else>>
+<<set $bribe_stop to $total + $player_model["bribe"]>>
+<<endif>>
+<<set $total to $bribe_stop>>
+<<endif>>
+$bribe_stop $total
+
+<<if $encounter1["sneak"]>>
+<<set $sneak_stop to 0>>
+<<else>>
+<<if $encounter["sneak"]>>
+<<set $sneak_stop to $total + $player_model["sneak"]/2>>
+<<else>>
+<<set $sneak_stop to $total + $player_model["sneak"]>>
+<<endif>>
+<<set $total to $sneak_stop>>
+<<endif>>
+$sneak_stop $total
+
+<<if $encounter1["wait"]>>
+<<set $wait_stop to 0>>
+<<else>>
+<<if $encounter["wait"]>>
+<<set $wait_stop to $total + $player_model["wait"]/2>>
+<<else>>
+<<set $wait_stop to $total + $player_model["wait"]>>
+<<endif>>
+<<set $total to $wait_stop>>
+<<endif>>
+$wait_stop $total
+
+<<set $roll to Math.random()*$total>>
+$roll
+
+<<if $roll < $talk_stop>>
+<<set $encounter1["talk"] to true>>
+<<elseif $roll < $bribe_stop>>
+<<set $encounter1["bribe"] to true>>
+<<elseif $roll < $sneak_stop>>
+<<set $encounter1["sneak"] to true>>
+<<elseif $roll < $wait_stop>>
+<<set $encounter1["wait"] to true>>
+<<endif>>
+$encounter1["talk"]
+$encounter1["bribe"]
+$encounter1["sneak"]
+$encounter1["wait"]
+<<endif>>
+
+[[test|Test]]
