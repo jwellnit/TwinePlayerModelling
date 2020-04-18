@@ -128,7 +128,7 @@ You blast most of the men with ice, but one dodges the attack and manages to str
 
 
 
-::Save Woman from Bandits Hide
+:: Save Woman from Bandits Hide
 <<silently>>
 <<set $choices["hide"] to $choices["hide"]+1>>
 <<endsilently>>
@@ -144,14 +144,14 @@ You quietly slip behind the trunk of a large tree before the bandits spot you.
 [[Run away|Save Woman from Bandits Flee]]
 
 
-::Save Woman from Bandits Wait
+:: Save Woman from Bandits Wait
 <<silently>>
 <<set $choices["wait"] to $choices["wait"]+1>>
 <<endsilently>>
 You remain hidden behind the tree. The old woman surrenders her satchel to the bandits and runs away, frightened. The bandits laugh raucously as they head back to their camp. After they leave, you emerge from your hiding place and [[continue on your journey.|Next Encounter]]
 
 
-::Save Woman from Bandits Sneak
+:: Save Woman from Bandits Sneak
 <<silently>>
 <<set $choices["sneak"] to $choices["sneak"]+1>>
 <<endsilently>>
@@ -159,7 +159,7 @@ Deciding not to intervene, you slip away unnoticed and [[continue on your journe
 
 
 
-:Save Woman from Bandits Talk Fail
+:: Save Woman from Bandits Talk Fail
 <<silently>>
 <<set $choices["talk"] to $choices["talk"]+1>>
 <<endsilently>>
@@ -171,7 +171,7 @@ You attempt to reason with the bandits, explaining that there is no need for vio
 [[Run away|Save Woman from Bandits Flee]]
 
 
-:Save Woman from Bandits Talk Succeed
+:: Save Woman from Bandits Talk Succeed
 <<silently>>
 <<set $choices["talk"] to $choices["talk"]+1>>
 <<endsilently>>
@@ -180,7 +180,7 @@ You attempt to reason with the bandits. "There's no need for violence here. She'
 [[Talk to the Woman|Save Woman from Bandits Loot]]
 
 
-:Save Woman from Bandits Bribe Fail
+:: Save Woman from Bandits Bribe Fail
 <<silently>>
 <<set $choices["bribe"] to $choices["bribe"]+1>>
 <<endsilently>>
@@ -192,27 +192,17 @@ You offer to give the bandits some treasure if they'll stop harassing the woman.
 [[Run away|Save Woman from Bandits Flee]]
 
 
-:Save Woman from Bandits Bribe Succeed
+:: Save Woman from Bandits Bribe Succeed
 <<silently>>
 <<set $choices["bribe"] to $choices["bribe"]+1>>
 <<endsilently>>
 You offer to give the bandits some treasure if they'll stop harassing the woman. "Alright, I'm listening," the leader of the group says. "What've you got for me?"
-\<<if $inventory["magicSword"] <= 0 and $inventory["magicBow"] <= 0 and $inventory["magicBook"] <= 0 and $inventory["gold"] < 3 >>
-\<<if $inventory["gold"] == 0>>
-You realize that you're out of gold and offer your weapons. The man scoffs. "Ooh, a rusty old sword. So tempting. No deal."
-\<<else>>
-You offer your gold. The man scoffs. "Really? That's all you've got? No deal."
-\<<endif>>
-\<<endif>>
-\<<if $inventory["magicSword"] > 0>>
-[[Offer a Magic Sword|Save Woman from Bandits Give Sword]]
-\<<endif>>
-\<<if $inventory["magicBow"] > 0>>
-[[Offer a Magic Bow|Save Woman from Bandits Give Bow]]
-\<<endif>>
-\<<if $inventory["magicBook"] > 0>>
-[[Offer a Magic Spell Tome|Save Woman from Bandits Give Magic]]
-\<<endif>>
+<<if $inventory["magicSword"] <= 0 and $inventory["magicBow"] <= 0 and $inventory["magicBook"] <= 0 and $inventory["gold"] < 3 >>
+<<if $inventory["gold"] == 0>>You realize that you're out of gold and offer your weapons. The man scoffs. "Ooh, a rusty old sword. So tempting. No deal."
+<<else>>You offer your gold. The man scoffs. "Really? That's all you've got? No deal."<<endif>><<endif>>
+<<if $inventory["magicSword"] > 0>>[[Offer a Magic Sword|Save Woman from Bandits Give Sword]]<<endif>>
+<<if $inventory["magicBow"] > 0>>[[Offer a Magic Bow|Save Woman from Bandits Give Bow]]<<endif>>
+<<if $inventory["magicBook"] > 0>>[[Offer a Magic Spell Tome|Save Woman from Bandits Give Magic]]<<endif>>
 <<if $inventory["gold"] > 2>> [[Offer 3 gold|Save Woman from Bandits Give gold]]<<endif>>
 <<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Save Woman from Bandits Sword Fight]] <<else>> [[Attack with your Rusty Sword|Save Woman from Bandits Sword Fight]] <<endif>>
 <<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Save Woman from Bandits Bow Fight]] <<else>> [[Attack with your Old Bow|Save Woman from Bandits Bow Fight]] <<endif>>
@@ -220,7 +210,7 @@ You offer your gold. The man scoffs. "Really? That's all you've got? No deal."
 <<if $encounter["talk"]>> [[Talk to the bandits|Save Woman from Bandits Talk Succeed]] <<else>> [[Talk to the bandits|Save Woman from Bandits Talk Fail]] <<endif>>
 
 
-:Save Woman from Bandits Give Gold
+:: Save Woman from Bandits Give Gold
 <<silently>>
 <<set $inventory["gold"] to $inventory["gold"]-3>>
 <<endsilently>>
@@ -229,7 +219,7 @@ You reach into your bag and hand over 3 gold coins. "Pleasure doing business wit
 
 [[Talk to the Woman|Save Woman from Bandits Loot]]
 
-:Save Woman from Bandits Give Sword
+:: Save Woman from Bandits Give Sword
 <<silently>>
 <<set $inventory["magicSword"] to $inventory["magicSword"]-1>>
 <<endsilently>>
@@ -239,7 +229,7 @@ You surrender your sword to the group's leader. "Pleasure doing business with yo
 [[Talk to the Woman|Save Woman from Bandits Loot]]
 
 
-:Save Woman from Bandits Give Bow
+:: Save Woman from Bandits Give Bow
 <<silently>>
 <<set $inventory["magicBow"] to $inventory["magicBow"]-1>>
 <<endsilently>>
@@ -249,7 +239,7 @@ You pull the bow off of your back and hand it over to the group's leader. "Pleas
 [[Talk to the Woman|Save Woman from Bandits Loot]]
 
 
-:Save Woman from Bandits Give Magic Book
+:: Save Woman from Bandits Give Magic Book
 <<silently>>
 <<set $inventory["magicBook"] to $inventory["magicBook"]-1>>
 <<endsilently>>
@@ -258,11 +248,11 @@ You reach into your bag and hand over your spell book. "Pleasure doing business 
 
 [[Talk to the Woman|Save Woman from Bandits Loot]]
 
-::Save Woman from Bandits Flee
+:: Save Woman from Bandits Flee
 <<set $choices["runAway"] to $choices["runAway"]+1>>
 You flee from the bandits and [[continue on your quest.|Next Encounter]]
 
-::Save Woman from Bandits Use Health Potion
+:: Save Woman from Bandits Use Health Potion
 <<silently>>
 <<set $inventory["healingPotion"] to $inventory["healingPotion"]-1>>
 <<set $player_health to 20>>
@@ -274,6 +264,6 @@ Stumbling away from your attacker, you manage to grab a healing potion from your
 <<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Save Woman from Bandits Magic Fight]] <<else>> [[Attack with a Weak Spell|Save Woman from Bandits Magic Fight]] <<endif>>
 [[Run away|Save Woman from Bandits Flee]]
 
-::Save Woman from Bandits Loot
-\<<set $inventory["magicBook"] to $inventory["magicBook"]+1>>
+:: Save Woman from Bandits Loot
+<<set $inventory["magicBook"] to $inventory["magicBook"]+1>>
 "Oh, thank you," the old woman says gratefully. "That was quite brave of you. You must let me repay you." She reaches into her bag and pulls out an old, worn spell book, insisting that you must take it. After seeing the woman safely home, you [[continue on your quest.|Next Encounter]]

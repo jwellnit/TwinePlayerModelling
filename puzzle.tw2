@@ -1,5 +1,5 @@
 ::Puzzle
-You enter a clearing and see a cave in the side of the cliff face – Bloomrane Cavern. As you approach, however, you see that the entrance to the cave is blocked by a large stone door with a face carved onto it. When you try to open the door, the face springs to life and the door speaks, "To enter the cavern and claim the treasure within, you must first answer my riddle."
+You enter a clearing and see a tunnel in the side of the cliff face. The road passes through here and there doesn't seem to be any way around. As you approach, however, you see that the entrance to the cave is blocked by a large stone door with a face carved onto it. When you try to open the door, the face springs to life and the door speaks, "To enter the cavern and claim the treasure within, you must first answer my riddle."
 
 <<if $inventory["magicSword"] > 0>> [[Attack the door with your Magic Sword|Puzzle Sword]] <<else>> [[Attack the door with your Rusty Sword|Puzzle Sword]] <<endif>>
 <<if $inventory["magicBow"] > 0>> [[Attack the door with your Magic Bow|Puzzle Bow]] <<else>> [[Attack the door with your Old Bow|Puzzle Bow]] <<endif>>
@@ -11,10 +11,10 @@ You enter a clearing and see a cave in the side of the cliff face – Bloomrane 
 ::Puzzle Sword
 <<silently>>
 <<set $choices["sword"] to $choices["sword"]+1>>
-<<if $inventory["magicBow"] > 0>>
-<<set $encounter["enemy_health"] to $encounter["enemy_health"] - $encounter["magic_bow_damage"]>>
+<<if $inventory["magicSword"] > 0>>
+<<set $encounter["enemy_health"] to $encounter["enemy_health"] - $encounter["magic_Sword_damage"]>>
 <<else>>
-<<set $encounter["enemy_health"] to $encounter["enemy_health"] - $encounter["bow_damage"]>>
+<<set $encounter["enemy_health"] to $encounter["enemy_health"] - $encounter["Sword_damage"]>>
 <<endif>>
 <<endsilently>>
 <<if $encounter["enemy_health"] <= 0>>
@@ -83,7 +83,7 @@ A gust of flame erupts from your hand and does absolutely nothing because this i
 <<silently>>
 <<set $choices["bribe"] to $choices["bribe"]+1>>
 <<endsilently>>
-You try to offer some of your treasure and items to the door. "I'm a stone door guarding vast treasure; what could you possibly offer me I would want?" it scoffs.
+You try to offer some of your treasure and items to the door. "I'm a stone door; what could you possibly offer me I would want?" it scoffs.
 
 <<if $inventory["magicSword"] > 0>> [[Attack the door with your Magic Sword|Puzzle Sword]] <<else>> [[Attack the door with your Rusty Sword|Puzzle Sword]] <<endif>>
 <<if $inventory["magicBow"] > 0>> [[Attack the door with your Magic Bow|Puzzle Bow]] <<else>> [[Attack the door with your Old Bow|Puzzle Bow]] <<endif>>
@@ -96,8 +96,8 @@ You try to offer some of your treasure and items to the door. "I'm a stone door 
 <<silently>>
 <<set $choices["bribe"] to $choices["bribe"]+1>>
 <<endsilently>>
-You try to offer some of your treasure and items to the door. "I'm a stone door guarding vast treasure. You're going to have to do better than that," it scoffs. Desperate, you take off the ring you've been wearing. It's a family heiroom, passed down for generations, and your most precious possession. You've worn it every day for as long as you can remember. You plead your case to the door; it contemplates your offer. "Alright, fine. If you want the treasure that badly, I'll let you through."
-[[Surrender your ring and enter the cavern|Win]]
+You try to offer some of your treasure and items to the door. "I'm a stone door. Why would I want anything you're offering me?," it scoffs. Desperate, you take off the ring you've been wearing. It's a family heiroom, passed down for generations, and your most precious possession. You've worn it every day for as long as you can remember. You plead your case to the door; it contemplates your offer. "Alright, fine. If you want to pass through that badly, I'll let you through."
+[[Surrender your ring and enter the cavern|Next Encounter]]
 <<if $inventory["magicSword"] > 0>> [[Attack the door with your Magic Sword|Puzzle Sword]] <<else>> [[Attack the door with your Rusty Sword|Puzzle Sword]] <<endif>>
 <<if $inventory["magicBow"] > 0>> [[Attack the door with your Magic Bow|Puzzle Bow]] <<else>> [[Attack the door with your Old Bow|Puzzle Bow]] <<endif>>
 <<if $inventory["magicBook"] > 0>> [[Attack the door with a Powerful Spell|Puzzle Magic]] <<else>> [[Attack the door with a Weak Spell|Puzzle Magic]] <<endif>>
@@ -152,7 +152,7 @@ You stay in the same position and wait. "Seriously, I can see you! I'm a door; I
 [[Enter the cavern|Next Encounter]]
 
 
-:Puzzle Wait Fail
+::Puzzle Wait Fail
 <<silently>>
 <<set $choices["wait"] to $choices["wait"]+1>>
 <<endsilently>>

@@ -24,11 +24,8 @@ $inventory["gold"] gold
 <<if $inventory["magicSword"] > 0>> Magic Sword <<else>> Rusty Sword <<endif>>
 <<if $inventory["magicBow"] > 0>> Magic Bow <<else>> Old Bow <<endif>>
 <<if $inventory["magicBook"] > 0>> Powerful Spell Book <<else>> Weak Spell Book <<endif>>
-\<<if $inventory["armor"] > 0>>
-$inventory["armor"] Armor
-\<<endif>>
-\<<if $inventory["healingPotion"] > 0>>
-$inventory["healingPotion"] Healing Potion<<if $inventory["healingPotion"] > 1>>s<<endif>> <<endif>>
+<<if $inventory["armor"] > 0>> $inventory["armor"] Armor <<endif>>
+<<if $inventory["healingPotion"] > 0>> $inventory["healingPotion"] Healing Potion<<if $inventory["healingPotion"] > 1>>s<<endif>><<endif>>
 
 
 :: StoryInit
@@ -50,7 +47,7 @@ $inventory["healingPotion"] Healing Potion<<if $inventory["healingPotion"] > 1>>
 <<set $choices["magicSword"] to 0>>
 <<set $choices["magicBow"] to 0>>
 <<set $choices["magicBook"] to 0>>
-<<set $choices["gold"] to 5>>
+<<set $choices["gold"] to 0>>
 <<set $choices["weapon"] to 0>>
 <<set $choices["sword"] to 0>>
 <<set $choices["bow"] to 0>>
@@ -668,6 +665,7 @@ You see the yawning mouth of a cave up ahead!
 <<set $encounter1["magic_book_damage"] to 2*$encounter1["magic_damage"]>>
 
 <<if $encounter1["type"] is "puzzle">>
+<<set $enemy_health to 1>>
 <<set $encounter1["sword_damage"] to 0>>
 <<set $encounter1["bow_damage"] to 0>>
 <<set $encounter1["magic_damage"] to 0>>
@@ -698,6 +696,7 @@ You see the yawning mouth of a cave up ahead!
 <<set $encounter2["magic_book_damage"] to 2*$encounter2["magic_damage"]>>
 
 <<if $encounter2["type"] is "puzzle">>
+<<set $enemy_health to 1>>
 <<set $encounter2["sword_damage"] to 0>>
 <<set $encounter2["bow_damage"] to 0>>
 <<set $encounter2["magic_damage"] to 0>>
