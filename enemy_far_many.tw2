@@ -453,7 +453,13 @@ You take the gold and continue on your journey.
 [[Offer a Magic Spell Tome|Enemy Far Many Give Magic]]
 \<<endif>>
 <<if $inventory["gold"] > 0>> [[Offer gold|Enemy Far Many Give gold]]<<endif>>
+<<if $inventory["magicSword"] <= 0 and $inventory["magicBow"] <= 0 and $inventory["magicBook"] <= 0 and $inventory["gold"] <= 0 >>
+You check your pockets and realize that you have nothing of value to offer.
+<<endif>>
 <<if $encounter["talk"]>> [[Try to speak to the $encounter["enemy"]|Enemy Far Many Talk Succeed]] <<else>> [[Try to speak to the $encounter["enemy"]|Enemy Far Many Talk Fail]] <<endif>>
+<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Enemy Far Many Magic Sword Fight]] <<else>> [[Attack with your Rusty Sword|Enemy Far Many Sword Fight]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Enemy Far Many Magic Bow Fight]] <<else>> [[Attack with your Old Bow|Enemy Far Many Bow Fight]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Enemy Far Many Magic Book Fight]] <<else>> [[Attack with a Weak Spell|Enemy Far Many Magic Fight]] <<endif>>
 
 :: Enemy Far Many Give Give Sword
 <<silently>>

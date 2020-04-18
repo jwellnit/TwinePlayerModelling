@@ -1,5 +1,5 @@
 ::Save Woman from Bandits
-While walking through the woods, you suddenly hear a woman yelling for help. You decide to investigate, following the sound of the woman's screams, until you find a gang of five men in leather armor brandishing their swords at an eldery woman. "Come on now, you must have something of value in that bag of yours. Hand it over, and nobody needs to get hurt," one bandit says.
+While walking through the woods, you suddenly hear a woman yelling for help. You decide to investigate, following the sound of the woman's screams, until you find a gang of five men in leather armor brandishing their swords at an elderly woman. "Come on now, you must have something of value in that bag of yours. Hand it over, and nobody needs to get hurt," one bandit says.
 
 <<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Save Woman from Bandits Sword Fight]] <<else>> [[Attack with your Rusty Sword|Save Woman from Bandits Sword Fight]] <<endif>>
 <<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Save Woman from Bandits Bow Fight]] <<else>> [[Attack with your Old Bow|Save Woman from Bandits Bow Fight]] <<endif>>
@@ -158,6 +158,7 @@ You remain hidden behind the tree. The old woman surrenders her satchel to the b
 Deciding not to intervene, you slip away unnoticed and [[continue on your journey|Next Encounter]]
 
 
+
 :Save Woman from Bandits Talk Fail
 <<silently>>
 <<set $choices["talk"] to $choices["talk"]+1>>
@@ -196,6 +197,13 @@ You offer to give the bandits some treasure if they'll stop harassing the woman.
 <<set $choices["bribe"] to $choices["bribe"]+1>>
 <<endsilently>>
 You offer to give the bandits some treasure if they'll stop harassing the woman. "Alright, I'm listening," the leader of the group says. "What've you got for me?"
+\<<if $inventory["magicSword"] <= 0 and $inventory["magicBow"] <= 0 and $inventory["magicBook"] <= 0 and $inventory["gold"] < 3 >>
+\<<if $inventory["gold"] == 0>>
+You realize that you're out of gold and offer your weapons. The man scoffs. "Ooh, a rusty old sword. So tempting. No deal."
+\<<else>>
+You offer your gold. The man scoffs. "Really? That's all you've got? No deal."
+\<<endif>>
+\<<endif>>
 \<<if $inventory["magicSword"] > 0>>
 [[Offer a Magic Sword|Save Woman from Bandits Give Sword]]
 \<<endif>>
@@ -206,6 +214,11 @@ You offer to give the bandits some treasure if they'll stop harassing the woman.
 [[Offer a Magic Spell Tome|Save Woman from Bandits Give Magic]]
 \<<endif>>
 <<if $inventory["gold"] > 2>> [[Offer 3 gold|Save Woman from Bandits Give gold]]<<endif>>
+<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Save Woman from Bandits Sword Fight]] <<else>> [[Attack with your Rusty Sword|Save Woman from Bandits Sword Fight]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Save Woman from Bandits Bow Fight]] <<else>> [[Attack with your Old Bow|Save Woman from Bandits Bow Fight]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Save Woman from Bandits Magic Fight]] <<else>> [[Attack with a Weak Spell|Save Woman from Bandits Magic Fight]] <<endif>>
+<<if $encounter["talk"]>> [[Talk to the bandits|Save Woman from Bandits Talk Succeed]] <<else>> [[Talk to the bandits|Save Woman from Bandits Talk Fail]] <<endif>>
+
 
 :Save Woman from Bandits Give Gold
 <<silently>>

@@ -363,8 +363,12 @@ You jingle your bag, trying to catch the $encounter["enemy"] attention. You had 
 <<set $choices["bribe"] to $choices["bribe"]+1>>
 <<endsilently>>
 
-You jingle your bag, trying to catch the $encounter["enemy"] attention. Their eyes affix to the source of the sound. You get the idea that if you threw something, they would chase after it, allowing you to pass.
-
+You jingle your bag, trying to catch the $encounter["enemy"] attention.
+\<<if $inventory["magicSword"] <= 0 and $inventory["magicBow"] <= 0 and $inventory["magicBook"] <= 0 and $inventory["gold"] <= 0 >>
+It makes no sound. You realize you don't have any gold left.
+\<<else>>
+\Their eyes affix to the source of the sound. You get the idea that if you threw something, they would chase after it, allowing you to pass.
+\<<endif>>
 \<<if $inventory["magicSword"] > 0>>
 [[Throw a Magic Sword|Enemy Near Many Give Sword]]
 \<<endif>>
@@ -376,6 +380,9 @@ You jingle your bag, trying to catch the $encounter["enemy"] attention. Their ey
 \<<endif>>
 <<if $inventory["gold"] > 0>> [[Throw some gold|Enemy Near Many Give gold]]<<endif>>
 <<if $encounter["talk"]>> [[Try to shoo away the $encounter["enemy"]|Enemy Near Many Talk Succeed]] <<else>> [[Try to shoo away the $encounter["enemy"]|Enemy Near Many Talk Fail]] <<endif>>
+<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Enemy Near Many Magic Sword Fight]] <<else>> [[Attack with your Rusty Sword|Enemy Near Many Sword Fight]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Enemy Near Many Magic Bow Fight]] <<else>> [[Attack with your Old Bow|Enemy Near Many Bow Fight]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Enemy Near Many Magic Book Fight]] <<else>> [[Attack with a Weak Spell|Enemy Near Many Magic Fight]] <<endif>>
 
 :: Enemy Near Many Give Sword
 <<silently>>

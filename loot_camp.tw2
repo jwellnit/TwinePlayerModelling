@@ -265,6 +265,13 @@ You attempt to sneak away, but you accidentally knock over a stack of canned goo
 <<set $choices["bribe"] to $choices["bribe"]+1>>
 <<endsilently>>
 You offer the bandits some treasure if they allow you to go on your way. "Alright then," one man, the apparent leader of the group, says. "What're you offering?"
+\<<if $inventory["magicSword"] <= 0 and $inventory["magicBow"] <= 0 and $inventory["magicBook"] <= 0 and $inventory["gold"] < 3 >>
+\<<if $inventory["gold"] == 0>>
+You realize that you're out of gold and offer your weapons. The man scoffs. "Ooh, a rusty old sword. So tempting. No deal."
+\<<else>>
+You offer your gold. The man scoffs. "Really? That's all you've got? No deal."
+\<<endif>>
+\<<endif>>
 \<<if $inventory["magicSword"] > 0>>
 [[Offer a Magic Sword|Camp Give Sword]]
 \<<endif>>
@@ -275,6 +282,9 @@ You offer the bandits some treasure if they allow you to go on your way. "Alrigh
 [[Offer a Magic Spell Tome|Camp Give Magic]]
 \<<endif>>
 <<if $inventory["gold"] > 2>> [[Offer 3 gold|Camp Give gold]]<<endif>>
+<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Camp Sword Fight]] <<else>> [[Attack with your Rusty Sword|Camp Sword Fight]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Camp Bow Fight]] <<else>> [[Attack with your Old Bow|Camp Bow Fight]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Camp Magic Fight]] <<else>> [[Attack with a Weak Spell|Camp Magic Fight]] <<endif>>
 
 ::Camp Give Sword
 <<silently>>

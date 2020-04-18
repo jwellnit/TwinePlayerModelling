@@ -418,6 +418,12 @@ You walk up to the $encounter["enemy"] and ask if she'd like to trade for passag
 [[Offer a Magic Spell Tome|Enemy Far Few Give Magic]]
 \<<endif>>
 <<if $inventory["gold"] > 0>> [[Offer gold|Enemy Far Few Give gold]]<<endif>>
+<<if $inventory["magicSword"] <= 0 and $inventory["magicBow"] <= 0 and $inventory["magicBook"] <= 0 and $inventory["gold"] <= 0 >>
+You check your pockets and realize that you have nothing of value to offer.
+<<endif>>
+<<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Enemy Far Few Magic Sword Fight]] <<else>> [[Attack with your Rusty Sword|Enemy Far Few Sword Fight]] <<endif>>
+<<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Enemy Far Few Magic Bow Fight]] <<else>> [[Attack with your Old Bow|Enemy Far Few Bow Fight]] <<endif>>
+<<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Enemy Far Few Magic Book Fight]] <<else>> [[Attack with a Weak Spell|Enemy Far Few Magic Fight]] <<endif>>
 <<if $encounter["talk"]>> [[Try to speak to the $encounter["enemy"]|Enemy Far Few Talk Succeed]] <<else>> [[Try to speak to the $encounter["enemy"]|Enemy Far Few Talk Fail]] <<endif>>
 
 :: Enemy Far Few Give Give Sword
@@ -552,4 +558,3 @@ You wait for an hour but it doesn't seem like the $encounter["enemy"] is going a
 <<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Enemy Far Few Magic Book Fight]] <<else>> [[Attack with a Weak Spell|Enemy Far Few Magic Fight]] <<endif>>
 <<if $encounter["talk"]>> [[Try to speak to the $encounter["enemy"]|Enemy Far Few Talk Succeed]] <<else>> [[Try to speak to the $encounter["enemy"]|Enemy Far Few Talk Fail]] <<endif>>
 <<if $encounter["bribe"]>> [[Try to bribe the $encounter["enemy"] to let you pass|Enemy Far Few Bribe Succeed]] <<else>> [[Try to bribe to the $encounter["enemy"] to let you pass|Enemy Far Few Bribe Fail]] <<endif>>
-
