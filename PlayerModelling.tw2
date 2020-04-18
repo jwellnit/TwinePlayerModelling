@@ -1362,7 +1362,7 @@ You see the yawning mouth of a cave up ahead!
 Before you is a fork in the road. Both paths will bring you closer to your destination.
 
 To the left <<if $encounter1["type"] is "enemy_near_few">>
-you see a large figure bloacking your path just ahead.
+you see a large figure blocking your path just ahead.
 <<elseif $encounter1["type"] is "enemy_near_many">>
 you hear rustling and growling around a bend in the road.
 <<elseif $encounter1["type"] is "enemy_far_few">>
@@ -1372,7 +1372,7 @@ you hear a loud commotion coming from down the road.
 <<elseif $encounter1["type"] is "town_shop">>
 you see a sign indicating there is a town ahead.
 <<elseif $encounter1["type"] is "help">>
-you hear a cry for help coming form down the road.
+you hear a cry for help coming from down the road.
 <<elseif $encounter1["type"] is "loot">>
 you see signs of a camp of some sort nearby.
 <<else>>
@@ -1390,7 +1390,7 @@ you hear a loud commotion coming from down the road.
 <<elseif $encounter2["type"] is "town_shop">>
 you see a sign indicating there is a town ahead.
 <<elseif $encounter2["type"] is "help">>
-you hear a cry for help coming form down the road.
+you hear a cry for help coming from down the road.
 <<elseif $encounter2["type"] is "loot">>
 you see signs of a camp of some sort nearby.
 <<else>>

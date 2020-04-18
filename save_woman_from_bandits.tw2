@@ -1,5 +1,5 @@
 ::Save Woman from Bandits
-While walking through the woods, you suddenly hear a woman yelling for help. You decide to investigate, following the sound of the woman's screams, until you find a gang of five men in leather armor brandishing their swords at an elderly woman. "Come on now, you must have something of value in that bag of yours. Hand it over, and nobody needs to get hurt," one bandit says.
+You decide to investigate the cry for help, following the sound of the woman's screams, until you find a gang of five men in leather armor brandishing their swords at an elderly woman. "Come on now, you must have something of value in that bag of yours. Hand it over, and nobody needs to get hurt," one bandit says.
 
 <<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Save Woman from Bandits Sword Fight]] <<else>> [[Attack with your Rusty Sword|Save Woman from Bandits Sword Fight]] <<endif>>
 <<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Save Woman from Bandits Bow Fight]] <<else>> [[Attack with your Old Bow|Save Woman from Bandits Bow Fight]] <<endif>>

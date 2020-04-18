@@ -1,6 +1,6 @@
 :: Loot Camp Start
 <<set $choices["loot"] to $choices["loot"]+1>>
-You begin searching through the camp. After rummaging around for a few minutes, you open a crate full of weapons. There's also a small coin pouch.
+You come across a small campsite--several tents, crates and sacks of supplies, and a still-smoldering campfire--but no one seems to be around. You've heard rumors of a group of bandits living in the area. You decide you may as well take advantage of the outlaws' temporary absence and see whether they have any useful supplies you could "borrow." You begin searching through the camp. After rummaging around for a few minutes, you open a crate full of weapons. There's also a small coin pouch.
 
 [[Pick up the Magic Sword.|Camp Loot Sword]]
 [[Pick up the Magic Bow.|Camp Loot Bow]]
