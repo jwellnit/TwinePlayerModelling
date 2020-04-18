@@ -65,7 +65,7 @@ var LZString={_keyStr:"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz01234
 		<p id="init-lacking">Apologies! Your web browser lacks required capabilities. Please consider upgrading it or switching to a more modern web browser.</p>
 		<p id="init-loading">Initializing. Please wait&hellip;<br /><progress></progress></p>
 	</div>
-	<div id="store-area" hidden><tw-storydata name="The Lost Treasure of Bloomrane Cavern (Path 1)" startnode="2" creator="Twee2" creator-version="0.5.0" ifid="506a4b86-9a58-4567-9335-e6578d528d6c" format="SugarCube" options=""><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">#menu-core {
+	<div id="store-area" hidden><tw-storydata name="The Lost Treasure of Bloomrane Cavern (Path 1)" startnode="2" creator="Twee2" creator-version="0.5.0" ifid="ad2738ad-75d7-4901-87ab-cce0a6010bc7" format="SugarCube" options=""><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">#menu-core {
 	display: none;
 }
 </style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="StoryInit" tags="" position="">&lt;&lt;set $encounters to 0&gt;&gt;
@@ -160,8 +160,8 @@ You are a brave adventurer, seeking fame and fortune by finding the lost gold of
 
 [[Continue forward.|Next Encounter]]</tw-passagedata><tw-passagedata pid="3" name="Next Encounter" tags="" position="">&lt;&lt;silently&gt;&gt;
 
-&lt;&lt;set $encounter1["type"] to "town_shop"&gt;&gt;
-&lt;&lt;set $encounter2["type"] to "puzzle"&gt;&gt;
+&lt;&lt;set $encounter1["type"] to "enemy_near_few"&gt;&gt;
+&lt;&lt;set $encounter2["type"] to "enemy_near_many"&gt;&gt;
 
 &lt;&lt;set $total to 0&gt;&gt;
 &lt;&lt;set $encounter1["talk"] to false&gt;&gt;
@@ -201,7 +201,7 @@ You are a brave adventurer, seeking fame and fortune by finding the lost gold of
 &lt;&lt;endif&gt;&gt;
 &lt;&lt;set $total to $wait_stop&gt;&gt;
 
-&lt;&lt;set $roll to random($total)&gt;&gt;
+&lt;&lt;set $roll to Math.random()*$total&gt;&gt;
 
 &lt;&lt;if $roll &lt; $talk_stop&gt;&gt;
 &lt;&lt;set $encounter1["talk"] to true&gt;&gt;
@@ -259,7 +259,7 @@ You are a brave adventurer, seeking fame and fortune by finding the lost gold of
 &lt;&lt;set $total to $wait_stop&gt;&gt;
 &lt;&lt;endif&gt;&gt;
 
-&lt;&lt;set $roll to random($total)&gt;&gt;
+&lt;&lt;set $roll to Math.random()*$total&gt;&gt;
 
 &lt;&lt;if $roll &lt; $talk_stop&gt;&gt;
 &lt;&lt;set $encounter1["talk"] to true&gt;&gt;
@@ -318,7 +318,7 @@ You are a brave adventurer, seeking fame and fortune by finding the lost gold of
 &lt;&lt;set $total to $wait_stop&gt;&gt;
 &lt;&lt;endif&gt;&gt;
 
-&lt;&lt;set $roll to random($total)&gt;&gt;
+&lt;&lt;set $roll to Math.random()*$total&gt;&gt;
 
 &lt;&lt;if $roll &lt; $talk_stop&gt;&gt;
 &lt;&lt;set $encounter1["talk"] to true&gt;&gt;
@@ -361,7 +361,7 @@ You are a brave adventurer, seeking fame and fortune by finding the lost gold of
 &lt;&lt;endif&gt;&gt;
 &lt;&lt;set $total to $wait_stop&gt;&gt;
 
-&lt;&lt;set $roll to random($total)&gt;&gt;
+&lt;&lt;set $roll to Math.random()*$total&gt;&gt;
 
 &lt;&lt;if $roll &lt; $talk_stop&gt;&gt;
 &lt;&lt;set $encounter2["talk"] to true&gt;&gt;
@@ -419,7 +419,7 @@ You are a brave adventurer, seeking fame and fortune by finding the lost gold of
 &lt;&lt;set $total to $wait_stop&gt;&gt;
 &lt;&lt;endif&gt;&gt;
 
-&lt;&lt;set $roll to random($total)&gt;&gt;
+&lt;&lt;set $roll to Math.random()*$total&gt;&gt;
 
 &lt;&lt;if $roll &lt; $talk_stop&gt;&gt;
 &lt;&lt;set $encounter2["talk"] to true&gt;&gt;
@@ -478,7 +478,7 @@ You are a brave adventurer, seeking fame and fortune by finding the lost gold of
 &lt;&lt;set $total to $wait_stop&gt;&gt;
 &lt;&lt;endif&gt;&gt;
 
-&lt;&lt;set $roll to random($total)&gt;&gt;
+&lt;&lt;set $roll to Math.random()*$total&gt;&gt;
 
 &lt;&lt;if $roll &lt; $talk_stop&gt;&gt;
 &lt;&lt;set $encounter2["talk"] to true&gt;&gt;
@@ -547,66 +547,66 @@ You are a brave adventurer, seeking fame and fortune by finding the lost gold of
 
 &lt;&lt;set $total to 0&gt;&gt;
 
-&lt;&lt;if $encounter["loot_1"] is "magicSword"&gt;&gt;
+&lt;&lt;if $encounter["loot_1"] is "Magic Sword"&gt;&gt;
 &lt;&lt;set $sword_stop to $total + $player_model["magicSword"]/2&gt;&gt;
 &lt;&lt;else&gt;&gt;
 &lt;&lt;set $sword_stop to $total + $player_model["magicSword"]&gt;&gt;
 &lt;&lt;endif&gt;&gt;
 &lt;&lt;set $total to $sword_stop&gt;&gt;
 
-&lt;&lt;if $encounter["loot_1"] is "magicBow"&gt;&gt;
+&lt;&lt;if $encounter["loot_1"] is "Magic Bow"&gt;&gt;
 &lt;&lt;set $bow_stop to $total + $player_model["magicBow"]/2&gt;&gt;
 &lt;&lt;else&gt;&gt;
 &lt;&lt;set $bow_stop to $total + $player_model["magicBow"]&gt;&gt;
 &lt;&lt;endif&gt;&gt;
 &lt;&lt;set $total to $bow_stop&gt;&gt;
 
-&lt;&lt;if $encounter["loot_1"] is "magicBook"&gt;&gt;
+&lt;&lt;if $encounter["loot_1"] is "Magic Book"&gt;&gt;
 &lt;&lt;set $book_stop to $total + $player_model["magicBook"]/2&gt;&gt;
 &lt;&lt;else&gt;&gt;
 &lt;&lt;set $book_stop to $total + $player_model["magicBook"]&gt;&gt;
 &lt;&lt;endif&gt;&gt;
 &lt;&lt;set $total to $book_stop&gt;&gt;
 
-&lt;&lt;set $roll to random($total)&gt;&gt;
+&lt;&lt;set $roll to Math.random()*$total&gt;&gt;
 &lt;&lt;if $roll &lt; $sword_stop&gt;&gt;
-&lt;&lt;set $encounter1["loot_1"] to "magicSword"&gt;&gt;
+&lt;&lt;set $encounter1["loot_1"] to "Magic Sword"&gt;&gt;
 &lt;&lt;elseif $roll &lt; $bow_stop&gt;&gt;
-&lt;&lt;set $encounter1["loot_1"] to "magicBow"&gt;&gt;
+&lt;&lt;set $encounter1["loot_1"] to "Magic Bow"&gt;&gt;
 &lt;&lt;else&gt;&gt;
-&lt;&lt;set $encounter1["loot_1"] to "magicBook"&gt;&gt;
+&lt;&lt;set $encounter1["loot_1"] to "Magic Book"&gt;&gt;
 &lt;&lt;endif&gt;&gt;
 
 &lt;&lt;set $total to 0&gt;&gt;
 
-&lt;&lt;if $encounter["loot_1"] is "magicSword"&gt;&gt;
+&lt;&lt;if $encounter["loot_1"] is "Magic Sword"&gt;&gt;
 &lt;&lt;set $sword_stop to $total + $player_model["magicSword"]/2&gt;&gt;
 &lt;&lt;else&gt;&gt;
 &lt;&lt;set $sword_stop to $total + $player_model["magicSword"]&gt;&gt;
 &lt;&lt;endif&gt;&gt;
 &lt;&lt;set $total to $sword_stop&gt;&gt;
 
-&lt;&lt;if $encounter["loot_1"] is "magicBow"&gt;&gt;
+&lt;&lt;if $encounter["loot_1"] is "Magic Bow"&gt;&gt;
 &lt;&lt;set $bow_stop to $total + $player_model["magicBow"]/2&gt;&gt;
 &lt;&lt;else&gt;&gt;
 &lt;&lt;set $bow_stop to $total + $player_model["magicBow"]&gt;&gt;
 &lt;&lt;endif&gt;&gt;
 &lt;&lt;set $total to $bow_stop&gt;&gt;
 
-&lt;&lt;if $encounter["loot_1"] is "magicBook"&gt;&gt;
+&lt;&lt;if $encounter["loot_1"] is "Magic Book"&gt;&gt;
 &lt;&lt;set $book_stop to $total + $player_model["magicBook"]/2&gt;&gt;
 &lt;&lt;else&gt;&gt;
 &lt;&lt;set $book_stop to $total + $player_model["magicBook"]&gt;&gt;
 &lt;&lt;endif&gt;&gt;
 &lt;&lt;set $total to $book_stop&gt;&gt;
 
-&lt;&lt;set $roll to random($total)&gt;&gt;
+&lt;&lt;set $roll to Math.random()*$total&gt;&gt;
 &lt;&lt;if $roll &lt; $sword_stop&gt;&gt;
-&lt;&lt;set $encounter2["loot_1"] to "magicSword"&gt;&gt;
+&lt;&lt;set $encounter2["loot_1"] to "Magic Sword"&gt;&gt;
 &lt;&lt;elseif $roll &lt; $bow_stop&gt;&gt;
-&lt;&lt;set $encounter2["loot_1"] to "magicBow"&gt;&gt;
+&lt;&lt;set $encounter2["loot_1"] to "Magic Bow"&gt;&gt;
 &lt;&lt;else&gt;&gt;
-&lt;&lt;set $encounter2["loot_1"] to "magicBook"&gt;&gt;
+&lt;&lt;set $encounter2["loot_1"] to "Magic Book"&gt;&gt;
 &lt;&lt;endif&gt;&gt;
 
 &lt;&lt;if $encounter1["type"] is "enemy_near_few"&gt;&gt;
@@ -1054,8 +1054,8 @@ You round a bend in the road to find a group of $encounter["enemy_description"].
 &lt;&lt;if $inventory["magicSword"] &gt; 0&gt;&gt; [[Attack with your Magic Sword|Enemy Near Many Magic Sword Fight]] &lt;&lt;else&gt;&gt; [[Attack with your Rusty Sword|Enemy Near Many Sword Fight]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory["magicBow"] &gt; 0&gt;&gt; [[Attack with your Magic Bow|Enemy Near Many Magic Bow Fight]] &lt;&lt;else&gt;&gt; [[Attack with your Old Bow|Enemy Near Many Bow Fight]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory["magicBook"] &gt; 0&gt;&gt; [[Attack with a Powerful Spell|Enemy Near Many Magic Book Fight]] &lt;&lt;else&gt;&gt; [[Attack with a Weak Spell|Enemy Near Many Magic Fight]] &lt;&lt;endif&gt;&gt;
-&lt;&lt;if $encounter["talk"]&gt;&gt; [[Try to shoo away the $encounter["enemy"]|Enemy Near Many Talk Succeed]] &lt;&lt;else&gt;&gt; [[Try to shoo away the $encounter["enemy"]|Enemy Near Many Talk Fail]] &lt;&lt;endif&gt;&gt;
-&lt;&lt;if $encounter["bribe"]&gt;&gt; [[Try to distract the $encounter["enemy"] to let you pass|Enemy Near Many Bribe Succeed]] &lt;&lt;else&gt;&gt; [[Try to distract to the $encounter["enemy"] to let you pass|Enemy Near Many Bribe Fail]] &lt;&lt;endif&gt;&gt;
+&lt;&lt;if $encounter["talk"]&gt;&gt; [["Try to shoo away the " + $encounter["enemy"]|Enemy Near Many Talk Succeed]] &lt;&lt;else&gt;&gt; [["Try to shoo away the " + $encounter["enemy"]|Enemy Near Many Talk Fail]] &lt;&lt;endif&gt;&gt;
+&lt;&lt;if $encounter["bribe"]&gt;&gt; [["Try to distract the " + $encounter["enemy"]|Enemy Near Many Bribe Succeed]] &lt;&lt;else&gt;&gt; [["Try to distract the " + $encounter["enemy"]|Enemy Near Many Bribe Fail]] &lt;&lt;endif&gt;&gt;
 [[Try to hide in the bushes before they see you|Enemy Near Many Hide]]</tw-passagedata><tw-passagedata pid="8" name="Enemy Near Many Sword Fight" tags="" position="">&lt;&lt;silently&gt;&gt;
 &lt;&lt;set $choices["sword"] to $choices["sword"]+1&gt;&gt;
 &lt;&lt;set $encounter["enemy_health"] to $encounter["enemy_health"] - $encounter["sword_damage"]&gt;&gt;
@@ -1298,8 +1298,8 @@ Stumbling away from your attacker, you manage to grab a healing potion from your
 [[Run away|Enemy Near Many Flee]]</tw-passagedata><tw-passagedata pid="17" name="Enemy Near Many Flee" tags="" position="">&lt;&lt;set $choices["runAway"] to $choices["runAway"]+1&gt;&gt;
 You flee from the $encounter["enemy"] and [[continue on your quest.|Next Encounter]]</tw-passagedata><tw-passagedata pid="18" name="Enemy Near Many Loot" tags="" position="">Amongst the treasure, you find a $encounter["loot_1"] and $encounter["gold_amount"] Gold Pieces. Your pack is getting heavy and you can only carry one. Which do you take?
 
-[[Take the $encounter["loot_1"]|Enemy Near Many Loot 1]]
-[[Take the $encounter["gold_amount"] Gold Pieces|Enemy Near Many Loot 2]]</tw-passagedata><tw-passagedata pid="19" name="Enemy Near Many Loot 1" tags="" position="">&lt;&lt;if $encounter["loot_1"] == "Magic Sword"&gt;&gt;
+[["Take the " + $encounter["loot_1"]|Enemy Near Many Loot 1]]
+[["Take the " + $encounter["gold_amount"] + " Gold Pieces"|Enemy Near Many Loot 2]]</tw-passagedata><tw-passagedata pid="19" name="Enemy Near Many Loot 1" tags="" position="">&lt;&lt;if $encounter["loot_1"] == "Magic Sword"&gt;&gt;
 &lt;&lt;silently&gt;&gt;
 &lt;&lt;set $inventory["magicSword"] to $inventory["magicSword"]+1&gt;&gt;
 &lt;&lt;set $choices["weapon"] to $choices["weapon"]+1 &gt;&gt;
@@ -1338,7 +1338,7 @@ You rush up to the $encounter["enemy"] and make loud noises, trying to look big 
 &lt;&lt;if $inventory["magicSword"] &gt; 0&gt;&gt; [[Attack with your Magic Sword|Enemy Near Many Magic Sword Fight]] &lt;&lt;else&gt;&gt; [[Attack with your Rusty Sword|Enemy Near Many Sword Fight]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory["magicBow"] &gt; 0&gt;&gt; [[Attack with your Magic Bow|Enemy Near Many Magic Bow Fight]] &lt;&lt;else&gt;&gt; [[Attack with your Old Bow|Enemy Near Many Bow Fight]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory["magicBook"] &gt; 0&gt;&gt; [[Attack with a Powerful Spell|Enemy Near Many Magic Book Fight]] &lt;&lt;else&gt;&gt; [[Attack with a Weak Spell|Enemy Near Many Magic Fight]] &lt;&lt;endif&gt;&gt;
-&lt;&lt;if $encounter["bribe"]&gt;&gt; [[Try to distract the $encounter["enemy"] to let you pass|Enemy Near Many Bribe Succeed]] &lt;&lt;else&gt;&gt; [[Try to distract to the $encounter["enemy"] to let you pass|Enemy Near Many Bribe Fail]] &lt;&lt;endif&gt;&gt;</tw-passagedata><tw-passagedata pid="22" name="Enemy Near Many Talk Succeed" tags="" position="">&lt;&lt;silently&gt;&gt;
+&lt;&lt;if $encounter["bribe"]&gt;&gt; [["Try to distract the " + $encounter["enemy"]|Enemy Near Many Bribe Succeed]] &lt;&lt;else&gt;&gt; [["Try to distract the " + $encounter["enemy"]|Enemy Near Many Bribe Fail]] &lt;&lt;endif&gt;&gt;</tw-passagedata><tw-passagedata pid="22" name="Enemy Near Many Talk Succeed" tags="" position="">&lt;&lt;silently&gt;&gt;
 &lt;&lt;set $choices["talk"] to $choices["talk"]+1&gt;&gt;
 &lt;&lt;endsilently&gt;&gt;
 
@@ -1353,23 +1353,17 @@ You jingle your bag, trying to catch the $encounter["enemy"] attention. You had 
 &lt;&lt;if $inventory["magicSword"] &gt; 0&gt;&gt; [[Attack with your Magic Sword|Enemy Near Many Magic Sword Fight]] &lt;&lt;else&gt;&gt; [[Attack with your Rusty Sword|Enemy Near Many Sword Fight]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory["magicBow"] &gt; 0&gt;&gt; [[Attack with your Magic Bow|Enemy Near Many Magic Bow Fight]] &lt;&lt;else&gt;&gt; [[Attack with your Old Bow|Enemy Near Many Bow Fight]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory["magicBook"] &gt; 0&gt;&gt; [[Attack with a Powerful Spell|Enemy Near Many Magic Book Fight]] &lt;&lt;else&gt;&gt; [[Attack with a Weak Spell|Enemy Near Many Magic Fight]] &lt;&lt;endif&gt;&gt;
-&lt;&lt;if $encounter["talk"]&gt;&gt; [[Try to shoo away the $encounter["enemy"]|Enemy Near Many Talk Succeed]] &lt;&lt;else&gt;&gt; [[Try to shoo away the $encounter["enemy"]|Enemy Near Many Talk Fail]] &lt;&lt;endif&gt;&gt;</tw-passagedata><tw-passagedata pid="24" name="Enemy Near Many Bribe Succeed" tags="" position="">&lt;&lt;silently&gt;&gt;
+&lt;&lt;if $encounter["talk"]&gt;&gt; [["Try to shoo away the " + $encounter["enemy"]|Enemy Near Many Talk Succeed]] &lt;&lt;else&gt;&gt; [["Try to shoo away the " + $encounter["enemy"]|Enemy Near Many Talk Fail]] &lt;&lt;endif&gt;&gt;</tw-passagedata><tw-passagedata pid="24" name="Enemy Near Many Bribe Succeed" tags="" position="">&lt;&lt;silently&gt;&gt;
 &lt;&lt;set $choices["bribe"] to $choices["bribe"]+1&gt;&gt;
 &lt;&lt;endsilently&gt;&gt;
 
 You jingle your bag, trying to catch the $encounter["enemy"] attention. Their eyes affix to the source of the sound. You get the idea that if you threw something, they would chase after it, allowing you to pass.
 
-{{STORY_DATA}}lt;&lt;if $inventory["magicSword"] &gt; 0&gt;&gt;
-[[Throw a Magic Sword|Enemy Near Many Give Sword]]
-{{STORY_DATA}}lt;&lt;endif&gt;&gt;
-{{STORY_DATA}}lt;&lt;if $inventory["magicBow"] &gt; 0&gt;&gt;
-[[Throw a Magic Bow|Enemy Near Many Give Bow]]
-{{STORY_DATA}}lt;&lt;endif&gt;&gt;
-{{STORY_DATA}}lt;&lt;if $inventory["magicBook"] &gt; 0&gt;&gt;
-[[Throw a Magic Spell Tome|Enemy Near Many Give Magic]]
-{{STORY_DATA}}lt;&lt;endif&gt;&gt;
+&lt;&lt;if $inventory["magicSword"] &gt; 0&gt;&gt;[[Throw a Magic Sword|Enemy Near Many Give Sword]]&lt;&lt;endif&gt;&gt;
+&lt;&lt;if $inventory["magicBow"] &gt; 0&gt;&gt;[[Throw a Magic Bow|Enemy Near Many Give Bow]]&lt;&lt;endif&gt;&gt;
+&lt;&lt;if $inventory["magicBook"] &gt; 0&gt;&gt;[[Throw a Magic Spell Tome|Enemy Near Many Give Magic]]&lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory["gold"] &gt; 0&gt;&gt; [[Throw some gold|Enemy Near Many Give gold]]&lt;&lt;endif&gt;&gt;
-&lt;&lt;if $encounter["talk"]&gt;&gt; [[Try to shoo away the $encounter["enemy"]|Enemy Near Many Talk Succeed]] &lt;&lt;else&gt;&gt; [[Try to shoo away the $encounter["enemy"]|Enemy Near Many Talk Fail]] &lt;&lt;endif&gt;&gt;</tw-passagedata><tw-passagedata pid="25" name="Enemy Near Many Give Sword" tags="" position="">&lt;&lt;silently&gt;&gt;
+&lt;&lt;if $encounter["talk"]&gt;&gt; [["Try to shoo away the " + $encounter["enemy"]|Enemy Near Many Talk Succeed]] &lt;&lt;else&gt;&gt; [["Try to shoo away the " + $encounter["enemy"]|Enemy Near Many Talk Fail]] &lt;&lt;endif&gt;&gt;</tw-passagedata><tw-passagedata pid="25" name="Enemy Near Many Give Sword" tags="" position="">&lt;&lt;silently&gt;&gt;
 &lt;&lt;set $inventory["magicSword"] to $inventory["magicSword"]-1&gt;&gt;
 &lt;&lt;endsilently&gt;&gt;
 
@@ -1399,13 +1393,13 @@ You throw your gold into the forest. Immediately, the $encounter["enemy"] dart i
 
 You crouch behind a thicket of bushes before the $encounter["enemy"] can spot you.
 
-&lt;&lt;if $encounter["sneak"]&gt;&gt;[[Try to sneak past the $encounter["enemy"]|Enemy Near Many Sneak Succeed]] &lt;&lt;else&gt;&gt; [[Try to sneak past the $encounter["enemy"]|Enemy Near Many Sneak Fail]] &lt;&lt;endif&gt;&gt;
+&lt;&lt;if $encounter["sneak"]&gt;&gt;[["Try to sneak past the " + $encounter["enemy"]|Enemy Near Many Sneak Succeed]] &lt;&lt;else&gt;&gt; [["Try to sneak past the " + $encounter["enemy"]|Enemy Near Many Sneak Fail]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $encounter["wait"]&gt;&gt;[[Wait to see if they leave|Enemy Near Many Wait Succeed]] &lt;&lt;else&gt;&gt; [[Wait to see if they contiue past your hiding spot|Enemy Near Many Wait Fail]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory["magicSword"] &gt; 0&gt;&gt; [[Attack with your Magic Sword|Enemy Near Many Magic Sword Fight]] &lt;&lt;else&gt;&gt; [[Attack with your Rusty Sword|Enemy Near Many Sword Fight]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory["magicBow"] &gt; 0&gt;&gt; [[Attack with your Magic Bow|Enemy Near Many Magic Bow Hidden]] &lt;&lt;else&gt;&gt; [[Attack with your Old Bow|Enemy Near Many Bow Hidden]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory["magicBook"] &gt; 0&gt;&gt; [[Attack with a Powerful Spell|Enemy Near Many Magic Book Fight]] &lt;&lt;else&gt;&gt; [[Attack with a Weak Spell|Enemy Near Many Magic Fight]] &lt;&lt;endif&gt;&gt;
-&lt;&lt;if $encounter["talk"]&gt;&gt; [[Try to shoo away the $encounter["enemy"]|Enemy Near Many Talk Succeed]] &lt;&lt;else&gt;&gt; [[Try to shoo away the $encounter["enemy"]|Enemy Near Many Talk Fail]] &lt;&lt;endif&gt;&gt;
-&lt;&lt;if $encounter["bribe"]&gt;&gt; [[Try to distract the $encounter["enemy"] to let you pass|Enemy Near Many Bribe Succeed]] &lt;&lt;else&gt;&gt; [[Try to distract to the $encounter["enemy"] to let you pass|Enemy Near Many Bribe Fail]] &lt;&lt;endif&gt;&gt;</tw-passagedata><tw-passagedata pid="30" name="Enemy Near Many Sneak Succeed" tags="" position="">&lt;&lt;silently&gt;&gt;
+&lt;&lt;if $encounter["talk"]&gt;&gt; [["Try to shoo away the " + $encounter["enemy"]|Enemy Near Many Talk Succeed]] &lt;&lt;else&gt;&gt; [["Try to shoo away the " + $encounter["enemy"]|Enemy Near Many Talk Fail]] &lt;&lt;endif&gt;&gt;
+&lt;&lt;if $encounter["bribe"]&gt;&gt; [["Try to distract the " + $encounter["enemy"]|Enemy Near Many Bribe Succeed]] &lt;&lt;else&gt;&gt; [["Try to distract the " + $encounter["enemy"]|Enemy Near Many Bribe Fail]] &lt;&lt;endif&gt;&gt;</tw-passagedata><tw-passagedata pid="30" name="Enemy Near Many Sneak Succeed" tags="" position="">&lt;&lt;silently&gt;&gt;
 &lt;&lt;set $choices["sneak"] to $choices["sneak"]+1&gt;&gt;
 &lt;&lt;endsilently&gt;&gt;
 
@@ -1420,8 +1414,8 @@ You creep quietly through the bushes, but after a few moments you hear a low gro
 &lt;&lt;if $inventory["magicSword"] &gt; 0&gt;&gt; [[Attack with your Magic Sword|Enemy Near Many Magic Sword Fight]] &lt;&lt;else&gt;&gt; [[Attack with your Rusty Sword|Enemy Near Many Sword Fight]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory["magicBow"] &gt; 0&gt;&gt; [[Attack with your Magic Bow|Enemy Near Many Magic Bow Fight]] &lt;&lt;else&gt;&gt; [[Attack with your Old Bow|Enemy Near Many Bow Fight]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory["magicBook"] &gt; 0&gt;&gt; [[Attack with a Powerful Spell|Enemy Near Many Magic Book Fight]] &lt;&lt;else&gt;&gt; [[Attack with a Weak Spell|Enemy Near Many Magic Fight]] &lt;&lt;endif&gt;&gt;
-&lt;&lt;if $encounter["talk"]&gt;&gt; [[Try to shoo away the $encounter["enemy"]|Enemy Near Many Talk Succeed]] &lt;&lt;else&gt;&gt; [[Try to shoo away the $encounter["enemy"]|Enemy Near Many Talk Fail]] &lt;&lt;endif&gt;&gt;
-&lt;&lt;if $encounter["bribe"]&gt;&gt; [[Try to distract the $encounter["enemy"] to let you pass|Enemy Near Many Bribe Succeed]] &lt;&lt;else&gt;&gt; [[Try to distract to the $encounter["enemy"] to let you pass|Enemy Near Many Bribe Fail]] &lt;&lt;endif&gt;&gt;</tw-passagedata><tw-passagedata pid="32" name="Enemy Near Many Wait Succeed" tags="" position="">&lt;&lt;silently&gt;&gt;
+&lt;&lt;if $encounter["talk"]&gt;&gt; [["Try to shoo away the " + $encounter["enemy"]|Enemy Near Many Talk Succeed]] &lt;&lt;else&gt;&gt; [["Try to shoo away the " + $encounter["enemy"]|Enemy Near Many Talk Fail]] &lt;&lt;endif&gt;&gt;
+&lt;&lt;if $encounter["bribe"]&gt;&gt; [["Try to distract the " + $encounter["enemy"]|Enemy Near Many Bribe Succeed]] &lt;&lt;else&gt;&gt; [["Try to distract the " + $encounter["enemy"]|Enemy Near Many Bribe Fail]] &lt;&lt;endif&gt;&gt;</tw-passagedata><tw-passagedata pid="32" name="Enemy Near Many Wait Succeed" tags="" position="">&lt;&lt;silently&gt;&gt;
 &lt;&lt;set $choices["wait"] to $choices["wait"]+1&gt;&gt;
 &lt;&lt;endsilently&gt;&gt;
 
@@ -1433,12 +1427,12 @@ You stay hidden in the bushes. It seems like the $encounter["enemy"] are eating 
 
 You wait for an hour but the $encounter["enemy"] seem very comfortable on this particular patch of road, and don't seem to be planning on leaving anytime soon.
 
-&lt;&lt;if $encounter["sneak"]&gt;&gt;[[Try to sneak past the $encounter["enemy"]|Enemy Near Many Sneak Succeed]] &lt;&lt;else&gt;&gt; [[Try to sneak past the $encounter["enemy"]|Enemy Near Many Sneak Fail]] &lt;&lt;endif&gt;&gt;
+&lt;&lt;if $encounter["sneak"]&gt;&gt;[["Try to sneak past the " + $encounter["enemy"]|Enemy Near Many Sneak Succeed]] &lt;&lt;else&gt;&gt; [["Try to sneak past the " + $encounter["enemy"]|Enemy Near Many Sneak Fail]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory["magicSword"] &gt; 0&gt;&gt; [[Attack with your Magic Sword|Enemy Near Many Magic Sword Fight]] &lt;&lt;else&gt;&gt; [[Attack with your Rusty Sword|Enemy Near Many Sword Fight]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory["magicBow"] &gt; 0&gt;&gt; [[Attack with your Magic Bow|Enemy Near Many Magic Bow Hidden]] &lt;&lt;else&gt;&gt; [[Attack with your Old Bow|Enemy Near Many Bow Hidden]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory["magicBook"] &gt; 0&gt;&gt; [[Attack with a Powerful Spell|Enemy Near Many Magic Book Fight]] &lt;&lt;else&gt;&gt; [[Attack with a Weak Spell|Enemy Near Many Magic Fight]] &lt;&lt;endif&gt;&gt;
-&lt;&lt;if $encounter["talk"]&gt;&gt; [[Try to shoo away the $encounter["enemy"]|Enemy Near Many Talk Succeed]] &lt;&lt;else&gt;&gt; [[Try to shoo away the $encounter["enemy"]|Enemy Near Many Talk Fail]] &lt;&lt;endif&gt;&gt;
-&lt;&lt;if $encounter["bribe"]&gt;&gt; [[Try to distract the $encounter["enemy"] to let you pass|Enemy Near Many Bribe Succeed]] &lt;&lt;else&gt;&gt; [[Try to distract to the $encounter["enemy"] to let you pass|Enemy Near Many Bribe Fail]] &lt;&lt;endif&gt;&gt;</tw-passagedata><tw-passagedata pid="34" name="Enemy Near Few" tags="" position="">&lt;&lt;silently&gt;&gt;
+&lt;&lt;if $encounter["talk"]&gt;&gt; [["Try to shoo away the " + $encounter["enemy"]|Enemy Near Many Talk Succeed]] &lt;&lt;else&gt;&gt; [["Try to shoo away the " + $encounter["enemy"]|Enemy Near Many Talk Fail]] &lt;&lt;endif&gt;&gt;
+&lt;&lt;if $encounter["bribe"]&gt;&gt; [["Try to distract the " + $encounter["enemy"]|Enemy Near Many Bribe Succeed]] &lt;&lt;else&gt;&gt; [["Try to distract the " + $encounter["enemy"]|Enemy Near Many Bribe Fail]] &lt;&lt;endif&gt;&gt;</tw-passagedata><tw-passagedata pid="34" name="Enemy Near Few" tags="" position="">&lt;&lt;silently&gt;&gt;
 &lt;&lt;set $choices["near"] to $choices["near"]+1&gt;&gt;
 &lt;&lt;set $choices["few"] to $choices["few"]+1&gt;&gt;
 &lt;&lt;endsilently&gt;&gt;
@@ -1448,8 +1442,8 @@ Just before you stands $encounter["enemy_description"], guarding the path ahead.
 &lt;&lt;if $inventory["magicSword"] &gt; 0&gt;&gt; [[Attack with your Magic Sword|Enemy Near Few Magic Sword Fight]] &lt;&lt;else&gt;&gt; [[Attack with your Rusty Sword|Enemy Near Few Sword Fight]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory["magicBow"] &gt; 0&gt;&gt; [[Attack with your Magic Bow|Enemy Near Few Magic Bow Fight]] &lt;&lt;else&gt;&gt; [[Attack with your Old Bow|Enemy Near Few Bow Fight]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory["magicBook"] &gt; 0&gt;&gt; [[Attack with a Powerful Spell|Enemy Near Few Magic Book Fight]] &lt;&lt;else&gt;&gt; [[Attack with a Weak Spell|Enemy Near Few Magic Fight]] &lt;&lt;endif&gt;&gt;
-&lt;&lt;if $encounter["talk"]&gt;&gt; [[Try to speak to the $encounter["enemy"]|Enemy Near Few Talk Succeed]] &lt;&lt;else&gt;&gt; [[Try to speak to the $encounter["enemy"]|Enemy Near Few Talk Fail]] &lt;&lt;endif&gt;&gt;
-&lt;&lt;if $encounter["bribe"]&gt;&gt; [[Try to bribe the $encounter["enemy"] to let you pass|Enemy Near Few Bribe Succeed]] &lt;&lt;else&gt;&gt; [[Try to bribe to the $encounter["enemy"] to let you pass|Enemy Near Few Bribe Fail]] &lt;&lt;endif&gt;&gt;
+&lt;&lt;if $encounter["talk"]&gt;&gt; [["Try to speak to the " + $encounter["enemy"]|Enemy Near Few Talk Succeed]] &lt;&lt;else&gt;&gt; [["Try to speak to the " + $encounter["enemy"]|Enemy Near Few Talk Fail]] &lt;&lt;endif&gt;&gt;
+&lt;&lt;if $encounter["bribe"]&gt;&gt; [["Try to bribe the " + $encounter["enemy"] + " to let you pass"|Enemy Near Few Bribe Succeed]] &lt;&lt;else&gt;&gt; [["Try to bribe the " + $encounter["enemy"] + " to let you pass"|Enemy Near Few Bribe Fail]] &lt;&lt;endif&gt;&gt;
 [[Try to hide in the bushes before he sees you|Enemy Near Few Hide]]</tw-passagedata><tw-passagedata pid="35" name="Enemy Near Few Sword Fight" tags="" position="">&lt;&lt;silently&gt;&gt;
 &lt;&lt;set $choices["sword"] to $choices["sword"]+1&gt;&gt;
 &lt;&lt;set $encounter["enemy_health"] to $encounter["enemy_health"] - $encounter["sword_damage"]&gt;&gt;
@@ -1660,8 +1654,8 @@ Stumbling away from your attacker, you manage to grab a healing potion from your
 [[Run away|Enemy Near Few Flee]]</tw-passagedata><tw-passagedata pid="42" name="Enemy Near Few Flee" tags="" position="">&lt;&lt;set $choices["runAway"] to $choices["runAway"]+1&gt;&gt;
 You flee from the $encounter["enemy"] and [[continue on your quest.|Next Encounter]]</tw-passagedata><tw-passagedata pid="43" name="Enemy Near Few Loot" tags="" position="">In the pouch you find a $encounter["loot_1"] and $encounter["gold_amount"] Gold Pieces. Your pack is getting heavy and you can only carry one. Which do you take?
 
-[[Take the $encounter["loot_1"]|Enemy Near Few Loot 1]]
-[[Take the $encounter["gold_amount"] Gold Pieces|Enemy Near Few Loot 2]]</tw-passagedata><tw-passagedata pid="44" name="Enemy Near Few Loot 1" tags="" position="">&lt;&lt;if $encounter["loot_1"] == "Magic Sword"&gt;&gt;
+[["Take the " + $encounter["loot_1"]|Enemy Near Few Loot 1]]
+[["Take the " + $encounter["gold_amount"] + " Gold Pieces"|Enemy Near Few Loot 2]]</tw-passagedata><tw-passagedata pid="44" name="Enemy Near Few Loot 1" tags="" position="">&lt;&lt;if $encounter["loot_1"] == "Magic Sword"&gt;&gt;
 &lt;&lt;silently&gt;&gt;
 &lt;&lt;set $inventory["magicSword"] to $inventory["magicSword"]+1&gt;&gt;
 &lt;&lt;set $choices["weapon"] to $choices["weapon"]+1 &gt;&gt;
@@ -1704,7 +1698,7 @@ You ask the $encounter["enemy"] if you may pass.
 &lt;&lt;if $inventory["magicSword"] &gt; 0&gt;&gt; [[Attack with your Magic Sword|Enemy Near Few Magic Sword Fight]] &lt;&lt;else&gt;&gt; [[Attack with your Rusty Sword|Enemy Near Few Sword Fight]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory["magicBow"] &gt; 0&gt;&gt; [[Attack with your Magic Bow|Enemy Near Few Magic Bow Fight]] &lt;&lt;else&gt;&gt; [[Attack with your Old Bow|Enemy Near Few Bow Fight]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory["magicBook"] &gt; 0&gt;&gt; [[Attack with a Powerful Spell|Enemy Near Few Magic Book Fight]] &lt;&lt;else&gt;&gt; [[Attack with a Weak Spell|Enemy Near Few Magic Fight]] &lt;&lt;endif&gt;&gt;
-&lt;&lt;if $encounter["bribe"]&gt;&gt; [[Try to bribe the $encounter["enemy"] to let you pass|Enemy Near Few Bribe Succeed]] &lt;&lt;else&gt;&gt; [[Try to bribe to the $encounter["enemy"] to let you pass|Enemy Near Few Bribe Fail]] &lt;&lt;endif&gt;&gt;</tw-passagedata><tw-passagedata pid="47" name="Enemy Near Few Talk Succeed" tags="" position="">&lt;&lt;silently&gt;&gt;
+&lt;&lt;if $encounter["bribe"]&gt;&gt; [["Try to bribe the " + $encounter["enemy"] + " to let you pass"|Enemy Near Few Bribe Succeed]] &lt;&lt;else&gt;&gt; [["Try to bribe the " + $encounter["enemy"] + " to let you pass"|Enemy Near Few Bribe Fail]] &lt;&lt;endif&gt;&gt;</tw-passagedata><tw-passagedata pid="47" name="Enemy Near Few Talk Succeed" tags="" position="">&lt;&lt;silently&gt;&gt;
 &lt;&lt;set $choices["talk"] to $choices["talk"]+1&gt;&gt;
 &lt;&lt;endsilently&gt;&gt;
 
@@ -1723,41 +1717,35 @@ You walk up to the $encounter["enemy"] and ask if he'd like to trade for passage
 &lt;&lt;if $inventory["magicSword"] &gt; 0&gt;&gt; [[Attack with your Magic Sword|Enemy Near Few Magic Sword Fight]] &lt;&lt;else&gt;&gt; [[Attack with your Rusty Sword|Enemy Near Few Sword Fight]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory["magicBow"] &gt; 0&gt;&gt; [[Attack with your Magic Bow|Enemy Near Few Magic Bow Fight]] &lt;&lt;else&gt;&gt; [[Attack with your Old Bow|Enemy Near Few Bow Fight]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory["magicBook"] &gt; 0&gt;&gt; [[Attack with a Powerful Spell|Enemy Near Few Magic Book Fight]] &lt;&lt;else&gt;&gt; [[Attack with a Weak Spell|Enemy Near Few Magic Fight]] &lt;&lt;endif&gt;&gt;
-&lt;&lt;if $encounter["talk"]&gt;&gt; [[Try to speak to the $encounter["enemy"]|Enemy Near Few Talk Succeed]] &lt;&lt;else&gt;&gt; [[Try to speak to the $encounter["enemy"]|Enemy Near Few Talk Fail]] &lt;&lt;endif&gt;&gt;</tw-passagedata><tw-passagedata pid="49" name="Enemy Near Few Bribe Succeed" tags="" position="">&lt;&lt;silently&gt;&gt;
+&lt;&lt;if $encounter["talk"]&gt;&gt; [["Try to speak to the " + $encounter["enemy"]|Enemy Near Few Talk Succeed]] &lt;&lt;else&gt;&gt; [["Try to speak to the " + $encounter["enemy"]|Enemy Near Few Talk Fail]] &lt;&lt;endif&gt;&gt;</tw-passagedata><tw-passagedata pid="49" name="Enemy Near Few Bribe Succeed" tags="" position="">&lt;&lt;silently&gt;&gt;
 &lt;&lt;set $choices["bribe"] to $choices["bribe"]+1&gt;&gt;
 &lt;&lt;endsilently&gt;&gt;
 
 You walk up to the $encounter["enemy"] and ask if he'd like to trade for passage down the road. He scratches his chin and considers your offer. "What are you gonna give me?"
 
-{{STORY_DATA}}lt;&lt;if $inventory["magicSword"] &gt; 0&gt;&gt;
-[[Offer a Magic Sword|Enemy Near Few Give Sword]]
-{{STORY_DATA}}lt;&lt;endif&gt;&gt;
-{{STORY_DATA}}lt;&lt;if $inventory["magicBow"] &gt; 0&gt;&gt;
-[[Offer a Magic Bow|Enemy Near Few Give Bow]]
-{{STORY_DATA}}lt;&lt;endif&gt;&gt;
-{{STORY_DATA}}lt;&lt;if $inventory["magicBook"] &gt; 0&gt;&gt;
-[[Offer a Magic Spell Tome|Enemy Near Few Give Magic]]
-{{STORY_DATA}}lt;&lt;endif&gt;&gt;
+&lt;&lt;if $inventory["magicSword"] &gt; 0&gt;&gt;[[Offer a Magic Sword|Enemy Near Few Give Sword]]&lt;&lt;endif&gt;&gt;
+&lt;&lt;if $inventory["magicBow"] &gt; 0&gt;&gt;[[Offer a Magic Bow|Enemy Near Few Give Bow]]&lt;&lt;endif&gt;&gt;
+&lt;&lt;if $inventory["magicBook"] &gt; 0&gt;&gt;[[Offer a Magic Spell Tome|Enemy Near Few Give Magic]]&lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory["gold"] &gt; 0&gt;&gt; [[Offer gold|Enemy Near Few Give gold]]&lt;&lt;endif&gt;&gt;
-&lt;&lt;if $encounter["talk"]&gt;&gt; [[Try to speak to the $encounter["enemy"]|Enemy Near Few Talk Succeed]] &lt;&lt;else&gt;&gt; [[Try to speak to the $encounter["enemy"]|Enemy Near Few Talk Fail]] &lt;&lt;endif&gt;&gt;</tw-passagedata><tw-passagedata pid="50" name="Enemy Near Few Give Give Sword" tags="" position="">&lt;&lt;silently&gt;&gt;
+&lt;&lt;if $encounter["talk"]&gt;&gt; [["Try to speak to the " + $encounter["enemy"]|Enemy Near Few Talk Succeed]] &lt;&lt;else&gt;&gt; [["Try to speak to the " + $encounter["enemy"]|Enemy Near Few Talk Fail]] &lt;&lt;endif&gt;&gt;</tw-passagedata><tw-passagedata pid="50" name="Enemy Near Few Give Sword" tags="" position="">&lt;&lt;silently&gt;&gt;
 &lt;&lt;set $inventory["magicSword"] to $inventory["magicSword"]-1&gt;&gt;
 &lt;&lt;endsilently&gt;&gt;
 
 "Thanks!" he says, as he takes your Magic Sword. "You can head on past now." With the $encounter["enemy"] standing aside, you are free to continue to down the road.
 
-[[Continue on your Quest|Next Encounter]]</tw-passagedata><tw-passagedata pid="51" name="Enemy Near Few Give Give Bow" tags="" position="">&lt;&lt;silently&gt;&gt;
+[[Continue on your Quest|Next Encounter]]</tw-passagedata><tw-passagedata pid="51" name="Enemy Near Few Give Bow" tags="" position="">&lt;&lt;silently&gt;&gt;
 &lt;&lt;set $inventory["magicBow"] to $inventory["magicBow"]-1&gt;&gt;
 &lt;&lt;endsilently&gt;&gt;
 
 "Thanks!" he says, as he takes your Magic Bow. "You can head on past now." With the $encounter["enemy"] standing aside, you are free to continue to down the road.
 
-[[Continue on your Quest|Next Encounter]]</tw-passagedata><tw-passagedata pid="52" name="Enemy Near Few Give Give Magic" tags="" position="">&lt;&lt;silently&gt;&gt;
+[[Continue on your Quest|Next Encounter]]</tw-passagedata><tw-passagedata pid="52" name="Enemy Near Few Give Magic" tags="" position="">&lt;&lt;silently&gt;&gt;
 &lt;&lt;set $inventory["magicBook"] to $inventory["magicBook"]-1&gt;&gt;
 &lt;&lt;endsilently&gt;&gt;
 
 "Thanks!" he says, as he takes your Magic Spell Tome. "You can head on past now." With the $encounter["enemy"] standing aside, you are free to continue to down the road.
 
-[[Continue on your Quest|Next Encounter]]</tw-passagedata><tw-passagedata pid="53" name="Enemy Near Few Give Give gold" tags="" position="">&lt;&lt;silently&gt;&gt;
+[[Continue on your Quest|Next Encounter]]</tw-passagedata><tw-passagedata pid="53" name="Enemy Near Few Give gold" tags="" position="">&lt;&lt;silently&gt;&gt;
 &lt;&lt;set $inventory["gold"] to $inventory["gold"]-1&gt;&gt;
 &lt;&lt;endsilently&gt;&gt;
 
@@ -1769,13 +1757,13 @@ You walk up to the $encounter["enemy"] and ask if he'd like to trade for passage
 
 You dart into the bushes and hide before the $encounter["enemy"] sees you.
 
-&lt;&lt;if $encounter["sneak"]&gt;&gt;[[Try to sneak past the $encounter["enemy"]|Enemy Near Few Sneak Succeed]] &lt;&lt;else&gt;&gt; [[Try to sneak past the $encounter["enemy"]|Enemy Near Few Sneak Fail]] &lt;&lt;endif&gt;&gt;
+&lt;&lt;if $encounter["sneak"]&gt;&gt;[["Try to sneak past the " + $encounter["enemy"]|Enemy Near Few Sneak Succeed]] &lt;&lt;else&gt;&gt; [["Try to sneak past the " + $encounter["enemy"]|Enemy Near Few Sneak Fail]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $encounter["wait"]&gt;&gt;[[Wait to see if he leaves|Enemy Near Few Wait Succeed]] &lt;&lt;else&gt;&gt; [[Wait to see if he leaves|Enemy Near Few Wait Fail]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory["magicSword"] &gt; 0&gt;&gt; [[Attack with your Magic Sword|Enemy Near Few Magic Sword Fight]] &lt;&lt;else&gt;&gt; [[Attack with your Rusty Sword|Enemy Near Few Sword Fight]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory["magicBow"] &gt; 0&gt;&gt; [[Attack with your Magic Bow|Enemy Near Few Magic Bow Hidden]] &lt;&lt;else&gt;&gt; [[Attack with your Old Bow|Enemy Near Few Bow Hidden]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory["magicBook"] &gt; 0&gt;&gt; [[Attack with a Powerful Spell|Enemy Near Few Magic Book Fight]] &lt;&lt;else&gt;&gt; [[Attack with a Weak Spell|Enemy Near Few Magic Fight]] &lt;&lt;endif&gt;&gt;
-&lt;&lt;if $encounter["talk"]&gt;&gt; [[Try to speak to the $encounter["enemy"]|Enemy Near Few Talk Succeed]] &lt;&lt;else&gt;&gt; [[Try to speak to the $encounter["enemy"]|Enemy Near Few Talk Fail]] &lt;&lt;endif&gt;&gt;
-&lt;&lt;if $encounter["bribe"]&gt;&gt; [[Try to bribe the $encounter["enemy"] to let you pass|Enemy Near Few Bribe Succeed]] &lt;&lt;else&gt;&gt; [[Try to bribe to the $encounter["enemy"] to let you pass|Enemy Near Few Bribe Fail]] &lt;&lt;endif&gt;&gt;</tw-passagedata><tw-passagedata pid="55" name="Enemy Near Few Bow Hidden" tags="" position="">&lt;&lt;silently&gt;&gt;
+&lt;&lt;if $encounter["talk"]&gt;&gt; [["Try to speak to the " + $encounter["enemy"]|Enemy Near Few Talk Succeed]] &lt;&lt;else&gt;&gt; [["Try to speak to the " + $encounter["enemy"]|Enemy Near Few Talk Fail]] &lt;&lt;endif&gt;&gt;
+&lt;&lt;if $encounter["bribe"]&gt;&gt; [["Try to bribe the " + $encounter["enemy"] + " to let you pass"|Enemy Near Few Bribe Succeed]] &lt;&lt;else&gt;&gt; [["Try to bribe the " + $encounter["enemy"] + " to let you pass"|Enemy Near Few Bribe Fail]] &lt;&lt;endif&gt;&gt;</tw-passagedata><tw-passagedata pid="55" name="Enemy Near Few Bow Hidden" tags="" position="">&lt;&lt;silently&gt;&gt;
 &lt;&lt;set $choices["bow"] to $choices["bow"]+1&gt;&gt;
 &lt;&lt;set $encounter["enemy_health"] to $encounter["enemy_health"] - $encounter["bow_damage"]&gt;&gt;
 &lt;&lt;endsilently&gt;&gt;
@@ -1822,8 +1810,8 @@ You creep quietly through the bushes, but you accidentally step on a branch, mak
 &lt;&lt;if $inventory["magicSword"] &gt; 0&gt;&gt; [[Attack with your Magic Sword|Enemy Near Few Magic Sword Fight]] &lt;&lt;else&gt;&gt; [[Attack with your Rusty Sword|Enemy Near Few Sword Fight]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory["magicBow"] &gt; 0&gt;&gt; [[Attack with your Magic Bow|Enemy Near Few Magic Bow Fight]] &lt;&lt;else&gt;&gt; [[Attack with your Old Bow|Enemy Near Few Bow Fight]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory["magicBook"] &gt; 0&gt;&gt; [[Attack with a Powerful Spell|Enemy Near Few Magic Book Fight]] &lt;&lt;else&gt;&gt; [[Attack with a Weak Spell|Enemy Near Few Magic Fight]] &lt;&lt;endif&gt;&gt;
-&lt;&lt;if $encounter["talk"]&gt;&gt; [[Try to speak to the $encounter["enemy"]|Enemy Near Few Talk Succeed]] &lt;&lt;else&gt;&gt; [[Try to speak to the $encounter["enemy"]|Enemy Near Few Talk Fail]] &lt;&lt;endif&gt;&gt;
-&lt;&lt;if $encounter["bribe"]&gt;&gt; [[Try to bribe the $encounter["enemy"] to let you pass|Enemy Near Few Bribe Succeed]] &lt;&lt;else&gt;&gt; [[Try to bribe to the $encounter["enemy"] to let you pass|Enemy Near Few Bribe Fail]] &lt;&lt;endif&gt;&gt;</tw-passagedata><tw-passagedata pid="59" name="Enemy Near Few Wait Succeed" tags="" position="">&lt;&lt;silently&gt;&gt;
+&lt;&lt;if $encounter["talk"]&gt;&gt; [["Try to speak to the " + $encounter["enemy"]|Enemy Near Few Talk Succeed]] &lt;&lt;else&gt;&gt; [["Try to speak to the " + $encounter["enemy"]|Enemy Near Few Talk Fail]] &lt;&lt;endif&gt;&gt;
+&lt;&lt;if $encounter["bribe"]&gt;&gt; [["Try to bribe the " + $encounter["enemy"] + " to let you pass"|Enemy Near Few Bribe Succeed]] &lt;&lt;else&gt;&gt; [["Try to bribe the " + $encounter["enemy"] + " to let you pass"|Enemy Near Few Bribe Fail]] &lt;&lt;endif&gt;&gt;</tw-passagedata><tw-passagedata pid="59" name="Enemy Near Few Wait Succeed" tags="" position="">&lt;&lt;silently&gt;&gt;
 &lt;&lt;set $choices["wait"] to $choices["wait"]+1&gt;&gt;
 &lt;&lt;endsilently&gt;&gt;
 
@@ -1835,12 +1823,12 @@ After about an hour, the $encounter["enemy"] gets bored and sighs deeply. He wal
 
 You wait for an hour but it doesn't seem like the $encounter["enemy"] is going anywhere.
 
-&lt;&lt;if $encounter["sneak"]&gt;&gt;[[Try to sneak past the $encounter["enemy"]|Enemy Near Few Sneak Succeed]] &lt;&lt;else&gt;&gt; [[Try to sneak past the $encounter["enemy"]|Enemy Near Few Sneak Fail]] &lt;&lt;endif&gt;&gt;
+&lt;&lt;if $encounter["sneak"]&gt;&gt;[["Try to sneak past the " + $encounter["enemy"]|Enemy Near Few Sneak Succeed]] &lt;&lt;else&gt;&gt; [["Try to sneak past the " + $encounter["enemy"]|Enemy Near Few Sneak Fail]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory["magicSword"] &gt; 0&gt;&gt; [[Attack with your Magic Sword|Enemy Near Few Magic Sword Fight]] &lt;&lt;else&gt;&gt; [[Attack with your Rusty Sword|Enemy Near Few Sword Fight]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory["magicBow"] &gt; 0&gt;&gt; [[Attack with your Magic Bow|Enemy Near Few Magic Bow Hidden]] &lt;&lt;else&gt;&gt; [[Attack with your Old Bow|Enemy Near Few Bow Hidden]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory["magicBook"] &gt; 0&gt;&gt; [[Attack with a Powerful Spell|Enemy Near Few Magic Book Fight]] &lt;&lt;else&gt;&gt; [[Attack with a Weak Spell|Enemy Near Few Magic Fight]] &lt;&lt;endif&gt;&gt;
-&lt;&lt;if $encounter["talk"]&gt;&gt; [[Try to speak to the $encounter["enemy"]|Enemy Near Few Talk Succeed]] &lt;&lt;else&gt;&gt; [[Try to speak to the $encounter["enemy"]|Enemy Near Few Talk Fail]] &lt;&lt;endif&gt;&gt;
-&lt;&lt;if $encounter["bribe"]&gt;&gt; [[Try to bribe the $encounter["enemy"] to let you pass|Enemy Near Few Bribe Succeed]] &lt;&lt;else&gt;&gt; [[Try to bribe to the $encounter["enemy"] to let you pass|Enemy Near Few Bribe Fail]] &lt;&lt;endif&gt;&gt;</tw-passagedata><tw-passagedata pid="61" name="Enemy Far Many" tags="" position="">&lt;&lt;silently&gt;&gt;
+&lt;&lt;if $encounter["talk"]&gt;&gt; [["Try to speak to the " + $encounter["enemy"]|Enemy Near Few Talk Succeed]] &lt;&lt;else&gt;&gt; [["Try to speak to the " + $encounter["enemy"]|Enemy Near Few Talk Fail]] &lt;&lt;endif&gt;&gt;
+&lt;&lt;if $encounter["bribe"]&gt;&gt; [["Try to bribe the " + $encounter["enemy"] + " to let you pass"|Enemy Near Few Bribe Succeed]] &lt;&lt;else&gt;&gt; [["Try to bribe the " + $encounter["enemy"] + " to let you pass"|Enemy Near Few Bribe Fail]] &lt;&lt;endif&gt;&gt;</tw-passagedata><tw-passagedata pid="61" name="Enemy Far Many" tags="" position="">&lt;&lt;silently&gt;&gt;
 &lt;&lt;set $choices["far"] to $choices["far"]+1&gt;&gt;
 &lt;&lt;set $choices["many"] to $choices["many"]+1&gt;&gt;
 &lt;&lt;endsilently&gt;&gt;
@@ -1850,8 +1838,8 @@ A little ways down the road is a group of $encounter["enemy"]. They are marching
 &lt;&lt;if $inventory["magicSword"] &gt; 0&gt;&gt; [[Attack with your Magic Sword|Enemy Far Many Magic Sword Fight]] &lt;&lt;else&gt;&gt; [[Attack with your Rusty Sword|Enemy Far Many Sword Fight]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory["magicBow"] &gt; 0&gt;&gt; [[Attack with your Magic Bow|Enemy Far Many Magic Bow Far]] &lt;&lt;else&gt;&gt; [[Attack with your Old Bow|Enemy Far Many Bow Far]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory["magicBook"] &gt; 0&gt;&gt; [[Attack with a Powerful Spell|Enemy Far Many Magic Book Far]] &lt;&lt;else&gt;&gt; [[Attack with a Weak Spell|Enemy Far Many Magic Far]] &lt;&lt;endif&gt;&gt;
-&lt;&lt;if $encounter["talk"]&gt;&gt; [[Try to speak to the $encounter["enemy"]|Enemy Far Many Talk Succeed]] &lt;&lt;else&gt;&gt; [[Try to speak to the $encounter["enemy"]|Enemy Far Many Talk Fail]] &lt;&lt;endif&gt;&gt;
-&lt;&lt;if $encounter["bribe"]&gt;&gt; [[Try to bribe the $encounter["enemy"] to let you pass|Enemy Far Many Bribe Succeed]] &lt;&lt;else&gt;&gt; [[Try to bribe to the $encounter["enemy"] to let you pass|Enemy Far Many Bribe Fail]] &lt;&lt;endif&gt;&gt;
+&lt;&lt;if $encounter["talk"]&gt;&gt; [["Try to speak to the " + $encounter["enemy"]|Enemy Far Many Talk Succeed]] &lt;&lt;else&gt;&gt; [["Try to speak to the " + $encounter["enemy"]|Enemy Far Many Talk Fail]] &lt;&lt;endif&gt;&gt;
+&lt;&lt;if $encounter["bribe"]&gt;&gt; [["Try to bribe the " + $encounter["enemy"] + " to let you pass"|Enemy Far Many Bribe Succeed]] &lt;&lt;else&gt;&gt; [["Try to bribe the " + $encounter["enemy"] + " to let you pass"|Enemy Far Many Bribe Fail]] &lt;&lt;endif&gt;&gt;
 [[Try to hide in the bushes before they see you|Enemy Far Many Hide]]</tw-passagedata><tw-passagedata pid="62" name="Enemy Far Many Sword Fight" tags="" position="">&lt;&lt;silently&gt;&gt;
 &lt;&lt;set $choices["sword"] to $choices["sword"]+1&gt;&gt;
 &lt;&lt;set $encounter["enemy_health"] to $encounter["enemy_health"] - $encounter["sword_damage"]&gt;&gt;
@@ -2160,8 +2148,8 @@ Stumbling away from your attacker, you manage to grab a healing potion from your
 [[Run away|Enemy Far Many Flee]]</tw-passagedata><tw-passagedata pid="75" name="Enemy Far Many Flee" tags="" position="">&lt;&lt;set $choices["runAway"] to $choices["runAway"]+1&gt;&gt;
 You flee from the $encounter["enemy"] and [[continue on your quest.|Next Encounter]]</tw-passagedata><tw-passagedata pid="76" name="Enemy Far Many Loot" tags="" position="">Amongst the discarded belongings, you find a $encounter["loot_1"] and $encounter["gold_amount"] Gold Pieces. Your pack is getting heavy and you can only carry one. Which do you take?
 
-[[Take the $encounter["loot_1"]|Enemy Far Many Loot 1]]
-[[Take the $encounter["gold_amount"] Gold Pieces|Enemy Far Many Loot 2]]</tw-passagedata><tw-passagedata pid="77" name="Enemy Far Many Loot 1" tags="" position="">&lt;&lt;if $encounter["loot_1"] == "Magic Sword"&gt;&gt;
+[["Take the " + $encounter["loot_1"]|Enemy Far Many Loot 1]]
+[["Take the " + $encounter["gold_amount"] + " Gold Pieces"|Enemy Far Many Loot 2]]</tw-passagedata><tw-passagedata pid="77" name="Enemy Far Many Loot 1" tags="" position="">&lt;&lt;if $encounter["loot_1"] == "Magic Sword"&gt;&gt;
 &lt;&lt;silently&gt;&gt;
 &lt;&lt;set $inventory["magicSword"] to $inventory["magicSword"]+1&gt;&gt;
 &lt;&lt;set $choices["weapon"] to $choices["weapon"]+1 &gt;&gt;
@@ -2200,7 +2188,7 @@ You take the gold and continue on your journey.
 &lt;&lt;if $inventory["magicSword"] &gt; 0&gt;&gt; [[Attack with your Magic Sword|Enemy Far Many Magic Sword Fight]] &lt;&lt;else&gt;&gt; [[Attack with your Rusty Sword|Enemy Far Many Sword Fight]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory["magicBow"] &gt; 0&gt;&gt; [[Attack with your Magic Bow|Enemy Far Many Magic Bow Fight]] &lt;&lt;else&gt;&gt; [[Attack with your Old Bow|Enemy Far Many Bow Fight]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory["magicBook"] &gt; 0&gt;&gt; [[Attack with a Powerful Spell|Enemy Far Many Magic Book Fight]] &lt;&lt;else&gt;&gt; [[Attack with a Weak Spell|Enemy Far Many Magic Fight]] &lt;&lt;endif&gt;&gt;
-&lt;&lt;if $encounter["bribe"]&gt;&gt; [[Try to bribe the $encounter["enemy"] to let you pass|Enemy Far Many Bribe Succeed]] &lt;&lt;else&gt;&gt; [[Try to bribe to the $encounter["enemy"] to let you pass|Enemy Far Many Bribe Fail]] &lt;&lt;endif&gt;&gt;</tw-passagedata><tw-passagedata pid="80" name="Enemy Far Many Talk Succeed" tags="" position="">&lt;&lt;silently&gt;&gt;
+&lt;&lt;if $encounter["bribe"]&gt;&gt; [["Try to bribe the " + $encounter["enemy"] + " to let you pass"|Enemy Far Many Bribe Succeed]] &lt;&lt;else&gt;&gt; [["Try to bribe the " + $encounter["enemy"] + " to let you pass"|Enemy Far Many Bribe Fail]] &lt;&lt;endif&gt;&gt;</tw-passagedata><tw-passagedata pid="80" name="Enemy Far Many Talk Succeed" tags="" position="">&lt;&lt;silently&gt;&gt;
 &lt;&lt;set $choices["talk"] to $choices["talk"]+1&gt;&gt;
 &lt;&lt;endsilently&gt;&gt;
 
@@ -2215,41 +2203,35 @@ You take the gold and continue on your journey.
 &lt;&lt;if $inventory["magicSword"] &gt; 0&gt;&gt; [[Attack with your Magic Sword|Enemy Far Many Magic Sword Fight]] &lt;&lt;else&gt;&gt; [[Attack with your Rusty Sword|Enemy Far Many Sword Fight]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory["magicBow"] &gt; 0&gt;&gt; [[Attack with your Magic Bow|Enemy Far Many Magic Bow Fight]] &lt;&lt;else&gt;&gt; [[Attack with your Old Bow|Enemy Far Many Bow Fight]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory["magicBook"] &gt; 0&gt;&gt; [[Attack with a Powerful Spell|Enemy Far Many Magic Book Fight]] &lt;&lt;else&gt;&gt; [[Attack with a Weak Spell|Enemy Far Many Magic Fight]] &lt;&lt;endif&gt;&gt;
-&lt;&lt;if $encounter["talk"]&gt;&gt; [[Try to speak to the $encounter["enemy"]|Enemy Far Many Talk Succeed]] &lt;&lt;else&gt;&gt; [[Try to speak to the $encounter["enemy"]|Enemy Far Many Talk Fail]] &lt;&lt;endif&gt;&gt;</tw-passagedata><tw-passagedata pid="82" name="Enemy Far Many Bribe Succeed" tags="" position="">&lt;&lt;silently&gt;&gt;
+&lt;&lt;if $encounter["talk"]&gt;&gt; [["Try to speak to the " + $encounter["enemy"]|Enemy Far Many Talk Succeed]] &lt;&lt;else&gt;&gt; [["Try to speak to the " + $encounter["enemy"]|Enemy Far Many Talk Fail]] &lt;&lt;endif&gt;&gt;</tw-passagedata><tw-passagedata pid="82" name="Enemy Far Many Bribe Succeed" tags="" position="">&lt;&lt;silently&gt;&gt;
 &lt;&lt;set $choices["bribe"] to $choices["bribe"]+1&gt;&gt;
 &lt;&lt;endsilently&gt;&gt;
 
 "What?! What do you want?" one of the $encounter["enemy"] demands as you approach to speak to them. You offer to pay them to allow you passage. "Eh," They sigh, discontented. "Bribes are better than a fight, I guess. What do you got to offer?"
 
-{{STORY_DATA}}lt;&lt;if $inventory["magicSword"] &gt; 0&gt;&gt;
-[[Offer a Magic Sword|Enemy Far Many Give Sword]]
-{{STORY_DATA}}lt;&lt;endif&gt;&gt;
-{{STORY_DATA}}lt;&lt;if $inventory["magicBow"] &gt; 0&gt;&gt;
-[[Offer a Magic Bow|Enemy Far Many Give Bow]]
-{{STORY_DATA}}lt;&lt;endif&gt;&gt;
-{{STORY_DATA}}lt;&lt;if $inventory["magicBook"] &gt; 0&gt;&gt;
-[[Offer a Magic Spell Tome|Enemy Far Many Give Magic]]
-{{STORY_DATA}}lt;&lt;endif&gt;&gt;
+&lt;&lt;if $inventory["magicSword"] &gt; 0&gt;&gt;[[Offer a Magic Sword|Enemy Far Many Give Sword]]&lt;&lt;endif&gt;&gt;
+&lt;&lt;if $inventory["magicBow"] &gt; 0&gt;&gt;[[Offer a Magic Bow|Enemy Far Many Give Bow]]&lt;&lt;endif&gt;&gt;
+&lt;&lt;if $inventory["magicBook"] &gt; 0&gt;&gt;[[Offer a Magic Spell Tome|Enemy Far Many Give Magic]]&lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory["gold"] &gt; 0&gt;&gt; [[Offer gold|Enemy Far Many Give gold]]&lt;&lt;endif&gt;&gt;
-&lt;&lt;if $encounter["talk"]&gt;&gt; [[Try to speak to the $encounter["enemy"]|Enemy Far Many Talk Succeed]] &lt;&lt;else&gt;&gt; [[Try to speak to the $encounter["enemy"]|Enemy Far Many Talk Fail]] &lt;&lt;endif&gt;&gt;</tw-passagedata><tw-passagedata pid="83" name="Enemy Far Many Give Give Sword" tags="" position="">&lt;&lt;silently&gt;&gt;
+&lt;&lt;if $encounter["talk"]&gt;&gt; [["Try to speak to the " + $encounter["enemy"]|Enemy Far Many Talk Succeed]] &lt;&lt;else&gt;&gt; [["Try to speak to the " + $encounter["enemy"]|Enemy Far Many Talk Fail]] &lt;&lt;endif&gt;&gt;</tw-passagedata><tw-passagedata pid="83" name="Enemy Far Many Give Sword" tags="" position="">&lt;&lt;silently&gt;&gt;
 &lt;&lt;set $inventory["magicSword"] to $inventory["magicSword"]-1&gt;&gt;
 &lt;&lt;endsilently&gt;&gt;
 
 "Alright, I guess that works" they says, as they takes your Magic Sword. "You can head on past now." With the $encounter["enemy"] standing aside, you are free to continue to down the road.
 
-[[Continue on your Quest|Next Encounter]]</tw-passagedata><tw-passagedata pid="84" name="Enemy Far Many Give Give Bow" tags="" position="">&lt;&lt;silently&gt;&gt;
+[[Continue on your Quest|Next Encounter]]</tw-passagedata><tw-passagedata pid="84" name="Enemy Far Many Give Bow" tags="" position="">&lt;&lt;silently&gt;&gt;
 &lt;&lt;set $inventory["magicBow"] to $inventory["magicBow"]-1&gt;&gt;
 &lt;&lt;endsilently&gt;&gt;
 
 "Alright, I guess that works" they says, as they takes your Magic Bow. "You can head on past now." With the $encounter["enemy"] standing aside, you are free to continue to down the road.
 
-[[Continue on your Quest|Next Encounter]]</tw-passagedata><tw-passagedata pid="85" name="Enemy Far Many Give Give Magic" tags="" position="">&lt;&lt;silently&gt;&gt;
+[[Continue on your Quest|Next Encounter]]</tw-passagedata><tw-passagedata pid="85" name="Enemy Far Many Give Magic" tags="" position="">&lt;&lt;silently&gt;&gt;
 &lt;&lt;set $inventory["magicBook"] to $inventory["magicBook"]-1&gt;&gt;
 &lt;&lt;endsilently&gt;&gt;
 
 "Alright, I guess that works" they says, as they takes your Magic Spell Tome. "You can head on past now." With the $encounter["enemy"] standing aside, you are free to continue to down the road.
 
-[[Continue on your Quest|Next Encounter]]</tw-passagedata><tw-passagedata pid="86" name="Enemy Far Many Give Give gold" tags="" position="">&lt;&lt;silently&gt;&gt;
+[[Continue on your Quest|Next Encounter]]</tw-passagedata><tw-passagedata pid="86" name="Enemy Far Many Give gold" tags="" position="">&lt;&lt;silently&gt;&gt;
 &lt;&lt;set $inventory["gold"] to $inventory["gold"]-1&gt;&gt;
 &lt;&lt;endsilently&gt;&gt;
 
@@ -2261,13 +2243,13 @@ You take the gold and continue on your journey.
 
 You crouch behind a thicket of bushes before the $encounter["enemy"] can spot you.
 
-&lt;&lt;if $encounter["sneak"]&gt;&gt;[[Try to sneak past the $encounter["enemy"]|Enemy Far Many Sneak Succeed]] &lt;&lt;else&gt;&gt; [[Try to sneak past the $encounter["enemy"]|Enemy Far Many Sneak Fail]] &lt;&lt;endif&gt;&gt;
+&lt;&lt;if $encounter["sneak"]&gt;&gt;[["Try to sneak past the " + $encounter["enemy"]|Enemy Far Many Sneak Succeed]] &lt;&lt;else&gt;&gt; [["Try to sneak past the " + $encounter["enemy"]|Enemy Far Many Sneak Fail]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $encounter["wait"]&gt;&gt;[[Wait to see if they contiue past your hiding spot|Enemy Far Many Wait Succeed]] &lt;&lt;else&gt;&gt; [[Wait to see if they contiue past your hiding spot|Enemy Far Many Wait Fail]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory["magicSword"] &gt; 0&gt;&gt; [[Attack with your Magic Sword|Enemy Far Many Magic Sword Fight]] &lt;&lt;else&gt;&gt; [[Attack with your Rusty Sword|Enemy Far Many Sword Fight]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory["magicBow"] &gt; 0&gt;&gt; [[Attack with your Magic Bow|Enemy Far Many Magic Bow Hidden]] &lt;&lt;else&gt;&gt; [[Attack with your Old Bow|Enemy Far Many Bow Hidden]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory["magicBook"] &gt; 0&gt;&gt; [[Attack with a Powerful Spell|Enemy Far Many Magic Book Fight]] &lt;&lt;else&gt;&gt; [[Attack with a Weak Spell|Enemy Far Many Magic Fight]] &lt;&lt;endif&gt;&gt;
-&lt;&lt;if $encounter["talk"]&gt;&gt; [[Try to speak to the $encounter["enemy"]|Enemy Far Many Talk Succeed]] &lt;&lt;else&gt;&gt; [[Try to speak to the $encounter["enemy"]|Enemy Far Many Talk Fail]] &lt;&lt;endif&gt;&gt;
-&lt;&lt;if $encounter["bribe"]&gt;&gt; [[Try to bribe the $encounter["enemy"] to let you pass|Enemy Far Many Bribe Succeed]] &lt;&lt;else&gt;&gt; [[Try to bribe to the $encounter["enemy"] to let you pass|Enemy Far Many Bribe Fail]] &lt;&lt;endif&gt;&gt;</tw-passagedata><tw-passagedata pid="88" name="Enemy Far Many Sneak Succeed" tags="" position="">&lt;&lt;silently&gt;&gt;
+&lt;&lt;if $encounter["talk"]&gt;&gt; [["Try to speak to the " + $encounter["enemy"]|Enemy Far Many Talk Succeed]] &lt;&lt;else&gt;&gt; [["Try to speak to the " + $encounter["enemy"]|Enemy Far Many Talk Fail]] &lt;&lt;endif&gt;&gt;
+&lt;&lt;if $encounter["bribe"]&gt;&gt; [["Try to bribe the " + $encounter["enemy"] + " to let you pass"|Enemy Far Many Bribe Succeed]] &lt;&lt;else&gt;&gt; [["Try to bribe the " + $encounter["enemy"] + " to let you pass"|Enemy Far Many Bribe Fail]] &lt;&lt;endif&gt;&gt;</tw-passagedata><tw-passagedata pid="88" name="Enemy Far Many Sneak Succeed" tags="" position="">&lt;&lt;silently&gt;&gt;
 &lt;&lt;set $choices["sneak"] to $choices["sneak"]+1&gt;&gt;
 &lt;&lt;endsilently&gt;&gt;
 
@@ -2284,8 +2266,8 @@ You try to slip past the Goblins by sticking to the woods, but as your paths cro
 &lt;&lt;if $inventory["magicSword"] &gt; 0&gt;&gt; [[Attack with your Magic Sword|Enemy Far Many Magic Sword Fight]] &lt;&lt;else&gt;&gt; [[Attack with your Rusty Sword|Enemy Far Many Sword Fight]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory["magicBow"] &gt; 0&gt;&gt; [[Attack with your Magic Bow|Enemy Far Many Magic Bow Fight]] &lt;&lt;else&gt;&gt; [[Attack with your Old Bow|Enemy Far Many Bow Fight]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory["magicBook"] &gt; 0&gt;&gt; [[Attack with a Powerful Spell|Enemy Far Many Magic Book Fight]] &lt;&lt;else&gt;&gt; [[Attack with a Weak Spell|Enemy Far Many Magic Fight]] &lt;&lt;endif&gt;&gt;
-&lt;&lt;if $encounter["talk"]&gt;&gt; [[Try to speak to the $encounter["enemy"]|Enemy Far Many Talk Succeed]] &lt;&lt;else&gt;&gt; [[Try to speak to the $encounter["enemy"]|Enemy Far Many Talk Fail]] &lt;&lt;endif&gt;&gt;
-&lt;&lt;if $encounter["bribe"]&gt;&gt; [[Try to bribe the $encounter["enemy"] to let you pass|Enemy Far Many Bribe Succeed]] &lt;&lt;else&gt;&gt; [[Try to bribe to the $encounter["enemy"] to let you pass|Enemy Far Many Bribe Fail]] &lt;&lt;endif&gt;&gt;</tw-passagedata><tw-passagedata pid="90" name="Enemy Far Many Wait Succeed" tags="" position="">&lt;&lt;silently&gt;&gt;
+&lt;&lt;if $encounter["talk"]&gt;&gt; [["Try to speak to the " + $encounter["enemy"]|Enemy Far Many Talk Succeed]] &lt;&lt;else&gt;&gt; [["Try to speak to the " + $encounter["enemy"]|Enemy Far Many Talk Fail]] &lt;&lt;endif&gt;&gt;
+&lt;&lt;if $encounter["bribe"]&gt;&gt; [["Try to bribe the " + $encounter["enemy"] + " to let you pass"|Enemy Far Many Bribe Succeed]] &lt;&lt;else&gt;&gt; [["Try to bribe the " + $encounter["enemy"] + " to let you pass"|Enemy Far Many Bribe Fail]] &lt;&lt;endif&gt;&gt;</tw-passagedata><tw-passagedata pid="90" name="Enemy Far Many Wait Succeed" tags="" position="">&lt;&lt;silently&gt;&gt;
 &lt;&lt;set $choices["wait"] to $choices["wait"]+1&gt;&gt;
 &lt;&lt;endsilently&gt;&gt;
 
@@ -2297,12 +2279,12 @@ You stay hidden behind the bushes and with all of the clamour of their passage, 
 
 You wait for an hour but the $encounter["enemy"] have stopped for lunch and don't seem to be planning on leaving anytime soon.
 
-&lt;&lt;if $encounter["sneak"]&gt;&gt;[[Try to sneak past the $encounter["enemy"]|Enemy Far Many Sneak Succeed]] &lt;&lt;else&gt;&gt; [[Try to sneak past the $encounter["enemy"]|Enemy Far Many Sneak Fail]] &lt;&lt;endif&gt;&gt;
+&lt;&lt;if $encounter["sneak"]&gt;&gt;[["Try to sneak past the " + $encounter["enemy"]|Enemy Far Many Sneak Succeed]] &lt;&lt;else&gt;&gt; [["Try to sneak past the " + $encounter["enemy"]|Enemy Far Many Sneak Fail]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory["magicSword"] &gt; 0&gt;&gt; [[Attack with your Magic Sword|Enemy Far Many Magic Sword Fight]] &lt;&lt;else&gt;&gt; [[Attack with your Rusty Sword|Enemy Far Many Sword Fight]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory["magicBow"] &gt; 0&gt;&gt; [[Attack with your Magic Bow|Enemy Far Many Magic Bow Hidden]] &lt;&lt;else&gt;&gt; [[Attack with your Old Bow|Enemy Far Many Bow Hidden]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory["magicBook"] &gt; 0&gt;&gt; [[Attack with a Powerful Spell|Enemy Far Many Magic Book Fight]] &lt;&lt;else&gt;&gt; [[Attack with a Weak Spell|Enemy Far Many Magic Fight]] &lt;&lt;endif&gt;&gt;
-&lt;&lt;if $encounter["talk"]&gt;&gt; [[Try to speak to the $encounter["enemy"]|Enemy Far Many Talk Succeed]] &lt;&lt;else&gt;&gt; [[Try to speak to the $encounter["enemy"]|Enemy Far Many Talk Fail]] &lt;&lt;endif&gt;&gt;
-&lt;&lt;if $encounter["bribe"]&gt;&gt; [[Try to bribe the $encounter["enemy"] to let you pass|Enemy Far Many Bribe Succeed]] &lt;&lt;else&gt;&gt; [[Try to bribe to the $encounter["enemy"] to let you pass|Enemy Far Many Bribe Fail]] &lt;&lt;endif&gt;&gt;</tw-passagedata><tw-passagedata pid="92" name="Enemy Far Few" tags="" position="">&lt;&lt;silently&gt;&gt;
+&lt;&lt;if $encounter["talk"]&gt;&gt; [["Try to speak to the " + $encounter["enemy"]|Enemy Far Many Talk Succeed]] &lt;&lt;else&gt;&gt; [["Try to speak to the " + $encounter["enemy"]|Enemy Far Many Talk Fail]] &lt;&lt;endif&gt;&gt;
+&lt;&lt;if $encounter["bribe"]&gt;&gt; [["Try to bribe the " + $encounter["enemy"] + " to let you pass"|Enemy Far Many Bribe Succeed]] &lt;&lt;else&gt;&gt; [["Try to bribe the " + $encounter["enemy"] + " to let you pass"|Enemy Far Many Bribe Fail]] &lt;&lt;endif&gt;&gt;</tw-passagedata><tw-passagedata pid="92" name="Enemy Far Few" tags="" position="">&lt;&lt;silently&gt;&gt;
 &lt;&lt;set $choices["far"] to $choices["far"]+1&gt;&gt;
 &lt;&lt;set $choices["few"] to $choices["few"]+1&gt;&gt;
 &lt;&lt;endsilently&gt;&gt;
@@ -2312,8 +2294,8 @@ The road leads to a narrow bridge, and on the other side, blocking your way, sta
 &lt;&lt;if $inventory["magicSword"] &gt; 0&gt;&gt; [[Attack with your Magic Sword|Enemy Far Few Magic Sword Fight]] &lt;&lt;else&gt;&gt; [[Attack with your Rusty Sword|Enemy Far Few Sword Fight]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory["magicBow"] &gt; 0&gt;&gt; [[Attack with your Magic Bow|Enemy Far Few Magic Bow Far]] &lt;&lt;else&gt;&gt; [[Attack with your Old Bow|Enemy Far Few Bow Far]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory["magicBook"] &gt; 0&gt;&gt; [[Attack with a Powerful Spell|Enemy Far Few Magic Book Far]] &lt;&lt;else&gt;&gt; [[Attack with a Weak Spell|Enemy Far Few Magic Far]] &lt;&lt;endif&gt;&gt;
-&lt;&lt;if $encounter["talk"]&gt;&gt; [[Try to speak to the $encounter["enemy"]|Enemy Far Few Talk Succeed]] &lt;&lt;else&gt;&gt; [[Try to speak to the $encounter["enemy"]|Enemy Far Few Talk Fail]] &lt;&lt;endif&gt;&gt;
-&lt;&lt;if $encounter["bribe"]&gt;&gt; [[Try to bribe the $encounter["enemy"] to let you pass|Enemy Far Few Bribe Succeed]] &lt;&lt;else&gt;&gt; [[Try to bribe to the $encounter["enemy"] to let you pass|Enemy Far Few Bribe Fail]] &lt;&lt;endif&gt;&gt;
+&lt;&lt;if $encounter["talk"]&gt;&gt; [["Try to speak to the " + $encounter["enemy"]|Enemy Far Few Talk Succeed]] &lt;&lt;else&gt;&gt; [["Try to speak to the " + $encounter["enemy"]|Enemy Far Few Talk Fail]] &lt;&lt;endif&gt;&gt;
+&lt;&lt;if $encounter["bribe"]&gt;&gt; [["Try to bribe the " + $encounter["enemy"] + " to let you pass"|Enemy Far Few Bribe Succeed]] &lt;&lt;else&gt;&gt; [["Try to bribe the " + $encounter["enemy"] + " to let you pass"|Enemy Far Few Bribe Fail]] &lt;&lt;endif&gt;&gt;
 [[Try to hide in the forest on your side of the bridge|Enemy Far Few Hide]]</tw-passagedata><tw-passagedata pid="93" name="Enemy Far Few Sword Fight" tags="" position="">&lt;&lt;silently&gt;&gt;
 &lt;&lt;set $choices["sword"] to $choices["sword"]+1&gt;&gt;
 &lt;&lt;set $encounter["enemy_health"] to $encounter["enemy_health"] - $encounter["sword_damage"]&gt;&gt;
@@ -2590,8 +2572,8 @@ Stumbling away from your attacker, you manage to grab a healing potion from your
 [[Run away|Enemy Far Few Flee]]</tw-passagedata><tw-passagedata pid="104" name="Enemy Far Few Flee" tags="" position="">&lt;&lt;set $choices["runAway"] to $choices["runAway"]+1&gt;&gt;
 You flee from the $encounter["enemy"] and [[continue on your quest.|Next Encounter]]</tw-passagedata><tw-passagedata pid="105" name="Enemy Far Few Loot" tags="" position="">In the pouch you find a $encounter["loot_1"] and $encounter["gold_amount"] Gold Pieces. Your pack is getting heavy and you can only carry one. Which do you take?
 
-[[Take the $encounter["loot_1"]|Enemy Far Few Loot 1]]
-[[Take the $encounter["gold_amount"] Gold Pieces|Enemy Far Few Loot 2]]</tw-passagedata><tw-passagedata pid="106" name="Enemy Far Few Loot 1" tags="" position="">&lt;&lt;if $encounter["loot_1"] == "Magic Sword"&gt;&gt;
+[["Take the " + $encounter["loot_1"]|Enemy Far Few Loot 1]]
+[["Take the " + $encounter["gold_amount"] + " Gold Pieces"|Enemy Far Few Loot 2]]</tw-passagedata><tw-passagedata pid="106" name="Enemy Far Few Loot 1" tags="" position="">&lt;&lt;if $encounter["loot_1"] == "Magic Sword"&gt;&gt;
 &lt;&lt;silently&gt;&gt;
 &lt;&lt;set $inventory["magicSword"] to $inventory["magicSword"]+1&gt;&gt;
 &lt;&lt;set $choices["weapon"] to $choices["weapon"]+1 &gt;&gt;
@@ -2630,7 +2612,7 @@ You approach the $encounter["enemy"] and ask if you may cross the bridge. "No!" 
 &lt;&lt;if $inventory["magicSword"] &gt; 0&gt;&gt; [[Attack with your Magic Sword|Enemy Far Few Magic Sword Fight]] &lt;&lt;else&gt;&gt; [[Attack with your Rusty Sword|Enemy Far Few Sword Fight]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory["magicBow"] &gt; 0&gt;&gt; [[Attack with your Magic Bow|Enemy Far Few Magic Bow Fight]] &lt;&lt;else&gt;&gt; [[Attack with your Old Bow|Enemy Far Few Bow Fight]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory["magicBook"] &gt; 0&gt;&gt; [[Attack with a Powerful Spell|Enemy Far Few Magic Book Fight]] &lt;&lt;else&gt;&gt; [[Attack with a Weak Spell|Enemy Far Few Magic Fight]] &lt;&lt;endif&gt;&gt;
-&lt;&lt;if $encounter["bribe"]&gt;&gt; [[Try to bribe the $encounter["enemy"] to let you pass|Enemy Far Few Bribe Succeed]] &lt;&lt;else&gt;&gt; [[Try to bribe to the $encounter["enemy"] to let you pass|Enemy Far Few Bribe Fail]] &lt;&lt;endif&gt;&gt;</tw-passagedata><tw-passagedata pid="109" name="Enemy Far Few Talk Succeed" tags="" position="">&lt;&lt;silently&gt;&gt;
+&lt;&lt;if $encounter["bribe"]&gt;&gt; [["Try to bribe the " + $encounter["enemy"] + " to let you pass"|Enemy Far Few Bribe Succeed]] &lt;&lt;else&gt;&gt; [["Try to bribe the " + $encounter["enemy"] + " to let you pass"|Enemy Far Few Bribe Fail]] &lt;&lt;endif&gt;&gt;</tw-passagedata><tw-passagedata pid="109" name="Enemy Far Few Talk Succeed" tags="" position="">&lt;&lt;silently&gt;&gt;
 &lt;&lt;set $choices["talk"] to $choices["talk"]+1&gt;&gt;
 &lt;&lt;endsilently&gt;&gt;
 
@@ -2647,40 +2629,34 @@ You walk up to the $encounter["enemy"] and ask if she'd like to trade for passag
 &lt;&lt;if $inventory["magicSword"] &gt; 0&gt;&gt; [[Attack with your Magic Sword|Enemy Far Few Magic Sword Fight]] &lt;&lt;else&gt;&gt; [[Attack with your Rusty Sword|Enemy Far Few Sword Fight]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory["magicBow"] &gt; 0&gt;&gt; [[Attack with your Magic Bow|Enemy Far Few Magic Bow Fight]] &lt;&lt;else&gt;&gt; [[Attack with your Old Bow|Enemy Far Few Bow Fight]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory["magicBook"] &gt; 0&gt;&gt; [[Attack with a Powerful Spell|Enemy Far Few Magic Book Fight]] &lt;&lt;else&gt;&gt; [[Attack with a Weak Spell|Enemy Far Few Magic Fight]] &lt;&lt;endif&gt;&gt;
-&lt;&lt;if $encounter["talk"]&gt;&gt; [[Try to speak to the $encounter["enemy"]|Enemy Far Few Talk Succeed]] &lt;&lt;else&gt;&gt; [[Try to speak to the $encounter["enemy"]|Enemy Far Few Talk Fail]] &lt;&lt;endif&gt;&gt;</tw-passagedata><tw-passagedata pid="111" name="Enemy Far Few Bribe Succeed" tags="" position="">&lt;&lt;silently&gt;&gt;
+&lt;&lt;if $encounter["talk"]&gt;&gt; [["Try to speak to the " + $encounter["enemy"]|Enemy Far Few Talk Succeed]] &lt;&lt;else&gt;&gt; [["Try to speak to the " + $encounter["enemy"]|Enemy Far Few Talk Fail]] &lt;&lt;endif&gt;&gt;</tw-passagedata><tw-passagedata pid="111" name="Enemy Far Few Bribe Succeed" tags="" position="">&lt;&lt;silently&gt;&gt;
 &lt;&lt;set $choices["bribe"] to $choices["bribe"]+1&gt;&gt;
 &lt;&lt;endsilently&gt;&gt;
 
 You walk up to the $encounter["enemy"] and ask if she'd like to trade for passage across the bridge. "Well, this is a toll bridge," she answers. "How would you like to pay?"
 
-{{STORY_DATA}}lt;&lt;if $inventory["magicSword"] &gt; 0&gt;&gt;
-[[Offer a Magic Sword|Enemy Far Few Give Sword]]
-{{STORY_DATA}}lt;&lt;endif&gt;&gt;
-{{STORY_DATA}}lt;&lt;if $inventory["magicBow"] &gt; 0&gt;&gt;
-[[Offer a Magic Bow|Enemy Far Few Give Bow]]
-{{STORY_DATA}}lt;&lt;endif&gt;&gt;
-{{STORY_DATA}}lt;&lt;if $inventory["magicBook"] &gt; 0&gt;&gt;
-[[Offer a Magic Spell Tome|Enemy Far Few Give Magic]]
-{{STORY_DATA}}lt;&lt;endif&gt;&gt;
+&lt;&lt;if $inventory["magicSword"] &gt; 0&gt;&gt;[[Offer a Magic Sword|Enemy Far Few Give Sword]]&lt;&lt;endif&gt;&gt;
+&lt;&lt;if $inventory["magicBow"] &gt; 0&gt;&gt;[[Offer a Magic Bow|Enemy Far Few Give Bow]]&lt;&lt;endif&gt;&gt;
+&lt;&lt;if $inventory["magicBook"] &gt; 0&gt;&gt;[[Offer a Magic Spell Tome|Enemy Far Few Give Magic]]&lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory["gold"] &gt; 0&gt;&gt; [[Offer gold|Enemy Far Few Give gold]]&lt;&lt;endif&gt;&gt;
-&lt;&lt;if $encounter["talk"]&gt;&gt; [[Try to speak to the $encounter["enemy"]|Enemy Far Few Talk Succeed]] &lt;&lt;else&gt;&gt; [[Try to speak to the $encounter["enemy"]|Enemy Far Few Talk Fail]] &lt;&lt;endif&gt;&gt;</tw-passagedata><tw-passagedata pid="112" name="Enemy Far Few Give Give Sword" tags="" position="">&lt;&lt;silently&gt;&gt;
+&lt;&lt;if $encounter["talk"]&gt;&gt; [["Try to speak to the " + $encounter["enemy"]|Enemy Far Few Talk Succeed]] &lt;&lt;else&gt;&gt; [["Try to speak to the " + $encounter["enemy"]|Enemy Far Few Talk Fail]] &lt;&lt;endif&gt;&gt;</tw-passagedata><tw-passagedata pid="112" name="Enemy Far Few Give Sword" tags="" position="">&lt;&lt;silently&gt;&gt;
 &lt;&lt;set $inventory["magicSword"] to $inventory["magicSword"]-1&gt;&gt;
 &lt;&lt;endsilently&gt;&gt;
 
 "That is sufficient payment" she says, as she takes your Magic Sword. "You can head on past now." With the $encounter["enemy"] standing aside, you are free to continue to down the road.
 
-[[Continue on your Quest|Next Encounter]]</tw-passagedata><tw-passagedata pid="113" name="Enemy Far Few Give Give Bow" tags="" position="">&lt;&lt;silently&gt;&gt;
+[[Continue on your Quest|Next Encounter]]</tw-passagedata><tw-passagedata pid="113" name="Enemy Far Few Give Bow" tags="" position="">&lt;&lt;silently&gt;&gt;
 &lt;&lt;set $inventory["magicBow"] to $inventory["magicBow"]-1&gt;&gt;
 &lt;&lt;endsilently&gt;&gt;
 "That is sufficient payment" she says, as she takes your Magic Bow. "You can head on past now." With the $encounter["enemy"] standing aside, you are free to continue to down the road.
 
-[[Continue on your Quest|Next Encounter]]</tw-passagedata><tw-passagedata pid="114" name="Enemy Far Few Give Give Magic" tags="" position="">&lt;&lt;silently&gt;&gt;
+[[Continue on your Quest|Next Encounter]]</tw-passagedata><tw-passagedata pid="114" name="Enemy Far Few Give Magic" tags="" position="">&lt;&lt;silently&gt;&gt;
 &lt;&lt;set $inventory["magicBook"] to $inventory["magicBook"]-1&gt;&gt;
 &lt;&lt;endsilently&gt;&gt;
 
 "That is sufficient payment" she says, as she takes your Magic Spell Tome. "You can head on past now." With the $encounter["enemy"] standing aside, you are free to continue to down the road.
 
-[[Continue on your Quest|Next Encounter]]</tw-passagedata><tw-passagedata pid="115" name="Enemy Far Few Give Give gold" tags="" position="">&lt;&lt;silently&gt;&gt;
+[[Continue on your Quest|Next Encounter]]</tw-passagedata><tw-passagedata pid="115" name="Enemy Far Few Give gold" tags="" position="">&lt;&lt;silently&gt;&gt;
 &lt;&lt;set $inventory["gold"] to $inventory["gold"]-1&gt;&gt;
 &lt;&lt;endsilently&gt;&gt;
 
@@ -2692,13 +2668,13 @@ You walk up to the $encounter["enemy"] and ask if she'd like to trade for passag
 
 You dart into the forest and hide. The $encounter["enemy"] Doesn't seem to have spotted you from so far away.
 
-&lt;&lt;if $encounter["sneak"]&gt;&gt;[[Try to sneak past the $encounter["enemy"]|Enemy Far Few Sneak Succeed]] &lt;&lt;else&gt;&gt; [[Try to sneak past the $encounter["enemy"]|Enemy Far Few Sneak Fail]] &lt;&lt;endif&gt;&gt;
+&lt;&lt;if $encounter["sneak"]&gt;&gt;[["Try to sneak past the " + $encounter["enemy"]|Enemy Far Few Sneak Succeed]] &lt;&lt;else&gt;&gt; [["Try to sneak past the " + $encounter["enemy"]|Enemy Far Few Sneak Fail]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $encounter["wait"]&gt;&gt;[[Wait to see if she leaves|Enemy Far Few Wait Succeed]] &lt;&lt;else&gt;&gt; [[Wait to see if he leaves|Enemy Far Few Wait Fail]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory["magicSword"] &gt; 0&gt;&gt; [[Attack with your Magic Sword|Enemy Far Few Magic Sword Fight]] &lt;&lt;else&gt;&gt; [[Attack with your Rusty Sword|Enemy Far Few Sword Fight]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory["magicBow"] &gt; 0&gt;&gt; [[Attack with your Magic Bow|Enemy Far Few Magic Bow Hidden]] &lt;&lt;else&gt;&gt; [[Attack with your Old Bow|Enemy Far Few Bow Hidden]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory["magicBook"] &gt; 0&gt;&gt; [[Attack with a Powerful Spell|Enemy Far Few Magic Book Far]] &lt;&lt;else&gt;&gt; [[Attack with a Weak Spell|Enemy Far Few Magic Far]] &lt;&lt;endif&gt;&gt;
-&lt;&lt;if $encounter["talk"]&gt;&gt; [[Try to speak to the $encounter["enemy"]|Enemy Far Few Talk Succeed]] &lt;&lt;else&gt;&gt; [[Try to speak to the $encounter["enemy"]|Enemy Far Few Talk Fail]] &lt;&lt;endif&gt;&gt;
-&lt;&lt;if $encounter["bribe"]&gt;&gt; [[Try to bribe the $encounter["enemy"] to let you pass|Enemy Far Few Bribe Succeed]] &lt;&lt;else&gt;&gt; [[Try to bribe to the $encounter["enemy"] to let you pass|Enemy Far Few Bribe Fail]] &lt;&lt;endif&gt;&gt;</tw-passagedata><tw-passagedata pid="117" name="Enemy Far Few Bow Hidden" tags="" position="">&lt;&lt;silently&gt;&gt;
+&lt;&lt;if $encounter["talk"]&gt;&gt; [["Try to speak to the " + $encounter["enemy"]|Enemy Far Few Talk Succeed]] &lt;&lt;else&gt;&gt; [["Try to speak to the " + $encounter["enemy"]|Enemy Far Few Talk Fail]] &lt;&lt;endif&gt;&gt;
+&lt;&lt;if $encounter["bribe"]&gt;&gt; [["Try to bribe the " + $encounter["enemy"] + " to let you pass"|Enemy Far Few Bribe Succeed]] &lt;&lt;else&gt;&gt; [["Try to bribe the " + $encounter["enemy"] + " to let you pass"|Enemy Far Few Bribe Fail]] &lt;&lt;endif&gt;&gt;</tw-passagedata><tw-passagedata pid="117" name="Enemy Far Few Bow Hidden" tags="" position="">&lt;&lt;silently&gt;&gt;
 &lt;&lt;set $choices["bow"] to $choices["bow"]+1&gt;&gt;
 &lt;&lt;set $encounter["enemy_health"] to $encounter["enemy_health"] - $encounter["bow_damage"]&gt;&gt;
 &lt;&lt;endsilently&gt;&gt;
@@ -2745,8 +2721,8 @@ You take a few steps across the bridge, but it is quite thin and there is no cov
 &lt;&lt;if $inventory["magicSword"] &gt; 0&gt;&gt; [[Attack with your Magic Sword|Enemy Far Few Magic Sword Fight]] &lt;&lt;else&gt;&gt; [[Attack with your Rusty Sword|Enemy Far Few Sword Fight]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory["magicBow"] &gt; 0&gt;&gt; [[Attack with your Magic Bow|Enemy Far Few Magic Bow Fight]] &lt;&lt;else&gt;&gt; [[Attack with your Old Bow|Enemy Far Few Bow Fight]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory["magicBook"] &gt; 0&gt;&gt; [[Attack with a Powerful Spell|Enemy Far Few Magic Book Fight]] &lt;&lt;else&gt;&gt; [[Attack with a Weak Spell|Enemy Far Few Magic Fight]] &lt;&lt;endif&gt;&gt;
-&lt;&lt;if $encounter["talk"]&gt;&gt; [[Try to speak to the $encounter["enemy"]|Enemy Far Few Talk Succeed]] &lt;&lt;else&gt;&gt; [[Try to speak to the $encounter["enemy"]|Enemy Far Few Talk Fail]] &lt;&lt;endif&gt;&gt;
-&lt;&lt;if $encounter["bribe"]&gt;&gt; [[Try to bribe the $encounter["enemy"] to let you pass|Enemy Far Few Bribe Succeed]] &lt;&lt;else&gt;&gt; [[Try to bribe to the $encounter["enemy"] to let you pass|Enemy Far Few Bribe Fail]] &lt;&lt;endif&gt;&gt;</tw-passagedata><tw-passagedata pid="121" name="Enemy Far Few Wait Succeed" tags="" position="">&lt;&lt;silently&gt;&gt;
+&lt;&lt;if $encounter["talk"]&gt;&gt; [["Try to speak to the " + $encounter["enemy"]|Enemy Far Few Talk Succeed]] &lt;&lt;else&gt;&gt; [["Try to speak to the " + $encounter["enemy"]|Enemy Far Few Talk Fail]] &lt;&lt;endif&gt;&gt;
+&lt;&lt;if $encounter["bribe"]&gt;&gt; [["Try to bribe the " + $encounter["enemy"] + " to let you pass"|Enemy Far Few Bribe Succeed]] &lt;&lt;else&gt;&gt; [["Try to bribe the " + $encounter["enemy"] + " to let you pass"|Enemy Far Few Bribe Fail]] &lt;&lt;endif&gt;&gt;</tw-passagedata><tw-passagedata pid="121" name="Enemy Far Few Wait Succeed" tags="" position="">&lt;&lt;silently&gt;&gt;
 &lt;&lt;set $choices["wait"] to $choices["wait"]+1&gt;&gt;
 &lt;&lt;endsilently&gt;&gt;
 
@@ -2758,12 +2734,12 @@ After about an hour, the $encounter["enemy"] checks her watch and then picks up 
 
 You wait for an hour but it doesn't seem like the $encounter["enemy"] is going anywhere.
 
-&lt;&lt;if $encounter["sneak"]&gt;&gt;[[Try to sneak past the $encounter["enemy"]|Enemy Far Few Sneak Succeed]] &lt;&lt;else&gt;&gt; [[Try to sneak past the $encounter["enemy"]|Enemy Far Few Sneak Fail]] &lt;&lt;endif&gt;&gt;
+&lt;&lt;if $encounter["sneak"]&gt;&gt;[["Try to sneak past the " + $encounter["enemy"]|Enemy Far Few Sneak Succeed]] &lt;&lt;else&gt;&gt; [["Try to sneak past the " + $encounter["enemy"]|Enemy Far Few Sneak Fail]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory["magicSword"] &gt; 0&gt;&gt; [[Attack with your Magic Sword|Enemy Far Few Magic Sword Fight]] &lt;&lt;else&gt;&gt; [[Attack with your Rusty Sword|Enemy Far Few Sword Fight]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory["magicBow"] &gt; 0&gt;&gt; [[Attack with your Magic Bow|Enemy Far Few Magic Bow Hidden]] &lt;&lt;else&gt;&gt; [[Attack with your Old Bow|Enemy Far Few Bow Hidden]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory["magicBook"] &gt; 0&gt;&gt; [[Attack with a Powerful Spell|Enemy Far Few Magic Book Fight]] &lt;&lt;else&gt;&gt; [[Attack with a Weak Spell|Enemy Far Few Magic Fight]] &lt;&lt;endif&gt;&gt;
-&lt;&lt;if $encounter["talk"]&gt;&gt; [[Try to speak to the $encounter["enemy"]|Enemy Far Few Talk Succeed]] &lt;&lt;else&gt;&gt; [[Try to speak to the $encounter["enemy"]|Enemy Far Few Talk Fail]] &lt;&lt;endif&gt;&gt;
-&lt;&lt;if $encounter["bribe"]&gt;&gt; [[Try to bribe the $encounter["enemy"] to let you pass|Enemy Far Few Bribe Succeed]] &lt;&lt;else&gt;&gt; [[Try to bribe to the $encounter["enemy"] to let you pass|Enemy Far Few Bribe Fail]] &lt;&lt;endif&gt;&gt;</tw-passagedata><tw-passagedata pid="123" name="Town" tags="" position="">You come across a small town with a busy town square. There is a small shop where you can purchase weapons and supplies for your journey. But first, you need to find out exactly where Bloomrane Cavern is located. Near the inn, some townsfolk are discussing the local news and gossip. There are several market stalls, including one for a cartographer. You also see two cloaked figures slip into an alleyway.
+&lt;&lt;if $encounter["talk"]&gt;&gt; [["Try to speak to the " + $encounter["enemy"]|Enemy Far Few Talk Succeed]] &lt;&lt;else&gt;&gt; [["Try to speak to the " + $encounter["enemy"]|Enemy Far Few Talk Fail]] &lt;&lt;endif&gt;&gt;
+&lt;&lt;if $encounter["bribe"]&gt;&gt; [["Try to bribe the " + $encounter["enemy"] + " to let you pass"|Enemy Far Few Bribe Succeed]] &lt;&lt;else&gt;&gt; [["Try to bribe the " + $encounter["enemy"] + " to let you pass"|Enemy Far Few Bribe Fail]] &lt;&lt;endif&gt;&gt;</tw-passagedata><tw-passagedata pid="123" name="Town" tags="" position="">You come across a small town with a busy town square. There is a small shop where you can purchase weapons and supplies for your journey. But first, you need to find out exactly where Bloomrane Cavern is located. Near the inn, some townsfolk are discussing the local news and gossip. There are several market stalls, including one for a cartographer. You also see two cloaked figures slip into an alleyway.
 
 [[You brandish your Sword|Town Sword]]
 [[You draw your Bow|Town Bow]]

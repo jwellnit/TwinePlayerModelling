@@ -9,8 +9,8 @@ Just before you stands $encounter["enemy_description"], guarding the path ahead.
 <<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Enemy Near Few Magic Sword Fight]] <<else>> [[Attack with your Rusty Sword|Enemy Near Few Sword Fight]] <<endif>>
 <<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Enemy Near Few Magic Bow Fight]] <<else>> [[Attack with your Old Bow|Enemy Near Few Bow Fight]] <<endif>>
 <<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Enemy Near Few Magic Book Fight]] <<else>> [[Attack with a Weak Spell|Enemy Near Few Magic Fight]] <<endif>>
-<<if $encounter["talk"]>> [[Try to speak to the $encounter["enemy"]|Enemy Near Few Talk Succeed]] <<else>> [[Try to speak to the $encounter["enemy"]|Enemy Near Few Talk Fail]] <<endif>>
-<<if $encounter["bribe"]>> [[Try to bribe the $encounter["enemy"] to let you pass|Enemy Near Few Bribe Succeed]] <<else>> [[Try to bribe to the $encounter["enemy"] to let you pass|Enemy Near Few Bribe Fail]] <<endif>>
+<<if $encounter["talk"]>> [["Try to speak to the " + $encounter["enemy"]|Enemy Near Few Talk Succeed]] <<else>> [["Try to speak to the " + $encounter["enemy"]|Enemy Near Few Talk Fail]] <<endif>>
+<<if $encounter["bribe"]>> [["Try to bribe the " + $encounter["enemy"] + " to let you pass"|Enemy Near Few Bribe Succeed]] <<else>> [["Try to bribe the " + $encounter["enemy"] + " to let you pass"|Enemy Near Few Bribe Fail]] <<endif>>
 [[Try to hide in the bushes before he sees you|Enemy Near Few Hide]]
 
 :: Enemy Near Few Sword Fight
@@ -248,8 +248,8 @@ You flee from the $encounter["enemy"] and [[continue on your quest.|Next Encount
 :: Enemy Near Few Loot
 In the pouch you find a $encounter["loot_1"] and $encounter["gold_amount"] Gold Pieces. Your pack is getting heavy and you can only carry one. Which do you take?
 
-[[Take the $encounter["loot_1"]|Enemy Near Few Loot 1]]
-[[Take the $encounter["gold_amount"] Gold Pieces|Enemy Near Few Loot 2]]
+[["Take the " + $encounter["loot_1"]|Enemy Near Few Loot 1]]
+[["Take the " + $encounter["gold_amount"] + " Gold Pieces"|Enemy Near Few Loot 2]]
 
 :: Enemy Near Few Loot 1
 <<if $encounter["loot_1"] == "Magic Sword">>
@@ -301,7 +301,7 @@ You ask the $encounter["enemy"] if you may pass.
 <<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Enemy Near Few Magic Sword Fight]] <<else>> [[Attack with your Rusty Sword|Enemy Near Few Sword Fight]] <<endif>>
 <<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Enemy Near Few Magic Bow Fight]] <<else>> [[Attack with your Old Bow|Enemy Near Few Bow Fight]] <<endif>>
 <<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Enemy Near Few Magic Book Fight]] <<else>> [[Attack with a Weak Spell|Enemy Near Few Magic Fight]] <<endif>>
-<<if $encounter["bribe"]>> [[Try to bribe the $encounter["enemy"] to let you pass|Enemy Near Few Bribe Succeed]] <<else>> [[Try to bribe to the $encounter["enemy"] to let you pass|Enemy Near Few Bribe Fail]] <<endif>>
+<<if $encounter["bribe"]>> [["Try to bribe the " + $encounter["enemy"] + " to let you pass"|Enemy Near Few Bribe Succeed]] <<else>> [["Try to bribe the " + $encounter["enemy"] + " to let you pass"|Enemy Near Few Bribe Fail]] <<endif>>
 
 :: Enemy Near Few Talk Succeed
 <<silently>>
@@ -326,7 +326,7 @@ You walk up to the $encounter["enemy"] and ask if he'd like to trade for passage
 <<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Enemy Near Few Magic Sword Fight]] <<else>> [[Attack with your Rusty Sword|Enemy Near Few Sword Fight]] <<endif>>
 <<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Enemy Near Few Magic Bow Fight]] <<else>> [[Attack with your Old Bow|Enemy Near Few Bow Fight]] <<endif>>
 <<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Enemy Near Few Magic Book Fight]] <<else>> [[Attack with a Weak Spell|Enemy Near Few Magic Fight]] <<endif>>
-<<if $encounter["talk"]>> [[Try to speak to the $encounter["enemy"]|Enemy Near Few Talk Succeed]] <<else>> [[Try to speak to the $encounter["enemy"]|Enemy Near Few Talk Fail]] <<endif>>
+<<if $encounter["talk"]>> [["Try to speak to the " + $encounter["enemy"]|Enemy Near Few Talk Succeed]] <<else>> [["Try to speak to the " + $encounter["enemy"]|Enemy Near Few Talk Fail]] <<endif>>
 
 :: Enemy Near Few Bribe Succeed
 <<silently>>
@@ -335,19 +335,13 @@ You walk up to the $encounter["enemy"] and ask if he'd like to trade for passage
 
 You walk up to the $encounter["enemy"] and ask if he'd like to trade for passage down the road. He scratches his chin and considers your offer. "What are you gonna give me?"
 
-\<<if $inventory["magicSword"] > 0>>
-[[Offer a Magic Sword|Enemy Near Few Give Sword]]
-\<<endif>>
-\<<if $inventory["magicBow"] > 0>>
-[[Offer a Magic Bow|Enemy Near Few Give Bow]]
-\<<endif>>
-\<<if $inventory["magicBook"] > 0>>
-[[Offer a Magic Spell Tome|Enemy Near Few Give Magic]]
-\<<endif>>
+<<if $inventory["magicSword"] > 0>>[[Offer a Magic Sword|Enemy Near Few Give Sword]]<<endif>>
+<<if $inventory["magicBow"] > 0>>[[Offer a Magic Bow|Enemy Near Few Give Bow]]<<endif>>
+<<if $inventory["magicBook"] > 0>>[[Offer a Magic Spell Tome|Enemy Near Few Give Magic]]<<endif>>
 <<if $inventory["gold"] > 0>> [[Offer gold|Enemy Near Few Give gold]]<<endif>>
-<<if $encounter["talk"]>> [[Try to speak to the $encounter["enemy"]|Enemy Near Few Talk Succeed]] <<else>> [[Try to speak to the $encounter["enemy"]|Enemy Near Few Talk Fail]] <<endif>>
+<<if $encounter["talk"]>> [["Try to speak to the " + $encounter["enemy"]|Enemy Near Few Talk Succeed]] <<else>> [["Try to speak to the " + $encounter["enemy"]|Enemy Near Few Talk Fail]] <<endif>>
 
-:: Enemy Near Few Give Give Sword
+:: Enemy Near Few Give Sword
 <<silently>>
 <<set $inventory["magicSword"] to $inventory["magicSword"]-1>>
 <<endsilently>>
@@ -356,7 +350,7 @@ You walk up to the $encounter["enemy"] and ask if he'd like to trade for passage
 
 [[Continue on your Quest|Next Encounter]]
 
-:: Enemy Near Few Give Give Bow
+:: Enemy Near Few Give Bow
 <<silently>>
 <<set $inventory["magicBow"] to $inventory["magicBow"]-1>>
 <<endsilently>>
@@ -365,7 +359,7 @@ You walk up to the $encounter["enemy"] and ask if he'd like to trade for passage
 
 [[Continue on your Quest|Next Encounter]]
 
-:: Enemy Near Few Give Give Magic
+:: Enemy Near Few Give Magic
 <<silently>>
 <<set $inventory["magicBook"] to $inventory["magicBook"]-1>>
 <<endsilently>>
@@ -374,7 +368,7 @@ You walk up to the $encounter["enemy"] and ask if he'd like to trade for passage
 
 [[Continue on your Quest|Next Encounter]]
 
-:: Enemy Near Few Give Give gold
+:: Enemy Near Few Give gold
 <<silently>>
 <<set $inventory["gold"] to $inventory["gold"]-1>>
 <<endsilently>>
@@ -390,13 +384,13 @@ You walk up to the $encounter["enemy"] and ask if he'd like to trade for passage
 
 You dart into the bushes and hide before the $encounter["enemy"] sees you.
 
-<<if $encounter["sneak"]>>[[Try to sneak past the $encounter["enemy"]|Enemy Near Few Sneak Succeed]] <<else>> [[Try to sneak past the $encounter["enemy"]|Enemy Near Few Sneak Fail]] <<endif>>
+<<if $encounter["sneak"]>>[["Try to sneak past the " + $encounter["enemy"]|Enemy Near Few Sneak Succeed]] <<else>> [["Try to sneak past the " + $encounter["enemy"]|Enemy Near Few Sneak Fail]] <<endif>>
 <<if $encounter["wait"]>>[[Wait to see if he leaves|Enemy Near Few Wait Succeed]] <<else>> [[Wait to see if he leaves|Enemy Near Few Wait Fail]] <<endif>>
 <<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Enemy Near Few Magic Sword Fight]] <<else>> [[Attack with your Rusty Sword|Enemy Near Few Sword Fight]] <<endif>>
 <<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Enemy Near Few Magic Bow Hidden]] <<else>> [[Attack with your Old Bow|Enemy Near Few Bow Hidden]] <<endif>>
 <<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Enemy Near Few Magic Book Fight]] <<else>> [[Attack with a Weak Spell|Enemy Near Few Magic Fight]] <<endif>>
-<<if $encounter["talk"]>> [[Try to speak to the $encounter["enemy"]|Enemy Near Few Talk Succeed]] <<else>> [[Try to speak to the $encounter["enemy"]|Enemy Near Few Talk Fail]] <<endif>>
-<<if $encounter["bribe"]>> [[Try to bribe the $encounter["enemy"] to let you pass|Enemy Near Few Bribe Succeed]] <<else>> [[Try to bribe to the $encounter["enemy"] to let you pass|Enemy Near Few Bribe Fail]] <<endif>>
+<<if $encounter["talk"]>> [["Try to speak to the " + $encounter["enemy"]|Enemy Near Few Talk Succeed]] <<else>> [["Try to speak to the " + $encounter["enemy"]|Enemy Near Few Talk Fail]] <<endif>>
+<<if $encounter["bribe"]>> [["Try to bribe the " + $encounter["enemy"] + " to let you pass"|Enemy Near Few Bribe Succeed]] <<else>> [["Try to bribe the " + $encounter["enemy"] + " to let you pass"|Enemy Near Few Bribe Fail]] <<endif>>
 
 :: Enemy Near Few Bow Hidden
 <<silently>>
@@ -455,8 +449,8 @@ You creep quietly through the bushes, but you accidentally step on a branch, mak
 <<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Enemy Near Few Magic Sword Fight]] <<else>> [[Attack with your Rusty Sword|Enemy Near Few Sword Fight]] <<endif>>
 <<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Enemy Near Few Magic Bow Fight]] <<else>> [[Attack with your Old Bow|Enemy Near Few Bow Fight]] <<endif>>
 <<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Enemy Near Few Magic Book Fight]] <<else>> [[Attack with a Weak Spell|Enemy Near Few Magic Fight]] <<endif>>
-<<if $encounter["talk"]>> [[Try to speak to the $encounter["enemy"]|Enemy Near Few Talk Succeed]] <<else>> [[Try to speak to the $encounter["enemy"]|Enemy Near Few Talk Fail]] <<endif>>
-<<if $encounter["bribe"]>> [[Try to bribe the $encounter["enemy"] to let you pass|Enemy Near Few Bribe Succeed]] <<else>> [[Try to bribe to the $encounter["enemy"] to let you pass|Enemy Near Few Bribe Fail]] <<endif>>
+<<if $encounter["talk"]>> [["Try to speak to the " + $encounter["enemy"]|Enemy Near Few Talk Succeed]] <<else>> [["Try to speak to the " + $encounter["enemy"]|Enemy Near Few Talk Fail]] <<endif>>
+<<if $encounter["bribe"]>> [["Try to bribe the " + $encounter["enemy"] + " to let you pass"|Enemy Near Few Bribe Succeed]] <<else>> [["Try to bribe the " + $encounter["enemy"] + " to let you pass"|Enemy Near Few Bribe Fail]] <<endif>>
 
 :: Enemy Near Few Wait Succeed
 <<silently>>
@@ -474,9 +468,9 @@ After about an hour, the $encounter["enemy"] gets bored and sighs deeply. He wal
 
 You wait for an hour but it doesn't seem like the $encounter["enemy"] is going anywhere.
 
-<<if $encounter["sneak"]>>[[Try to sneak past the $encounter["enemy"]|Enemy Near Few Sneak Succeed]] <<else>> [[Try to sneak past the $encounter["enemy"]|Enemy Near Few Sneak Fail]] <<endif>>
+<<if $encounter["sneak"]>>[["Try to sneak past the " + $encounter["enemy"]|Enemy Near Few Sneak Succeed]] <<else>> [["Try to sneak past the " + $encounter["enemy"]|Enemy Near Few Sneak Fail]] <<endif>>
 <<if $inventory["magicSword"] > 0>> [[Attack with your Magic Sword|Enemy Near Few Magic Sword Fight]] <<else>> [[Attack with your Rusty Sword|Enemy Near Few Sword Fight]] <<endif>>
 <<if $inventory["magicBow"] > 0>> [[Attack with your Magic Bow|Enemy Near Few Magic Bow Hidden]] <<else>> [[Attack with your Old Bow|Enemy Near Few Bow Hidden]] <<endif>>
 <<if $inventory["magicBook"] > 0>> [[Attack with a Powerful Spell|Enemy Near Few Magic Book Fight]] <<else>> [[Attack with a Weak Spell|Enemy Near Few Magic Fight]] <<endif>>
-<<if $encounter["talk"]>> [[Try to speak to the $encounter["enemy"]|Enemy Near Few Talk Succeed]] <<else>> [[Try to speak to the $encounter["enemy"]|Enemy Near Few Talk Fail]] <<endif>>
-<<if $encounter["bribe"]>> [[Try to bribe the $encounter["enemy"] to let you pass|Enemy Near Few Bribe Succeed]] <<else>> [[Try to bribe to the $encounter["enemy"] to let you pass|Enemy Near Few Bribe Fail]] <<endif>>
+<<if $encounter["talk"]>> [["Try to speak to the " + $encounter["enemy"]|Enemy Near Few Talk Succeed]] <<else>> [["Try to speak to the " + $encounter["enemy"]|Enemy Near Few Talk Fail]] <<endif>>
+<<if $encounter["bribe"]>> [["Try to bribe the " + $encounter["enemy"] + " to let you pass"|Enemy Near Few Bribe Succeed]] <<else>> [["Try to bribe the " + $encounter["enemy"] + " to let you pass"|Enemy Near Few Bribe Fail]] <<endif>>

@@ -119,8 +119,8 @@ You are a brave adventurer, seeking fame and fortune by finding the lost gold of
 :: Next Encounter
 <<silently>>
 
-<<set $encounter1["type"] to "town_shop">>
-<<set $encounter2["type"] to "puzzle">>
+<<set $encounter1["type"] to "enemy_near_few">>
+<<set $encounter2["type"] to "enemy_near_many">>
 
 <<set $total to 0>>
 <<set $encounter1["talk"] to false>>
@@ -506,21 +506,21 @@ You are a brave adventurer, seeking fame and fortune by finding the lost gold of
 
 <<set $total to 0>>
 
-<<if $encounter["loot_1"] is "magicSword">>
+<<if $encounter["loot_1"] is "Magic Sword">>
 <<set $sword_stop to $total + $player_model["magicSword"]/2>>
 <<else>>
 <<set $sword_stop to $total + $player_model["magicSword"]>>
 <<endif>>
 <<set $total to $sword_stop>>
 
-<<if $encounter["loot_1"] is "magicBow">>
+<<if $encounter["loot_1"] is "Magic Bow">>
 <<set $bow_stop to $total + $player_model["magicBow"]/2>>
 <<else>>
 <<set $bow_stop to $total + $player_model["magicBow"]>>
 <<endif>>
 <<set $total to $bow_stop>>
 
-<<if $encounter["loot_1"] is "magicBook">>
+<<if $encounter["loot_1"] is "Magic Book">>
 <<set $book_stop to $total + $player_model["magicBook"]/2>>
 <<else>>
 <<set $book_stop to $total + $player_model["magicBook"]>>
@@ -529,30 +529,30 @@ You are a brave adventurer, seeking fame and fortune by finding the lost gold of
 
 <<set $roll to Math.random()*$total>>
 <<if $roll < $sword_stop>>
-<<set $encounter1["loot_1"] to "magicSword">>
+<<set $encounter1["loot_1"] to "Magic Sword">>
 <<elseif $roll < $bow_stop>>
-<<set $encounter1["loot_1"] to "magicBow">>
+<<set $encounter1["loot_1"] to "Magic Bow">>
 <<else>>
-<<set $encounter1["loot_1"] to "magicBook">>
+<<set $encounter1["loot_1"] to "Magic Book">>
 <<endif>>
 
 <<set $total to 0>>
 
-<<if $encounter["loot_1"] is "magicSword">>
+<<if $encounter["loot_1"] is "Magic Sword">>
 <<set $sword_stop to $total + $player_model["magicSword"]/2>>
 <<else>>
 <<set $sword_stop to $total + $player_model["magicSword"]>>
 <<endif>>
 <<set $total to $sword_stop>>
 
-<<if $encounter["loot_1"] is "magicBow">>
+<<if $encounter["loot_1"] is "Magic Bow">>
 <<set $bow_stop to $total + $player_model["magicBow"]/2>>
 <<else>>
 <<set $bow_stop to $total + $player_model["magicBow"]>>
 <<endif>>
 <<set $total to $bow_stop>>
 
-<<if $encounter["loot_1"] is "magicBook">>
+<<if $encounter["loot_1"] is "Magic Book">>
 <<set $book_stop to $total + $player_model["magicBook"]/2>>
 <<else>>
 <<set $book_stop to $total + $player_model["magicBook"]>>
@@ -561,11 +561,11 @@ You are a brave adventurer, seeking fame and fortune by finding the lost gold of
 
 <<set $roll to Math.random()*$total>>
 <<if $roll < $sword_stop>>
-<<set $encounter2["loot_1"] to "magicSword">>
+<<set $encounter2["loot_1"] to "Magic Sword">>
 <<elseif $roll < $bow_stop>>
-<<set $encounter2["loot_1"] to "magicBow">>
+<<set $encounter2["loot_1"] to "Magic Bow">>
 <<else>>
-<<set $encounter2["loot_1"] to "magicBook">>
+<<set $encounter2["loot_1"] to "Magic Book">>
 <<endif>>
 
 <<if $encounter1["type"] is "enemy_near_few">>
