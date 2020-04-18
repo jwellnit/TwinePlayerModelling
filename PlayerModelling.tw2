@@ -1,5 +1,5 @@
 :: StoryTitle
-The Lost Treasure of Bloomrane Cavern (Path A)
+The Lost Treasure of Bloomrane Cavern (Path B)
 
 :: UserStylesheet[stylesheet]
 #menu-core {
@@ -123,6 +123,9 @@ You see the yawning mouth of a cave up ahead!
 [[Continue into Bloomrane Cavern|Win]]
 <<else>>
 <<silently>>
+<<if $player_health <5>>
+<<set $player_health to 5>>
+<<endif>>
 <<set $total to 0>>
 
 <<if $encounter["type"] is "enemy_near_few">>
@@ -642,6 +645,9 @@ You see the yawning mouth of a cave up ahead!
 <<set $encounter1["gold_amount"] to random(1,5)>>
 <<set $encounter1["enemy_health"] to random(5,15)>>
 <<set $encounter1["enemy_damage"] to random(3,8)>>
+<<if $inventory["armor"] >= 1>>
+<<set $encounter1["enemy_damage"] to $encounter1["enemy_damage"] - 2>>
+<<endif>>
 <<set $encounter1["sword_damage"] to random(1,10)>>
 <<set $encounter1["bow_damage"] to random(1,10)>>
 <<set $encounter1["magic_damage"] to random(1,10)>>
@@ -669,6 +675,9 @@ You see the yawning mouth of a cave up ahead!
 <<set $encounter2["gold_amount"] to random(1,5)>>
 <<set $encounter2["enemy_health"] to random(5,15)>>
 <<set $encounter2["enemy_damage"] to random(3,8)>>
+<<if $inventory["armor"] >= 1>>
+<<set $encounter2["enemy_damage"] to $encounter2["enemy_damage"] - 2>>
+<<endif>>
 <<set $encounter2["sword_damage"] to random(1,10)>>
 <<set $encounter2["bow_damage"] to random(1,10)>>
 <<set $encounter2["magic_damage"] to random(1,10)>>

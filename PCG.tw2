@@ -18,6 +18,7 @@ loot_camp.tw2
 puzzle.tw2
 
 ::StoryCaption
+Health: $player_health (out of 20)
 Inventory:
 $inventory["gold"] gold
 <<if $inventory["magicSword"] > 0>> Magic Sword <<else>> Rusty Sword <<endif>>
@@ -31,7 +32,6 @@ $inventory["healingPotion"] Healing Potion<<if $inventory["healingPotion"] > 1>>
 
 
 :: StoryInit
-
 <<set $encounters to 0>>
 <<set $inventory to {}>>
 <<set $inventory["magicSword"] to 0>>
@@ -136,6 +136,9 @@ You see the yawning mouth of a cave up ahead!
 <<else>>
 <<silently>>
 <<set $total to 0>>
+<<if $player_health <5>>
+<<set $player_health to 5>>
+<<endif>>
 
 <<if $encounter["type"] is "enemy_near_few">>
 <<set $enemy_near_few_stop to $player_model["enemy_near_few"]/2>>
@@ -654,6 +657,9 @@ You see the yawning mouth of a cave up ahead!
 <<set $encounter1["gold_amount"] to random(1,5)>>
 <<set $encounter1["enemy_health"] to random(5,15)>>
 <<set $encounter1["enemy_damage"] to random(3,8)>>
+<<if $inventory["armor"] >= 1>>
+<<set $encounter1["enemy_damage"] to $encounter1["enemy_damage"] - 2>>
+<<endif>>
 <<set $encounter1["sword_damage"] to random(1,10)>>
 <<set $encounter1["bow_damage"] to random(1,10)>>
 <<set $encounter1["magic_damage"] to random(1,10)>>
@@ -681,6 +687,9 @@ You see the yawning mouth of a cave up ahead!
 <<set $encounter2["gold_amount"] to random(1,5)>>
 <<set $encounter2["enemy_health"] to random(5,15)>>
 <<set $encounter2["enemy_damage"] to random(3,8)>>
+<<if $inventory["armor"] >= 1>>
+<<set $encounter2["enemy_damage"] to $encounter2["enemy_damage"] - 2>>
+<<endif>>
 <<set $encounter2["sword_damage"] to random(1,10)>>
 <<set $encounter2["bow_damage"] to random(1,10)>>
 <<set $encounter2["magic_damage"] to random(1,10)>>
@@ -820,7 +829,7 @@ You see the yawning mouth of a cave up ahead!
 Before you is a fork in the road. Both paths will bring you closer to your destination.
 
 To the left <<if $encounter1["type"] is "enemy_near_few">>
-you see a large figure bloacking your path just ahead.
+you see a large figure blocking your path just ahead.
 <<elseif $encounter1["type"] is "enemy_near_many">>
 you hear rustling and growling around a bend in the road.
 <<elseif $encounter1["type"] is "enemy_far_few">>
@@ -830,7 +839,7 @@ you hear a loud commotion coming from down the road.
 <<elseif $encounter1["type"] is "town_shop">>
 you see a sign indicating there is a town ahead.
 <<elseif $encounter1["type"] is "help">>
-you hear a cry for help coming form down the road.
+you hear a cry for help coming from down the road.
 <<elseif $encounter1["type"] is "loot">>
 you see signs of a camp of some sort nearby.
 <<else>>
