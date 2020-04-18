@@ -47,7 +47,7 @@ $inventory["gold"] gold
 <<set $choices["magicSword"] to 0>>
 <<set $choices["magicBow"] to 0>>
 <<set $choices["magicBook"] to 0>>
-<<set $choices["gold"] to 5>>
+<<set $choices["gold"] to 0>>
 <<set $choices["weapon"] to 0>>
 <<set $choices["sword"] to 0>>
 <<set $choices["bow"] to 0>>
