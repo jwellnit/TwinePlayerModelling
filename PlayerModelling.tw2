@@ -18,6 +18,7 @@ loot_camp.tw2
 puzzle.tw2
 
 ::StoryCaption
+Health: $player_health (out of 20)
 Inventory:
 $inventory["gold"] gold
 <<if $inventory["magicSword"] > 0>> Magic Sword <<else>> Rusty Sword <<endif>>
