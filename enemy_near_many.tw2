@@ -364,9 +364,9 @@ You jingle your bag, trying to catch the $encounter["enemy"] attention. You had 
 <<endsilently>>
 
 You jingle your bag, trying to catch the $encounter["enemy"] attention.
-\<<if $inventory["magicSword"] <= 0 and $inventory["magicBow"] <= 0 and $inventory["magicBook"] <= 0 and $inventory["gold"] <= 0 >>
+<<if $inventory["magicSword"] <= 0 and $inventory["magicBow"] <= 0 and $inventory["magicBook"] <= 0 and $inventory["gold"] <= 0 >>
 It makes no sound. You realize you don't have any gold left.
-\<<endif>>
+<<endif>>
 <<if $inventory["magicSword"] > 0>>[[Throw a Magic Sword|Enemy Near Many Give Sword]]<<endif>>
 <<if $inventory["magicBow"] > 0>>[[Throw a Magic Bow|Enemy Near Many Give Bow]]<<endif>>
 <<if $inventory["magicBook"] > 0>>[[Throw a Magic Spell Tome|Enemy Near Many Give Magic]]<<endif>>

@@ -460,7 +460,7 @@ You check your pockets and realize that you have nothing of value to offer.
 <<set $inventory["magicSword"] to $inventory["magicSword"]-1>>
 <<endsilently>>
 
-"Alright, I guess that works" they says, as they takes your Magic Sword. "You can head on past now." With the $encounter["enemy"] standing aside, you are free to continue to down the road.
+"Alright, I guess that works" they say, as they take your Magic Sword. "You can head on past now." With the $encounter["enemy"] standing aside, you are free to continue to down the road.
 
 [[Continue on your Quest|Next Encounter]]
 
@@ -469,7 +469,7 @@ You check your pockets and realize that you have nothing of value to offer.
 <<set $inventory["magicBow"] to $inventory["magicBow"]-1>>
 <<endsilently>>
 
-"Alright, I guess that works" they says, as they takes your Magic Bow. "You can head on past now." With the $encounter["enemy"] standing aside, you are free to continue to down the road.
+"Alright, I guess that works" they say, as they take your Magic Bow. "You can head on past now." With the $encounter["enemy"] standing aside, you are free to continue to down the road.
 
 [[Continue on your Quest|Next Encounter]]
 
@@ -478,7 +478,7 @@ You check your pockets and realize that you have nothing of value to offer.
 <<set $inventory["magicBook"] to $inventory["magicBook"]-1>>
 <<endsilently>>
 
-"Alright, I guess that works" they says, as they takes your Magic Spell Tome. "You can head on past now." With the $encounter["enemy"] standing aside, you are free to continue to down the road.
+"Alright, I guess that works" they say, as they take your Magic Spell Tome. "You can head on past now." With the $encounter["enemy"] standing aside, you are free to continue to down the road.
 
 [[Continue on your Quest|Next Encounter]]
 
@@ -487,7 +487,7 @@ You check your pockets and realize that you have nothing of value to offer.
 <<set $inventory["gold"] to $inventory["gold"]-1>>
 <<endsilently>>
 
-"Alright, I guess that works" they says, as they takes your gold. "You can head on past now." With the $encounter["enemy"] standing aside, you are free to continue to down the road.
+"Alright, I guess that works" they say, as they take your gold. "You can head on past now." With the $encounter["enemy"] standing aside, you are free to continue to down the road.
 
 [[Continue on your Quest|Next Encounter]]
 

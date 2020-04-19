@@ -24,9 +24,9 @@ Enemy's Health: $encounter["enemy_health"]
 
 Inventory:
 $inventory["gold"] gold
-<<if $inventory["magicSword"] > 0>> Magic Sword <<else>> Rusty Sword <<endif>>
-<<if $inventory["magicBow"] > 0>> Magic Bow <<else>> Old Bow <<endif>>
-<<if $inventory["magicBook"] > 0>> Powerful Spell Book <<else>> Weak Spell Book <<endif>>
+<<if $inventory["magicSword"] > 0>>$inventory["magicSword"] Magic Sword <<else>> Rusty Sword <<endif>>
+<<if $inventory["magicBow"] > 0>>$inventory["magicBow"] Magic Bow <<else>> Old Bow <<endif>>
+<<if $inventory["magicBook"] > 0>>$inventory["magicBook"] Powerful Spell Book <<else>> Weak Spell Book <<endif>>
 <<if $inventory["armor"] > 0>> $inventory["armor"] Armor <<endif>>
 <<if $inventory["healingPotion"] > 0>> $inventory["healingPotion"] Healing Potion<<if $inventory["healingPotion"] > 1>>s<<endif>><<endif>>
 
