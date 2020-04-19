@@ -347,7 +347,7 @@ Class: $model
 <<set $encounter2 to {}>>
 
 <<endsilently>>
-This is Path B of The Lost Treasure of Bloomrane Cavern. We ask that you play both versions of the game. At the end of the game, you will be given a link to a survey about your enjoyment of the game. Please note that if you are on a mobile device, you can tap the arrow on the right side of the screen to view your inventory and health level.
+This is Path B of The Lost Treasure of Bloomrane Cavern. We ask that you play both versions of the game. At the end of the game, you will be given a link to a survey about your enjoyment of the game.
 
 You are a brave adventurer, seeking fame and fortune by finding the lost gold of Bloomrane Cavern.
 
