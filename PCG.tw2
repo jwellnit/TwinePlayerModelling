@@ -120,6 +120,9 @@ $inventory["gold"] gold
 <<set $encounter2 to {}>>
 
 <<endsilently>>
+This is Path A of The Lost Treasure of Bloomrane Cavern. We ask that you play both versions of the game. At the end of the game, you will be given a link to a survey about your enjoyment of the game. Please note that if you are on a mobile device, you can tap the arrow on the right side of the screen to view your inventory and health level.
+
+
 You are a brave adventurer, seeking fame and fortune by finding the lost gold of Bloomrane Cavern.
 
 [[Continue forward.|Next Encounter]]
@@ -956,3 +959,6 @@ You turn right and keep walking.
 As you enter the cave, you come upon a chamber filled with glimmering treasure. Heaps of shimmering gold coins, brilliant jewels of all colors, and magnificent weapons lay before you. Your discovery will surely become legendary.
 
 Congratulations! You found the lost treasure of Bloomrane Cavern!
+
+Thank you for playing! This was Path A of the Treasure of Bloomrane Cavern. If you've already played Path B, please take the survey at the link below. Otherwise, please play Path B before taking the survey.
+https://docs.google.com/forms/d/e/1FAIpQLSd1imv2Pb4gEtDALedTM7B2DaUFVvy_cx2Os8ADKYhrsS5W4Q/viewform?usp=sf_link
