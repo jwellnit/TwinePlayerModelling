@@ -19,6 +19,9 @@ puzzle.tw2
 
 ::StoryCaption
 Health: $player_health (out of 20)
+
+Enemy's Health: $encounter["enemy_health"]
+
 Inventory:
 $inventory["gold"] gold
 <<if $inventory["magicSword"] > 0>> Magic Sword <<else>> Rusty Sword <<endif>>

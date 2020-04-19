@@ -65,10 +65,13 @@ var LZString={_keyStr:"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz01234
 		<p id="init-lacking">Apologies! Your web browser lacks required capabilities. Please consider upgrading it or switching to a more modern web browser.</p>
 		<p id="init-loading">Initializing. Please wait&hellip;<br /><progress></progress></p>
 	</div>
-	<div id="store-area" hidden><tw-storydata name="The Lost Treasure of Bloomrane Cavern (Path B)" startnode="3" creator="Twee2" creator-version="0.5.0" ifid="46b35bbb-d71b-4779-b79a-fdf81afd340b" format="sugarcube" options=""><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">#menu-core {
+	<div id="store-area" hidden><tw-storydata name="The Lost Treasure of Bloomrane Cavern (Path B)" startnode="3" creator="Twee2" creator-version="0.5.0" ifid="dc608be6-3d3d-4517-81b7-060da6705827" format="sugarcube" options=""><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">#menu-core {
 	display: none;
 }
 </style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="StoryCaption" tags="" position="">Health: $player_health (out of 20)
+
+Enemy's Health: $encounter["enemy_health"]
+
 Inventory:
 $inventory["gold"] gold
 &lt;&lt;if $inventory["magicSword"] &gt; 0&gt;&gt; Magic Sword &lt;&lt;else&gt;&gt; Rusty Sword &lt;&lt;endif&gt;&gt;
@@ -1838,7 +1841,7 @@ You jingle your bag, trying to catch the $encounter["enemy"] attention. You had 
 You jingle your bag, trying to catch the $encounter["enemy"] attention.
 {{STORY_DATA}}lt;&lt;if $inventory["magicSword"] &lt;= 0 and $inventory["magicBow"] &lt;= 0 and $inventory["magicBook"] &lt;= 0 and $inventory["gold"] &lt;= 0 &gt;&gt;
 It makes no sound. You realize you don't have any gold left.
-{{STORY_DATA}}lt;&lt;else&gt;&gt;
+{{STORY_DATA}}lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory["magicSword"] &gt; 0&gt;&gt;[[Throw a Magic Sword|Enemy Near Many Give Sword]]&lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory["magicBow"] &gt; 0&gt;&gt;[[Throw a Magic Bow|Enemy Near Many Give Bow]]&lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory["magicBook"] &gt; 0&gt;&gt;[[Throw a Magic Spell Tome|Enemy Near Many Give Magic]]&lt;&lt;endif&gt;&gt;
@@ -2216,7 +2219,6 @@ You check your pockets and realize that you have nothing of value to offer.
 &lt;&lt;if $inventory["magicSword"] &gt; 0&gt;&gt; [[Attack with your Magic Sword|Enemy Near Few Magic Sword Fight]] &lt;&lt;else&gt;&gt; [[Attack with your Rusty Sword|Enemy Near Few Sword Fight]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory["magicBow"] &gt; 0&gt;&gt; [[Attack with your Magic Bow|Enemy Near Few Magic Bow Fight]] &lt;&lt;else&gt;&gt; [[Attack with your Old Bow|Enemy Near Few Bow Fight]] &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $inventory["magicBook"] &gt; 0&gt;&gt; [[Attack with a Powerful Spell|Enemy Near Few Magic Book Fight]] &lt;&lt;else&gt;&gt; [[Attack with a Weak Spell|Enemy Near Few Magic Fight]] &lt;&lt;endif&gt;&gt;
-
 &lt;&lt;if $encounter["talk"]&gt;&gt; [["Try to speak to the " + $encounter["enemy"]|Enemy Near Few Talk Succeed]] &lt;&lt;else&gt;&gt; [["Try to speak to the " + $encounter["enemy"]|Enemy Near Few Talk Fail]] &lt;&lt;endif&gt;&gt;</tw-passagedata><tw-passagedata pid="51" name="Enemy Near Few Give Sword" tags="" position="">&lt;&lt;silently&gt;&gt;
 &lt;&lt;set $inventory["magicSword"] to $inventory["magicSword"]-1&gt;&gt;
 &lt;&lt;endsilently&gt;&gt;
